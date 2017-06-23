@@ -1,0 +1,124 @@
+#cielo {
+    width:100%;
+    height:100%;
+    background-image: url(../img/cielo.png);
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-color: #464646;
+}
+#ciudad {
+    display:none;
+    position:absolute;
+    top:0;
+    width:100%;
+    height:100%;
+    background-image: url(../img/ciudad.png);
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+#logo-red-sentir {
+    display:none;
+    margin-left:5%;
+}
+#logo-guia {
+    display:none;
+    margin-left:10%;
+}
+#personajes {
+    display:none;
+    position:absolute;
+    top:0%;
+    left:30%;
+}
+#logo-corum {
+    display:none;
+    position:absolute;
+    right:5%;
+    bottom:5%;
+}
+#presentacion {
+    width:100%;
+    height:100%;
+    background-image: url(../img/sentidos.png);
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-color: #f89932;
+}
+#texto-guia {
+    width:25%;
+    margin-top:20%;
+    margin-left:5%;
+}
+#titulo-guia {
+    position:absolute;
+    width:30%;
+    margin-top:5%;
+    margin-left:10%;
+}
+#linea-formacion {
+    position:absolute;
+    width:30%;
+    margin-top:20%;
+    margin-left:30%;
+}
+#seres-sexualidad {
+    display:none;
+    position:absolute;
+    width:50%;
+    margin-top:30%;
+    margin-left:10%;
+}
+#linea-division {
+    position:absolute;
+    margin-top:5%;
+}
+#fondo {
+    width:100%;
+    height:100%;
+    background-image: url(../img/fondo.png);
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-color: #f89932;
+}
+#sexualidad {
+    width:60%;
+    margin-top:20%;
+    margin-left:20%;
+}
+#modulos {
+    width:100%;
+    height:100%;
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-color: #f89932;
+}
+.box {
+    overflow: hidden;
+}
+
+.content {
+    font-size: 15px;
+    line-height: 20px;
+    padding: 10% 10%;
+    text-align: justify;
+}
+
+.left {
+    float: left;
+    width: 40%;
+}
+
+.left .content {
+    margin-top: 5%;
+    border-right: 5px solid #ccc  ;
+}
+
+.right {
+    float: right;
+    width: 60%;
+}
