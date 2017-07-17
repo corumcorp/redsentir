@@ -1,0 +1,187 @@
+@font-face {
+font-family: Shumi;
+src: url(../fonts/Shumi.otf);
+}
+
+@font-face {
+font-family: manteka;
+src: url(../fonts/manteka.ttf);
+}
+
+@font-face {
+font-family: arial-narrow;
+src: url(../fonts/arial-narrow.ttf);
+}
+
+.shumiTitulo {
+    font-family: Shumi, serif;
+    color: #8c2121;
+}
+
+.shumi {
+    font-family: Shumi, serif;
+    
+}
+
+.manteka {
+    font-family: manteka, serif;
+    color: #8c2121;
+}
+
+.arial-narrow {
+    font-family: arial-narrow, serif;
+    color: #fff;
+}
+
+body {
+    background-color: #203546 !important;
+}
+#cielo {
+    width:100%;
+    height:100%;
+    background-image: url(../img/cielo.png);
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-color: #464646;
+}
+#ciudad {
+    display:none;
+    position:absolute;
+    top:0;
+    width:100%;
+    height:100%;
+    background-image: url(../img/ciudad.png);
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+#logo-red-sentir {
+    display:none;
+    margin-left:5%;
+}
+#logo-guia {
+    display:none;
+    margin-left:10%;
+}
+#personajes {
+    display:none;
+    position:absolute;
+    top:0%;
+    left:30%;
+}
+#logo-corum {
+    display:none;
+    position:absolute;
+    right:5%;
+    bottom:5%;
+}
+#presentacion {
+    width:100%;
+    height:100%;
+    background-image: url(../img/sentidos.png);
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-color: #f89932;
+}
+#texto-guia {
+    width:25%;
+    margin-top:20%;
+    margin-left:5%;
+}
+#titulo-guia {
+    position:absolute;
+    width:30%;
+    margin-top:5%;
+    margin-left:10%;
+}
+#linea-formacion {
+    position:absolute;
+    width:30%;
+    margin-top:20%;
+    margin-left:30%;
+}
+#seres-sexualidad {
+    display:none;
+    position:absolute;
+    width:50%;
+    margin-top:30%;
+    margin-left:10%;
+}
+#linea-division {
+    position:absolute;
+    margin-top:5%;
+}
+
+#sexualidad {
+    width:60%;
+    margin-top:20%;
+    margin-left:20%;
+}
+
+#modulos {
+    width:100%;
+    height:100%;
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-color: #e3422b;
+}
+
+.logo {
+    width: 50%;
+}
+
+.logo:hover {
+    width: 55%;
+}
+
+.franja {
+    background-color: #00a3fe;
+}
+
+.encabezado {
+       background: #081b29;
+}
+
+.piedepagina {
+       background: #000;
+       color: #e1e1e1;
+}
+
+.boton {
+    background: #081b29;
+    color: #203546;
+    box-shadow: inset 3px 0 3px 0 #203546;
+}
+
+.social:hover {
+    width:22%;
+}
+
+button:hover {
+    background: #4d004d;
+    color: #203546;
+    box-shadow: inset 0 0 3px 0 #ccc;
+}
+
+
+.fuxia {
+       background-color: #ad3479;
+       color: #fff;
+}
+.amarillo {
+       background-color: #ff9114;
+       color: #fff;
+}
+.azul {
+       background-color: #36c9d1;
+       color: #fff;
+}
+
+
+
+.margen {
+    margin-left: 5%;
+}
