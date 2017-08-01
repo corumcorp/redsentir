@@ -1,0 +1,357 @@
+Ui{% extends 'base.html' %}
+{% load static %}
+{% block sideMenu %}
+    <li><a href="/"><i class="fa fa-dashboard"></i><span>Linea de Tiempo</span></a></li>
+    <li class="treeview active"><a href="#"><i class="fa fa-pie-chart"></i><span>Linea base</span><i class="fa fa-angle-right"></i></a>
+        <ul class="treeview-menu">
+        <li><a href="{% url "lineabase:index" %}"><i class="fa fa-circle-o"></i>Resultados</a></li>
+        <li><a href="{% url "lineabase:sociodemograficos" %}"><i class="fa fa-circle-o"></i>Socio Demograficos</a></li>
+        <li><a href="{% url "lineabase:actividades" %}"><i class="fa fa-circle-o"></i>Actividades sociales</a></li>
+        <li><a href="{% url "lineabase:relaciones" %}"><i class="fa fa-circle-o"></i>Relaciones personales</a></li>
+        <li><a href="{% url "lineabase:salud" %}"><i class="fa fa-circle-o"></i>Salud Sexual</a></li>
+        <li><a href="{% url "lineabase:plan" %}"><i class="fa fa-circle-o"></i>Plan de vida</a></li>
+        <li><a href="{% url "lineabase:subgrupos" %}"><i class="fa fa-circle-o"></i>Análisis de subgrupos</a></li>
+        <li><a href="{% url "lineabase:embarazo" %}"><i class="fa fa-circle-o"></i>Embarazo adolecente</a></li>
+        <li><a href="{% url "lineabase:discucion" %}"><i class="fa fa-circle-o"></i>Discusión</a></li>
+        </ul>
+    </li>
+{% endblock %}
+{% block contenido %}
+    <div class="col-md-12">
+        <div class="card">
+                <div class="row">
+                    <div class="col-md-6">  
+                     <h2 class="card-title">Relaciones personales y familiares</h2>
+                        <p class="text-justify">Cuando los adolescentes tienen dudas, consultan con mayor frecuencia a sus padres, en Internet o a sus amigos (Tabla 15), y las personas que les generan mayor nivel de confianza son sus amigos, sus padres o sus parejas (Tabla 16).</p></br>
+                        <p>Tabla 15. Distribución de frecuencias de los adolescentes según consultan las dudas que ellos tienen. Factores relacionados con embarazo en adolescentes, 2017.</p>
+                            <div class="table-responsive">          
+                            <table class="table">
+                                <thead>
+                                <tr>
+                                    <th>Dónde consultan</th>
+                                    <th>Frecuencia absoluta</th>
+                                    <th>Porcentage</th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                <tr>
+                                    <td>Padres</td>
+                                    <td>2796</td>
+                                    <td>63,1</td>
+                                </tr>
+                                <tr>
+                                    <td>Consulto en Internet</td>
+                                    <td>2465</td>
+                                    <td>55,6</td>
+                                </tr>
+                                <tr>
+                                    <td>Amigos</td>
+                                    <td>2011</td>
+                                    <td>45,4</td>
+                                </tr>
+                                <tr>
+                                    <td>Familiares</td>
+                                    <td>1088</td>
+                                    <td>24,5</td>
+                                </tr>
+                                <tr>
+                                    <td>Colegios / bibliotecas</td>
+                                    <td>382</td>
+                                    <td>8,6</td>
+                                </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                        <p class="text-justify">Casi 70 % de los adolescentes escolarizados se encuentran cursando los grados 8º a 10º, y el 17,5 % cursa actualmente el grado 11 (Tabla 4).</p> 
+                        <p class="text-justify">Tabla 4. Distribución de frecuencias de los adolescentes escolarizados según grado actualmente cursado. Factores relacionados con embarazo en adolescentes, 2017.</p>
+                        <div class="table-responsive">          
+                            <table class="table">
+                                <thead>
+                                <tr>
+                                    <th>Nivel de escolaridad</th>
+                                    <th>Frecuencia absoluta</th>
+                                    <th>Porcentage</th>
+                                    <th>Porcentage acumulado</th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                <tr>
+                                    <td>4 grado</td>
+                                    <td>1</td>
+                                    <td>0.02</td>
+                                    <td>0,02</td>
+                                </tr>
+                                <tr>
+                                    <td>5 grado</td>
+                                    <td>24</td>
+                                    <td>0,56</td>
+                                    <td>0,59</td>
+                                </tr>
+                                <tr>
+                                    <td>6 grado</td>
+                                    <td>135</td>
+                                    <td>3,17</td>
+                                    <td>3,76</td>
+                                </tr>
+                                <tr>
+                                    <td>7 grado</td>
+                                    <td>403</td>
+                                    <td>9,46</td>
+                                    <td>13,22</td>
+                                </tr>
+                                <tr>
+                                    <td>8 grado</td>
+                                    <td>1017</td>
+                                    <td>23,88</td>
+                                    <td>37,10</td>
+                                </tr>
+                                <tr>
+                                    <td>9 grado</td>
+                                    <td>1082</td>
+                                    <td>25,41</td>
+                                    <td>62,50</td>
+                                </tr>
+                                <tr>
+                                    <td>10 grado</td>
+                                    <td>489</td>
+                                    <td>19,93</td>
+                                    <td>82,44</td>
+                                </tr>
+                                <tr>
+                                    <td>11 grado</td>
+                                    <td>748</td>
+                                    <td>25,41</td>
+                                    <td>100,00</td>
+                                </tr>
+                                <tr>
+                                    <td>11 grado</td>
+                                    <td>748</td>
+                                    <td>25,41</td>
+                                    <td>17,56</td>
+                                </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                    <div class="col-md-6">     
+                            
+                        <p>Casi tres cuartas partes de los sitios de vivienda de los adolescentes se encuentran en la zona urbana de los municipios (Figura 2), y con un porcentaje similar, el estrato socioeconómico de las viviendas es 2 ó 3 (Tabla 5).</p>
+                        <canvas id="pieChartDemo"></canvas>
+                        <p class="small">Figura 2. Distribución porcentual de la localización de la vivienda en adolescentes del oriente antioqueño. Factores relacionados con embarazo en adolescentes, 2017.</p>
+                        
+                        <p class="text-justify">Tabla 5. Distribución de frecuencias de los adolescentes según estrato socioeconómico de sus viviendas. Factores relacionados con embarazo en adolescentes, 2017.</p>
+                        <div class="table-responsive">          
+                            <table class="table">
+                                <thead>
+                                <tr>
+                                    <th>Estrato de la vivienda</th>
+                                    <th>Frecuencia absoluta</th>
+                                    <th>Porcentage</th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                <tr>
+                                    <td>1</td>
+                                    <td>840</td>
+                                    <td>21,9</td>
+                                </tr>
+                                <tr>
+                                    <td>2</td>
+                                    <td>1541</td>
+                                    <td>40,23</td>
+                                </tr>
+                                <tr>
+                                    <td>3</td>
+                                    <td>1294</td>
+                                    <td>33,8</td>
+                                </tr>
+                                <tr>
+                                    <td>4</td>
+                                    <td>113</td>
+                                    <td>3</td>
+                                </tr>
+                                <tr>
+                                    <td>5</td>
+                                    <td>40</td>
+                                    <td>1</td>
+                                </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                        <p class="text-justify">Casi dos terceras partes de los hogares son compuestos por entre 4 y 6 personas (Tabla 6) y en más de la mitad de los hogares trabajan entre 2 y 3 personas (Tabla 7), y 15 % de los adolescentes encuestados se encuentran trabajando (Figura 3).</p></br>
+                        <!--fffffffffffffffffffffffff -->
+                        <p class="text-justify">Tabla 6. Distribución de frecuencias de los adolescentes según el número de habitantes en sus hogares. Factores relacionados con embarazo en adolescentes, 2017.</p>
+                        <div class="table-responsive">          
+                            <table class="table">
+                                <thead>
+                                <tr>
+                                    <th>Número de habitantes</th>
+                                    <th>Frecuencia absoluta</th>
+                                    <th>Porcentage</th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                <tr>
+                                    <td>2 - 3 personas</td>
+                                    <td>1182</td>
+                                    <td>27</td>
+                                </tr>
+                                <tr>
+                                    <td>4 - 6 personas</td>
+                                    <td>2725</td>
+                                    <td>64</td>
+                                </tr>
+                                <tr>
+                                    <td>7 - 10 personas</td>
+                                    <td>316</td>
+                                    <td>7,4</td>
+                                </tr>
+                                <tr>
+                                    <td>> 10 personas</td>
+                                    <td>36</td>
+                                    <td>0,8</td>
+                                </tr>
+                                </tbody>
+                            </table>
+                        </div></br>
+                        <!--fffffffffffffffffffffffff -->
+                        <p class="text-justify">Tabla 7. Distribución de frecuencias de los adolescentes según el número de personas que trabajan en su hogar. Factores relacionados con embarazo en adolescentes, 2017.</p>
+                        <div class="table-responsive">          
+                            <table class="table">
+                                <thead>
+                                <tr>
+                                    <th>Número de habitantes</th>
+                                    <th>Frecuencia absoluta</th>
+                                    <th>Porcentage</th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                <tr>
+                                    <td>1 persona</td>
+                                    <td>1563</td>
+                                    <td>37,34</td>
+                                </tr>
+                                <tr>
+                                    <td>2 - 3 personas</td>
+                                    <td>2309</td>
+                                    <td>55,16</td>
+                                </tr>
+                                <tr>
+                                    <td>4 - 6 personas</td>
+                                    <td>290</td>
+                                    <td>6,93</td>
+                                </tr>
+                                <tr>
+                                    <td>7 - 10 personas</td>
+                                    <td>22</td>
+                                    <td>0.53</td>
+                                </tr>
+                                <tr>
+                                    <td>> 10 personas</td>
+                                    <td>2</td>
+                                    <td>0,05</td>
+                                </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                        <p class="text-justify">Más del 70 % de los adolescentes dicen tener acceso al Sistema General de Seguridad Social en Salud (SGSSS) por medio de una Empresa Promotora de Salud (EPS) (Tabla 8).</p>
+                        <!--fffffffffffffffffffffffff -->
+                        <p class="text-justify">Tabla 8. Distribución de frecuencias de los adolescentes según el mecanismo de acceso al SGSSS de Colombia. Factores relacionados con embarazo en adolescentes, 2017.</p>
+                        <div class="table-responsive">          
+                            <table class="table">
+                                <thead>
+                                <tr>
+                                    <th>Acceso al SGSSS</th>
+                                    <th>Frecuencia absoluta</th>
+                                    <th>Porcentage</th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                <tr>
+                                    <td>EPS</td>
+                                    <td>2924</td>
+                                    <td>71,7</td>
+                                </tr>
+                                <tr>
+                                    <td>Sisbén</td>
+                                    <td>822</td>
+                                    <td>20,02</td>
+                                </tr>
+                                <tr>
+                                    <td>Particular</td>
+                                    <td>266</td>
+                                    <td>6,5</td>
+                                </tr>
+                                <tr>
+                                    <td>Ninguno</td>
+                                    <td>66</td>
+                                    <td>1,6</td>
+                                </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>            
+        </div>   
+    </div> 
+{% endblock %}
+{% block scripts %}
+    <script type="text/javascript" src="{% static "/js/plugins/chart.js" %}"></script>
+    <script type="text/javascript">  
+        var data = {
+            labels: ["Mujer", "Mujer", "Intersexo"],
+            datasets: [
+                    {
+                            label: "Frecuencia Absoluta",
+                            fillColor: "#EA3EE7",
+                            strokeColor: "rgba(220,220,220,1)",
+                            pointColor: "rgba(220,220,220,1)",
+                            pointStrokeColor: "#fff",
+                            pointHighlightFill: "#fff",
+                            pointHighlightStroke: "rgba(220,220,220,1)",
+                            data: [117, 100, 49]
+                    }
+            ]
+        };
+        
+        var pdata = [
+      	{
+      		value: 27,
+      		color:"#F7464A",
+      		highlight: "#FF5A5E",
+      		label: "Urbana"
+      	},
+      	{
+      		value: 73,
+      		color: "#46BEEE",
+      		highlight: "#5AD3D1",
+      		label: "Rural"
+      	}
+      ]
+      
+      var f3data = [
+      	{
+      		value: 85,
+      		color:"#A7464A",
+      		highlight: "#FF5A5E",
+      		label: "No trabaja"
+      	},
+      	{
+      		value: 15,
+      		color: "#B6BEEE",
+      		highlight: "#7AD3D1",
+      		label: "Si trabaja"
+      	}
+      ]
+       
+        var ctxb = $("#barChartDemo").get(0).getContext("2d");
+        var barChart = new Chart(ctxb).Bar(data);
+        
+        var ctxp = $("#pieChartDemo").get(0).getContext("2d");
+        var barChart = new Chart(ctxp).Pie(pdata);
+        
+        var ctxp = $("#pieChartF3").get(0).getContext("2d");
+        var barChart = new Chart(ctxp).Pie(f3data);
+    </script>
+{% endblock %}
+

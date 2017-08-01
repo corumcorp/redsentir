@@ -1,0 +1,152 @@
+Ui{% extends 'base.html' %}
+{% load static %}
+{% block sideMenu %}
+    <li><a href="/"><i class="fa fa-dashboard"></i><span>Linea de Tiempo</span></a></li>
+    <li class="treeview active"><a href="#"><i class="fa fa-pie-chart"></i><span>Linea base</span><i class="fa fa-angle-right"></i></a>
+        <ul class="treeview-menu">
+        <li><a href="{% url "lineabase:index" %}"><i class="fa fa-circle-o"></i>Resultados</a></li>
+        <li><a href="{% url "lineabase:sociodemograficos" %}"><i class="fa fa-circle-o"></i>Socio Demograficos</a></li>
+        <li><a href="{% url "lineabase:actividades" %}"><i class="fa fa-circle-o"></i>Actividades sociales</a></li>
+        <li><a href="{% url "lineabase:relaciones" %}"><i class="fa fa-circle-o"></i>Relaciones personales</a></li>
+        <li><a href="{% url "lineabase:salud" %}"><i class="fa fa-circle-o"></i>Salud Sexual</a></li>
+        <li><a href="{% url "lineabase:plan" %}"><i class="fa fa-circle-o"></i>Plan de vida</a></li>
+        <li><a href="{% url "lineabase:subgrupos" %}"><i class="fa fa-circle-o"></i>Análisis de subgrupos</a></li>
+        <li><a href="{% url "lineabase:embarazo" %}"><i class="fa fa-circle-o"></i>Embarazo adolecente</a></li>
+        <li><a href="{% url "lineabase:discucion" %}"><i class="fa fa-circle-o"></i>Discusión</a></li>
+        </ul>
+    </li>
+{% endblock %}
+{% block contenido %}
+    <div class="col-md-12">
+        <div class="card">
+            <div class="row">
+                <div class="col-md-6">  
+                    <h2 class="card-title">Análisis de subgrupos</h2>
+                    <p class="text-justify">Dado que los adolescentes que ya han iniciado su actividad sexual tienen mayor riesgo de quedar en embarazo en comparación con aquellos que aún no lo han hecho, se identificarán algunas características de esta población. Esto no significa que los adolescentes que no hayan iniciado su vida sexual activa no tengan riesgo de tener un embarazo en la adolescencia, toda vez que en cuanto la inicien tendrán el mismo riesgo de este grupo poblacional. Sólo que es importante identificar determinadas características sociodemográficas y de salud sexual y reproductiva de esta población.
+Entre los adolescentes que ya iniciaron actividad sexual, 54,6 % son de sexo masculino y 44,7% son de sexo femenino, los demás son intersexo. Entre los que no han iniciado actividad sexual, 38,3 % son de sexo masculino y 61,5 % son de sexo femenino, los demás son intersexo.
+El grupo que no ha iniciado actividad sexual (n = 2414) tiene una edad promedio de 14,6 años (DE=1,31), una media y una moda de 14 años. El grupo que ya inició actividad sexual (n = 1706), tiene una edad promedio de 15,45 años (DE=1,48), una media de 15 años y una moda de 16 años. La distribución de frecuencias de edad en ambos grupos se enseña en la Tabla 27.</br>Entre los 53 adolescentes que afirman tener hijos, 43,4 % son de sexo masculino, 45,3 % son de sexo femenino y 11,3 % son intersexo. Entre los que no tienen hijos, la distribución de frecuencias del sexo es así: 44,4 % son de sexo masculino, 55,3 % de sexo femenino y los demás son intersexo. La edad promedio de los adolescentes que tienen hijos es 15,8 años (DE=1,6) y la mediana y la moda es 16 años; en el grupo que no tiene hijos, la edad promedio es 14,94 años (DE=1,44) y la mediana y la moda es de 15 años.</br>Entre los adolescentes que ya iniciaron actividad sexual, 49 % de ellos no conocen los servicios de Salud Sexual y Reproductiva de su municipio. Asimismo, 32,7 % de los adolescentes que ya han tenido relaciones sexuales, no conocen los Servicios de Salud Amigables para Adolescentes y Jóvenes. De igual forma, 28,4 % de los adolescentes que tienen vida sexual manifiestan que no utilizan ningún método de planificación, y un porcentaje similar afirma que tampoco conocen sus derechos sobre salud sexual y reproductiva. Incluso, entre los adolescentes que afirman haber tenido dos o más compañeros sexuales durante los tres últimos meses, 21 % manifiesta que no utilizan ningún método de planificación. En el caso de los adolescentes que afirman haber tenido sexo a cambio de dinero o regalos u otros beneficios económicos o sociales, 30,1 % de ellos manifiestan no utilizar ningún método de planificación.</p>                    
+                </div>
+                <div class="col-md-6"> 
+                    <p class="text-justify"><b>Tabla 27.</b> Distribución de frecuencias de la edad de los adolescentes, según si ya han tenido relaciones sexuales. Factores relacionados con embarazo en adolescentes, 2017.</p>
+                        <div class="table-responsive">          
+                        <table class="table">
+                            <thead>
+                            <tr>
+                                <th>Edad</th>
+                                <th>Frecuencia absoluta</th>
+                                <th>Porcentage</th>
+                                <th>Porcentage acumulado</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            <tr>
+                                <td>13 años</td>
+                                <td>828</td>
+                                <td>19</td>
+                                <td>19</td>
+                            </tr>
+                            <tr>
+                                <td>14 años</td>
+                                <td>955</td>
+                                <td>22</td>
+                                <td>41</td>
+                            </tr>
+                            <tr>
+                                <td>15 años</td>
+                                <td>1007</td>
+                                <td>23</td>
+                                <td>64</td>
+                            </tr>
+                            <tr>
+                                <td>16 años</td>
+                                <td>927</td>
+                                <td>21</td>
+                                <td>86</td>
+                            </tr>
+                            <tr>
+                                <td>17 años</td>
+                                <td>406</td>
+                                <td>9</td>
+                                <td>95</td>
+                            </tr>
+                            <tr>
+                                <td>18 años</td>
+                                <td>157</td>
+                                <td>4</td>
+                                <td>99</td>
+                            </tr>
+                            <tr>
+                                <td>19 años</td>
+                                <td>52</td>
+                                <td>1</td>
+                                <td>100</td>
+                            </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <p class="text-justify">Con respecto a los adolescentes que manifiestan que actualmente están trabajando (15 % del total), no hay diferencias importantes en la edad de ellos con respecto a aquellos que no trabajan. El promedio de edad en el grupo que trabaja es 14,87 años (DE=1,41), y la mediana y la moda es de 15 años; el grupo de adolescentes que manifiesta que no trabaja, tiene una edad promedio de 15,4 años (DE=1,55) y la mediana y la moda también es de 15 años.</p>
+                </div>
+            </div>            
+        </div>   
+    </div> 
+{% endblock %}
+{% block scripts %}
+    <script type="text/javascript" src="{% static "/js/plugins/chart.js" %}"></script>
+    <script type="text/javascript">  
+        var data = {
+            labels: ["Mujer", "Mujer", "Intersexo"],
+            datasets: [
+                    {
+                            label: "Frecuencia Absoluta",
+                            fillColor: "#EA3EE7",
+                            strokeColor: "rgba(220,220,220,1)",
+                            pointColor: "rgba(220,220,220,1)",
+                            pointStrokeColor: "#fff",
+                            pointHighlightFill: "#fff",
+                            pointHighlightStroke: "rgba(220,220,220,1)",
+                            data: [117, 100, 49]
+                    }
+            ]
+        };
+        
+        var pdata = [
+      	{
+      		value: 27,
+      		color:"#F7464A",
+      		highlight: "#FF5A5E",
+      		label: "Urbana"
+      	},
+      	{
+      		value: 73,
+      		color: "#46BEEE",
+      		highlight: "#5AD3D1",
+      		label: "Rural"
+      	}
+      ]
+      
+      var f3data = [
+      	{
+      		value: 85,
+      		color:"#A7464A",
+      		highlight: "#FF5A5E",
+      		label: "No trabaja"
+      	},
+      	{
+      		value: 15,
+      		color: "#B6BEEE",
+      		highlight: "#7AD3D1",
+      		label: "Si trabaja"
+      	}
+      ]
+       
+        var ctxb = $("#barChartDemo").get(0).getContext("2d");
+        var barChart = new Chart(ctxb).Bar(data);
+        
+        var ctxp = $("#pieChartDemo").get(0).getContext("2d");
+        var barChart = new Chart(ctxp).Pie(pdata);
+        
+        var ctxp = $("#pieChartF3").get(0).getContext("2d");
+        var barChart = new Chart(ctxp).Pie(f3data);
+    </script>
+{% endblock %}
+

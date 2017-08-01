@@ -4,7 +4,12 @@
  * Author: Pratik Borsadiya
  * ================================*/
 @import url(https://fonts.googleapis.com/css?family=Lato:300,400,400i,700);
-@import url(https://fonts.googleapis.com/css?family=Niconne);
+
+@font-face {
+font-family: LemonsCanFly;
+src: url(../fuentes/lemonscanfly.ttf);
+}
+
 /*
  * Bootstrap v3.3.6
  */
@@ -13972,9 +13977,9 @@ be a descendant of the grid when it is being dragged.
 .main-header .logo {
   display: block;
   width: 230px;
-  height: 50px;
-  font-family: 'Niconne';
-  font-size: 26px;
+  height: 60px;
+  font-family: 'LemonsCanFly';
+  font-size: 60px;
   font-weight: 400;
   line-height: 50px;
   text-align: center;
@@ -14805,7 +14810,7 @@ be a descendant of the grid when it is being dragged.
 }
 
 .material-half-bg .cover {
-  background-color: #009688;
+  background-color: #64c3a7;
   height: 50vh;
 }
 
@@ -15163,7 +15168,7 @@ be a descendant of the grid when it is being dragged.
 
 .login-content .logo {
   margin-bottom: 40px;
-  font-family: 'Niconne';
+  font-family: 'LemonsCanFly';
   color: #fff;
 }
 
@@ -15278,7 +15283,7 @@ be a descendant of the grid when it is being dragged.
 }
 
 .lockscreen-content .logo {
-  font-family: 'Niconne';
+  font-family: 'LemonsCanFly';
   margin-bottom: 40px;
   color: #fff;
 }

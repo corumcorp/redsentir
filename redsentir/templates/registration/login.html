@@ -1,98 +1,77 @@
 <!DOCTYPE html>
-<html lang="es">
-
-<head>
-
+<html>
+  <head>
+    {% load static %}
+    <meta charset="utf-8">
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="">
-    <meta name="author" content="">
-
-    <title>FÉNIX SGI V16.10</title>
-    {% load static %}
-
-    <!-- Bootstrap Core CSS -->
-    <link rel="stylesheet" type="text/css" href="" />
-    <!-- Bootstrap Core CSS -->
-    <link href="{% static "/bootstrap/css/bootstrap.min.css" %}" rel="stylesheet">
-
-    <!-- MetisMenu CSS -->
-    <link href="{% static "/metisMenu/metisMenu.min.css" %}" rel="stylesheet">
-    <!-- Custom CSS -->
-    <link href="{% static "/dist/css/sb-admin-2.css" %}" rel="stylesheet">
-    <!-- Custom Fonts -->
-    <link href="{% static "/font-awesome/css/font-awesome.min.css" %}" rel="stylesheet" type="text/css">
-    
-
-    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
-    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
-    <!--[if lt IE 9]>
-        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
-        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
-    <![endif]-->
-
-</head>
-
-<body>
-
-    <div class="container">
-        <div class="row">
-            <div class="col-md-4 col-md-offset-4">
-                <div class="login-panel panel panel-default">
-                    <div class="panel-heading">
-			<center><img src="{% static "/dist/images/logoFenix.jpg" %}" class="img-circle" width="100px" height="100px"></center>
-                        <center><h3 class="panel-title">FÉNIX SGI V16.10</h3></center>
-                    </div>
-                    <div class="panel-body">
-                        <form role="form" method="post">
-                            {% csrf_token %}
-                            <fieldset>
-                                <div class="form-group">
-                                    <input class="form-control" placeholder="Usuario" name="username" type="text" autofocus>
-                                </div>
-                                <div class="form-group">
-                                    <input class="form-control" placeholder="Clave" name="password" type="password" value="">
-                                </div>
-                                <div class="checkbox">
-                                    <label>
-                                        <input name="remember" type="checkbox" value="Recordarme">Recordarme
-                                    </label>
-                                </div>
-                                 <input type="hidden" name="next" value="{{ next|escape }}" />
-                                <!-- Change this to a button or input when using this as a form -->
-                                <input type="submit" class="btn btn-lg btn-success btn-block" value="Ingresar">
-                            </fieldset>
-                        </form>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <script src="{% static "/jquery/jquery.min.js" %}"></script>    
-        <script src="{% static "/dist/js/WebNotifications.js" %}"></script>
-        <script src="{% static "/bootstrap/js/bootstrap.min.js" %}"></script>
-        <script src="{% static "/metisMenu/metisMenu.min.js" %}"></script>
-        <script src="{% static "/datatables/js/jquery.dataTables.min.js" %}"></script>
-        <script src="{% static "/datatables-plugins/dataTables.bootstrap.min.js" %}"></script>    
-        <script src="{% static "/chartjs/Chart.js" %}"></script>    
+    <!-- CSS-->
+    <link rel="icon" type="image/png" href="{% static "/images/favicon.png" %}">
+    <link rel="stylesheet" type="text/css" href="{% static "css/main.css" %}">
+    <!-- Font-icon css-->
+    <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <title>Red Sentir</title>
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries-->
+    <!--if lt IE 9
+    script(src='https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js')
+    script(src='https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js')
+    -->
+  </head>
+  <body>
+    <section class="material-half-bg">
+      <div class="cover"><img src="{% static "/images/img_login.png" %}"/></div>
+    </section>
+    <section class="login-content">
+      <div class="logo">
+        <h1>Red Sentir</h1>
         
-        <script src="{% static "/dist/js/sb-admin-2.js" %}"></script>
-        <script src="{% static "/dist/js/main.js" %}"></script>
-        <!-- Flot Charts JavaScript -->
-        <script src="{% static "/flot/excanvas.min.js" %}"></script>
-        <script src="{% static "/flot/jquery.flot.js" %}"></script>
-        <script src="{% static "/flot/jquery.flot.pie.js" %}"></script>
-        <script src="{% static "/flot/jquery.flot.resize.js" %}"></script>
-        <script src="{% static "flot/jquery.flot.time.js" %}"></script>
-        <script src="{% static "/flot.tooltip/js/jquery.flot.tooltip.min.js" %}"></script>
-        <!-- Latest compiled and minified JavaScript -->
-        <script src="{% static "/bootstrap-select/js/bootstrap-select.min.js" %}"></script>
-
-        <!-- (Optional) Latest compiled and minified JavaScript translation files -->
-        <script src="{% static "/bootstrap-select/js/i18n/defaults-*.min.js" %}"></script>
-
-</body>
-
+      </div>
+      <div class="login-box">
+        <form class="login-form" method="post">
+            {% csrf_token %}
+            <input type="hidden" name="next" value="{{ next|escape }}" />
+          <h3 class="login-head"><i class="fa fa-lg fa-fw fa-user"></i>INGRESO</h3>
+          <div class="form-group">
+            <label class="control-label">Usuario</label>
+            <input class="form-control" type="text"  placeholder="Usuario" name="username" autofocus>
+          </div>
+          <div class="form-group">
+            <label class="control-label">Clave</label>
+            <input class="form-control" type="password" placeholder="Clave" name="password" >
+          </div>
+          <div class="form-group">
+            <div class="utility">
+              <div class="animated-checkbox">
+                <label class="semibold-text">
+                  <input type="checkbox"><span class="label-text">Mantenerme logueado</span>
+                </label>
+              </div>
+              <p class="semibold-text mb-0"><a href="{% url "seguridad:registro" %}">registro</a></br></br><a data-toggle="flip">Olvidaste la contraseña. ?</a></p>
+            </div>
+          </div>
+          <div class="form-group btn-container">
+            <button class="btn btn-primary btn-block"><i class="fa fa-sign-in fa-lg fa-fw"></i>INGRESO</button>
+          </div>
+        </form>
+        <form class="forget-form" action="index.html">
+          <h3 class="login-head"><i class="fa fa-lg fa-fw fa-lock"></i>¿ Olvidaste la contraseña ?</h3>
+          <div class="form-group">
+            <label class="control-label">CORREO ELECTRÓNICO</label>
+            <input class="form-control" type="text" placeholder="Correo">
+          </div>
+          <div class="form-group btn-container">
+            <button class="btn btn-primary btn-block"><i class="fa fa-unlock fa-lg fa-fw"></i>RECUPERAR</button>
+          </div>
+          <div class="form-group mt-20">
+            <p class="semibold-text mb-0"><a data-toggle="flip"><i class="fa fa-angle-left fa-fw"></i> Regresar</a></p>
+          </div>
+        </form>
+      </div>
+    </section>
+  </body>
+  <script src="{% static "js/jquery-2.1.4.min.js" %}"></script>
+  <script src="{% static "js/bootstrap.min.js" %}"></script>
+  <script src="{% static "js/plugins/pace.min.js" %}"></script>
+  <script src="{% static "js/main.js" %}"></script>
 </html>

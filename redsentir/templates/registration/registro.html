@@ -1,0 +1,117 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block sideMenu %}
+    <li><a href="/"><i class="fa fa-dashboard"></i><span>Linea de Tiempo</span></a></li>
+    <li class="treeview active"><a href="#"><i class="fa fa-pie-chart"></i><span>Linea base</span><i class="fa fa-angle-right"></i></a>
+        <ul class="treeview-menu">
+        <li><a href="{% url "lineabase:index" %}"><i class="fa fa-circle-o"></i>Resultados</a></li>
+        <li><a href="{% url "lineabase:sociodemograficos" %}"><i class="fa fa-circle-o"></i>Socio Demograficos</a></li>
+        <li><a href="{% url "lineabase:actividades" %}"><i class="fa fa-circle-o"></i>Actividades sociales</a></li>
+        <li><a href="{% url "lineabase:relaciones" %}"><i class="fa fa-circle-o"></i>Relaciones personales</a></li>
+        <li><a href="{% url "lineabase:salud" %}"><i class="fa fa-circle-o"></i>Salud Sexual</a></li>
+        <li><a href="{% url "lineabase:plan" %}"><i class="fa fa-circle-o"></i>Plan de vida</a></li>
+        <li><a href="{% url "lineabase:subgrupos" %}"><i class="fa fa-circle-o"></i>Análisis de subgrupos</a></li>
+        <li><a href="{% url "lineabase:embarazo" %}"><i class="fa fa-circle-o"></i>Embarazo adolecente</a></li>
+        <li><a href="{% url "lineabase:discucion" %}"><i class="fa fa-circle-o"></i>Discusión</a></li>
+        </ul>
+    </li>
+{% endblock %}
+{% block contenido %}
+<div class="card">
+    <h3 class="card-title">Registro</h3>
+    <form class="form-horizontal" method="post" enctype="multipart/form-data">
+    {% csrf_token %}
+    <div class="card-body">
+        {% if usuario %}
+            <div class="alert alert-danger">{{ usuario }}</div>
+        {% endif %}
+        {% if password %}
+            <div class="alert alert-danger">{{ password }}</div>
+        {% endif %}
+        {% if email %}
+            <div class="alert alert-danger">{{ email }}</div>
+        {% endif %}
+        {% if fecha_nacimiento %}
+            <div class="alert alert-danger">{{ fecha_nacimiento }}</div>
+        {% endif %}
+        {% if condiciones %}
+            <div class="alert alert-danger">{{ condiciones }}</div>
+        {% endif %}
+        <div class="form-group">
+            <label class="control-label col-md-3">Usuario</label>
+            <div class="col-md-8">
+                <input class="form-control" type="text" placeholder="Usuario" name="username">
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="control-label col-md-3">Fecha de Nacimiento</label>
+            <div class="col-md-8">
+                <input type="date" placeholder="Fecha de Nacimiento" name="fecha_nacimiento">
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="control-label col-md-3">Contraseña</label>
+            <div class="col-md-8">
+                <input class="form-control" type="password" placeholder="Contraseña" name="password">
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="control-label col-md-3">Repetir contraseña</label>
+            <div class="col-md-8">
+                <input class="form-control" type="password" placeholder="Repetir contraseña" name="password1">
+            </div>
+        </div>
+        <div class="form-group">
+        <label class="control-label col-md-3">Correo</label>
+        <div class="col-md-8">
+            <input class="form-control col-md-8" type="email" placeholder="Correo electrónico" name="email">
+        </div>
+        </div>
+        <div class="form-group">
+        <label class="control-label col-md-3">Celular</label>
+        <div class="col-md-8">
+            <input class="form-control col-md-8" type="text" placeholder="Celular" name="celular">
+        </div>
+        </div>
+        <div class="form-group">
+        <label class="control-label col-md-3">Sexo</label>
+        <div class="col-md-9">
+            <div class="radio-inline">
+            <label>
+                <input type="radio" name="genero">Masculino
+            </label>
+            </div>
+            <div class="radio-inline">
+            <label>
+                <input type="radio" name="genero">Femenino
+            </label>
+            </div>
+        </div>
+        </div>
+        <div class="form-group">
+        <label class="control-label col-md-3">Avatar</label>
+        <div class="col-md-8">
+            <input class="form-control" type="file" name="avatar">
+        </div>
+        </div>
+        <div class="form-group">
+        <div class="col-md-8 col-md-offset-3">
+            <div class="checkbox">
+            <label>
+                <input type="checkbox">Acepto los <a href="#">términos y condiciones.</a>
+            </label>
+            </div>
+        </div>
+        </div>
+    
+    </div>
+    <div class="card-footer">
+    <div class="row">
+        <div class="col-md-8 col-md-offset-3">
+        <button class="btn btn-primary icon-btn" type="submit"><i class="fa fa-fw fa-lg fa-check-circle"></i>Registrar</button>&nbsp;&nbsp;&nbsp;<a class="btn btn-default icon-btn" href="#"><i class="fa fa-fw fa-lg fa-times-circle"></i>Cancelar</a>
+        </div>
+    </div>
+    </div>
+    </form>
+</div>
+{% endblock %}
