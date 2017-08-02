@@ -24,8 +24,81 @@ Ui{% extends 'base.html' %}
                     <div class="col-md-6">                    
                     <h2 class="card-title">Resultados</h2>
                     <p class="text-justify">Se entrevistaron 4.432 adolescentes, la mayoría de ellos eran estudiantes de educación básica primaria, secundaria y educación media de 28 instituciones educativas (públicas y privadas) de los municipios de Marinilla, Sonsón, Abejorral, San Luis Argelia y San Francisco, y también se entrevistó a los adolescentes que no estaban escolarizados de los mismos municipios (Tabla 1).</p>
-                    <canvas id="barChartDemo"></canvas>                                                                                      
-                    <div class="table-responsive">          
+                    <canvas id="barChartDemo"></canvas>                         
+                    </div>
+                    <div class="col-md-6">                                                                                                                
+                            <div class="table-responsive">          
+                            <table class="table">
+                                <thead>
+                                <tr>
+                                    <th>Nivel de escolaridad</th>
+                                    <th>Frecuencia absoluta</th>
+                                    <th>Porcentage</th>
+                                    <th>Porcentage acumulado</th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                <tr>
+                                    <td>4 grado</td>
+                                    <td>1</td>
+                                    <td>0.02</td>
+                                    <td>0,02</td>
+                                </tr>
+                                <tr>
+                                    <td>5 grado</td>
+                                    <td>24</td>
+                                    <td>0,56</td>
+                                    <td>0,59</td>
+                                </tr>
+                                <tr>
+                                    <td>6 grado</td>
+                                    <td>135</td>
+                                    <td>3,17</td>
+                                    <td>3,76</td>
+                                </tr>
+                                <tr>
+                                    <td>7 grado</td>
+                                    <td>403</td>
+                                    <td>9,46</td>
+                                    <td>13,22</td>
+                                </tr>
+                                <tr>
+                                    <td>8 grado</td>
+                                    <td>1017</td>
+                                    <td>23,88</td>
+                                    <td>37,10</td>
+                                </tr>
+                                <tr>
+                                    <td>9 grado</td>
+                                    <td>1082</td>
+                                    <td>25,41</td>
+                                    <td>62,50</td>
+                                </tr>
+                                <tr>
+                                    <td>10 grado</td>
+                                    <td>489</td>
+                                    <td>19,93</td>
+                                    <td>82,44</td>
+                                </tr>
+                                <tr>
+                                    <td>11 grado</td>
+                                    <td>748</td>
+                                    <td>25,41</td>
+                                    <td>100,00</td>
+                                </tr>
+                                <tr>
+                                    <td>11 grado</td>
+                                    <td>748</td>
+                                    <td>25,41</td>
+                                    <td>17,56</td>
+                                </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                        <p class="text-justify">Hubo participación de estudiantes desde el 4º grado de básica primaria hasta el 11er grado de educación media (Tabla 2). El universo de estudiantes considerado fueron los estudiantes de educación básica secundaria y educación media de los seis municipios en los que se realizó el estudio, aquellos estudiantes de básica primaria que fueron encuestados presentan una condición sociodemográfica diferente, pero ninguno era menor de 13 años.</p> 
+                    </div>
+                </div>
+                <div class="table-responsive">          
                         <table class="table">
                             <thead>
                             <tr>
@@ -236,80 +309,7 @@ Ui{% extends 'base.html' %}
                             </tr>
                             </tbody>
                         </table>
-                    </div>                    
-                    </div>
-                    <div class="col-md-6">                                                                                                                
-                            <div class="table-responsive">          
-                            <table class="table">
-                                <thead>
-                                <tr>
-                                    <th>Nivel de escolaridad</th>
-                                    <th>Frecuencia absoluta</th>
-                                    <th>Porcentage</th>
-                                    <th>Porcentage acumulado</th>
-                                </tr>
-                                </thead>
-                                <tbody>
-                                <tr>
-                                    <td>4 grado</td>
-                                    <td>1</td>
-                                    <td>0.02</td>
-                                    <td>0,02</td>
-                                </tr>
-                                <tr>
-                                    <td>5 grado</td>
-                                    <td>24</td>
-                                    <td>0,56</td>
-                                    <td>0,59</td>
-                                </tr>
-                                <tr>
-                                    <td>6 grado</td>
-                                    <td>135</td>
-                                    <td>3,17</td>
-                                    <td>3,76</td>
-                                </tr>
-                                <tr>
-                                    <td>7 grado</td>
-                                    <td>403</td>
-                                    <td>9,46</td>
-                                    <td>13,22</td>
-                                </tr>
-                                <tr>
-                                    <td>8 grado</td>
-                                    <td>1017</td>
-                                    <td>23,88</td>
-                                    <td>37,10</td>
-                                </tr>
-                                <tr>
-                                    <td>9 grado</td>
-                                    <td>1082</td>
-                                    <td>25,41</td>
-                                    <td>62,50</td>
-                                </tr>
-                                <tr>
-                                    <td>10 grado</td>
-                                    <td>489</td>
-                                    <td>19,93</td>
-                                    <td>82,44</td>
-                                </tr>
-                                <tr>
-                                    <td>11 grado</td>
-                                    <td>748</td>
-                                    <td>25,41</td>
-                                    <td>100,00</td>
-                                </tr>
-                                <tr>
-                                    <td>11 grado</td>
-                                    <td>748</td>
-                                    <td>25,41</td>
-                                    <td>17,56</td>
-                                </tr>
-                                </tbody>
-                            </table>
-                        </div>
-                        <p class="text-justify">Hubo participación de estudiantes desde el 4º grado de básica primaria hasta el 11er grado de educación media (Tabla 2). El universo de estudiantes considerado fueron los estudiantes de educación básica secundaria y educación media de los seis municipios en los que se realizó el estudio, aquellos estudiantes de básica primaria que fueron encuestados presentan una condición sociodemográfica diferente, pero ninguno era menor de 13 años.</p> 
-                    </div>
-                </div>            
+                    </div> 
             </div>
         </div>        
     </div> 
@@ -322,8 +322,8 @@ Ui{% extends 'base.html' %}
             datasets: [
                     {
                             label: "Frecuencia Absoluta",
-                            fillColor: "#EA3EE7",
-                            strokeColor: "rgba(220,220,220,1)",
+                            fillColor: "#DBA901",
+                            strokeColor: "#088A08",
                             pointColor: "rgba(220,220,220,1)",
                             pointStrokeColor: "#fff",
                             pointHighlightFill: "#fff",
