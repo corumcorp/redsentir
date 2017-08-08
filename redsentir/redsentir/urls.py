@@ -10,6 +10,7 @@ urlpatterns = [
     url(r'^$', index, name='index'),    
     url(r'^login$', login, name="login"),
     url(r'^logout$', logout, name="logout"),
+    url(r'^oauth/', include('social_django.urls', namespace='social')),
     url(r'^admin/', admin.site.urls),
     url(r'^mesa/', include('mesa.urls', namespace='mesa')),
     url(r'^seguridad/', include('seguridad.urls', namespace='seguridad')),
