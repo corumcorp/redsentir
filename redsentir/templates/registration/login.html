@@ -47,13 +47,11 @@
                   <input type="checkbox"><span class="label-text">Mantenerme logueado</span>
                 </label>
               </div>
-              <p class="semibold-text mb-0"><a href="{% url "seguridad:registro" %}">registro</a>--- Ó ---</br>
-              <a href="{% url 'social:begin' 'github' %}"><img src="{% static "/images/social/octocat.png" %}"/></a><br>
-              <a href="{% url 'social:begin' 'facebook' %}"><img src="{% static "/images/social/facebook.png" %}"/></a><br>
-              <a href="{% url 'social:begin' 'twitter' %}"><img src="{% static "/images/social/twitter.png" %}"/></a><br>
-
-
-</br><a data-toggle="flip">Olvidaste la contraseña. ?</a></p>
+              <p class="semibold-text mb-0"><a href="{% url "seguridad:registro" %}">regístrate o puedes usar :</a>
+              <a href="{% url 'social:begin' 'github' %}"><img width="25" src="{% static "/images/social/octocat.png" %}" title="GitHub"/></a>
+              <a href="{% url 'social:begin' 'facebook' %}"><img width="25" src="{% static "/images/social/facebook.png" %}" title="Facebook"/></a>
+              <a href="{% url 'social:begin' 'twitter' %}"><img width="25" src="{% static "/images/social/twitter.png" %}" title="Twitter"/></a></br>
+              <a data-toggle="flip">Olvidaste la contraseña. ?</a></p>
             </div>
           </div>
           <div class="form-group btn-container">
