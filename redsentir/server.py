@@ -17,7 +17,7 @@ django.setup()
 
 class DjangoApplication(object):
     HOST = "0.0.0.0"
-    PORT = 8000
+    PORT = 80
 
     def mount_static(self, url, root):
         """
