@@ -1,0 +1,77 @@
+Ui{% extends 'base.html' %}
+{% load static %}
+{% block sideMenu %}
+    <li><a href="/"><i class="fa fa-dashboard"></i><span>Linea de Tiempo</span></a></li>
+    <li class="treeview active"><a href="#"><i class="fa fa-pie-chart"></i><span>Linea base</span><i class="fa fa-angle-right"></i></a>
+        <ul class="treeview-menu">
+        <li><a href="{% url "lineabase:index" %}"><i class="fa fa-circle-o"></i>Resultados</a></li>
+        <li><a href="{% url "lineabase:sociodemograficos" %}"><i class="fa fa-circle-o"></i>Socio Demograficos</a></li>
+        <li><a href="{% url "lineabase:actividades" %}"><i class="fa fa-circle-o"></i>Actividades sociales</a></li>
+        <li><a href="{% url "lineabase:relaciones" %}"><i class="fa fa-circle-o"></i>Relaciones personales</a></li>
+        <li><a href="{% url "lineabase:salud" %}"><i class="fa fa-circle-o"></i>Salud Sexual</a></li>
+        <li><a href="{% url "lineabase:plan" %}"><i class="fa fa-circle-o"></i>Plan de vida</a></li>
+        <li><a href="{% url "lineabase:subgrupos" %}"><i class="fa fa-circle-o"></i>Análisis de subgrupos</a></li>
+        <li><a href="{% url "lineabase:embarazo" %}"><i class="fa fa-circle-o"></i>Embarazo adolecente</a></li>
+        <li><a href="{% url "lineabase:discucion" %}"><i class="fa fa-circle-o"></i>Discusión</a></li>
+        </ul>
+    </li>
+{% endblock %}
+{% block contenido %}
+
+<div class="col-md-3"><a class="mb-20 btn btn-primary btn-block" href="">Nuevo Foro</a>
+            <div class="card p-0">
+              <h4 class="card-title folder-head">Foros</h4>
+              <div class="card-body">
+                <ul class="nav nav-pills nav-stacked mail-nav">
+                  <li class="active"><a href="#"><i class="fa fa-inbox fa-fw"></i> Tema 1<span class="label label-primary pull-right">12</span></a></li>
+                  <li><a href="#"><i class="fa fa-envelope-o fa-fw"></i> Tema 2</a></li>
+                  <li><a href="#"><i class="fa fa-file-text-o fa-fw"></i> Tema 3</a></li>
+                  <li><a href="#"><i class="fa fa-filter fa-fw"></i> Tema 4 <span class="label label-warning pull-right">65</span></a></li>
+                  <li><a href="#"><i class="fa fa-trash-o fa-fw"></i> Tema 5</a></li>
+                </ul>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-9">
+            <div class="card">
+              <div class="mailbox-controls">
+                <div class="btn-group">
+                  <button class="btn btn-primary btn-sm" type="button"><i class="fa fa-plus"></i></button>
+                  <button class="btn btn-primary btn-sm" type="button"><i class="fa fa-reply"></i></button>
+                  <button class="btn btn-primary btn-sm" type="button"><i class="fa fa-share"></i></button>
+                  <button class="btn btn-primary btn-sm" type="button"><i class="fa fa-refresh"></i></button>
+                </div>
+              </div>
+              <div class="table-responsive mailbox-messages">
+                <table class="table table-hover">
+                  <tbody>
+                    <tr>                      
+                      <td><a href="#"><i class="fa fa-star-o"></i></a></td>
+                      <td><a href="read-mail.html">Ana Maria</a></td>
+                      <td class="mail-subject"><b>Este es un comentario de ejemplo</td>
+                      <td><i class="fa fa-paperclip"></i></td>
+                      <td>hace 8 minutos</td>
+                    </tr>
+                    <tr>
+                      <td><a href="#"><i class="fa fa-star"></i></a></td>
+                      <td><a href="read-mail.html">Alhen</a></td>
+                      <td><b>Que divertido me encanta este foro</td>
+                      <td></td>
+                      <td>hace 15 minutos</td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+              <div class="text-right semibold-text"><span class="text-muted mr-10">Mostrande 2 de 50 comentarios.</span>
+                <div class="btn-group">
+                  <button class="btn btn-primary btn-sm" type="button"><i class="fa fa-chevron-left"></i></button>
+                  <button class="btn btn-primary btn-sm" type="button"><i class="fa fa-chevron-right"></i></button>
+                </div>
+              </div>
+            </div>
+          </div>
+          
+{% endblock %}
+{% block scripts %}
+{% endblock %}
+

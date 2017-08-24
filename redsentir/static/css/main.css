@@ -7,7 +7,7 @@
 
 @font-face {
 font-family: LemonsCanFly;
-src: url(../fuentes/lemonscanfly.ttf);
+src: url(../fuentes/Bristol.otf);
 }
 
 /*
@@ -13977,11 +13977,11 @@ be a descendant of the grid when it is being dragged.
 .main-header .logo {
   display: block;
   width: 230px;
-  height: 60px;
+  height: 50px;
   font-family: 'LemonsCanFly';
-  font-size: 60px;
+  font-size: 33px;
   font-weight: 400;
-  line-height: 50px;
+  line-height: 60px;
   text-align: center;
   padding: 0 15px;
   float: left;
@@ -15195,6 +15195,7 @@ be a descendant of the grid when it is being dragged.
   margin-top: 0;
   margin-bottom: 20px;
   padding-bottom: 20px;
+  font-family: 'LemonsCanFly';
   border-bottom: 1px solid #ddd;
   text-align: center;
 }
