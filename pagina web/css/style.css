@@ -1,4 +1,36 @@
 @font-face {
+font-family: avenir;
+src: url(../fonts/avenir/AvenirLTStd-BlackOblique.otf);
+}
+
+@font-face {
+font-family: bristol;
+src: url(../fonts/Bristol.otf);
+}
+
+@font-face {
+font-family: avenira;
+src: url(../fonts/avenir/AvenirLTStd-Book.otf);
+}
+
+.avenirTitulo {
+    font-family: avenir, serif;
+    color: #fff;
+}
+
+.bristolTitulo {
+    font-family: bristol, serif;
+    color: #fff;
+}
+
+.avenirTexto {
+    font-family: avenir, serif;
+    color: #fff;
+}
+
+
+
+@font-face {
 font-family: Shumi;
 src: url(../fonts/Shumi.otf);
 }
@@ -12,6 +44,9 @@ src: url(../fonts/manteka.ttf);
 font-family: arial-narrow;
 src: url(../fonts/arial-narrow.ttf);
 }
+
+
+
 
 .shumiTitulo {
     font-family: Shumi, serif;
@@ -154,6 +189,7 @@ body {
     background: #081b29;
     color: #203546;
     box-shadow: inset 3px 0 3px 0 #203546;
+     width:10%;
 }
 
 .social:hover {
@@ -170,14 +206,17 @@ button:hover {
 .fuxia {
        background-color: #ad3479;
        color: #fff;
+       padding: 10px;
 }
 .amarillo {
        background-color: #ff9114;
        color: #fff;
+       padding: 10px;
 }
 .azul {
        background-color: #36c9d1;
        color: #fff;
+       padding: 10px;
 }
 
 

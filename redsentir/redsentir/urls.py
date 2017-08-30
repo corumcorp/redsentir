@@ -15,6 +15,8 @@ urlpatterns = [
     url(r'^mesa/', include('mesa.urls', namespace='mesa')),
     url(r'^seguridad/', include('seguridad.urls', namespace='seguridad')),
     url(r'^lineabase/', include('lineabase.urls', namespace='lineabase')),
+    url(r'^formacion/', include('formacion.urls', namespace='formacion')),
+    url(r'^foro/', include('foro.urls', namespace='foro')),
 ] + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
 
 admin.site.site_header = "ADMIN - RED SENTIR"

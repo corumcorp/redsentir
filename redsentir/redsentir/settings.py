@@ -23,7 +23,7 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SECRET_KEY = 'wdvkeesd+gmm2e&v(6rh&dn_f9ix(8=ua@9k)%f_88uz_f@f3c'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
 ALLOWED_HOSTS = ['*',]
 
@@ -32,6 +32,7 @@ ALLOWED_HOSTS = ['*',]
 
 INSTALLED_APPS = [
     'seguridad.apps.SeguridadConfig',
+    'foro.apps.ForoConfig',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -143,3 +144,5 @@ SOCIAL_AUTH_GITHUB_KEY = '7b187644619fcfcada69'
 SOCIAL_AUTH_GITHUB_SECRET = 'eee9cb8058c3735eb60b14303ec16ec46c9007a3'
 SOCIAL_AUTH_TWITTER_KEY = 'MBl86h3SsEjQ6XIpvaAtl7C7B'
 SOCIAL_AUTH_TWITTER_SECRET = 'jyreNJobxjsLFMX2Cyt09QvlqWJZlNeT9Ym7zSkitxD1NMj0gy'
+SOCIAL_AUTH_FACEBOOK_KEY = '135664947036180'
+SOCIAL_AUTH_FACEBOOK_SECRET = '75972a0302861a685d2d1be3e7e9a2cb'

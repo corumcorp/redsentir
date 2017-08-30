@@ -1,0 +1,64 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block contenido %}
+    <div class="col-md-3">
+        <a class="mb-20 btn btn-primary btn-block" href="">Nuevo Foro</a>
+        <div class="card p-0">
+            <h4 class="card-title folder-head">Foros</h4>
+            <div class="card-body">
+            <ul class="nav nav-pills nav-stacked mail-nav">
+                <li class="active"><a href="#"><i class="fa fa-inbox fa-fw"></i> Tema 1<span class="label label-primary pull-right">12</span></a></li>
+                <li><a href="#"><i class="fa fa-envelope-o fa-fw"></i> Tema 2</a></li>
+                <li><a href="#"><i class="fa fa-file-text-o fa-fw"></i> Tema 3</a></li>
+                <li><a href="#"><i class="fa fa-filter fa-fw"></i> Tema 4 <span class="label label-warning pull-right">65</span></a></li>
+                <li><a href="#"><i class="fa fa-trash-o fa-fw"></i> Tema 5</a></li>
+            </ul>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-9">
+    <div class="container">
+    <div class="row">
+        <div class="col-md-7">           
+            <div class="panel panel-primary">
+                <div class="panel-heading">
+                     <div class="card mark">
+                            <h4>Titulo Foro</h4>
+                            <p color="#000">
+                                Según Woodward, Fergusson & Horwood (2001), las mujeres que han vivido dentro de familias con un entorno social, familiar, individual y de relaciones complicadas durante su niñez y adolescencia tienen un riesgo más alto a salir embarazadas durante su adolescencia.​
+                            </p>
+                        </div>                
+                </div>
+                <div class="panel-body">
+                    <ul class="chat">
+                        <li class="left clearfix"><span class="chat-img pull-left">
+                            <img src="http://placehold.it/50/55C1E7/fff&text=U" alt="User Avatar" class="img-circle" />
+                        </span>
+                            <div class="chat-body clearfix">
+                                <div class="header">
+                                    <strong class="primary-font">Jack Sparrow</strong> <small class="pull-right text-muted">
+                                        <span class="glyphicon glyphicon-time"></span>hace 12 minutos</small>
+                                </div>
+                                <p>
+                                    Lugar para escribir el comentario del foro.
+                                </p>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+                <div class="panel-footer">
+                    <div class="input-group">
+                        <input id="btn-input" type="text" class="form-control input-sm" placeholder="Escriba su comentario aqui..." />
+                        <span class="input-group-btn">
+                            <button class="btn btn-warning btn-sm" id="btn-chat">
+                                Enviar</button>
+                        </span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+    </div>   
+{% endblock %}

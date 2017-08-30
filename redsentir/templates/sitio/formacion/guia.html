@@ -1,0 +1,244 @@
+<html>
+    <head>
+        {% load static %}
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+        <link rel="stylesheet" href="{% static "/css/style.css" %}">
+        <link rel="stylesheet" href="{% static "libs/bootstrap/css/bootstrap.min.css" %}">
+        <!-- <script src="js/main.js"></script> -->
+        <script src="libs/jquery/jquery-3.2.1.min.js"></script>
+        <script src="libs/bootstrap/js/bootstrap.min.js"></script>
+        <title>Guia 1</title>
+    </head>    
+    <body>
+        <div id="cielo">
+            <div id="ciudad"></div>
+            <a href="http://www.redsentir.org"><img src="{% static "/images/guias/logo-red-sentir.png" %}" id="logo-red-sentir"></a></br>
+            <a href="#"><img src="{% static "/images/guias/guia-didactica.png" %}" id="logo-guia"></a>
+            <img src="{% static "/images/guias/personajes.png" %}" id="personajes">
+            <a href="http://www.corum.org.co"><img src="{% static "/images/guias/logo-corum.png" %}" id="logo-corum"></a>            
+        </div>
+        <div id="presentacion">
+            <a href="#" ><img src="{% static "/images/guias/texto-guia.png" %}" id="texto-guia"></a>
+            <img src="{% static "/images/guias/linea-division.png" %}" id="linea-division">
+            <img src="{% static "/images/guias/titulo-guia.png" %}" id="titulo-guia">
+            <img src="{% static "/images/guias/linea-formacion.png" %}" id="linea-formacion">
+            <img src="{% static "/images/guias/seres-sexualidad.png" %}" id="seres-sexualidad">
+        </div>  
+        <div id="fondo">
+            <img src="{% static "/images/guias/sexualidad.png" %}" id="sexualidad">
+        </div>        
+        <div id="modulos">
+            <div class="container-fluid margen">            
+                <div class="row">
+                    <div class="col-md-6 borde">
+                        <a href="#" ><img width="20%" src="{% static "/images/guias/LIBROS_h.png" %}" onmouseover="this.src='{% static "/images/guias/LIBROS_h.png';" %}" onmouseout="this.src='{% static "/images/guias/LIBROS.png';"></a>
+                        <a href="#" ><img width="20%" src="{% static "/images/guias/LIBROS.png" onmouseover="this.src='{% static "/images/guias/LIBROS_h.png';" %}" onmouseout="this.src='{% static "/images/guias/LIBROS.png';"></a>
+                        <a href="#" ><img width="20%" src="{% static "/images/guias/LIBROS.png" onmouseover="this.src='{% static "/images/guias/LIBROS_h.png';" onmouseout="this.src='{% static "/images/guias/LIBROS.png';" %}"></a>
+                        <h1 class="shumiTitulo">MODULOS</h1>
+                        <ul>
+                            <li>
+                                <p class="arial-narrow"><font size="5">QUÉ ES LA SEXUALIDAD</font></p>
+                            </li></br>
+                            <li>
+                                <p class="arial-narrow">FUNCIONES DE LA SEXUALIDAD</p>
+                            </li></br>
+                            <li>
+                                <p class="arial-narrow">COMPONENTES DE LA SEXUALIDAD</p>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="col-md-6">
+                        <h2 class="manteka"><b>OBJETIVO DE LA GUIA</b></h2>
+                        <p class="manteka">
+                            <font size="5">ENTENDER QUE ES LA SEXUALIDAD A TRAVES DE INFORMACIÓN CONFIABLE, LA REFLEXION Y LA INDAGACION PARA APLICARLOS A NUESTROS PLANES DE VIDA.</font>
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div id="presentacion">
+            <div class="container-fluid margen"> 
+                <div class="col-md-12">
+                    <h1 class="mantekac"><b>PRESENTACIÓN.</b></h1>
+                </div>
+                <div class="col-md-6">
+                    <p class="mantekac">
+                        <font size="3">Lorem Ipsum es simplemente el texto de relleno de las imprentas y archivos de texto. Lorem Ipsum ha sido el texto de relleno estándar de las industrias desde el año 1500, cuando un impresor (N. del T. persona que se dedica a la imprenta) desconocido usó una galería de textos y los mezcló de tal manera que logró hacer un libro de textos especimen. No sólo sobrevivió 500 años, sino que tambien ingresó como texto de relleno en documentos electrónicos, quedando esencialmente igual al original. Fue popularizado en los 60s con la creación de las hojas "Letraset", las cuales contenian pasajes de Lorem Ipsum, y más recientemente con software de autoedición, como por ejemplo Aldus PageMaker, el cual incluye versiones de Lorem Ipsum.</font>
+                    </p>
+                </div>
+                <div class="col-md-6">
+                    <p class="mantekac">
+                        <font size="3">Al contrario del pensamiento popular, el texto de Lorem Ipsum no es simplemente texto aleatorio. Tiene sus raices en una pieza clasica de la literatura del Latin, que data del año 45 antes de Cristo, haciendo que este adquiera mas de 2000 años de antiguedad. Richard McClintock, un profesor de Latin de la Universidad de Hampden-Sydney en Virginia, encontró una de las palabras más oscuras de la lengua del latín, "consecteur", en un pasaje de Lorem Ipsum, y al seguir leyendo distintos textos del latín, descubrió la fuente indudable. Lorem Ipsum viene de las secciones 1.10.32 y 1.10.33 de "de Finnibus Bonorum et Malorum" (Los Extremos del Bien y El Mal) por Cicero, escrito en el año 45 antes de Cristo. Este libro es un tratado de teoría de éticas, muy popular durante el Renacimiento. La primera linea del Lorem Ipsum, "Lorem ipsum dolor sit amet..", viene de una linea en la sección 1.10.32</font>
+                    </p>
+                </div>
+                <div class="col-md-12">
+                <img src="{% static "/images/guias/manito.png" %}" width="50" align="right">
+                <div class="alert alert-success">
+                    
+                    <p>
+                        Es un hecho establecido hace demasiado tiempo que un lector se distraerá con el contenido del texto de un sitio mientras que mira su diseño. El punto de usar Lorem Ipsum es que tiene una distribución más o menos normal de las letras, al contrario de usar textos como por ejemplo "Contenido aquí, contenido aquí". Estos textos hacen parecerlo un español que se puede leer. Muchos paquetes de autoedición y editores de páginas web usan el Lorem Ipsum como su texto por defecto, y al hacer una búsqueda de "Lorem Ipsum" va a dar por resultado muchos sitios web que usan este texto si se encuentran en estado de desarrollo. Muchas versiones han evolucionado a través de los años, algunas veces por accidente, otras veces a propósito (por ejemplo insertándole humor y cosas por el estilo).
+                    </p>
+                </div>
+                </div>
+            </div>
+        </div>
+        <div id="presentacion1">
+            <div class="container-fluid margen"> 
+                <div class="col-md-12">
+                    <h1 class="mantekad"><b>PRESENTACIÓN.</b></h1>
+                </div>
+                <div class="col-md-4">
+                    <p class="mantekac">
+                        <font size="3">Lorem Ipsum es simplemente el texto de relleno de las imprentas y archivos de texto. Lorem Ipsum ha sido el texto de relleno estándar de las industrias desde el año 1500, cuando un impresor (N. del T. persona que se dedica a la imprenta) desconocido usó una galería de textos y los mezcló de tal manera que logró hacer un libro de textos especimen. No sólo sobrevivió 500 años, sino que tambien ingresó como texto de relleno en documentos electrónicos, quedando esencialmente igual al original. Fue popularizado en los 60s con la creación de las hojas "Letraset", las cuales contenian pasajes de Lorem Ipsum, y más recientemente con software de autoedición, como por ejemplo Aldus PageMaker, el cual incluye versiones de Lorem Ipsum.</font>
+                    </p>
+                </div>
+                <div class="col-md-4">
+                    <p class="mantekac">
+                        <font size="3">Al contrario del pensamiento popular, el texto de Lorem Ipsum no es simplemente texto aleatorio. Tiene sus raices en una pieza clasica de la literatura del Latin, que data del año 45 antes de Cristo, haciendo que este adquiera mas de 2000 años de antiguedad. Richard McClintock, un profesor de Latin de la Universidad de Hampden-Sydney en Virginia, encontró una de las palabras más oscuras de la lengua del latín, "consecteur", en un pasaje de Lorem Ipsum, y al seguir leyendo distintos textos del latín, descubrió la fuente indudable. Lorem Ipsum viene de las secciones 1.10.32 y 1.10.33 de "de Finnibus Bonorum et Malorum" (Los Extremos del Bien y El Mal) por Cicero, escrito en el año 45 antes de Cristo. Este libro es un tratado de teoría de éticas, muy popular durante el Renacimiento. La primera linea del Lorem Ipsum, "Lorem ipsum dolor sit amet..", viene de una linea en la sección 1.10.32</font>
+                    </p>
+                </div>
+                <div class="col-md-4">
+                    <p class="mantekac">                        
+                        <font size="3">Al contrario del pensamiento popular, el texto de Lorem Ipsum no es simplemente texto aleatorio. Tiene sus raices en una pieza clasica de la literatura del Latin, que data del año 45 antes de Cristo, haciendo que este adquiera mas de 2000 años de antiguedad. Richard McClintock, un profesor de Latin de la Universidad de Hampden-Sydney en Virginia, encontró una de las palabras más oscuras de la lengua del latín, "consecteur", en un pasaje de Lorem Ipsum, y al seguir leyendo distintos textos del latín, descubrió la fuente indudable. Lorem Ipsum viene de las secciones 1.10.32 y 1.10.33 de "de Finnibus Bonorum et Malorum" (Los Extremos del Bien y El Mal) por Cicero, escrito en el año 45 antes de Cristo. Este libro es un tratado de teoría de éticas, muy popular durante el Renacimiento. La primera linea del Lorem Ipsum, "Lorem ipsum dolor sit amet..", viene de una linea en la sección 1.10.32</font>
+                    </p>
+                </div>
+                <div class="col-md-12">
+                    <img src="{% static "/images/guias/manito.png" %}" width="50" align="right">
+                    <div class="alert alert-success">
+                    <p>
+                        Es un hecho establecido hace demasiado tiempo que un lector se distraerá con el contenido del texto de un sitio mientras que mira su diseño. El punto de usar Lorem Ipsum es que tiene una distribución más o menos normal de las letras, al contrario de usar textos como por ejemplo "Contenido aquí, contenido aquí". Estos textos hacen parecerlo un español que se puede leer. Muchos paquetes de autoedición y editores de páginas web usan el Lorem Ipsum como su texto por defecto, y al hacer una búsqueda de "Lorem Ipsum" va a dar por resultado muchos sitios web que usan este texto si se encuentran en estado de desarrollo. Muchas versiones han evolucionado a través de los años, algunas veces por accidente, otras veces a propósito (por ejemplo insertándole humor y cosas por el estilo).
+                    </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div id="metodologia">
+            <div class="container-fluid margen"> 
+                <div class="col-md-12">
+                    <h1 class="mantekad"><b>METODOLOGIA.</b></h1>
+                </div>
+                <div class="col-md-4">
+                   <img src="{% static "/images/guias/bombillo.png" %}" width="90%" align="right">
+                </div>
+                <div class="col-md-4">
+                    <p class="mantekac">
+                        <font size="3">Al contrario del pensamiento popular, el texto de Lorem Ipsum no es simplemente texto aleatorio. Tiene sus raices en una pieza clasica de la literatura del Latin, que data del año 45 antes de Cristo, haciendo que este adquiera mas de 2000 años de antiguedad. Richard McClintock, un profesor de Latin de la Universidad de Hampden-Sydney en Virginia, encontró una de las palabras más oscuras de la lengua del latín, "consecteur", en un pasaje de Lorem Ipsum, y al seguir leyendo distintos textos del latín, descubrió la fuente indudable. Lorem Ipsum viene de las secciones 1.10.32 y 1.10.33 de "de Finnibus Bonorum et Malorum" (Los Extremos del Bien y El Mal) por Cicero, escrito en el año 45 antes de Cristo. Este libro es un tratado de teoría de éticas, muy popular durante el Renacimiento. La primera linea del Lorem Ipsum, "Lorem ipsum dolor sit amet..", viene de una linea en la sección 1.10.32</font>
+                    </p>
+                </div>
+                <div class="col-md-4">
+                    <p class="mantekac">                        
+                        <font size="3">Al contrario del pensamiento popular, el texto de Lorem Ipsum no es simplemente texto aleatorio. Tiene sus raices en una pieza clasica de la literatura del Latin, que data del año 45 antes de Cristo, haciendo que este adquiera mas de 2000 años de antiguedad. Richard McClintock, un profesor de Latin de la Universidad de Hampden-Sydney en Virginia, encontró una de las palabras más oscuras de la lengua del latín, "consecteur", en un pasaje de Lorem Ipsum, y al seguir leyendo distintos textos del latín, descubrió la fuente indudable. Lorem Ipsum viene de las secciones 1.10.32 y 1.10.33 de "de Finnibus Bonorum et Malorum" (Los Extremos del Bien y El Mal) por Cicero, escrito en el año 45 antes de Cristo. Este libro es un tratado de teoría de éticas, muy popular durante el Renacimiento. La primera linea del Lorem Ipsum, "Lorem ipsum dolor sit amet..", viene de una linea en la sección 1.10.32</font>
+                    </p>
+                </div>
+            </div>
+        </div>
+        <div id="metodologia1">
+            <div class="container-fluid margen"> 
+                <div class="col-md-6">
+                    </br>
+                   <img src="{% static "/images/guias/metodologiaTitulo.png" %}" width="90%" align="right" title="METODOLOGIA"></br>
+                   <img src="{% static "/images/guias/manito.png" %}" width="25%">
+                    <div class="alert alert-success">                        
+                        <p>
+                            Es un hecho establecido hace demasiado tiempo que un lector se distraerá con el contenido del texto de un sitio mientras que mira su diseño. El punto de usar Lorem Ipsum es que tiene una distribución más o menos normal de las letras, al contrario de usar textos como por ejemplo "Contenido aquí, contenido aquí". Estos textos hacen parecerlo un español que se puede leer. Muchos paquetes de autoedición y editores de páginas web usan el Lorem Ipsum como su texto por defecto, y al hacer una búsqueda de "Lorem Ipsum" va a dar por resultado muchos sitios web que usan este texto si se encuentran en estado de desarrollo. Muchas versiones han evolucionado a través de los años, algunas veces por accidente, otras veces a propósito (por ejemplo insertándole humor y cosas por el estilo).
+                        </p>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    </br>
+                    </br>
+                    </br>
+                    </br>
+                    </br>
+                    <p class="mantekac">
+                        <font size="3">Al contrario del pensamiento popular, el texto de Lorem Ipsum no es simplemente texto aleatorio. Tiene sus raices en una pieza clasica de la literatura del Latin, que data del año 45 antes de Cristo, haciendo que este adquiera mas de 2000 años de antiguedad. Richard McClintock, un profesor de Latin de la Universidad de Hampden-Sydney en Virginia, encontró una de las palabras más oscuras de la lengua del latín, "consecteur", en un pasaje de Lorem Ipsum, y al seguir leyendo distintos textos del latín, descubrió la fuente indudable. Lorem Ipsum viene de las secciones 1.10.32 y 1.10.33 de "de Finnibus Bonorum et Malorum" (Los Extremos del Bien y El Mal) por Cicero, escrito en el año 45 antes de Cristo. Este libro es un tratado de teoría de éticas, muy popular durante el Renacimiento. La primera linea del Lorem Ipsum, "Lorem ipsum dolor sit amet..", viene de una linea en la sección 1.10.32</font>
+                    </p>
+                </div>
+            </div>
+        </div>
+        <div id="menuLaboratorios">
+            <div class="container-fluid margen">
+                <div class="col-md-12">
+                    <h1 class="mantekad"><b>LOS LABORATORIOS PEDAGÓGICOS ESTÁN DIVIDIDOS DE LA SIGUIENTE MANERA:</b></h1>
+                </div>
+                <div class="col-md-12">                    
+                    <div class="alert alert-success">
+                        <div class="row">
+                        <div class="col-md-2">
+                            <img src="{% static "/images/guias/lab-reflexivo.png" %}" width="50%">
+                        </div>
+                        <div class="col-md-10">
+                            <p>
+                        <font size="3">Al contrario del pensamiento popular, el texto de Lorem Ipsum no es simplemente texto aleatorio. Tiene sus raices en una pieza clasica de la literatura del Latin, que data del año 45 antes de Cristo, haciendo que este adquiera mas de 2000 años de antiguedad. Richard McClintock, un profesor de </font>
+                    </p>
+                        </div>
+                        </div>
+                    </div>
+                    </br>
+                    <div class="alert alert-info">
+                        <div class="row">
+                        <div class="col-md-2">
+                            <img src="{% static "/images/guias/lab-investigativo.png" %}" width="50%">
+                        </div>
+                        <div class="col-md-10">
+                        <p>
+                        <font size="3">Al contrario del pensamiento popular, el texto de Lorem Ipsum no es simplemente texto aleatorio. Tiene sus raices en una pieza clasica de la literatura del Latin, que data del año 45 antes de Cristo, haciendo que este adquiera mas de 2000 años de antiguedad. Richard McClintock, un profesor de Latin de la Universidad de Hampden-Sydney en Virginia, encontró una de las palabras más oscuras de la lengua del latín, "consecteur", en un pasaje de</font>
+                    </p>
+                        </div>
+                        </div>
+                    </div>
+                    </br>
+                    <div class="alert alert-warning">
+                        <div class="row">
+                        <div class="col-md-2">
+                            <img src="{% static "/images/guias/lab-creativo.png" %}" width="30%">
+                        </div>
+                        <div class="col-md-10">
+                        <p>
+                        <font size="3">Al contrario del pensamiento popular, el texto de Lorem Ipsum no es simplemente texto aleatorio. Tiene sus raices en una pieza clasica de la literatura del Latin, que data del año 45 antes de Cristo, haciendo que este adquiera mas de 2000 años de antiguedad. Richard McClintock, un profesor de Latin de la Universidad de Hampden-Sydney en Virginia, encontró una de las palabras más oscuras de la lengua del latín, "consecteur", en un pasaje de Lorem </font>
+                    </p>
+                        </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </body>
+</html>
+<script>
+var k=1;
+$(document).ready(function(){
+    setTimeout(mostrarCiudad,1000);
+    setTimeout(mostrarPersonajes,2000);    
+    setTimeout(mostrarGuia,4000);
+    setTimeout(toggleSexualidad,1000);
+});
+function mostrarPersonajes(){
+    $("#personajes").show();
+    $("#personajes").animate({top:"30%"},'slow');
+}
+function mostrarGuia(){
+    $("#logo-red-sentir").show('slow');
+    $("#logo-corum").show('slow');
+    $("#logo-guia").show('slow');
+}
+function mostrarCiudad(){
+    $("#ciudad").slideDown('slow');
+}
+function mostrarSeresSexualidad(){
+   $("#seres-sexualidad").fadeIn("slow");
+}
+function toggleSexualidad(){
+    if(k%2==0){
+        $("#sexualidad").show();
+    }else{
+        $("#sexualidad").hide();
+    }
+    k++;
+    setTimeout(toggleSexualidad,1000);
+}
+$(window).scroll(function() {
+  setTimeout(mostrarSeresSexualidad,4000);
+});
+</script>

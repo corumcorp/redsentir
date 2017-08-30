@@ -28,6 +28,17 @@ src: url(../fonts/arial-narrow.ttf);
     color: #8c2121;
 }
 
+.mantekac {
+    font-family: manteka, serif;
+    color: #fff;
+}
+
+.mantekad {
+    font-family: manteka, serif;
+    color: #cf8d44;
+}
+
+
 .arial-narrow {
     font-family: arial-narrow, serif;
     color: #fff;
@@ -74,6 +85,15 @@ src: url(../fonts/arial-narrow.ttf);
     bottom:5%;
 }
 #presentacion {
+    width:100%;
+    height:100%;
+    background-image: url(../img/sentidos.png);
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-color: #1c4a63;
+}
+#presentacion1 {
     width:100%;
     height:100%;
     background-image: url(../img/sentidos.png);
@@ -131,6 +151,35 @@ src: url(../fonts/arial-narrow.ttf);
     background-repeat: no-repeat;
     background-size: cover;
     background-color: #e3422b;
+}
+
+#metodologia {
+    width:100%;
+    height:100%;
+    background-position: center center;
+    background-image: url(../img/fondo-3.png);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-color: #1c4a63;
+}
+
+#metodologia1 {
+    width:100%;
+    height:100%;
+    background-position: center center;
+    background-image: url(../img/fondo-3.png);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-color: #1c4a63;
+}
+
+#menuLaboratorios {
+    width:100%;
+    height:100%;
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-color: #1c4a63;
 }
 
 .borde {
