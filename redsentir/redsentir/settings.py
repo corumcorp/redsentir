@@ -32,6 +32,7 @@ ALLOWED_HOSTS = ['*',]
 
 INSTALLED_APPS = [
     'seguridad.apps.SeguridadConfig',
+    'foro.apps.ForoConfig',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',

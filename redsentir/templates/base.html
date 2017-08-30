@@ -84,8 +84,7 @@
           <!-- Sidebar Menu-->
           <ul class="sidebar-menu">
             {% block sideMenu %}
-                <li class="active"><a href="/"><i class="fa fa-dashboard"></i><span>Linea de Tiempo</span></a></li>
-                <li><a href="/lineabase"><i class="fa fa-pie-chart"></i><span>Linea base</span></a></li>
+                {% include 'sitio/menu/menu.html' %}
             {% endblock %}
             
             <!--
