@@ -1,0 +1,2 @@
+#Ignora la base de datos *.sqlite3 en el repositorio
+redsentir/*.sqlite3
