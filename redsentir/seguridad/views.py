@@ -13,13 +13,13 @@ def registro(request):
                     usuario = User.objects.create_user(username = request.POST['username'],password = request.POST['password'],email = request.POST['email'])
                     perfil = None
                     if 'genero' in request.POST :
-                        pgenero = request.POST['genero'];
+                        pgenero = request.POST['genero']
                     else :
                         pgenero = None
                     if not 'avatar' in request.FILES :
                         perfil = Perfil(user_id=usuario.id,genero=pgenero)
                     else :
-                        perfil = Perfil(user_id=usuario.id,avatar=pavatar,genero=pgenero)                   
+                        perfil = Perfil(user_id=usuario.id,avatar=request.FILES['avatar'],genero=pgenero)                   
                     perfil.save()
                     return HttpResponseRedirect(reverse(login,args=[]))
                 else :
