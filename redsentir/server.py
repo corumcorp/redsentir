@@ -40,7 +40,7 @@ class DjangoApplication(object):
             'server.socket_host': self.HOST,
             'server.socket_port': self.PORT,
             'engine.autoreload_on': False,
-            'log.screen': False
+            'log.screen': True
         })
         self.mount_static(settings.STATIC_URL, settings.STATIC_ROOT)
 
