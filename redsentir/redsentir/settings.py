@@ -31,7 +31,8 @@ ALLOWED_HOSTS = ['*',]
 # Application definition
 
 INSTALLED_APPS = [
-    'seguridad.apps.SeguridadConfig',
+    'pagina.apps.PaginaConfig',
+    'seguridad.apps.SeguridadConfig',    
     'foro.apps.ForoConfig',
     'django.contrib.admin',
     'django.contrib.auth',

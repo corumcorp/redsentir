@@ -1,0 +1,249 @@
+<html>
+    <head>
+        {% load static %}
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+        <link rel="stylesheet" href="{% static "css/style.css" %}">
+        <link rel="stylesheet" href="{% static "libs/bootstrap/css/bootstrap.min.css" %}">
+        <!-- <script src="js/main.js"></script> -->
+        <script src="{% static "libs/jquery/jquery-3.2.1.min.js" %}"></script>
+        <script src="{% static "libs/bootstrap/js/bootstrap.min.js" %}"></script>
+        <title>Red Sentir</title>
+    </head>    
+    <body>
+        <div class="encabezado">
+            </br>
+            <div class="container">
+                <nav class="navbar">
+                    <div class="container">
+                        <a href="#"><img src="{% static "images/pagina/logo-red.png" %}" width="15%"></a>
+                        <button class="btn boton">
+                            <img src="{% static "images/pagina/boton-red.png" %}" width="80%"/>
+                        </button>
+                        <button class="btn boton">
+                            <img src="{% static "images/pagina/boton-nosotros.png" %}" width="80%"/>
+                        </button>
+                        <button class="btn boton">
+                            <img src="{% static "images/pagina/boton-video.png" %}" width=80%"/>
+                        </button>
+                        <button class="btn boton">
+                            <img src="{% static "images/pagina/boton-aliados.png" %}" width="80%"/>
+                        </button>
+                        <button class="btn boton">
+                            <img src="{% static "images/pagina/boton-noticias.png" %}" width="80%"/>
+                        </button>
+                        <button class="btn boton">
+                            <img src="{% static "images/pagina/boton-contacto.png" %}" width="80%"/>
+                        </button>
+                        <a href="{% url "mesa:inicio" %}"><img src="{% static "images/pagina/boton-interrogantes.png" %}" width="12%" id="interrogantes"></a>
+                    </div>
+                </nav>
+            </div> 
+        </div>
+        <div class="franja"></br></div>
+        <div class="content-wrapper">
+            </br>
+            <div class="container">
+                <div id="myCarousel" class="carousel slide" data-ride="carousel">
+                    <ol class="carousel-indicators">
+                        {% for imagen in carrusel %}                            
+                            <li data-target="#myCarousel" data-slide-to="{{ forloop.counter }}" {% if forloop.counter == 1 %} class = "active" {% endif %}></li>
+                        {% endfor %}
+                    </ol>
+                    <div class="carousel-inner">
+                        {% for imagen in carrusel %} 
+                            <div class="item {% if forloop.counter == 1 %} active {% endif %}">                        
+                                <center><img src="{{ imagen.imagen }}" alt="Red Sentir"></center>                        
+                            </div>
+                        {% endfor %}              
+                    </div>
+                    <a class="left carousel-control" href="#myCarousel" data-slide="prev">
+                        <span class="glyphicon glyphicon-chevron-left"></span>
+                        <span class="sr-only">Anterior</span>
+                    </a>
+                    <a class="right carousel-control" href="#myCarousel" data-slide="next">
+                        <span class="glyphicon glyphicon-chevron-right"></span>
+                        <span class="sr-only">Siguiente</span>
+                    </a>
+                </div>
+            </div>
+            </br>
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-4">                        
+                        <div class="fuxia">
+                            <img src="{% static "images/pagina/grafico-componente-formación.png" %}" alt="Componente Formación">
+                            <center><h3 class="bristolTitulo">COMPONENTE DE FORMACIÓN</h3></center>
+                            <p>Componente de Procesos de Formación y Socialización de Experiencias Desarrollaremos procesos de formación con jóvenes, padres de familia y maestros, a través de semilleros, encuentros locales y regionales, y procesos de socialización basados en Innovación, Potencialidades del Territorio e Investigación Escolar.</p>
+                        </div>
+                    </div>
+                    <div class="col-md-4">                        
+                        <div class="amarillo">
+                            <img src="{% static "images/pagina/grafico-mesa-r.png" %}" alt="Mesa Regional">
+                            <center><h3 class="bristolTitulo">MESA REGIONAL</h3></center>
+                            </br>
+                            </br>
+                            <p>La Mesa Regional de Salud Sexual y Reproductiva La Mesa Regional de Salud Sexual y Reproductiva, es un espacio estratégico de articulación intersectorial y social, desde la cual se analizarán y se promoverán debates, propuestas e incidencias en políticas públicas sobre salud sexual de los jóvenes.</p>
+                        </div>
+                    </div>
+                    <div class="col-md-4">                        
+                        <div class="azul">
+                            <img src="{% static "images/pagina/grafico-comp-digital.png" %}" alt="Componente Digital">
+                            <center><h3 class="bristolTitulo">COMPONENTE DIGITAL</h3></center>
+                            </br>
+                            <p>A través de herramientas digitales se compartirán contenidos y experiencias para acercar a jóvenes, padres, maestros y expertos en una comunicación abierta y efectiva en temas concernientes a la salud sexual y al plan de vida.</p></br></br>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            </br>
+            <div class="container">            
+                <div class="col-md-6">
+                    <a href="#"><img src="{% static "images/pagina/1.png" %}" alt="Red Sentir"></a>
+                </div>
+                <div class="col-md-6">
+                    </br>
+                    </br>
+                    </br>
+                    </br>
+                    <center><h3 class="bristolTitulo">¿QUÉ ES LA RED SENTIR?</h3></center>
+                    <p style="color:#fff;" align="justify"><font size="4">Somos un proyecto para la prevención del embarazo adolescente, liderado por la Corporación de Estudiantes Universitarios y Profesionales de Marinilla-CORUM con Cooperación Internacional del Banco Interamericano de Desarrollo-BID y con recursos del Fondo Especial Japonés para la reducción de la pobreza en 6 municipios del Oriente antioqueño: Sonsón, Abejorral, San Francisco, San Luis, Argelia y Marinilla.</font></p>
+                </div>
+            </div>
+            <iframe width="100%" height="480" src="https://www.youtube.com/embed/qoOEJSWfpZI" frameborder="0" allowfullscreen></iframe>
+            </br>
+            </br>
+            <div class="row noticias">
+                </br>
+                <div class="col-md-3">
+                    <div class="row" style="margin-left:5%;">
+                        <div class="card" style="width: 20rem;">
+                            <img class="card-img-top" src="..." alt="Card image cap">
+                            <div class="card-block">
+                                <h4 class="card-title">Card title</h4>
+                                <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                                <a href="#" class="btn btn-primary">Go somewhere</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="row" style="margin-left:5%;">
+                        <div class="card" style="width: 20rem;">
+                            <img class="card-img-top" src="..." alt="Card image cap">
+                            <div class="card-block">
+                                <h4 class="card-title">Card title</h4>
+                                <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                                <a href="#" class="btn btn-primary">Go somewhere</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="row" style="margin-left:5%;">
+                        <div class="card" style="width: 20rem;">
+                            <img class="card-img-top" src="..." alt="Card image cap">
+                            <div class="card-block">
+                                <h4 class="card-title">Card title</h4>
+                                <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                                <a href="#" class="btn btn-primary">Go somewhere</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="row" style="margin-left:5%;">
+                        <div class="card" style="width: 20rem;">
+                            <img class="card-img-top" src="..." alt="Card image cap">
+                            <div class="card-block">
+                                <h4 class="card-title">Card title</h4>
+                                <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                                <a href="#" class="btn btn-primary">Go somewhere</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                </br>
+            </div>
+            </br>
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-3">
+                        <img src="{% static "images/pagina/logo-corum.png" %}" alt="CORUM" width="80%">
+                    </div>
+                    <div class="col-md-3">  
+                        <img src="{% static "images/pagina/gob-ant.jpg" %}" alt="Gobernación de Antioquia" width="80%">
+                    </div>
+                    <div class="col-md-3">
+                        <img src="{% static "images/pagina/ICBF.png" %}" alt="ICBF" width="80%">
+                    </div>
+                    <div class="col-md-3">
+                        <img src="{% static "images/pagina/acora.jpg" %}" alt="Acora" width="80%">
+                    </div>
+                </div>
+            </div>
+        </div>
+        </br>
+        <div class="encabezado">
+        </br>
+            <div class="container">
+                <div class="row piedepagina">
+                    <div class="col-md-6">
+                        <h2 class="bristolTitulo">SÍGUENOS</h2>
+                        <div class="row">
+                            <div class="col-md-6" align="right"><img src="{% static "images/pagina/instagram.png" %}" alt="Instagram" width="20%" class="social"></div>
+                            <div class="col-md-6"></br><b>Instagram</b></div>
+                        </div>
+                        </br>
+                        <div class="row">
+                            <div class="col-md-6" align="right"><img src="{% static "images/pagina/twitter.png" %}" alt="Twitter" width="20%" class="social"></div>
+                            <div class="col-md-6"></br><b>Twitter</b></div>
+                        </div>
+                        </br>
+                        <div class="row">
+                            <div class="col-md-6" align="right"><img src="{% static "images/pagina/facebook.png" %}" alt="Facebook" width="20%" class="social"></div>
+                            <div class="col-md-6"></br><b>Facebook</b></div>
+                        </div>
+                        <h2 class="bristolTitulo">NOTICIAS RECIENTES</h2>
+                        <p >
+                            Pilotaje Guías Didácticas – Componente de Formación
+                        </p>
+                        <p >
+                            Articulación interinstitucional Gobernación de Antioquia
+                        </p>
+                        <p >
+                            Primer Encuentro e Instalación de la Mesa Regional de Salud Sexual y Reproductiva
+                        </p>
+                        <h2  class="bristolTitulo">TE PUEDE INTERESAR</h2>
+                        <ul >
+                            <li >RED SENTIR</li>
+                            <li >Componente digital</li>
+                            <li >Componente Formación</li>
+                            <li >Mesa Regional</li>
+                            <li >Galería</li>
+                            <li >Contáctenos</li>
+                        </ul>
+                        </br>
+                        <div class="fb-page fb_iframe_widget" data-href="https://www.facebook.com/RedSentir" data-width="400" data-height="580" data-hide-cover="false" data-show-facepile="true" data-show-posts="true" fb-xfbml-state="rendered" fb-iframe-plugin-query="app_id=249643311490&amp;container_width=350&amp;height=580&amp;hide_cover=false&amp;href=https%3A%2F%2Fwww.facebook.com%2FRedSentir&amp;locale=es_ES&amp;sdk=joey&amp;show_facepile=true&amp;show_posts=true&amp;width=400"><span style="vertical-align: bottom; width: 350px; height: 580px;"><iframe name="f27443629449f4" width="400px" height="580px" frameborder="0" allowtransparency="true" allowfullscreen="true" scrolling="no" title="fb:page Facebook Social Plugin" src="https://www.facebook.com/v2.3/plugins/page.php?app_id=249643311490&amp;channel=https%3A%2F%2Fstaticxx.facebook.com%2Fconnect%2Fxd_arbiter%2Fr%2FXBwzv5Yrm_1.js%3Fversion%3D42%23cb%3Dfb4725dd1f60e4%26domain%3Dwww.redsentir.org%26origin%3Dhttps%253A%252F%252Fwww.redsentir.org%252Ff22626d0f5795dc%26relation%3Dparent.parent&amp;container_width=350&amp;height=580&amp;hide_cover=false&amp;href=https%3A%2F%2Fwww.facebook.com%2FRedSentir&amp;locale=es_ES&amp;sdk=joey&amp;show_facepile=true&amp;show_posts=true&amp;width=400" style="border: none; visibility: visible; width: 350px; height: 580px;" class=""></iframe></span></div>
+                    </div>
+                    <div class="col-md-6">
+                        <h2  class="bristolTitulo">COMUNÍCATE CON CONSOTROS</h2>
+                        <p><b>Correo electronico</b></br>redsentir@corum.org.co</p>
+                        <p><b>Teléfono</b></br>+57 4 545 0056</p>
+                        <p><b>Dirección</b></br>Calle 30 Nro. 25 118</br>Marinilla - Antioquia</p>
+                        <iframe width="425" height="350" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="http://www.openstreetmap.org/export/embed.html?bbox=-75.33573031425477%2C6.171040992195369%2C-75.3319698572159%2C6.174235649328622&amp;layer=mapnik" style="border: 1px solid black"></iframe><br/><small><a href="https://www.openstreetmap.org/#map=18/6.17264/-75.33385&amp;layers=N">Ver mapa más grande</a></small>
+                        
+                    </div>
+                </div>                  
+            </div> 
+        </div>
+    </body>
+</html>
+<script>
+$('#interrogantes').hover(function() {
+  $(this).attr('src', '{% static "images/pagina/boton-interrogantes1.png" %}');
+  $(this).attr('width', '13%');
+}, function() {
+  $(this).attr('src', '{% static "images/pagina/boton-interrogantes.png" %}');
+  $(this).attr('width', '12%');
+});
+</script>
