@@ -16,7 +16,7 @@ class Foro(models.Model):
 class Comentario(models.Model):
     foro = models.ForeignKey(Foro, on_delete=models.CASCADE)
     mensaje = models.CharField(max_length=200)
-#    usuario = models.ForeignKey(User, on_delete=models.CASCADE)    
+    usuario = models.ForeignKey(User, null=True,default=None)    
 
     def __str__(self):
         return self.foro.tema+" | "+self.mensaje

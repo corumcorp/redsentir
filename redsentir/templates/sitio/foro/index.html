@@ -19,21 +19,28 @@
             <div class="panel panel-primary">
                 <div class="panel-heading">
                      <div class="card mark">
-                            <h4>Mitos de la sexualidad</h4>
-                            <p color="#000">
-                                En este foro resolveremos inquietudes, te daremos acompañamiento y orientación con respecto a distintos temas de sexualidad tumbando distintos mitos alrededor de ella. La sexualidad es la base de las relaciones que compone la vida humana por eso hay que entenderla y experimentarla libremente y con responsabilidad, por lo tanto, en este foro responderemos aquellas dudas, habladurías, chismoseo, o creencias que hayas escuchado sobre distintos temas de la sexualidad como el sexo, el género, los derechos, abortos, el coito, la orientación sexual, el autoerotismo, etc.
-                                
-Para comenzar opina acerca de los siguiente:
+                            <div class="row">
+                                <div class="col-md-9">
+                                <h4>Mitos de la sexualidad</h4>
+                                <p color="#000" align="justify">
+                                    En este foro resolveremos inquietudes, te daremos acompañamiento y orientación con respecto a distintos temas de sexualidad tumbando distintos mitos alrededor de ella. La sexualidad es la base de las relaciones que compone la vida humana por eso hay que entenderla y experimentarla libremente y con responsabilidad, por lo tanto, en este foro responderemos aquellas dudas, habladurías, chismoseo, o creencias que hayas escuchado sobre distintos temas de la sexualidad como el sexo, el género, los derechos, abortos, el coito, la orientación sexual, el autoerotismo, etc.
+                                    
+    Para comenzar opina acerca de los siguiente:
 
-¿Que se dice sobre la sexualidad en la calle y colegio o entre tus amigos, familiares y profesores?
-                            </p>
+    ¿Que se dice sobre la sexualidad en la calle y colegio o entre tus amigos, familiares y profesores?
+                                </p>
+                                </div>
+                                <div class="col-md-3">
+                                <img class="img-circle" width="100%" src="{% static "/images/pagina/1.png" %}" alt="Imagen de Usuario">
+                                </div>
+                            </div>
                         </div>                
                 </div>
                 <div class="panel-body">
                     <ul class="chat">
                         {% for comentario in comentarios %}
                         <li class="left clearfix"><span class="chat-img pull-left">
-                            <img src="http://placehold.it/50/55C1E7/fff&text={{ comentario.mensaje|slice:"1" }}" alt="User Avatar" class="img-circle" />
+                            <img class="img-circle" src="{% static "/images/logoredsentir1.png" %}" alt="Imagen de Usuario">
                         </span>
                             <div class="chat-body clearfix">
                                 <div class="header">
@@ -52,6 +59,7 @@ Para comenzar opina acerca de los siguiente:
                     <form method="post">
                     {% csrf_token %}
                     <div class="input-group">
+                        <input id="btn-input" type="checkbox" name="anonimo"/>Anónimo
                         <input id="btn-input" type="text" name="mensaje" class="form-control input-sm" placeholder="Escriba su comentario aqui..." />
                         <span class="input-group-btn">
                             <button type="submit" class="btn btn-warning btn-sm" id="btn-chat">
