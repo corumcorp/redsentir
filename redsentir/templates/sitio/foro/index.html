@@ -31,29 +31,34 @@ Para comenzar opina acerca de los siguiente:
                 </div>
                 <div class="panel-body">
                     <ul class="chat">
+                        {% for comentario in comentarios %}
                         <li class="left clearfix"><span class="chat-img pull-left">
-                            <img src="http://placehold.it/50/55C1E7/fff&text=U" alt="User Avatar" class="img-circle" />
+                            <img src="http://placehold.it/50/55C1E7/fff&text={{ comentario.mensaje|slice:"1" }}" alt="User Avatar" class="img-circle" />
                         </span>
                             <div class="chat-body clearfix">
                                 <div class="header">
-                                    <strong class="primary-font">Jack Sparrow</strong> <small class="pull-right text-muted">
+                                    <strong class="primary-font">Anónimo</strong> <small class="pull-right text-muted">
                                         <span class="glyphicon glyphicon-time"></span>hace 12 minutos</small>
                                 </div>
                                 <p>
-                                    Lugar para escribir el comentario del foro.
+                                    {{ comentario.mensaje }}
                                 </p>
                             </div>
                         </li>
+                        {% endfor %}
                     </ul>
                 </div>
                 <div class="panel-footer">
+                    <form method="post">
+                    {% csrf_token %}
                     <div class="input-group">
-                        <input id="btn-input" type="text" class="form-control input-sm" placeholder="Escriba su comentario aqui..." />
+                        <input id="btn-input" type="text" name="mensaje" class="form-control input-sm" placeholder="Escriba su comentario aqui..." />
                         <span class="input-group-btn">
-                            <button class="btn btn-warning btn-sm" id="btn-chat">
+                            <button type="submit" class="btn btn-warning btn-sm" id="btn-chat">
                                 Enviar</button>
                         </span>
                     </div>
+                    </form>
                 </div>
             </div>
         </div>
