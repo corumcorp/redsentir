@@ -1,0 +1,391 @@
+{% extends 'base.html' %}
+{% load static %}
+{% load social_widgets %}
+{% block sideMenu %}
+    <li><a href="/"><i class="fa fa-dashboard"></i><span>Linea de Tiempo</span></a></li>
+    <li class="treeview active"><a href="#"><i class="fa fa-pie-chart"></i><span>Linea base</span><i class="fa fa-angle-right"></i></a>
+        <ul class="treeview-menu">
+        <li><a href="{% url "lineabase:index" %}"><i class="fa fa-circle-o"></i>Resultados</a></li>
+        <li><a href="{% url "lineabase:sociodemograficos" %}"><i class="fa fa-circle-o"></i>Socio Demograficos</a></li>
+        <li><a href="{% url "lineabase:actividades" %}"><i class="fa fa-circle-o"></i>Actividades sociales</a></li>
+        <li><a href="{% url "lineabase:relaciones" %}"><i class="fa fa-circle-o"></i>Relaciones personales</a></li>
+        <li><a href="{% url "lineabase:salud" %}"><i class="fa fa-circle-o"></i>Salud Sexual</a></li>
+        <li><a href="{% url "lineabase:plan" %}"><i class="fa fa-circle-o"></i>Plan de vida</a></li>
+        <li><a href="{% url "lineabase:subgrupos" %}"><i class="fa fa-circle-o"></i>Análisis de subgrupos</a></li>
+        <li><a href="{% url "lineabase:embarazo" %}"><i class="fa fa-circle-o"></i>Embarazo adolecente</a></li>
+        <li><a href="{% url "lineabase:discucion" %}"><i class="fa fa-circle-o"></i>Discusión</a></li>
+        </ul>
+    </li>
+{% endblock %}
+{% block contenido %}
+    <div class="col-md-12">
+        <div class="card">
+            <div class="">
+                <div class="row">
+                    <div class="col-md-6">     
+                    {% social_widget_render 'facebook/share_button.html' href='http://redsentir.org/lineabase/sociodemograficos' %}
+                    {% social_widget_render 'twitter/share_button.html' href='http://redsentir.org' %}
+                    <h2 class="card-title">Resultados</h2>
+                    <p class="text-justify">Se entrevistaron 4.432 adolescentes, la mayoría de ellos eran estudiantes de educación básica primaria, secundaria y educación media de 28 instituciones educativas (públicas y privadas) de los municipios de Marinilla, Sonsón, Abejorral, San Luis Argelia y San Francisco, y también se entrevistó a los adolescentes que no estaban escolarizados de los mismos municipios (Tabla 1).</p>
+                    <canvas id="barChartDemo"></canvas>                         
+                    </div>
+                    <div class="col-md-6">                                                                                                                
+                            <div class="table-responsive">          
+                            <table class="table">
+                                <thead>
+                                <tr>
+                                    <th>Nivel de escolaridad</th>
+                                    <th>Frecuencia absoluta</th>
+                                    <th>Porcentage</th>
+                                    <th>Porcentage acumulado</th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                <tr>
+                                    <td>4 grado</td>
+                                    <td>1</td>
+                                    <td>0.02</td>
+                                    <td>0,02</td>
+                                </tr>
+                                <tr>
+                                    <td>5 grado</td>
+                                    <td>24</td>
+                                    <td>0,56</td>
+                                    <td>0,59</td>
+                                </tr>
+                                <tr>
+                                    <td>6 grado</td>
+                                    <td>135</td>
+                                    <td>3,17</td>
+                                    <td>3,76</td>
+                                </tr>
+                                <tr>
+                                    <td>7 grado</td>
+                                    <td>403</td>
+                                    <td>9,46</td>
+                                    <td>13,22</td>
+                                </tr>
+                                <tr>
+                                    <td>8 grado</td>
+                                    <td>1017</td>
+                                    <td>23,88</td>
+                                    <td>37,10</td>
+                                </tr>
+                                <tr>
+                                    <td>9 grado</td>
+                                    <td>1082</td>
+                                    <td>25,41</td>
+                                    <td>62,50</td>
+                                </tr>
+                                <tr>
+                                    <td>10 grado</td>
+                                    <td>489</td>
+                                    <td>19,93</td>
+                                    <td>82,44</td>
+                                </tr>
+                                <tr>
+                                    <td>11 grado</td>
+                                    <td>748</td>
+                                    <td>25,41</td>
+                                    <td>100,00</td>
+                                </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                        <p class="text-justify">Hubo participación de estudiantes desde el 4º grado de básica primaria hasta el 11er grado de educación media (Tabla 2). El universo de estudiantes considerado fueron los estudiantes de educación básica secundaria y educación media de los seis municipios en los que se realizó el estudio, aquellos estudiantes de básica primaria que fueron encuestados presentan una condición sociodemográfica diferente, pero ninguno era menor de 13 años.</p> 
+                    </div>
+                </div>
+                <div class="table-responsive">          
+                        <table class="table">
+                            <thead>
+                            <tr>
+                                <th>Institución educativa</th>
+                                <th>Municipio</th>
+                                <th>Frecuencia absoluta</th>
+                                <th>Porcentage</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            <tr>
+                                <td>Manuel Canuto Restrepo</td>
+                                <td>Abejorral</td>
+                                <td>79</td>
+                                <td>1,78</td>
+                            </tr>
+                            <tr>
+                                <td>Escuela Normal Superior</td>
+                                <td>Abejorral</td>
+                                <td>180</td>
+                                <td>4,06</td>
+                            </tr>
+                            <tr>
+                                <td>Fundación Celia Duque</td>
+                                <td>Abejorral</td>
+                                <td>110</td>
+                                <td>2,48</td>
+                            </tr>
+                            <tr>
+                                <td>Rural de Pantanillo</td>
+                                <td>Abejorral</td>
+                                <td>80</td>
+                                <td>1,81</td>
+                            </tr>
+                            <tr>
+                                <td>Rural Zoila Duque Baena</td>
+                                <td>Abejorral</td>
+                                <td>40</td>
+                                <td>0,90</td>
+                            </tr>
+                            <tr>
+                                <td>San Francisco</td>
+                                <td>San Francisco</td>
+                                <td>100</td>
+                                <td>2,26</td>
+                            </tr>
+                            <tr>
+                                <td>San Juan de Aquitania</td>
+                                <td>San Francisco</td>
+                                <td>43</td>
+                                <td>0,97</td>
+                            </tr>
+                            <tr>
+                                <td>Desescolarizados</td>
+                                <td>San Francisco</td>
+                                <td>4</td>
+                                <td>0,09</td>
+                            </tr>
+                            <tr>
+                                <td>Rural la Josefina</td>
+                                <td>San Luis</td>
+                                <td>78</td>
+                                <td>1,76</td>
+                            </tr>
+                            <tr>
+                                <td>San Luis</td>
+                                <td>San Luis</td>
+                                <td>392</td>
+                                <td>8,84</td>
+                            </tr>
+                            <tr>
+                                <td>Altavista</td>
+                                <td>San Luis</td>
+                                <td>68</td>
+                                <td>1,53</td>
+                            </tr>
+                            <tr>
+                                <td>El Prodigio</td>
+                                <td>San Luis</td>
+                                <td>46</td>
+                                <td>1,04</td>
+                            </tr>
+                            <tr>
+                                <td>Desescolarizados </td>
+                                <td>San Luis</td>
+                                <td>4</td>
+                                <td>0,09</td>
+                            </tr>
+                            <tr>
+                                <td>Braulio Mejía </td>
+                                <td>Sonsón</td>
+                                <td>209</td>
+                                <td>4,72</td>
+                            </tr>
+                            <tr>
+                                <td>Escuela Normal Superior Presbítero</td>
+                                <td>Sonsón</td>
+                                <td>88</td>
+                                <td>1,99</td>
+                            </tr>
+                            <tr>
+                                <td>La Danda</td>
+                                <td>Sonsón</td>
+                                <td>117</td>
+                                <td>2,64</td>
+                            </tr>
+                            <tr>
+                                <td>Rural Jerusalén</td>
+                                <td>Sonsón</td>
+                                <td>49</td>
+                                <td>1,11</td>
+                            </tr>
+                            <tr>
+                                <td>Rural San Miguel</td>
+                                <td>Sonsón</td>
+                                <td>100</td>
+                                <td>2,26</td>
+                            </tr>
+                            <tr>
+                                <td>Rural Sirgua Abajo</td>
+                                <td>Sonsón</td>
+                                <td>213</td>
+                                <td>4,81</td>
+                            </tr>
+                            <tr>
+                                <td>Rosa María Henao Pavas</td>
+                                <td>Sonsón</td>
+                                <td>116</td>
+                                <td>2,62</td>
+                            </tr>
+                            <tr>
+                                <td>Técnico Agropecuario y en Salud</td>
+                                <td>Sonsón</td>
+                                <td>263</td>
+                                <td>5,93</td>
+                            </tr>
+                            <tr>
+                                <td>Técnico Industrial Antonio Álvarez</td>
+                                <td>Sonsón</td>
+                                <td>221</td>
+                                <td>4,99</td>
+                            </tr>
+                            <tr>
+                                <td>Desescolarizados</td>
+                                <td>Sonsón</td>
+                                <td>1</td>
+                                <td>0,02</td>
+                            </tr>
+                            <tr>
+                                <td>Rural presbítero Mario Ángel</td>
+                                <td>Argelia</td>
+                                <td>31</td>
+                                <td>0,70</td>
+                            </tr>
+                            <tr>
+                                <td>Santa Teresa</td>
+                                <td>Argelia</td>
+                                <td>132</td>
+                                <td>2,98</td>
+                            </tr>
+                            <tr>
+                                <td>Desescolarizados</td>
+                                <td>Argelia</td>
+                                <td>406</td>
+                                <td>9,16</td>
+                            </tr>
+                            <tr>
+                                <td>Normal Superior Rafael</td>
+                                <td>Marinilla</td>
+                                <td>42</td>
+                                <td>0,95</td>
+                            </tr>
+                            <tr>
+                                <td>Rural Rosalía Hoyos</td>
+                                <td>Marinilla</td>
+                                <td>7</td>
+                                <td>0,16</td>
+                            </tr>
+                            <tr>
+                                <td>Francisco Manzueto Giraldo</td>
+                                <td>Marinilla</td>
+                                <td>309</td>
+                                <td>6,97</td>
+                            </tr>
+                            <tr>
+                                <td>Román Gómez</td>
+                                <td>Marinilla</td>
+                                <td>394</td>
+                                <td>8,89</td>
+                            </tr>
+                            <tr>
+                                <td>San José</td>
+                                <td>Marinilla</td>
+                                <td>1</td>
+                                <td>0,02</td>
+                            </tr>
+                            <tr>
+                                <td>Desescolarizados</td>
+                                <td>Marinilla</td>
+                                <td>30</td>
+                                <td>0,68</td>
+                            </tr>
+                            <tr>
+                                <td>Técnico Industrial Simona Duque</td>
+                                <td>Marinilla</td>
+                                <td>479</td>
+                                <td>10,81</td>
+                            </tr>
+                            </tbody>
+                        </table>
+                    </div> 
+            </div>
+        </div>        
+    </div> 
+{% endblock %}
+{% block scripts %}
+    <script type="text/javascript" src="{% static "/js/plugins/chart.js" %}"></script>
+    <script type="text/javascript">  
+        var data = {
+            labels: ["Abejorral", "San Francisco", "San Luis", "Sonsón", "Argelia", "Marinilla"],
+            datasets: [
+                    {
+                            label: "Frecuencia Absoluta",
+                            fillColor: "#DBA901",
+                            strokeColor: "#088A08",
+                            pointColor: "rgba(220,220,220,1)",
+                            pointStrokeColor: "#fff",
+                            pointHighlightFill: "#fff",
+                            pointHighlightStroke: "rgba(220,220,220,1)",
+                            data: [489, 147, 588, 1377, 569, 1262]
+                    }
+            ]
+        };
+        
+        var pdata = [
+      	{
+      		value: 2021,
+      		color:"#F7464A",
+      		highlight: "#FF5A5E",
+      		label: "Deportivos"
+      	},
+      	{
+      		value: 1299,
+      		color: "#46BEEE",
+      		highlight: "#5AD3D1",
+      		label: "Ninguno"
+      	},
+      	{
+      		value: 598,
+      		color: "#9DBDDD",
+      		highlight: "#FFC870",
+      		label: "Culturales / artísticos"
+      	},
+      	{
+      		value: 538,
+      		color: "#8DBBBB",
+      		highlight: "#FFC870",
+      		label: "Sociales"
+      	},
+      	{
+      		value: 526,
+      		color: "#6DBAAA",
+      		highlight: "#FFC870",
+      		label: "Musicales"
+      	},
+      	{
+      		value: 498,
+      		color: "#FDBCCC",
+      		highlight: "#FFC870",
+      		label: "Religiosos"
+      	},
+      	{
+      		value: 236,
+      		color: "#CDAFFF",
+      		highlight: "#FFC870",
+      		label: "Ambientales"
+      	},
+      	{
+      		value: 36,
+      		color: "#210765",
+      		highlight: "#FFC870",
+      		label: "Militares"
+      	}
+      ]
+       
+        var ctxb = $("#barChartDemo").get(0).getContext("2d");
+        var barChart = new Chart(ctxb).Bar(data);
+        
+        var ctxp = $("#pieChartDemo").get(0).getContext("2d");
+        var barChart = new Chart(ctxp).Pie(pdata);
+    </script>
+{% endblock %}
+

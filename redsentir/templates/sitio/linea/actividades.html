@@ -1,0 +1,472 @@
+Ui{% extends 'base.html' %}
+{% load static %}
+{% block sideMenu %}
+    <li><a href="/"><i class="fa fa-dashboard"></i><span>Linea de Tiempo</span></a></li>
+    <li class="treeview active"><a href="#"><i class="fa fa-pie-chart"></i><span>Linea base</span><i class="fa fa-angle-right"></i></a>
+        <ul class="treeview-menu">
+        <li><a href="{% url "lineabase:index" %}"><i class="fa fa-circle-o"></i>Resultados</a></li>
+        <li><a href="{% url "lineabase:sociodemograficos" %}"><i class="fa fa-circle-o"></i>Socio Demograficos</a></li>
+        <li><a href="{% url "lineabase:actividades" %}"><i class="fa fa-circle-o"></i>Actividades sociales</a></li>
+        <li><a href="{% url "lineabase:relaciones" %}"><i class="fa fa-circle-o"></i>Relaciones personales</a></li>
+        <li><a href="{% url "lineabase:salud" %}"><i class="fa fa-circle-o"></i>Salud Sexual</a></li>
+        <li><a href="{% url "lineabase:plan" %}"><i class="fa fa-circle-o"></i>Plan de vida</a></li>
+        <li><a href="{% url "lineabase:subgrupos" %}"><i class="fa fa-circle-o"></i>Análisis de subgrupos</a></li>
+        <li><a href="{% url "lineabase:embarazo" %}"><i class="fa fa-circle-o"></i>Embarazo adolecente</a></li>
+        <li><a href="{% url "lineabase:discucion" %}"><i class="fa fa-circle-o"></i>Discusión</a></li>
+        </ul>
+    </li>
+{% endblock %}
+{% block contenido %}
+    <div class="col-md-12">
+        <div class="card">
+                <div class="row">
+                    <div class="col-md-6">  
+                     <h2 class="card-title">Actividades sociales y lúdicas</h2>
+                        <p class="text-justify">Cuatro de cada cinco adolescentes refieren tener acceso a Internet (Figura 4), dos terceras partes de los adolescentes acceden desde su casa y casi la mitad de ellos cuentan con plan de datos para acceder desde su teléfono móvil (Tabla 9)</p>
+                        <p><canvas id="pieChartF4"></canvas></p>
+                        <p class="small">Figura 4. Distribución porcentual de adolescentes, según su posibilidad de acceder a Internet. Factores relacionados con embarazo en adolescentes, 2017.</p></br>                        
+                        <p>Tabla 9. Distribución de frecuencias de los adolescentes según el sitio de acceso a Internet. Factores relacionados con embarazo en adolescentes, 2017.</p>
+                            <div class="table-responsive">          
+                            <table class="table">
+                                <thead>
+                                <tr>
+                                    <th>Sitio de acceso</th>
+                                    <th>Frecuencia absoluta</th>
+                                    <th>Porcentage</th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                <tr>
+                                    <td>Casa</td>
+                                    <td>2988</td>
+                                    <td>67</td>
+                                </tr>
+                                <tr>
+                                    <td>Parque educativo</td>
+                                    <td>591</td>
+                                    <td>13</td>
+                                </tr>
+                                <tr>
+                                    <td>Inst. educativa</td>
+                                    <td>958</td>
+                                    <td>22</td>
+                                </tr>
+                                <tr>
+                                    <td>Datos móviles</td>
+                                    <td>2057</td>
+                                    <td>46</td>
+                                </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                        <p class="text-justify">Casi 70 % de los adolescentes escolarizados se encuentran cursando los grados 8º a 10º, y el 17,5 % cursa actualmente el grado 11 (Tabla 4).</p> 
+                        <p class="text-justify">Tabla 4. Distribución de frecuencias de los adolescentes escolarizados según grado actualmente cursado. Factores relacionados con embarazo en adolescentes, 2017.</p>
+                        <div class="table-responsive">          
+                            <table class="table">
+                                <thead>
+                                <tr>
+                                    <th>Nivel de escolaridad</th>
+                                    <th>Frecuencia absoluta</th>
+                                    <th>Porcentage</th>
+                                    <th>Porcentage acumulado</th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                <tr>
+                                    <td>4 grado</td>
+                                    <td>1</td>
+                                    <td>0.02</td>
+                                    <td>0,02</td>
+                                </tr>
+                                <tr>
+                                    <td>5 grado</td>
+                                    <td>24</td>
+                                    <td>0,56</td>
+                                    <td>0,59</td>
+                                </tr>
+                                <tr>
+                                    <td>6 grado</td>
+                                    <td>135</td>
+                                    <td>3,17</td>
+                                    <td>3,76</td>
+                                </tr>
+                                <tr>
+                                    <td>7 grado</td>
+                                    <td>403</td>
+                                    <td>9,46</td>
+                                    <td>13,22</td>
+                                </tr>
+                                <tr>
+                                    <td>8 grado</td>
+                                    <td>1017</td>
+                                    <td>23,88</td>
+                                    <td>37,10</td>
+                                </tr>
+                                <tr>
+                                    <td>9 grado</td>
+                                    <td>1082</td>
+                                    <td>25,41</td>
+                                    <td>62,50</td>
+                                </tr>
+                                <tr>
+                                    <td>10 grado</td>
+                                    <td>489</td>
+                                    <td>19,93</td>
+                                    <td>82,44</td>
+                                </tr>
+                                <tr>
+                                    <td>11 grado</td>
+                                    <td>748</td>
+                                    <td>25,41</td>
+                                    <td>100,00</td>
+                                </tr>
+                                <tr>
+                                    <td>11 grado</td>
+                                    <td>748</td>
+                                    <td>25,41</td>
+                                    <td>17,56</td>
+                                </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                        <p class="text-justify">Tabla 10. Distribución de frecuencias de los adolescentes según el dispositivo usado para ingresar a Internet. Factores relacionados con embarazo en adolescentes, 2017.</p>
+                        <div class="table-responsive">          
+                            <table class="table">
+                                <thead>
+                                <tr>
+                                    <th>Dispositivo de acceso</th>
+                                    <th>Frecuencia absoluta</th>
+                                    <th>Porcentage</th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                <tr>
+                                    <td>Celular</td>
+                                    <td>3872</td>
+                                    <td>87</td>
+                                </tr>
+                                <tr>
+                                    <td>Computador</td>
+                                    <td>1808</td>
+                                    <td>41</td>
+                                </tr>
+                                <tr>
+                                    <td>Tablet</td>
+                                    <td>628</td>
+                                    <td>14</td>
+                                </tr>
+                                </tbody>
+                            </table>
+                        </div></br>
+                        <!--fffffffffffffffffffffffff -->
+                        <p class="text-justify">Las principales actividades lúdicas de los adolescentes son participar en redes sociales, hacer deporte y escuchar música (Tabla 11). Asimismo, el tipo de grupo en el que más participan es en grupos deportivos (Tabla 12).</p>
+                        <p class="text-justify">Tabla 11. Distribución de frecuencias de los adolescentes según las actividades lúdicas que realizan. Factores relacionados con embarazo en adolescentes, 2017.</p>
+                        <div class="table-responsive">          
+                            <table class="table">
+                                <thead>
+                                <tr>
+                                    <th>Actividad lúdica</th>
+                                    <th>Frecuencia absoluta</th>
+                                    <th>Porcentage</th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                <tr>
+                                    <td>Redes sociales</td>
+                                    <td>2829</td>
+                                    <td>63,8</td>
+                                </tr>
+                                <tr>
+                                    <td>Deporte</td>
+                                    <td>2629</td>
+                                    <td>59,3</td>
+                                </tr>
+                                <tr>
+                                    <td>Escuchar música</td>
+                                    <td>2448</td>
+                                    <td>55,2</td>
+                                </tr>
+                                <tr>
+                                    <td>Lectura</td>
+                                    <td>1223</td>
+                                    <td>27,6</td>
+                                </tr>
+                                <tr>
+                                    <td>Pintura</td>
+                                    <td>788</td>
+                                    <td>17,8</td>
+                                </tr>
+                                <tr>
+                                    <td>Baile</td>
+                                    <td>590</td>
+                                    <td>13,3</td>
+                                </tr>
+                                <tr>
+                                    <td>Ninguna</td>
+                                    <td>161</td>
+                                    <td>3,6</td>
+                                </tr>
+                                </tbody>
+                            </table>
+                        </div></br>
+                    </div>
+                    <div class="col-md-6">     
+                            
+                        <p>Casi 70 % de los adolescentes accede todos los días a Internet (Figura 5) y la mayor parte de ellos lo hace a través de su teléfono móvil (Tabla 10).</p>
+                        <canvas id="pieChartF5"></canvas>
+                        <p class="small">Figura 5. Distribución porcentual de adolescentes, según su frecuencia de acceso a Internet. Factores relacionados con embarazo en adolescentes, 2017.</p>                       
+                        <!--fffffffffffffffffffffffff -->
+                        <p class="text-justify">Tabla 12. Distribución de frecuencias de los adolescentes según los grupos sociales en que participan. Factores relacionados con embarazo en adolescentes, 2017.</p>
+                        <div class="table-responsive">          
+                            <table class="table">
+                                <thead>
+                                <tr>
+                                    <th>Grupos sociales</th>
+                                    <th>Frecuencia absoluta</th>
+                                    <th>Porcentage</th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                <tr>
+                                    <td>Deportivos</td>
+                                    <td>2021</td>
+                                    <td>45,6</td>
+                                </tr>
+                                <tr>
+                                    <td>Ninguno</td>
+                                    <td>1299</td>
+                                    <td>29,3</td>
+                                </tr>
+                                <tr>
+                                    <td>Culturales / artísticos</td>
+                                    <td>598</td>
+                                    <td>13,5</td>
+                                </tr>
+                                <tr>
+                                    <td>Sociales</td>
+                                    <td>538</td>
+                                    <td>12,1</td>
+                                </tr>
+                                <tr>
+                                    <td>>Musicales</td>
+                                    <td>526</td>
+                                    <td>11,9</td>
+                                </tr>
+                                <tr>
+                                    <td>Religiosos</td>
+                                    <td>498</td>
+                                    <td>11,2</td>
+                                </tr>
+                                <tr>
+                                    <td>Ambientales</td>
+                                    <td>236</td>
+                                    <td>5,3</td>
+                                </tr>
+                                <tr>
+                                    <td>>Militares</td>
+                                    <td>36</td>
+                                    <td>0,8</td>
+                                </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                        <p class="text-justify">Los lugares que más visitan los adolescentes en el oriente antioqueño son los parques y las unidades deportivas (Tabla 13), asimismo, 31 % de ellos hace deporte dos veces a la semana y el 19 % no hace deporte (Figura 6).</p>
+                        <!--fffffffffffffffffffffffff -->
+                        <p class="text-justify">Tabla 13. Distribución de frecuencias de los adolescentes según los grupos sociales en que participan. Factores relacionados con embarazo en adolescentes, 2017.</p>
+                        <div class="table-responsive">          
+                            <table class="table">
+                                <thead>
+                                <tr>
+                                    <th>Lugares frecuentados</th>
+                                    <th>Frecuencia absoluta</th>
+                                    <th>Porcentage</th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                <tr>
+                                    <td>Parques</td>
+                                    <td>2154</td>
+                                    <td>48,6</td>
+                                </tr>
+                                <tr>
+                                    <td>Unidad deportiva</td>
+                                    <td>1906</td>
+                                    <td>43,0</td>
+                                </tr>
+                                <tr>
+                                    <td>Biblioteca / parque educativo</td>
+                                    <td>486</td>
+                                    <td>11,0</td>
+                                </tr>
+                                <tr>
+                                    <td>Discotecas</td>
+                                    <td>377</td>
+                                    <td>8,5</td>
+                                </tr>
+                                <tr>
+                                    <td>Café internet</td>
+                                    <td>271</td>
+                                    <td>6,1</td>
+                                </tr>
+                                <tr>
+                                    <td>Maquinitas</td>
+                                    <td>106</td>
+                                    <td>2,4</td>
+                                </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                        <p><canvas id="pieChartF6"></canvas></p>
+                        <p class="small">Figura 6. Distribución porcentual de adolescentes, según la frecuencia con la que practican algún deporte. Factores relacionados con embarazo en adolescentes, 2017.</p></br>
+                        <!--fffffffffffffffffffffffff -->
+                        <p class="text-justify">Los medios de comunicación más utilizados son el Internet y la televisión y el menos frecuentado son los periódicos y las revistas (Tabla 14).</p>
+                        <div class="table-responsive">          
+                            <table class="table">
+                                <thead>
+                                <tr>
+                                    <th>Medio de comunicación</th>
+                                    <th>Frecuencia absoluta</th>
+                                    <th>Porcentage</th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                <tr>
+                                    <td>Internet</td>
+                                    <td>3495</td>
+                                    <td>78,9</td>
+                                </tr>
+                                <tr>
+                                    <td>Televisión</td>
+                                    <td>3136</td>
+                                    <td>70,8</td>
+                                </tr>
+                                <tr>
+                                    <td>Radio</td>
+                                    <td>599</td>
+                                    <td>13,5</td>
+                                </tr>
+                                <tr>
+                                    <td>Periódico y revistas</td>
+                                    <td>181</td>
+                                    <td>4,1</td>
+                                </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                        <p class="small">Tabla 14. Distribución de frecuencias de los adolescentes según los medios de comunicación que utilizan. Factores relacionados con embarazo en adolescentes, 2017.</p></br>
+                    </div>
+                </div>            
+        </div>   
+    </div> 
+{% endblock %}
+{% block scripts %}
+    <script type="text/javascript" src="{% static "/js/plugins/chart.js" %}"></script>
+    <script type="text/javascript">  
+        var data = {
+            labels: ["Mujer", "Mujer", "Intersexo"],
+            datasets: [
+                    {
+                            label: "Frecuencia Absoluta",
+                            fillColor: "#EA3EE7",
+                            strokeColor: "rgba(220,220,220,1)",
+                            pointColor: "rgba(220,220,220,1)",
+                            pointStrokeColor: "#fff",
+                            pointHighlightFill: "#fff",
+                            pointHighlightStroke: "rgba(220,220,220,1)",
+                            data: [117, 100, 49]
+                    }
+            ]
+        };
+        
+        var pdata = [
+      	{
+      		value: 27,
+      		color:"#F7464A",
+      		highlight: "#FF5A5E",
+      		label: "Urbana"
+      	},
+      	{
+      		value: 73,
+      		color: "#46BEEE",
+      		highlight: "#5AD3D1",
+      		label: "Rural"
+      	}
+      ]
+      
+      var f4data = [
+      	{
+      		value: 80,
+      		color:"#66464A",
+      		highlight: "#825A5E",
+      		label: "Si tiene acceso"
+      	},
+      	{
+      		value: 20,
+      		color: "#77BEEE",
+      		highlight: "#81D3D1",
+      		label: "No tiene acceso"
+      	}
+      ]
+      
+      var f5data = [
+      	{
+      		value: 11,
+      		color:"#BB464A",
+      		highlight: "#825A5E",
+      		label: "Una vez a la semana"
+      	},
+      	{
+      		value: 19,
+      		color: "#AABEEE",
+      		highlight: "#81D3D1",
+      		label: "Dia por medio"
+      	},
+      	{
+      		value: 70,
+      		color: "#CCBEEE",
+      		highlight: "#81D3D1",
+      		label: "Diario"
+      	}
+      ]
+      
+      var f6data = [
+      	{
+      		value: 19,
+      		color:"#BB464A",
+      		highlight: "#825A5E",
+      		label: "No hago deporte"
+      	},
+      	{
+      		value: 28,
+      		color: "#AABEEE",
+      		highlight: "#81D3D1",
+      		label: "Dirio"
+      	},
+      	{
+      		value: 22,
+      		color: "#CCBEEE",
+      		highlight: "#81D3D1",
+      		label: "3 veces a la semana"
+      	},
+      	{
+      		value: 31,
+      		color: "#DDBEEE",
+      		highlight: "#81D3D1",
+      		label: "2 veces a la semana"
+      	}
+      ]
+       
+       /* var ctxb = $("#barChartDemo").get(0).getContext("2d");
+        var barChart = new Chart(ctxb).Bar(data);*/
+        
+        var ctxp = $("#pieChartF6").get(0).getContext("2d");
+        var barChart = new Chart(ctxp).Pie(f6data);
+        
+        var ctxp = $("#pieChartF4").get(0).getContext("2d");
+        var barChart = new Chart(ctxp).Pie(f4data);
+        
+        var ctxp = $("#pieChartF5").get(0).getContext("2d");
+        var barChart = new Chart(ctxp).Pie(f5data);
+    </script>
+{% endblock %}
+

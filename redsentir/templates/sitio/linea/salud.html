@@ -1,0 +1,818 @@
+Ui{% extends 'base.html' %}
+{% load static %}
+{% block sideMenu %}
+    <li><a href="/"><i class="fa fa-dashboard"></i><span>Linea de Tiempo</span></a></li>
+    <li class="treeview active"><a href="#"><i class="fa fa-pie-chart"></i><span>Linea base</span><i class="fa fa-angle-right"></i></a>
+        <ul class="treeview-menu">
+        <li><a href="{% url "lineabase:index" %}"><i class="fa fa-circle-o"></i>Resultados</a></li>
+        <li><a href="{% url "lineabase:sociodemograficos" %}"><i class="fa fa-circle-o"></i>Socio Demograficos</a></li>
+        <li><a href="{% url "lineabase:actividades" %}"><i class="fa fa-circle-o"></i>Actividades sociales</a></li>
+        <li><a href="{% url "lineabase:relaciones" %}"><i class="fa fa-circle-o"></i>Relaciones personales</a></li>
+        <li><a href="{% url "lineabase:salud" %}"><i class="fa fa-circle-o"></i>Salud Sexual</a></li>
+        <li><a href="{% url "lineabase:plan" %}"><i class="fa fa-circle-o"></i>Plan de vida</a></li>
+        <li><a href="{% url "lineabase:subgrupos" %}"><i class="fa fa-circle-o"></i>Análisis de subgrupos</a></li>
+        <li><a href="{% url "lineabase:embarazo" %}"><i class="fa fa-circle-o"></i>Embarazo adolecente</a></li>
+        <li><a href="{% url "lineabase:discucion" %}"><i class="fa fa-circle-o"></i>Discusión</a></li>
+        </ul>
+    </li>
+{% endblock %}
+{% block contenido %}
+    <div class="col-md-12">
+        <div class="card">
+                <div class="row">
+                    <div class="col-md-6">  
+                     <h2 class="card-title">Salud sexual y reproductiva</h2>
+                        <p class="text-justify">Más de la mitad de los adolescentes refieren que en su colegio no hay clases de salud sexual y reproductiva, y en el caso de aquellos que refieren que sí hay (Figura 7), la frecuencia de recibir una clase a la semana o de recibir una clase al año, es similar (Figura 8).</br>Más de la mitad de los adolescentes no conocen los servicios de Salud Sexual de su municipio (Figura 9), y la gran mayoría de ellos no los ha usado (Figura 10). De igual forma, más de la mitad de los adolescentes no conocen los servicios amigables de su municipio o su EPS (Figura 11) y la mayor parte de ellos no los ha utilizado nunca (Figura 12).</br>
+                        En cuanto a la orientación sexual de los adolescentes, la mayoría de ellos se consideran heterosexuales y un 1,2 % se considera asexual (Figura 13). Además, dos de cada tres adolescentes dicen conocer sus derechos sexuales y reproductivos (Figura 14).</br>
+                        La gran mayoría de los adolescentes afirman que un embarazo en ese momento de su vida interrumpiría su plan de vida, y 1,9 % de ellos consideran que es una necesidad (Tabla 17). Asimismo, casi dos terceras partes de los adolescentes consideran que un embarazo durante esta época sería un problema para su entorno, y 1,2 % de ellos consideran que un embarazo de ellos en la adolescencia es una necesidad en su entorno (Tabla 18).</br>
+                        Dos de cada cinco adolescentes entrevistados han tenido relaciones sexuales (Figura 15), de igual forma, 3,7 % de las mujeres adolescentes han estado en embarazo, y 1,4 % de los adolescentes de los municipios del oriente antioqueño, ya tienen hijos. Asimismo, casi 6 % de los adolescentes quisieran tener un hijo en este momento de su vida (Figura 16).</br>
+                        Respecto a los métodos de planificación, más de la mitad de los adolescentes dicen conocer el condón, las píldoras anticonceptivas, las inyecciones para planificar y la píldora del día después (Figura 17). En cuanto a su uso, uno de cada cuatro adolescentes ha planificado con el condón, porcentajes menores de ellos han usado otros métodos (Tabla 19).</br>
+                        Tres de cada cinco adolescentes consideran que los métodos de planificación son necesarios y uno de cada tres considera que, aunque son incómodos son necesarios (Tabla 20). En cuanto al número de parejas sexuales, uno de cada diez adolescentes ha tenido dos o más parejas sexuales durante los últimos tres meses (Figura 18).</br>
+                        A la pregunta sobre qué harían si quedaran en embarazo en este momento, 17 % de los adolescentes contestaron que lo interrumpirían y el restante 83 % dijo que lo tendría. Uno de cada cinco adolescentes manifiesta haber sido víctima de violencia psicológica, física o sexual (Figura 19). De 4128 adolescentes que respondieron la pregunta sobre si han tenido relaciones sexuales a cambio de dinero, regalos u otro tipo de beneficios económicos o sociales, 83 respondieron que sí lo han hecho (Tabla 21).</br>
+                        Respecto a la violencia en la relación de pareja, más de la mitad de los adolescentes consideran que ser golpeado por la pareja (Tabla 22) o golpearla (Tabla 23), es un delito, una agresión o que es algo que no es correcto.</br>
+                        Uno de cada diez adolescentes, han tenido relaciones sexuales bajo los efectos de sustancias psicoactivas. La mayoría de ellos consideran que, si dichas relaciones sexuales no son permitidas por ellos o ellas, no es correcto o incluso es un delito, aunque casi el 7 % considera que, si se presenta dicha situación, es algo normal o que se lo merecen (Figura 20). Tres de cada cuatro adolescentes no aceptarían tener relaciones a cambio de dinero o algún beneficio económico o social, y el 25 % restante tienen opiniones como que esto puede ser una opción de vida o que no es correcto, pero es necesario, entre otras (Tabla 24).</p>
+                        <p class="text-justify">Tabla 17. Distribución de frecuencias de los adolescentes según el significado que para ellos tiene un embarazo en la adolescencia. Factores relacionados con embarazo en adolescentes, 2017.</p>
+                        <div class="table-responsive">          
+                            <table class="table">
+                                <thead>
+                                <tr>
+                                    <th>Significado para los adolescentes</th>
+                                    <th>Frecuencia absoluta</th>
+                                    <th>Porcentage</th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                <tr>
+                                    <td>Interrumpe mi plan de vida</td>
+                                    <td>3667</td>
+                                    <td>82,7</td>
+                                </tr>
+                                <tr>
+                                    <td>Es un problema</td>
+                                    <td>1777</td>
+                                    <td>40,1</td>
+                                </tr>
+                                <tr>
+                                    <td>No es un problema</td>
+                                    <td>865</td>
+                                    <td>19,5</td>
+                                </tr>
+                                <tr>
+                                    <td>Es una realización</td>
+                                    <td>290</td>
+                                    <td>6,5</td>
+                                </tr>
+                                <tr>
+                                    <td>Es obligatorio</td>
+                                    <td>205</td>
+                                    <td>4,6</td>
+                                </tr>
+                                <tr>
+                                    <td>Es tradición</td>
+                                    <td>104</td>
+                                    <td>2,3</td>
+                                </tr>
+                                <tr>
+                                    <td>Es una necesidad</td>
+                                    <td>85</td>
+                                    <td>1,9</td>
+                                </tr>
+                                </tbody>
+                            </table>
+                        </div></br>
+                        <p class="text-justify">Tabla 18. Distribución de frecuencias de los adolescentes según el significado que tiene en su entorno un embarazo en la adolescencia. Factores relacionados con embarazo en adolescentes, 2017.</p>
+                        <div class="table-responsive">          
+                            <table class="table">
+                                <thead>
+                                <tr>
+                                    <th>Significado para su entorno</th>
+                                    <th>Frecuencia absoluta</th>
+                                    <th>Porcentage</th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                <tr>
+                                    <td>Es un problema</td>
+                                    <td>2912</td>
+                                    <td>65,7</td>
+                                </tr>
+                                
+                                <tr>
+                                    <td>Es normal</td>
+                                    <td>1591</td>
+                                    <td>35,9</td>
+                                </tr>
+                                <tr>
+                                    <td>No es un problema</td>
+                                    <td>652</td>
+                                    <td>14,7</td>
+                                </tr>
+                                <tr>
+                                    <td>Es tradición</td>
+                                    <td>313</td>
+                                    <td>7,1</td>
+                                </tr>
+                                <tr>
+                                    <td>Es obligatorio</td>
+                                    <td>242</td>
+                                    <td>5,5</td>
+                                </tr>
+                                
+                                <tr>
+                                    <td>Es una necesidad</td>
+                                    <td>55</td>
+                                    <td>1,2</td>
+                                </tr>
+                                </tbody>
+                            </table>
+                        </div></br>
+                        <p class="text-justify">Tabla 19. Distribución de frecuencias de los adolescentes, según el método de planificación que usan. Factores relacionados con embarazo en adolescentes, 2017.</p>
+                        <div class="table-responsive">          
+                            <table class="table">
+                                <thead>
+                                <tr>
+                                    <th>Método utilizado</th>
+                                    <th>Frecuencia absoluta</th>
+                                    <th>Porcentage</th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                <tr>
+                                    <td>Ninguno</td>
+                                    <td>2593</td>
+                                    <td>58,5</td>
+                                </tr>
+                                <tr>
+                                    <td>Condón</td>
+                                    <td>1142</td>
+                                    <td>25,8</td>
+                                </tr>
+                                <tr>
+                                    <td>Píldora del día después</td>
+                                    <td>308</td>
+                                    <td>6,9</td>
+                                </tr>
+                                <tr>
+                                    <td>Pastillas anticonceptivas</td>
+                                    <td>296</td>
+                                    <td>6,7</td>
+                                </tr>
+                                <tr>
+                                    <td>Inyección</td>
+                                    <td>230</td>
+                                    <td>5,2</td>
+                                </tr>
+                                <tr>
+                                    <td>Abstinencia</td>
+                                    <td>122</td>
+                                    <td>2,8</td>
+                                </tr>
+                                <tr>
+                                    <td>Jadelle</td>
+                                    <td>95</td>
+                                    <td>2,1</td>
+                                </tr>
+                                <tr>
+                                    <td>Método del ritmo</td>
+                                    <td>51</td>
+                                    <td>1,2</td>
+                                </tr>
+                                <tr>
+                                    <td>T / DIU</td>
+                                    <td>13</td>
+                                    <td>0,3</td>
+                                </tr>
+                                </tbody>
+                            </table>
+                        </div></br>
+                        <p class="text-justify">Tabla 20. Distribución de frecuencias de los adolescentes, según su opinión sobre los métodos de planificación. Factores relacionados con embarazo en adolescentes, 2017.</p>
+                        <div class="table-responsive">          
+                            <table class="table">
+                                <thead>
+                                <tr>
+                                    <th>Opinión de los adolescentes</th>
+                                    <th>Frecuencia absoluta</th>
+                                    <th>Porcentage</th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                <tr>
+                                    <td>Es necesario</td>
+                                    <td>2613</td>
+                                    <td>59</td>
+                                </tr>
+                                <tr>
+                                    <td>Es incómodo pero necesario</td>
+                                    <td>1422</td>
+                                    <td>32,1</td>
+                                </tr>
+                                <tr>
+                                    <td>Se pierde sensibilidad</td>
+                                    <td>422</td>
+                                    <td>9,5</td>
+                                </tr>
+                                <tr>
+                                    <td>Me da pena</td>
+                                    <td>398</td>
+                                    <td>8,6</td>
+                                </tr>
+                                <tr>
+                                    <td>Tiene efectos secundarios</td>
+                                    <td>381</td>
+                                    <td>8,6</td>
+                                </tr>
+                                <tr>
+                                    <td>No es necesario</td>
+                                    <td>166</td>
+                                    <td>3,7</td>
+                                </tr>
+                                    <td>Son costosos</td>
+                                    <td>163</td>
+                                    <td>3,7</td>
+                                </tr>
+                                <tr>
+                                    <td>No sé dónde se consiguen</td>
+                                    <td>60</td>
+                                    <td>1,4</td>
+                                </tr>
+                                <tr>
+                                    <td>No son permitidos</td>
+                                    <td>33</td>
+                                    <td>0,7</td>
+                                </tr>
+                                </tbody>
+                            </table>
+                        </div></br>
+                        <p class="text-justify">Tabla 21. Distribución de frecuencias de los adolescentes, según los beneficios económicos o sociales que han recibido a cambio de tener relaciones sexuales. Factores relacionados con embarazo en adolescentes, 2017.</p>
+                        <div class="table-responsive">          
+                            <table class="table">
+                                <thead>
+                                <tr>
+                                    <th>Beneficio recibido</th>
+                                    <th>Frecuencia absoluta</th>
+                                    <th>Porcentage</th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                <tr>
+                                    <td>Ninguna</td>
+                                    <td>4045</td>
+                                    <td>97,99</td>
+                                </tr>
+                                <tr>
+                                    <td>Dinero</td>
+                                    <td>43</td>
+                                    <td>1,04</td>
+                                </tr>
+                                <tr>
+                                    <td>Regalos</td>
+                                    <td>18</td>
+                                    <td>0,44</td>
+                                </tr>
+                                <tr>
+                                    <td>Amenazas</td>
+                                    <td>10</td>
+                                    <td>0,24</td>
+                                </tr>
+                                <tr>
+                                    <td>Beneficios familiares</td>
+                                    <td>7</td>
+                                    <td>0,17</td>
+                                </tr>
+                                <tr>
+                                    <td>Para conseguir un trabajo</td>
+                                    <td>3</td>
+                                    <td>0,07</td>
+                                </tr>
+                                <tr>
+                                    <td>Beneicios académicos</td>
+                                    <td>2</td>
+                                    <td>0,05</td>
+                                </tr>
+                                </tbody>
+                            </table>
+                        </div></br>
+                        <p class="text-justify">abla 22. Distribución de frecuencias de los adolescentes, según su opinión sobre si son golpeados por su pareja. Factores relacionados con embarazo adolescente, 2017.</p>
+                        <div class="table-responsive">          
+                            <table class="table">
+                                <thead>
+                                <tr>
+                                    <th>Opinión si es golpeado(a)</th>
+                                    <th>Frecuencia absoluta</th>
+                                    <th>Porcentage</th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                <tr>
+                                    <td>Es un delito</td>
+                                    <td>2514</td>
+                                    <td>56,7</td>
+                                </tr>
+                                <tr>
+                                    <td>Es una agresión</td>
+                                    <td>2463</td>
+                                    <td>55,6</td>
+                                </tr>
+                                <tr>
+                                    <td>No es correcto</td>
+                                    <td>2176</td>
+                                    <td>49,1</td>
+                                </tr>
+                                <tr>
+                                    <td>Fue por algo que hice</td>
+                                    <td>255</td>
+                                    <td>5,8</td>
+                                </tr>
+                                <tr>
+                                    <td>Es por amor</td>
+                                    <td>70</td>
+                                    <td>1,6</td>
+                                </tr>
+                                <tr>
+                                    <td>Es normal</td>
+                                    <td>43</td>
+                                    <td>1</td>
+                                </tr>
+                                </tbody>
+                            </table>
+                        </div></br>
+                        <p class="text-justify">abla 23. Distribución de frecuencias de los adolescentes, según su opinión sobre si ellos golpean a su pareja. Factores relacionados con embarazo en adolescentes, 2017.</p>
+                        <div class="table-responsive">          
+                            <table class="table">
+                                <thead>
+                                <tr>
+                                    <th>Opinión sobre golpear</th>
+                                    <th>Frecuencia absoluta</th>
+                                    <th>Porcentage</th>
+                                </tr>
+                                </thead>
+                                <tbody>  
+                                <tr>
+                                    <td>No es correcto</td>
+                                    <td>2612</td>
+                                    <td>58,9</td>
+                                </tr>
+                                <tr>
+                                    <td>Es una agresión</td>
+                                    <td>2162</td>
+                                    <td>48,8</td>
+                                </tr>                                
+                                <tr>
+                                    <td>Es un delito</td>
+                                    <td>2158</td>
+                                    <td>48,7</td>
+                                </tr>
+                                <tr>
+                                    <td>Fue por algo que hizo</td>
+                                    <td>112</td>
+                                    <td>2,5</td>
+                                </tr>
+                                <tr>
+                                    <td>Es por amor</td>
+                                    <td>75</td>
+                                    <td>1,7</td>
+                                </tr>
+                                <tr>
+                                    <td>Es normal</td>
+                                    <td>56</td>
+                                    <td>1,3</td>
+                                </tr>
+                                </tbody>
+                            </table>
+                        </div></br>
+                        <p class="text-justify">Tabla 24. Distribución de frecuencias de los adolescentes, según su opinión sobre tener relaciones sexuales a cambio de beneficios económicos o sociales. Factores relacionados con embarazo en adolescentes, 2017.</p>
+                        <div class="table-responsive">          
+                            <table class="table">
+                                <thead>
+                                <tr>
+                                    <th>Opinión</th>
+                                    <th>Frecuencia absoluta</th>
+                                    <th>Porcentage</th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                <tr>
+                                    <td>No lo acepto</td>
+                                    <td>3354</td>
+                                    <td>75,7</td>
+                                </tr>
+                                <tr>
+                                    <td>Es una opción de vida</td>
+                                    <td>568</td>
+                                    <td>12,8</td>
+                                </tr>
+                                <tr>
+                                    <td>No es correcto, pero es necesario</td>
+                                    <td>535</td>
+                                    <td>12,1</td>
+                                </tr>
+                                <tr>
+                                    <td>Normal</td>
+                                    <td>191</td>
+                                    <td>4,3</td>
+                                </tr>
+                                <tr>
+                                    <td>Socialmente aceptable</td>
+                                    <td>134</td>
+                                    <td>3</td>
+                                </tr>
+                                </tbody>
+                            </table>
+                        </div></br>
+                        
+                    </div>
+                    <div class="col-md-6">
+                        <p class="justify"><canvas id="pieChartF7"></canvas></p>
+                        <p class="small">Figura 7. Distribución porcentual de adolescentes, según la presencia de clases de Salud Sexual en su colegio. Factores relacionados con embarazo en adolescentes, 2017.</p></br>
+                        <p class="justify"><canvas id="pieChartF8"></canvas></p>
+                        <p class="small">Figura 8. Distribución porcentual de adolescentes, según la frecuencia con que reciben clases de Salud Sexual. Factores relacionados con embarazo en adolescentes, 2017.</p></br>
+                        <p class="justify"><canvas id="pieChartF9"></canvas></p>
+                        <p class="small">Figura 9. Distribución porcentual de adolescentes, según su conocimiento de la existencia de servicios de Salud Sexual en sus municipios. Factores relacionados con embarazo en adolescentes, 2017.</p></br>
+                        <p class="justify"><canvas id="pieChartF10"></canvas></p>
+                        <p class="small">Figura 10. Distribución porcentual de adolescentes, según su utilización de los servicios de Salud Sexual. Factores relacionados con embarazo en adolescentes, 2017.</p></br>
+                        <p class="justify"><canvas id="pieChartF11"></canvas></p>
+                        <p class="small">Figura 11. Distribución porcentual de adolescentes, según su conocimiento de la existencia de servicios de salud amigable en sus instituciones educativas. Factores relacionados con embarazo en adolescentes, 2017.</p></br>
+                        <p class="justify"><canvas id="pieChartF12"></canvas></p>
+                        <p class="small">Figura 12. Distribución porcentual de adolescentes, según su utilización de los servicios de salud amigable. Factores relacionados con embarazo en adolescentes, 2017.</p></br>
+                        <p class="justify"><canvas id="pieChartF13"></canvas></p>
+                        <p class="small">Figura 13. Distribución porcentual de adolescentes, según como ellos identifican su orientación sexual. Factores relacionados con embarazo en adolescentes, 2017.</p></br>
+                        <p class="justify"><canvas id="pieChartF14"></canvas></p>
+                        <p class="small">Figura 14. Distribución porcentual de adolescentes, según el conocimiento de sus derechos de Salud Sexual. Factores relacionados con embarazo en adolescentes, 2017.</p></br>
+                        <p class="justify"><canvas id="pieChartF15"></canvas></p>
+                        <p class="small">Figura 15. Distribución porcentual de adolescentes, según el inicio de actividad sexual. Factores relacionados con embarazo en adolescentes, 2017.</p></br>
+                        <p class="justify"><canvas id="pieChartF16"></canvas></p>
+                        <p class="small">Figura 16. Distribución porcentual de adolescentes, según su deseo de tener hijos en este momento de su vida. Factores relacionados con embarazo en adolescentes, 2017.</p></br>
+                        <p class="justify"><canvas id="pieChartF17"></canvas></p>
+                        <p class="small">Figura 17. Distribución absoluta y relativa de los adolescentes, según los métodos de planificación que conocen. Factores relacionados con embarazo en adolescentes, 2017.</p></br>
+                        <p class="justify"><canvas id="pieChartF18"></canvas></p>
+                        <p class="small">Figura 18. Distribución de frecuencias de los adolescentes, según el número de parejas sexuales el último trimestre. Factores relacionados con embarazo adolescente, 2017.</p></br>
+                        <p class="justify"><canvas id="pieChartF19"></canvas></p>
+                        <p class="small">Figura 19. Distribución de frecuencias de los adolescentes, según el tipo de violencia que ellos han sufrido. Factores relacionados con embarazo en adolescentes, 2017.</p></br>
+                        <p class="justify"><canvas id="pieChartF20"></canvas></p>
+                        <p class="small">Figura 20. Distribución de frecuencias de los adolescentes, según su opinión si tienen relaciones sexuales no consentidas bajo los efectos de sustancias psicoactivas. Factores relacionados con embarazo en adolescentes, 2017.</p>                        
+                    </div>
+                </div>            
+        </div>   
+    </div> 
+{% endblock %}
+{% block scripts %}
+    <script type="text/javascript" src="{% static "/js/plugins/chart.js" %}"></script>
+    <script type="text/javascript">  
+        var data = {
+            labels: ["Condón", "Pastillas anticonceptivas", "Inyección","Pildora del día después", "Jadelle", "Abstinencia","T/DIU", "Método del ritmo"],
+            datasets: [
+                    {
+                            label: "Frecuencia Absoluta",
+                            fillColor: "#113EE7",
+                            strokeColor: "rgba(220,220,220,1)",
+                            pointColor: "rgba(220,220,220,1)",
+                            pointStrokeColor: "#fff",
+                            pointHighlightFill: "#fff",
+                            pointHighlightStroke: "rgba(220,220,220,1)",
+                            data: [3600,3300,2700,2200,1750,900,700,600]
+                    }
+            ]
+        };
+        
+        var pdata = [
+      	{
+      		value: 27,
+      		color:"#F7464A",
+      		highlight: "#FF5A5E",
+      		label: "Urbana"
+      	},
+      	{
+      		value: 73,
+      		color: "#46BEEE",
+      		highlight: "#5AD3D1",
+      		label: "Rural"
+      	}
+      ]
+      
+      var f7data = [
+      	{
+      		value: 58,
+      		color:"#A7464A",
+      		highlight: "#FF5A5E",
+      		label: "No hay clases de salud sexual y reproductiva"
+      	},
+      	{
+      		value: 42,
+      		color: "#B6BEEE",
+      		highlight: "#7AD3D1",
+      		label: "Si hay clases de salud sexual y reproductiva"
+      	}
+      ]
+      var f8data = [
+      	{
+      		value: 54,
+      		color:"#C1164A",
+      		highlight: "#FF5A5E",
+      		label: "Ninguna"
+      	},
+      	{
+      		value: 5,
+      		color: "#822EEE",
+      		highlight: "#7AD3D1",
+      		label: "Trimestral"
+      	},
+      	{
+      		value: 6,
+      		color: "#B33EEE",
+      		highlight: "#7AD3D1",
+      		label: "Semestral"
+      	},
+      	{
+      		value: 6,
+      		color: "#D44EEE",
+      		highlight: "#7AD3D1",
+      		label: "Mensual"
+      	},
+      	{
+      		value: 14,
+      		color: "#E55EEE",
+      		highlight: "#7AD3D1",
+      		label: "Anual"
+      	},
+      	{
+      		value: 14,
+      		color: "#666EEE",
+      		highlight: "#7AD3D1",
+      		label: "Semanal"
+      	}
+      ]
+      var f9data = [
+      	{
+      		value: 44,
+      		color:"#A1164A",
+      		highlight: "#FF5A5E",
+      		label: "Si conoce los servicios de salud sexual"
+      	},
+      	{
+      		value: 56,
+      		color: "#B6B11E",
+      		highlight: "#7AD3D1",
+      		label: "No conoce los servicios de salud sexual"
+      	}
+      ]
+      var f10data = [
+      	{
+      		value: 16,
+      		color:"#5B464A",
+      		highlight: "#FF5A5E",
+      		label: "Si han utilizado los servicios de salud sexual"
+      	},
+      	{
+      		value: 84,
+      		color: "#B1FEEE",
+      		highlight: "#7AD3D1",
+      		label: "No han utilizado los servicios de salud sexual"
+      	}
+      ]
+      var f11data = [
+      	{
+      		value: 27,
+      		color:"#A74000",
+      		highlight: "#FF5A5E",
+      		label: "Si conoce los servicios amigables"
+      	},
+      	{
+      		value: 73,
+      		color: "#B6B000",
+      		highlight: "#7AD3D1",
+      		label: "No conoce los servicios amigables"
+      	}
+      ]
+      var f12data = [
+      	{
+      		value: 4,
+      		color:"#D7464A",
+      		highlight: "#FF5A5E",
+      		label: "2 a 3 veces"
+      	},
+      	{
+      		value: 3,
+      		color: "#C6BEEE",
+      		highlight: "#7AD3D1",
+      		label: "más de 3 veces"
+      	}
+      	,
+      	{
+      		value: 86,
+      		color: "#B6BEEE",
+      		highlight: "#7AD3D1",
+      		label: "Nunca"
+      	},
+      	{
+      		value: 7,
+      		color: "#A6BEEE",
+      		highlight: "#7AD3D1",
+      		label: "una vez"
+      	}
+      ]
+      var f13data = [
+      	{
+      		value: 10,
+      		color:"93464A",
+      		highlight: "#FF5A5E",
+      		label: "No se"
+      	},
+      	{
+      		value: 3,
+      		color: "#CFBEEE",
+      		highlight: "#7AD3D1",
+      		label: "Bisexual"
+      	},
+      	{
+      		value: 2,
+      		color: "#DFBEEE",
+      		highlight: "#7AD3D1",
+      		label: "Homosexual"
+      	},
+      	{
+      		value: 1,
+      		color: "#EFBEEE",
+      		highlight: "#7AD3D1",
+      		label: "Asexual"
+      	},
+      	{
+      		value: 83,
+      		color: "#31BEEE",
+      		highlight: "#7AD3D1",
+      		label: "Heterosexual"
+      	}
+      ]
+      var f14data = [
+      	{
+      		value: 32,
+      		color:"#A74111",
+      		highlight: "#FF5A5E",
+      		label: "No conoce sus desrechos de salud sexual y reproductiva"
+      	},
+      	{
+      		value: 68,
+      		color: "#B6B333",
+      		highlight: "#7AD3D1",
+      		label: "Si conoce sus desrechos de salud sexual y reproductiva"
+      	}
+      ]
+      var f15data = [
+      	{
+      		value: 59,
+      		color:"#A74555",
+      		highlight: "#FF5A5E",
+      		label: "Han tenido relaciones sexuales"
+      	},
+      	{
+      		value: 41,
+      		color: "#B6B444",
+      		highlight: "#7AD3D1",
+      		label: "No han tenido relaciones sexuales"
+      	}
+      ]
+      var f16data = [
+      	{
+      		value: 6,
+      		color:"#A74888",
+      		highlight: "#FF5A5E",
+      		label: "Si quieren tener hijos"
+      	},
+      	{
+      		value: 94,
+      		color: "#B6B777",
+      		highlight: "#7AD3D1",
+      		label: "No quieren tener hijos"
+      	}
+      ]
+      var f17data = [
+      	{
+      		value: 58,
+      		color:"#A7464A",
+      		highlight: "#FF5A5E",
+      		label: "No hay clases de salud sexual y reproductiva"
+      	},
+      	{
+      		value: 42,
+      		color: "#B6BEEE",
+      		highlight: "#7AD3D1",
+      		label: "Si hay clases de salud sexual y reproductiva"
+      	}
+      ]
+      var f18data = [
+      	{
+      		value: 66,
+      		color:"#93464A",
+      		highlight: "#FF5A5E",
+      		label: "Ninguna"
+      	},
+      	{
+      		value: 23,
+      		color: "#CFBEEE",
+      		highlight: "#7AD3D1",
+      		label: "Una pareja"
+      	},
+      	{
+      		value: 6,
+      		color: "#DFBEEE",
+      		highlight: "#7AD3D1",
+      		label: "Dos parejas"
+      	},
+      	{
+      		value: 1,
+      		color: "#EFBEEE",
+      		highlight: "#7AD3D1",
+      		label: "Tres parejas"
+      	},
+      	{
+      		value: 4,
+      		color: "#31BEEE",
+      		highlight: "#7AD3D1",
+      		label: "Mas de tres parejas"
+      	}
+      ]
+      var f19data = [
+      	{
+      		value: 10,
+      		color:"#A74999",
+      		highlight: "#FF5A5E",
+      		label: "Violencia psicológica"
+      	},
+      	{
+      		value: 82,
+      		color: "#B6B876",
+      		highlight: "#7AD3D1",
+      		label: "Ninguna"
+      	},
+      	{
+      		value: 6,
+      		color: "#B6B543",
+      		highlight: "#7AD3D1",
+      		label: "Violencia física"
+      	},
+      	{
+      		value: 2,
+      		color: "#B6B210",
+      		highlight: "#7AD3D1",
+      		label: "Violencia sexual"
+      	}
+      ]
+      var f20data = [
+      	{
+      		value: 1,
+      		color:"#A74999",
+      		highlight: "#FF5A5E",
+      		label: "Te lo mereces"
+      	},
+      	{
+      		value: 59,
+      		color: "#B6B876",
+      		highlight: "#7AD3D1",
+      		label: "No es correcto"
+      	},
+      	{
+      		value: 34,
+      		color: "#B33543",
+      		highlight: "#7AD3D1",
+      		label: "Es un delito"
+      	},
+      	{
+      		value: 6,
+      		color: "#B6B210",
+      		highlight: "#7AD3D1",
+      		label: "Normal"
+      	}
+      ]
+       
+        
+        var ctxp = $("#pieChartF7").get(0).getContext("2d");
+        var barChart = new Chart(ctxp).Pie(f7data);
+        var ctxp = $("#pieChartF8").get(0).getContext("2d");
+        var barChart = new Chart(ctxp).Pie(f8data);
+        var ctxp = $("#pieChartF9").get(0).getContext("2d");
+        var barChart = new Chart(ctxp).Pie(f9data);
+        var ctxp = $("#pieChartF10").get(0).getContext("2d");
+        var barChart = new Chart(ctxp).Pie(f10data);
+        var ctxp = $("#pieChartF11").get(0).getContext("2d");
+        var barChart = new Chart(ctxp).Pie(f11data);
+        var ctxp = $("#pieChartF12").get(0).getContext("2d");
+        var barChart = new Chart(ctxp).Pie(f12data);
+        var ctxp = $("#pieChartF13").get(0).getContext("2d");
+        var barChart = new Chart(ctxp).Pie(f13data);
+        var ctxp = $("#pieChartF14").get(0).getContext("2d");
+        var barChart = new Chart(ctxp).Pie(f14data);
+        var ctxp = $("#pieChartF15").get(0).getContext("2d");
+        var barChart = new Chart(ctxp).Pie(f15data);
+        var ctxp = $("#pieChartF16").get(0).getContext("2d");
+        var barChart = new Chart(ctxp).Pie(f16data);
+        var ctxb = $("#pieChartF17").get(0).getContext("2d");
+        var barChart = new Chart(ctxb).Bar(data);
+        var ctxp = $("#pieChartF18").get(0).getContext("2d");
+        var barChart = new Chart(ctxp).Pie(f18data);
+        var ctxp = $("#pieChartF19").get(0).getContext("2d");
+        var barChart = new Chart(ctxp).Pie(f19data);
+        var ctxp = $("#pieChartF20").get(0).getContext("2d");
+        var barChart = new Chart(ctxp).Pie(f20data);
+        
+    </script>
+{% endblock %}
+

@@ -1,0 +1,134 @@
+Ui{% extends 'base.html' %}
+{% load static %}
+{% block sideMenu %}
+    <li><a href="/"><i class="fa fa-dashboard"></i><span>Linea de Tiempo</span></a></li>
+    <li class="treeview active"><a href="#"><i class="fa fa-pie-chart"></i><span>Linea base</span><i class="fa fa-angle-right"></i></a>
+        <ul class="treeview-menu">
+        <li><a href="{% url "lineabase:index" %}"><i class="fa fa-circle-o"></i>Resultados</a></li>
+        <li><a href="{% url "lineabase:sociodemograficos" %}"><i class="fa fa-circle-o"></i>Socio Demograficos</a></li>
+        <li><a href="{% url "lineabase:actividades" %}"><i class="fa fa-circle-o"></i>Actividades sociales</a></li>
+        <li><a href="{% url "lineabase:relaciones" %}"><i class="fa fa-circle-o"></i>Relaciones personales</a></li>
+        <li><a href="{% url "lineabase:salud" %}"><i class="fa fa-circle-o"></i>Salud Sexual</a></li>
+        <li><a href="{% url "lineabase:plan" %}"><i class="fa fa-circle-o"></i>Plan de vida</a></li>
+        <li><a href="{% url "lineabase:subgrupos" %}"><i class="fa fa-circle-o"></i>Análisis de subgrupos</a></li>
+        <li><a href="{% url "lineabase:embarazo" %}"><i class="fa fa-circle-o"></i>Embarazo adolecente</a></li>
+        <li><a href="{% url "lineabase:discucion" %}"><i class="fa fa-circle-o"></i>Discusión</a></li>
+        </ul>
+    </li>
+{% endblock %}
+{% block contenido %}
+    <div class="col-md-12">
+        <div class="card">
+                <div class="row">
+                    <div class="col-md-6">  
+                     <h2 class="card-title">Relaciones sociales y plan de vida</h2>
+                        <p class="text-justify">La red social más utilizada por los adolescentes es Facebook seguida de Instagram (Tabla 25). Uno de cada cuatro adolescentes (27 %) refiere que, si ellos pudiesen irse de su casa en este momento, lo harían, y la mayoría de ellos elegirían irse a vivir solos (Tabla 26). Los investigadores no incluimos, de forma accidental, a WhatsApp como opción de respuesta en las redes sociales, y fueron los mismos estudiantes durante la encuesta quienes llamaron la atención al respecto y decidieron utilizar la opción “otras” para significar la utilización de dicha red social.</p>
+                        <p class="justify"><canvas id="barChartDemo"></canvas></p>
+                        <p class="small">Tabla 25. Distribución de frecuencias de los adolescentes, según la red social que más utilizan. Factores relacionados con embarazo en adolescentes, 2017.</p>
+                        <p><b>Tabla 26.</b> Distribución de frecuencias de los adolescentes, según dónde o con quién se irían a vivir, si se fueran de su casa. Factores relacionados con embarazo en adolescentes, 2017.</p>
+                            <div class="table-responsive">          
+                            <table class="table">
+                                <thead>
+                                <tr>
+                                    <th>Con quién vivir</th>
+                                    <th>Frecuencia absoluta</th>
+                                    <th>Porcentage</th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                <tr>
+                                    <td>Solo / a</td>
+                                    <td>1008</td>
+                                    <td>90</td>
+                                </tr>
+                                <tr>
+                                    <td>Otros familiares </td>
+                                    <td>636</td>
+                                    <td>57</td>
+                                </tr>
+                                <tr>
+                                    <td>Pareja</td>
+                                    <td>536</td>
+                                    <td>48</td>
+                                </tr>
+                                <tr>
+                                    <td>Amigo / a</td>
+                                    <td>452</td>
+                                    <td>41</td>
+                                </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                    <div class="col-md-6">                            
+                        <p>En cuanto al plan de vida, 89 % de los adolescentes consideran que pueden planear su vida y 79 % del total de adolescentes afirman que ya han hecho un plan de vida. Respecto a las opciones ellos consideran que más les ayudaría a alcanzar sus sueños, la gran mayoría considera que estudiar es la mejor opción (Figura 21).</p>
+                        <canvas id="pieChartF21"></canvas>
+                        <p class="small">Figura 21. Distribución de frecuencias de los adolescentes, según sus mejores opciones para alcanzar sus sueños. Factores relacionados con embarazo en adolescentes, 2017.</p>
+                    </div>
+                </div>            
+        </div>   
+    </div> 
+{% endblock %}
+{% block scripts %}
+    <script type="text/javascript" src="{% static "/js/plugins/chart.js" %}"></script>
+    <script type="text/javascript">  
+        var data = {
+            labels: ["Facebook", "Otras", "Instagram", "Snapchat", "Twitter", "Tinder", "Tourbar", "Happn", "Twoo"],
+            datasets: [
+                    {
+                            label: "Frecuencia Absoluta",
+                            fillColor: "#B40404",
+                            strokeColor: "#000",
+                            pointColor: "rgba(220,220,220,1)",
+                            pointStrokeColor: "#B40404",
+                            pointHighlightFill: "#B40404",
+                            pointHighlightStroke: "rgba(220,220,220,1)",
+                            data: [2246, 749, 703, 258, 161, 12, 7, 7, 4]
+                    }
+            ]
+        };
+      
+      var f21data = [
+      	{
+      		value: 4,
+      		color:"#FE2E64",
+      		highlight: "#FF5A5E",
+      		label: "Viajar"
+      	},
+      	{
+      		value: 3,
+      		color: "#BF00FF",
+      		highlight: "#7AD3D1",
+      		label: "Otros"
+      	}
+      	,
+      	{
+      		value: 2,
+      		color: "#2E64FE",
+      		highlight: "#7AD3D1",
+      		label: "Formar una familia"
+      	}
+      	,
+      	{
+      		value: 84,
+      		color: "#00FF40",
+      		highlight: "#7AD3D1",
+      		label: "Estudiar"
+      	}
+      	,
+      	{
+      		value: 7,
+      		color: "#FACC2E",
+      		highlight: "#7AD3D1",
+      		label: "Trabajar"
+      	}
+      ]
+       
+        var ctxb = $("#barChartDemo").get(0).getContext("2d");
+        var barChart = new Chart(ctxb).Bar(data);
+        
+        var ctxp = $("#pieChartF21").get(0).getContext("2d");
+        var barChart = new Chart(ctxp).Pie(f21data);
+    </script>
+{% endblock %}
+
