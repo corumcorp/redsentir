@@ -35,6 +35,17 @@ class DjangoApplication(object):
     def open_browser(self):
         Timer(3, webbrowser.open, ("http://%s:%s" % (self.HOST, self.PORT),)).start()
 
+    def force_tls():
+        if cherrypy.request.scheme == "http" :
+            raise cherrypy.HTTPRedirect(cherrypy.url().replace("http:", "https:"), status = 301)
+
+    def load_http_server():
+        server = cherrypy._cpserver.Server()
+        server.socket_host = "0.0.0.0"
+        server.socket_port = 80
+        server.subscribe()
+
+
     def run(self):
         cherrypy.config.update({
             'server.socket_host' : self.HOST,
@@ -42,6 +53,7 @@ class DjangoApplication(object):
             'server.ssl_module': 'pyopenssl',
             'server.ssl_certificate' : settings.BASE_DIR+'/ssl/redsentir.crt',
             'server.ssl_private_key' : settings.BASE_DIR+'/ssl/redsentir.key',
+            'tools.force_tls.on' : True,
             'engine.autoreload_on': False,
             'log.screen': True
         })
@@ -49,10 +61,10 @@ class DjangoApplication(object):
 
         cherrypy.log("Inciando la Plataforma de la Red Sentir.")
         cherrypy.tree.graft(WSGIHandler())
-        cherrypy.engine.start()
-
+        cherrypy.tools.force_tls = cherrypy.Tool("before_handler", self.force_tls)
+        self.load_http_server()
         #self.open_browser()
-
+        cherrypy.engine.start()
         cherrypy.engine.block()
 
 
