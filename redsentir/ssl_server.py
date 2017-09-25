@@ -14,7 +14,6 @@ from django.core.handlers.wsgi import WSGIHandler
 import django
 django.setup()
 
-
 class DjangoApplication(object):
     HOST = "0.0.0.0"
     PORT = 443
@@ -35,11 +34,11 @@ class DjangoApplication(object):
     def open_browser(self):
         Timer(3, webbrowser.open, ("http://%s:%s" % (self.HOST, self.PORT),)).start()
 
-    def force_tls():
+    def force_tls(self):
         if cherrypy.request.scheme == "http" :
             raise cherrypy.HTTPRedirect(cherrypy.url().replace("http:", "https:"), status = 301)
 
-    def load_http_server():
+    def load_http_server(self):
         server = cherrypy._cpserver.Server()
         server.socket_host = "0.0.0.0"
         server.socket_port = 80
@@ -47,7 +46,7 @@ class DjangoApplication(object):
 
 
     def run(self):
-        cherrypy.config.update({
+        configuracion = {
             'server.socket_host' : self.HOST,
             'server.socket_port' : self.PORT,
             'server.ssl_module': 'pyopenssl',
@@ -56,13 +55,14 @@ class DjangoApplication(object):
             'tools.force_tls.on' : True,
             'engine.autoreload_on': False,
             'log.screen': True
-        })
+        }
         self.mount_static(settings.STATIC_URL, settings.STATIC_ROOT)
 
         cherrypy.log("Inciando la Plataforma de la Red Sentir.")
         cherrypy.tree.graft(WSGIHandler())
         cherrypy.tools.force_tls = cherrypy.Tool("before_handler", self.force_tls)
         self.load_http_server()
+        cherrypy.config.update(configuracion)
         #self.open_browser()
         cherrypy.engine.start()
         cherrypy.engine.block()
