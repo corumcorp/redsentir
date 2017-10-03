@@ -1,0 +1,54 @@
+{% load static %}
+<div id="cielo">
+    <div id="ciudad"></div>
+    <a href="http://www.redsentir.org"><img src="{% static "/images/guias/logo-red-sentir.png" %}" id="logo-red-sentir"></a></br>
+    <a href="#"><img src="{% static "/images/guias/guia-didactica.png" %}" id="logo-guia"></a>
+    <img src="{% static "/images/guias/personajes.png" %}" id="personajes">
+    <a href="http://www.corum.org.co"><img src="{% static "/images/guias/logo-corum.png" %}" id="logo-corum"></a>            
+</div>
+<div id="presentacion">
+    <a href="#" ><img src="{% static "/images/guias/texto-guia.png" %}" id="texto-guia"></a>
+    <img src="{% static "/images/guias/linea-division.png" %}" id="linea-division">
+    <img src="{% static "/images/guias/titulo-guia.png" %}" id="titulo-guia">
+    <img src="{% static "/images/guias/linea-formacion.png" %}" id="linea-formacion">
+    <img src="{% static "/images/guias/seres-sexualidad.png" %}" id="seres-sexualidad">
+</div>
+<div id="fondo">
+    <img src="{% static "/images/guias/sexualidad.png" %}" id="sexualidad">
+</div>
+<script>
+    var k=1;
+    $(document).ready(function(){
+        setTimeout(mostrarCiudad,1000);
+        setTimeout(mostrarPersonajes,2000);    
+        setTimeout(mostrarGuia,4000);
+        setTimeout(toggleSexualidad,1000);
+    });
+    function mostrarPersonajes(){
+        $("#personajes").show();
+        $("#personajes").animate({top:"30%"},'slow');
+    }
+    function mostrarGuia(){
+        $("#logo-red-sentir").show('slow');
+        $("#logo-corum").show('slow');
+        $("#logo-guia").show('slow');
+    }
+    function mostrarCiudad(){
+        $("#ciudad").slideDown('slow');
+    }
+    function mostrarSeresSexualidad(){
+    $("#seres-sexualidad").fadeIn("slow");
+    }
+    function toggleSexualidad(){
+        if(k%2==0){
+            $("#sexualidad").show();
+        }else{
+            $("#sexualidad").hide();
+        }
+        k++;
+        setTimeout(toggleSexualidad,1000);
+    }
+    $(window).scroll(function() {
+    setTimeout(mostrarSeresSexualidad,4000);
+    });
+</script>

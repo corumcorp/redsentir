@@ -14,7 +14,7 @@ from django.core.handlers.wsgi import WSGIHandler
 import django
 django.setup()
 
-class DjangoApplication(object):
+class ProyectoRedSentir(object):
     HOST = "0.0.0.0"
     PORT = 443
 
@@ -69,4 +69,4 @@ class DjangoApplication(object):
 
 
 if __name__ == "__main__":
-    DjangoApplication().run()
+    ProyectoRedSentir().run()
