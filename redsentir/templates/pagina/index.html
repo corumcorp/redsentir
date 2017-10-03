@@ -16,23 +16,23 @@
             <div class="container">
                 <nav class="navbar">
                     <div class="container">
-                        <a href="#"><img src="{% static "images/pagina/logo-red.png" %}" width="15%"></a>
-                        <a class="btn boton" href="#redsentir">
+                        <a href="{% url "pagina:index" %}"><img src="{% static "images/pagina/logo-red.png" %}" width="15%"></a>
+                        <a class="btn boton" href="{% url "pagina:index" %}#redsentir">
                             <img src="{% static "images/pagina/boton-red.png" %}" width="80%"/>
                         </a>
-                        <a class="btn boton" href="#nosotros">
+                        <a class="btn boton" href="{% url "pagina:index" %}#nosotros">
                             <img src="{% static "images/pagina/boton-nosotros.png" %}" width="80%"/>
                         </a>
-                        <a class="btn boton" href="#video">
+                        <a class="btn boton" href="{% url "pagina:index" %}#video">
                             <img src="{% static "images/pagina/boton-video.png" %}" width=80%"/>
                         </a>
-                        <a class="btn boton" href="#aliados">
+                        <a class="btn boton" href="{% url "pagina:index" %}#aliados">
                             <img src="{% static "images/pagina/boton-aliados.png" %}" width="80%"/>
                         </a>
-                        <a class="btn boton" href="#noticias">
+                        <a class="btn boton" href="{% url "pagina:encuentro" %}">
                             <img src="{% static "images/pagina/boton-noticias.png" %}" width="80%"/>
                         </a>
-                        <a class="btn boton"  href="#contacto">
+                        <a class="btn boton"  href="{% url "pagina:index" %}#contacto">
                             <img src="{% static "images/pagina/boton-contacto.png" %}" width="80%"/>
                         </a>
                         <a href="{% url "mesa:inicio" %}"><img src="{% static "images/pagina/boton-interrogantes.png" %}" width="12%" id="interrogantes"></a>
@@ -72,7 +72,7 @@
             <div class="container" id="redsentir">
                 </br>
                 <div class="row">
-                    <a href="{% url "formacion:guia" 1 %}">
+                    <a href="{% url "pagina:encuentro" %}">
                     <div class="col-md-4">                        
                         <div class="fuxia">
                             <img src="{% static "images/pagina/grafico-componente-formación.png" %}" alt="Componente Formación">
@@ -81,7 +81,7 @@
                         </div>
                     </div>
                     </a>
-                    <a href="{% url "formacion:guia" 1 %}">
+                    <a href="{% url "mesa:inicio" %}">
                     <div class="col-md-4">                        
                         <div class="amarillo">
                             <img src="{% static "images/pagina/grafico-mesa-r.png" %}" alt="Mesa Regional">
@@ -202,20 +202,8 @@
                 <div class="row piedepagina">
                     <div class="col-md-6">
                         <h2 class="bristolTitulo">SÍGUENOS</h2>
-                        <div class="row">
-                            <div class="col-md-6" align="right"><img src="{% static "images/pagina/instagram.png" %}" alt="Instagram" width="20%" class="social"></div>
-                            <div class="col-md-6"></br><b>Instagram</b></div>
-                        </div>
-                        </br>
-                        <div class="row">
-                            <div class="col-md-6" align="right"><img src="{% static "images/pagina/twitter.png" %}" alt="Twitter" width="20%" class="social"></div>
-                            <div class="col-md-6"></br><b>Twitter</b></div>
-                        </div>
-                        </br>
-                        <div class="row">
-                            <div class="col-md-6" align="right"><img src="{% static "images/pagina/facebook.png" %}" alt="Facebook" width="20%" class="social"></div>
-                            <div class="col-md-6"></br><b>Facebook</b></div>
-                        </div>
+                        {% social_widget_render 'twitter/follow_button.html' username='RedSentir' %}</br>
+                        {% social_widget_render 'facebook/likebox.html' href='https://www.facebook.com/RedSentir' %}
                         <h2 class="bristolTitulo">NOTICIAS RECIENTES</h2>
                         <p >
                             Pilotaje Guías Didácticas – Componente de Formación
@@ -236,8 +224,7 @@
                             <li >Contáctenos</li>
                         </ul>
                         </br>
-                        {% social_widget_render 'twitter/follow_button.html' username='RedSentir' %}</br>
-                        {% social_widget_render 'facebook/likebox.html' href='https://www.facebook.com/RedSentir' %}                        
+                                                
                         </br>
                         </br>
                     </div>
