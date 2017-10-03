@@ -1,0 +1,43 @@
+{% extends 'sitio/formacion/base_guia.html' %}
+{% load static %}
+{% block contenido %}
+<div id="modulo">
+    <div class="container-fluid margen">            
+        <div class="row">
+            <div class="col-md-6">
+                <div class="borde">
+                    <a href="#" ><img width="20%" src="{% static "/images/guias/LIBROS_h.png" %}" onmouseover="this.src='{% static "/images/guias/LIBROS_h.png';" %}" onmouseout="this.src='{% static "/images/guias/LIBROS.png';"></a>
+                    <a href="#" ><img width="20%" src="{% static "/images/guias/LIBROS.png" onmouseover="this.src='{% static "/images/guias/LIBROS_h.png';" %}" onmouseout="this.src='{% static "/images/guias/LIBROS.png';"></a>
+                    <a href="#" ><img width="20%" src="{% static "/images/guias/LIBROS.png" onmouseover="this.src='{% static "/images/guias/LIBROS_h.png';" onmouseout="this.src='{% static "/images/guias/LIBROS.png';" %}"></a>
+                    </br>
+                    </br>
+                    <div class="row">
+                        <div class="col-md-3">
+                            </br>
+                            </br>
+                            <h1 class="shumiTitulo">MODULO</h1>
+                        </div>
+                        <div class="col-md-9">
+                            <h1 class="shumiTitulo pull-left"><span class="numero">1</span></h1>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-9">
+                            <h1 class="pull-left">¿QUE ES LA SEXUALIDAD.?</h1>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="background trans">
+                <div class="text">
+                    <p class="manteka">
+                        <font size="5">ENTENDER QUE ES LA SEXUALIDAD A TRAVES DE INFORMACIÓN CONFIABLE, LA REFLEXION Y LA INDAGACION PARA APLICARLOS A NUESTROS PLANES DE VIDA.</font>
+                    </p>
+                </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

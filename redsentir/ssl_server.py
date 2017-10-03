@@ -14,7 +14,7 @@ from django.core.handlers.wsgi import WSGIHandler
 import django
 django.setup()
 
-class DjangoApplication(object):
+class ProyectoRedSentir(object):
     HOST = "0.0.0.0"
     PORT = 443
 
@@ -46,11 +46,7 @@ class DjangoApplication(object):
 
 
     def run(self):
-<<<<<<< HEAD
-        configuracion{
-=======
         configuracion = {
->>>>>>> beaae3ac368dfc4cd71355b74a526692ae57e832
             'server.socket_host' : self.HOST,
             'server.socket_port' : self.PORT,
             'server.ssl_module': 'pyopenssl',
@@ -66,15 +62,11 @@ class DjangoApplication(object):
         cherrypy.tree.graft(WSGIHandler())
         cherrypy.tools.force_tls = cherrypy.Tool("before_handler", self.force_tls)
         self.load_http_server()
-<<<<<<< HEAD
 	cherrypy.config.update(configuracion)
-=======
-        cherrypy.config.update(configuracion)
->>>>>>> beaae3ac368dfc4cd71355b74a526692ae57e832
         #self.open_browser()
         cherrypy.engine.start()
         cherrypy.engine.block()
 
 
 if __name__ == "__main__":
-    DjangoApplication().run()
+    ProyectoRedSentir().run()

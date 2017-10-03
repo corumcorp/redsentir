@@ -74,7 +74,7 @@ body {
 #cielo {
     width:100%;
     height:100%;
-    background-image: url(../img/cielo.png);
+    background-image: url(../images/guias/cielo.png);
     background-position: center center;
     background-repeat: no-repeat;
     background-size: cover;
@@ -86,7 +86,7 @@ body {
     top:0;
     width:100%;
     height:100%;
-    background-image: url(../img/ciudad.png);
+    background-image: url(../images/guias/ciudad.png);
     background-position: center center;
     background-repeat: no-repeat;
     background-size: cover;
@@ -114,12 +114,23 @@ body {
 #presentacion {
     width:100%;
     height:100%;
-    background-image: url(../img/sentidos.png);
+    background-image: url(../images/guias/sentidos.png);
     background-position: center center;
     background-repeat: no-repeat;
     background-size: cover;
     background-color: #f89932;
 }
+
+#fondo {
+    width:100%;
+    height:100%;
+    background-image: url(../images/guias/fondo.png);
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-color: #f89932;
+}
+
 #texto-guia {
     width:25%;
     margin-top:20%;
@@ -162,6 +173,19 @@ body {
     background-repeat: no-repeat;
     background-size: cover;
     background-color: #e3422b;
+}
+
+#modulo {
+    width:100%;
+    height:100%;
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-color: #e3422b;
+}
+
+.numero {
+    font-size: 400%;
 }
 
 .logo {
@@ -227,4 +251,25 @@ button:hover {
 
 .margen {
     margin-left: 5%;
+}
+ 
+.text {
+    background-color: transparent;
+    padding: 10px;
+    color: #0000FF;
+}
+ 
+.background {
+    background-color: #FFFFFF;
+    margin-top: 20%;
+    margin-right: 10%;
+}
+
+.borde {
+    margin-top: 20%;
+    margin-left: 10%;
+}
+ 
+.trans {
+    opacity: 0.3;
 }
