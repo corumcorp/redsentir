@@ -53,7 +53,7 @@
                     </ol>
                     <div class="carousel-inner">
                         {% for imagen in carrusel %} 
-                            <div class="item{% if forloop.counter == 1 %} active {% endif %}" id="{{ forloop.counter }}">                        
+                            <div class="item{% if forloop.counter == 1 %} active {% endif %}" id="{{ forloop.counter+1 }}">                        
                                 <center><img src="{% url 'pagina:index' %}{{ imagen.imagen.url }}" alt="Red Sentir"></center>                        
                             </div>
                         {% endfor %}              
