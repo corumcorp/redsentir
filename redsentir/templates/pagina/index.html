@@ -54,7 +54,7 @@
                     <div class="carousel-inner">
                         {% for imagen in carrusel %} 
                             <div class="item{% if forloop.counter == 1 %} active {% endif %}" id="{{ forloop.counter }}">                        
-                                <center><img src="{{ imagen.imagen }}" alt="Red Sentir"></center>                        
+                                <center><img src="{{ imagen.imagen.url }}" alt="Red Sentir"></center>                        
                             </div>
                         {% endfor %}              
                     </div>
