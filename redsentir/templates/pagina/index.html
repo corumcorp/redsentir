@@ -48,12 +48,12 @@
                 <div id="myCarousel" class="carousel slide" data-ride="carousel">
                     <ol class="carousel-indicators">
                         {% for imagen in carrusel %}                            
-                            <li data-target="#myCarousel" data-slide-to="{{ forloop.counter }}" {% if forloop.counter == 1 %} class = "active" {% endif %}></li>
+                            <li data-target="#myCarousel" data-slide-to="{{ imagen.pk }}" {% if forloop.counter == 1 %} class = "active" {% endif %}></li>
                         {% endfor %}
                     </ol>
                     <div class="carousel-inner">
                         {% for imagen in carrusel %} 
-                            <div class="item{% if forloop.counter == 1 %} active {% endif %}" id="{{ forloop.counter+1 }}">                        
+                            <div class="item{% if forloop.counter == 1 %} active {% endif %}" id="{{ imagen.pk }}">                        
                                 <center><img src="{% url 'pagina:index' %}{{ imagen.imagen.url }}" alt="Red Sentir"></center>                        
                             </div>
                         {% endfor %}              
