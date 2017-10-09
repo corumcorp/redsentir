@@ -1,0 +1,59 @@
+{% extends 'pagina/index.html' %}
+{% load static %}
+{% load social_widgets %}
+{% block contenido %}
+<a href="#"><img width="100%" src="{% static "images/pagina/equipo.jpg" %}" alt="Red Sentir"></a>
+<div class="container">   
+    <div class="row">
+    <div class="col-md-6">
+        </br>
+        </br>
+        </br>
+        </br>
+        <center><h2 class="bristolTitulo">RED SENTIR</br>CON-CIENCIA JUVENIL</h2></center>
+        <center><h3 class="bristolTitulo">¿QUÉ ES LA RED SENTIR?</h3></center>
+        <p style="color:#fff;" align="justify"><font size="4">Somos un proyecto para la prevención del embarazo adolescente, liderado por la Corporación de Estudiantes Universitarios y Profesionales de Marinilla-CORUM con Cooperación Internacional del Banco Interamericano de Desarrollo-BID y con recursos del Fondo Especial Japonés para la reducción de la pobreza en 6 municipios del Oriente antioqueño: Sonsón, Abejorral, San Francisco, San Luis, Argelia y Marinilla. </font></p>
+    </div>
+    <div class="col-md-6">
+        </br>
+        </br>
+        </br>
+        </br>
+        </br>
+        </br>
+        </br>
+        <p  style="color:red;">{% social_widget_render 'facebook/share_button.html' href='http://redsentir.org/pagina/encuentro' %}</p>
+        <a href="#"><img width="100%" src="{% static "images/pagina/3.jpg" %}" alt="Red Sentir"></a>   
+    </div>
+    </div>
+    <div class="row">
+    <div class="col-md-6">
+        <a href="#"><img width="100%" src="{% static "images/pagina/equipo.jpg" %}" alt="Red Sentir"></a>
+    </div>
+    <div class="col-md-6">        
+        <p style="color:#fff;" align="justify"><font size="4">Nuestra gran apuesta es la generación de un proceso integral, para crear conciencia, formación, información y responsabilidad en los planes de vida y la toma desiciones por parte de los jóvenes, en consenso con padres y maestros, para responder a sueños y expectativas de autonomía y libertad, permitiendo de manera real, disminuir las altas tasas de embarazo adolescente y propiciando la participación en los procesos de desarrollo, para superar ciclos históricos de pobreza de sectores tradicionalmente marginados.</font></p>
+    </div>
+    </div>
+    <div class="row">
+    <div class="col-md-6">
+        <p style="color:#fff;" align="justify"><font size="4">Nuestra gran apuesta es la generación de un proceso integral, para crear conciencia, formación, información y responsabilidad en los planes de vida y la toma desiciones por parte de los jóvenes, en consenso con padres y maestros, para responder a sueños y expectativas de autonomía y libertad, permitiendo de manera real, disminuir las altas tasas de embarazo adolescente y propiciando la participación en los procesos de desarrollo, para superar ciclos históricos de pobreza de sectores tradicionalmente marginados. </font></p>
+        <center><h3 class="bristolTitulo">OBJETIVO</h3></center>
+        <p style="color:#fff;" align="justify"><font size="4">Nuestro objetivo es implementar estrategias para prevenir el embarazo adolescente en 6 municipios del Oriente Antioqueño -Sonsón, Abejorral, San Francisco, San Luis, Argelia y Marinilla- a través del desarrollo de una plataforma educativa y recreativa, que incluye componentes para redes sociales y dispositivos móviles, y se enfoca en la educación sexual y en el fortalecimiento de los proyectos de vida de los adolescentes. </font></p>
+        
+    </div>
+    <div class="col-md-6">        
+        <a href="#"><img width="100%" src="{% static "images/pagina/encuentro2.jpg" %}" alt="Red Sentir"></a>
+    </div>
+    </div>
+    <div class="row">
+    <div class="col-md-6">
+        <a href="#"><img width="100%" src="{% static "images/pagina/encuentro.jpg" %}" alt="Red Sentir"></a>
+    </div>
+    <div class="col-md-6"> 
+        <p style="color:#fff;" align="justify"><font size="4">Este es el primer Encuentro Local de 18 que se harán en los municipios que participan de la Red Sentir: Argelia, San Luis, Abejorral, Sonsón, Marinilla y San Francisco, este último con las tasas de embarazo adolescente más altas de la región del Oriente Antioqueño, que específicamente entre los 15 y 19 años de edad, en una tasa por 1000 mujeres presenta un porcentaje de 154,8 mujeres en embarazo, por encima del total departamental que es de 68,3. 
+Y así de una mañana fría pasamos a una tarde que registraba aproximadamente los 25 grados, y entre diálogos, un partido de fútbol, un taller de cohetería y pintar el mural en la pared de la escuela finalizamos un día de aprendizajes con una gran vista de la montaña llamada “La teta”, sitio turístico del municipio de San Francisco.</font></p>
+        
+    </div>
+    </div>
+</div>
+{% endblock %}
