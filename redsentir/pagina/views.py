@@ -8,3 +8,6 @@ def index(request):
 def encuentro(request):
     return render(request, 'pagina/encuentro.html')
 
+def nosotros(request):
+    return render(request, 'pagina/nosotros.html')
+
