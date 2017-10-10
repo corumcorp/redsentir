@@ -10,6 +10,9 @@ class Carrusel(models.Model):
     
     def __unicode__(self):
         return u"%s" % self.nombre
+    
+    class Meta:
+        verbose_name_plural = "carruseles"
 
 class Noticia(models.Model):
     titulo = models.CharField(max_length=50)

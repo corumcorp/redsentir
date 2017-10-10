@@ -8,12 +8,15 @@ def index(request):
     return render(request, 'pagina/index.html', {'carrusel': carrusel, 'noticias': noticias})
 
 def encuentro(request):
-    return render(request, 'pagina/encuentro.html')
+    noticias = Noticia.objects.all
+    return render(request, 'pagina/encuentro.html',{'noticias': noticias})
 
 def nosotros(request):
-    return render(request, 'pagina/nosotros.html')
+    noticias = Noticia.objects.all
+    return render(request, 'pagina/nosotros.html',{'noticias': noticias})
 
 def noticia(request, pid):
+    noticias = Noticia.objects.all
     noticia = Noticia.objects.get(pk=pid)
-    return render(request, 'pagina/noticia.html',{'noticia': noticia})
+    return render(request, 'pagina/noticia.html',{'noticia': noticia, 'noticias': noticias})
 
