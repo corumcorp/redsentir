@@ -12,8 +12,9 @@ def index(request):
 @login_required
 def comentar(request):
     comentario = None
-    if request.POST['anonimo']:
+    if 'anonimo' in request.POST:
         comentario = Comentario(mensaje=request.POST['mensaje'],foro_id=1)
+        request.POST['anonimo']
     else :
         comentario = Comentario(usuario=request.user,mensaje=request.POST['mensaje'],foro_id=1)
     comentario.save()
