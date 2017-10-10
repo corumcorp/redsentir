@@ -1,5 +1,5 @@
 from django.shortcuts import render
-from .models import Carrusel
+from .models import Carrusel, Noticia
 
 def index(request):
     carrusel = Carrusel.objects.all
@@ -10,4 +10,8 @@ def encuentro(request):
 
 def nosotros(request):
     return render(request, 'pagina/nosotros.html')
+
+def noticia(request, pid):
+    noticia = Noticia.objects.get(pk=pid)
+    return render(request, 'pagina/noticia.html',{'noticia': noticia})
 

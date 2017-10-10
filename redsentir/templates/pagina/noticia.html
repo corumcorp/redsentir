@@ -21,8 +21,8 @@
             </br>
             </br>
             </br>
-            <p  style="color:red;">{% social_widget_render 'facebook/share_button.html' href='http://redsentir.org/pagina/noticia/{{ noticia.pk }}' %}</p>
-            <a href="#"><img width="100%" src="{{ noticia.imagen.url }}" alt="Red Sentir"></a>   
+            <p  style="color:red;">{% social_widget_render 'facebook/share_button.html' href='http://redsentir.org/pagina' %}</p>
+            <a href="#"><img width="100%" src="{% url 'index' %}{{ noticia.imagen.url }}" alt="Red Sentir"></a>   
         </div>
     </div>
 </div>
