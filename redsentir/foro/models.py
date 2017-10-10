@@ -10,8 +10,8 @@ class Foro(models.Model):
     tema = models.CharField(max_length=200)
     imagen = models.ImageField(upload_to='static/images/foros/', default='static/images/foros/defaultUser.png')
     
-    def __str__(self):
-        return self.tema
+    def __unicode__(self):
+        return u"%s" % self.tema
 
 class Comentario(models.Model):
     fecha = models.DateTimeField(auto_now=True)
@@ -19,5 +19,5 @@ class Comentario(models.Model):
     mensaje = models.CharField(max_length=200)
     usuario = models.ForeignKey(User, null=True,default=None)    
 
-    def __str__(self):
-        return self.foro.tema+" | "+self.mensaje
+    def __unicode__(self):
+        return u"%s" % self.mensaje

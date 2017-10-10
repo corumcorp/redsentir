@@ -10,5 +10,5 @@ class Perfil(models.Model):
     avatar = models.ImageField(upload_to='static/images/avatar/', default='static/images/avatar/defaultUser.png')
     genero = models.CharField(max_length=20, null=True)
     
-    def __str__(self):
-        return self.user.username+" | "+self.telefono
+    def __unicode__(self):
+        return u"%s" % self.user.username+" | "+self.telefono
