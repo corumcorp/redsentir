@@ -29,7 +29,7 @@
                         <a class="btn boton" href="{% url "pagina:index" %}#aliados">
                             <img src="{% static "images/pagina/boton-aliados.png" %}" width="80%"/>
                         </a>
-                        <a class="btn boton" href="{% url "pagina:encuentro" %}">
+                        <a class="btn boton" href="{% url "pagina:index" %}#noticias">
                             <img src="{% static "images/pagina/boton-noticias.png" %}" width="80%"/>
                         </a>
                         <a class="btn boton"  href="{% url "pagina:index" %}#contacto">
@@ -147,16 +147,12 @@
                         <h2 class="bristolTitulo">SÍGUENOS</h2>
                         {% social_widget_render 'twitter/follow_button.html' username='RedSentir' %}</br>
                         {% social_widget_render 'facebook/likebox.html' href='https://www.facebook.com/RedSentir' %}
+                        <div id="noticias">
                         <h2 class="bristolTitulo">NOTICIAS RECIENTES</h2>
-                        <p >
-                            Pilotaje Guías Didácticas – Componente de Formación
-                        </p>
-                        <p >
-                            Articulación interinstitucional Gobernación de Antioquia
-                        </p>
-                        <p >
-                            Primer Encuentro e Instalación de la Mesa Regional de Salud Sexual y Reproductiva
-                        </p>
+                        {% for noticia in noticias %}
+                        <a href="{% url 'pagina:noticia' noticia.pk %}" style="color:#fff;">{{ noticia.titulo }} – {{ noticia.subTitulo }}</a>
+                        {% endfor %}
+                        </div>
                         <h2  class="bristolTitulo">TE PUEDE INTERESAR</h2>
                         <ul >
                             <li >RED SENTIR</li>

@@ -3,7 +3,8 @@ from .models import Carrusel, Noticia
 
 def index(request):
     carrusel = Carrusel.objects.all
-    return render(request, 'pagina/index.html', {'carrusel': carrusel})
+    noticias = Noticia.objects.all
+    return render(request, 'pagina/index.html', {'carrusel': carrusel, 'noticias': noticias})
 
 def encuentro(request):
     return render(request, 'pagina/encuentro.html')
