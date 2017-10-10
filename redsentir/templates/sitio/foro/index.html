@@ -46,7 +46,11 @@
                         </span>
                             <div class="chat-body clearfix">
                                 <div class="header">
-                                    <strong class="primary-font">Anónimo</strong> <small class="pull-right text-muted">
+                                    {% if comentario.usuario %}
+                                        <strong class="primary-font">{{ comentario.usuario.username }}</strong> <small class="pull-right text-muted">                                        
+                                    {% else %}
+                                        <strong class="primary-font">Anónimo</strong> <small class="pull-right text-muted">
+                                    {% endif %}                                    
                                         <span class="glyphicon glyphicon-time"></span>{{ comentario.fecha }}</small>
                                 </div>
                                 <p>
