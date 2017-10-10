@@ -65,7 +65,7 @@
                     <form method="post">
                     {% csrf_token %}
                     <div class="input-group">
-                        <input id="chk-input" type="checkbox" name="anonimo"/>Anónimo
+                        <input type="checkbox" name="anonimo" value="1"/>Anónimo
                         <input id="btn-input" type="text" name="mensaje" class="form-control input-sm" placeholder="Escriba su comentario aqui..." />
                         <span class="input-group-btn">
                             <button type="submit" class="btn btn-warning btn-sm" id="btn-chat">
