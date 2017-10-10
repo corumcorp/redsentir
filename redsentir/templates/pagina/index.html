@@ -150,7 +150,7 @@
                         <div id="noticias">
                         <h2 class="bristolTitulo">NOTICIAS RECIENTES</h2>
                         {% for noticia in noticias %}
-                        <a href="{% url 'pagina:noticia' noticia.pk %}" style="color:#fff;">{{ noticia.titulo }} – {{ noticia.subTitulo }}</a>
+                        <a href="{% url 'pagina:noticia' noticia.pk %}" style="color:#fff;">{{ noticia.titulo }} – {{ noticia.subTitulo }}</a></br>
                         {% endfor %}
                         </div>
                         <h2  class="bristolTitulo">TE PUEDE INTERESAR</h2>
