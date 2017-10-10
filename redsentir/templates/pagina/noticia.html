@@ -1,0 +1,29 @@
+{% extends 'pagina/index.html' %}
+{% load static %}
+{% load social_widgets %}
+{% block contenido %}
+<div class="container">   
+    <div class="row">
+        <div class="col-md-6">
+            </br>
+            </br>
+            </br>
+            </br>
+            <center><h2 class="bristolTitulo">{{ noticia.titulo }}</h2></center>
+            <center><h3 class="bristolTitulo">{{ noticia.subTitulo }}</h3></center>
+            <p style="color:#fff;" align="justify"><font size="4">{{ noticia.descripcion }}</font></p>
+        </div>
+        <div class="col-md-6">
+            </br>
+            </br>
+            </br>
+            </br>
+            </br>
+            </br>
+            </br>
+            <p  style="color:red;">{% social_widget_render 'facebook/share_button.html' href='http://redsentir.org/pagina/noticia/{{ noticia.pk }}' %}</p>
+            <a href="#"><img width="100%" src="{{ noticia.imagen.url }}" alt="Red Sentir"></a>   
+        </div>
+    </div>
+</div>
+{% endblock %}
