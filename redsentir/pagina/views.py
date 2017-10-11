@@ -3,8 +3,9 @@ from django.shortcuts import render, redirect
 from .models import Carrusel, Noticia
 
 def index(request):
-    print(request.META.HTTP_NAME)
-    if request.META.HTTP_NAME != 'https://redsentir.org':
+    url = request.build_absolute_uri()
+    print(url)
+    if url != 'https://redsentir.org':
         redirect('https://redsentir.org')
     carrusel = Carrusel.objects.all
     noticias = Noticia.objects.all
