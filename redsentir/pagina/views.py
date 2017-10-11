@@ -5,9 +5,9 @@ from .models import Carrusel, Noticia
 def index(request):
     url = request.build_absolute_uri()
     print(url)
-    if not url == 'https://redsentir.org':
+    if not url == 'https://redsentir.org/':
         print('hola mundo')
-        return redirect('https://redsentir.org')
+        return redirect('https://redsentir.org/')
     carrusel = Carrusel.objects.all
     noticias = Noticia.objects.all
     return render(request, 'pagina/index.html', {'carrusel': carrusel, 'noticias': noticias})
