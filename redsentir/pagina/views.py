@@ -1,8 +1,11 @@
 # -*- coding: utf-8 -*-
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from .models import Carrusel, Noticia
 
 def index(request):
+    print(request.META.HTTP_NAME)
+    if request.META.HTTP_NAME != 'https://redsentir.org':
+        redirect('https://redsentir.org')
     carrusel = Carrusel.objects.all
     noticias = Noticia.objects.all
     return render(request, 'pagina/index.html', {'carrusel': carrusel, 'noticias': noticias})
