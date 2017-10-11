@@ -15,7 +15,7 @@ import django
 django.setup()
 
 class ProyectoRedSentir(object):
-    HOST = "0.0.0.0"
+    HOST = "redsentir.org"
     PORT = 443
 
     def mount_static(self, url, root):
