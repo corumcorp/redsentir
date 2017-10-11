@@ -42,9 +42,11 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'social_django',
+    'corsheaders',
 ]
 
 MIDDLEWARE = [
+    'corsheaders.middleware.CorsMiddleware',
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
@@ -144,7 +146,6 @@ AUTHENTICATION_BACKENDS = (
     'social_core.backends.github.GithubOAuth2',
     'social_core.backends.twitter.TwitterOAuth',
     'social_core.backends.facebook.FacebookOAuth2',
-
     'django.contrib.auth.backends.ModelBackend',
 )
 
@@ -156,3 +157,20 @@ SOCIAL_AUTH_TWITTER_KEY = 'MBl86h3SsEjQ6XIpvaAtl7C7B'
 SOCIAL_AUTH_TWITTER_SECRET = 'jyreNJobxjsLFMX2Cyt09QvlqWJZlNeT9Ym7zSkitxD1NMj0gy'
 SOCIAL_AUTH_FACEBOOK_KEY = '135664947036180'
 SOCIAL_AUTH_FACEBOOK_SECRET = '75972a0302861a685d2d1be3e7e9a2cb'
+
+CORS_ORIGIN_ALLOW_ALL = False
+
+CORS_ORIGIN_WHITELIST = (
+    'redsentir.org',
+)
+# Load server list and freeze
+from connector import Server
+
+def load_server_list():
+    for s in SERVER_LIST:  # from CUSTOM_SETTINGS_MAPPINGS  # noqa
+        server = (len(s) > 2) and unicode(s[2]) or None
+        Server(host=unicode(s[0]), port=int(s[1]), server=server)
+    Server.freeze()
+load_server_list()
+
+
