@@ -42,16 +42,13 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'social_django',
-    'corsheaders',
 ]
 
 MIDDLEWARE = [
-    'corsheaders.middleware.CorsMiddleware',    
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
-    'corsheaders.middleware.CorsPostCsrfMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
@@ -158,10 +155,3 @@ SOCIAL_AUTH_TWITTER_KEY = 'MBl86h3SsEjQ6XIpvaAtl7C7B'
 SOCIAL_AUTH_TWITTER_SECRET = 'jyreNJobxjsLFMX2Cyt09QvlqWJZlNeT9Ym7zSkitxD1NMj0gy'
 SOCIAL_AUTH_FACEBOOK_KEY = '135664947036180'
 SOCIAL_AUTH_FACEBOOK_SECRET = '75972a0302861a685d2d1be3e7e9a2cb'
-
-CORS_ORIGIN_ALLOW_ALL = False
-CORS_REPLACE_HTTPS_REFERER = True
-CORS_ORIGIN_REGEX_WHITELIST = ('^(https?://)?(\w+\.)?redsentir\.org$', )
-CORS_ORIGIN_WHITELIST = (
-    'redsentir.org',
-)

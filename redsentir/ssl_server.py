@@ -57,7 +57,7 @@ class ProyectoRedSentir(object):
             'log.screen': True
         }
         self.mount_static(settings.STATIC_URL, settings.STATIC_ROOT)
-
+        cherrypy.response.headers["Access-Control-Allow-Origin"] = "redsentir.org"
         cherrypy.log("Inciando la Plataforma de la Red Sentir.")
         cherrypy.tree.graft(WSGIHandler())
         cherrypy.tools.force_tls = cherrypy.Tool("before_handler", self.force_tls)
