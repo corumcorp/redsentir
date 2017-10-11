@@ -46,11 +46,12 @@ INSTALLED_APPS = [
 ]
 
 MIDDLEWARE = [
-    'corsheaders.middleware.CorsMiddleware',
+    'corsheaders.middleware.CorsMiddleware',    
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
+    'corsheaders.middleware.CorsPostCsrfMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
@@ -159,19 +160,8 @@ SOCIAL_AUTH_FACEBOOK_KEY = '135664947036180'
 SOCIAL_AUTH_FACEBOOK_SECRET = '75972a0302861a685d2d1be3e7e9a2cb'
 
 CORS_ORIGIN_ALLOW_ALL = False
-
+CORS_REPLACE_HTTPS_REFERER = True
+CORS_ORIGIN_REGEX_WHITELIST = ('^(https?://)?(\w+\.)?redsentir\.org$', )
 CORS_ORIGIN_WHITELIST = (
-    'www.redsentir.org[:443]',
-    'redsentir.org[:443]',
+    'redsentir.org',
 )
-# Load server list and freeze
-from connector import Server
-
-def load_server_list():
-    for s in SERVER_LIST:  # from CUSTOM_SETTINGS_MAPPINGS  # noqa
-        server = (len(s) > 2) and unicode(s[2]) or None
-        Server(host=unicode(s[0]), port=int(s[1]), server=server)
-    Server.freeze()
-load_server_list()
-
-
