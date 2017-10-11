@@ -161,8 +161,8 @@ SOCIAL_AUTH_FACEBOOK_SECRET = '75972a0302861a685d2d1be3e7e9a2cb'
 CORS_ORIGIN_ALLOW_ALL = False
 
 CORS_ORIGIN_WHITELIST = (
-    'https://www.redsentir.org',
-    'https://redsentir.org',
+    'www.redsentir.org[:443]',
+    'redsentir.org[:443]',
 )
 # Load server list and freeze
 from connector import Server
