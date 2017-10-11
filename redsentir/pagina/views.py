@@ -5,7 +5,7 @@ from .models import Carrusel, Noticia
 def index(request):
     url = request.build_absolute_uri()
     print(url)
-    if url != 'https://redsentir.org':
+    if not url == 'https://redsentir.org':
         redirect('https://redsentir.org')
     carrusel = Carrusel.objects.all
     noticias = Noticia.objects.all
