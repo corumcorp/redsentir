@@ -7,7 +7,7 @@ def index(request):
     print(url)
     if not url == 'https://redsentir.org':
         print('hola mundo')
-        redirect('https://redsentir.org')
+        redirect('https://goolge.com')
     carrusel = Carrusel.objects.all
     noticias = Noticia.objects.all
     return render(request, 'pagina/index.html', {'carrusel': carrusel, 'noticias': noticias})
