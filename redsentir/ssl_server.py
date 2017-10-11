@@ -62,7 +62,7 @@ class ProyectoRedSentir(object):
         cherrypy.tree.graft(WSGIHandler())
         cherrypy.tools.force_tls = cherrypy.Tool("before_handler", self.force_tls)
         self.load_http_server()
-	    cherrypy.config.update(configuracion)
+        cherrypy.config.update(configuracion)
         #self.open_browser()
         cherrypy.engine.start()
         cherrypy.engine.block()
