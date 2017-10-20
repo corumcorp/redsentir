@@ -68,12 +68,13 @@
                 {% else %}
                     <img class="img-circle" src="{% static "/images/noavatar.png" %}" alt="Imagen de Usuario">
                 {% endif %}
-                <p>{{ user.get_username }}</p>
-              <p class="designation">{{ user.email }}</p>
+                </br>
+                <div class="info">
+                    <p>{{ user.get_username }}</p>
+                    <p class="designation">{{ user.email }}</p>
+                </div>                
             </div>
-            <div class="pull-left info">
-              
-            </div>
+            
             {% else %}
             <div class="pull-left image"><img class="img-circle" src="{% static "/images/noavatar.png" %}" alt="Imagen de Usuario"></div>
             <div class="pull-left info">
