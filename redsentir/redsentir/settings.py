@@ -137,7 +137,7 @@ USE_TZ = True
 AUTH_PROFILE_MODULE = 'seguridad.Perfil'
 
 
-LOGIN_REDIRECT_URL = "/"
+LOGIN_REDIRECT_URL = "/foro"
 LOGIN_URL = '/login'
 LOGOUT_URL = '/logout'
 AUTHENTICATION_BACKENDS = (
