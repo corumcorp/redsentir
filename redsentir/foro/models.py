@@ -12,10 +12,24 @@ class Foro(models.Model):
     
     def __unicode__(self):
         return u"%s" % self.tema
+    
+    class Meta:
+        permissions = (
+            ("recibe_notificaciones", "responder_comentario"),
+        )
 
 class Comentario(models.Model):
     fecha = models.DateTimeField(auto_now=True)
     foro = models.ForeignKey(Foro, on_delete=models.CASCADE)
+    mensaje = models.CharField(max_length=200)
+    usuario = models.ForeignKey(User, null=True,default=None)    
+
+    def __unicode__(self):
+        return u"%s" % self.mensaje
+
+class Respuesta(models.Model):
+    fecha = models.DateTimeField(auto_now=True)
+    comentario = models.ForeignKey(Comentario)
     mensaje = models.CharField(max_length=200)
     usuario = models.ForeignKey(User, null=True,default=None)    
 
