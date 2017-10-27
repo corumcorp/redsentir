@@ -22,7 +22,8 @@ class Comentario(models.Model):
     fecha = models.DateTimeField(auto_now=True)
     foro = models.ForeignKey(Foro, on_delete=models.CASCADE)
     mensaje = models.CharField(max_length=200)
-    usuario = models.ForeignKey(User, null=True,default=None)    
+    usuario = models.ForeignKey(User, null=True,default=None)
+    me_gusta = models.IntegerField(default=0)
 
     def __unicode__(self):
         return u"%s" % self.mensaje

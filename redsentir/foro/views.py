@@ -3,6 +3,7 @@ from django.contrib.auth.decorators import login_required
 from .models import Comentario
 from django.contrib.auth.models import User
 from django.core.mail import send_mail
+from django.shortcuts import redirect
 
 @login_required
 def index(request):
@@ -23,7 +24,14 @@ def index(request):
                 request.user.username+': '+request.POST['mensaje'],
                 'noresponder@redsentir.org',
                 emails,
-                fail_silently=False,
-            )
+                fail_silently=True,
+            )    
     comentarios = Comentario.objects.all().order_by('id').reverse()
     return render(request, 'sitio/foro/index.html',{'comentarios':comentarios})
+
+@login_required
+def meGusta(request,pid):
+    comentario = Comentario.objects.get(pk=pid)
+    comentario.me_gusta += 1
+    comentario.save()
+    return redirect ('foro:index')
