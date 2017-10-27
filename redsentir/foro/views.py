@@ -32,6 +32,6 @@ def index(request):
 @login_required
 def meGusta(request,pid):
     comentario = Comentario.objects.get(pk=pid)
-    comentario.me_gusta += 1
+    comentario.me_gusta +=1
     comentario.save()
     return redirect ('foro:index')
