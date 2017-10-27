@@ -16,7 +16,7 @@ def index(request):
         expertos = User.objects.all()
         emails = []
         for experto in expertos :
-            if experto.has_perm('foro.recibe_notificaciones') :
+            if experto.has_perm('foro.responder_comentario') :
                 emails.append(experto.email)
         send_mail(
                 'Participacion en Foro',
