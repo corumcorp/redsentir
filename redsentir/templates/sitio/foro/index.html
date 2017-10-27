@@ -2,21 +2,7 @@
 {% load static %}
 {% load social_widgets %}
 {% block contenido %}
-    <div class="col-md-3">
-        <a class="mb-20 btn btn-primary btn-block" href="">Nuevo Foro</a>
-        <div class="card p-0">
-            <h4 class="card-title folder-head">Foros</h4>
-            <div class="card-body">
-            <ul class="nav nav-pills nav-stacked mail-nav">
-                <li class="active"><a href="#"><i class="fa fa-inbox fa-fw"></i> Mitos de la sexualidad<span class="label label-primary pull-right">12</span></a></li>
-            </ul>
-            </div>
-        </div>
-    </div>
-    <div class="col-md-9">
-    <div class="container">
-    <div class="row">
-        <div class="col-md-7">           
+    <div class="col-md-12">          
             <div class="panel panel-primary">
                 <div class="panel-heading">
                      <div class="card mark">
@@ -47,14 +33,22 @@
                             <div class="chat-body clearfix">
                                 <div class="header">
                                     {% if comentario.usuario %}
-                                        <strong class="primary-font">{{ comentario.usuario.username }}</strong> <small class="pull-right text-muted">                                        
+                                        <strong class="primary-font">{{ comentario.usuario.username }}</strong>                                        
                                     {% else %}
-                                        <strong class="primary-font">Anónimo</strong> <small class="pull-right text-muted">
-                                    {% endif %}                                    
-                                        <span class="glyphicon glyphicon-time"></span>{{ comentario.fecha }}</small>
+                                        <strong class="primary-font">Anónimo</strong>                                         
+                                    {% endif %} 
+                                    
+                                    <small class="pull-right text-muted">
+                                    <i class="fa fa-clock-o" aria-hidden="true"></i>{{ comentario.fecha }}
+                                    </small>
                                 </div>
                                 <p>
                                     {{ comentario.mensaje }}
+                                    <span class="pull-right">
+                                    <a href="#"><i class="fa fa-heart" aria-hidden="true"></i></a>
+                                    <a href="#"><i class="fa fa-comments" aria-hidden="true"></i></a>
+                                    </span>
+                                    
                                 </p>
                             </div>
                         </li>
@@ -77,7 +71,4 @@
             </div>
         </div>
     </div>
-</div>
-
-    </div>   
 {% endblock %}
