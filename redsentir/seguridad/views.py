@@ -4,6 +4,10 @@ from .models import *
 from django.contrib.auth.views import login
 from django.http import HttpResponseRedirect
 from django.core.urlresolvers import reverse
+import csv
+from djqscsv import render_to_csv_response
+from django.contrib.auth.decorators import login_required
+from django.http import Http404
 
 def registro(request):
     if request.POST:
@@ -30,4 +34,11 @@ def registro(request):
             return render(request, 'registration/registro.html',{'usuario':'debe ingresar un usuario'})            
     else :
         return render(request, 'registration/registro.html')
+
+@login_required
+def exportarUsuarios(request):
+    if request.user.is_superuser :
+        return render_to_csv_response(User.objects.all())
+    else :
+        raise Http404
     

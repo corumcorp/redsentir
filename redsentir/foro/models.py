@@ -15,7 +15,7 @@ class Foro(models.Model):
     
     class Meta:
         permissions = (
-            ("recibe_notificaciones", "responder_comentario"),
+            ("recibe_notificaciones", "recibe_notificaciones"),
         )
 
 class Comentario(models.Model):
@@ -24,6 +24,7 @@ class Comentario(models.Model):
     mensaje = models.CharField(max_length=200)
     usuario = models.ForeignKey(User, null=True,default=None)
     me_gusta = models.IntegerField(default=0)
+    respuestas = models.IntegerField(default=0)
 
     def __unicode__(self):
         return u"%s" % self.mensaje
@@ -32,7 +33,8 @@ class Respuesta(models.Model):
     fecha = models.DateTimeField(auto_now=True)
     comentario = models.ForeignKey(Comentario)
     mensaje = models.CharField(max_length=200)
-    usuario = models.ForeignKey(User, null=True,default=None)    
+    usuario = models.ForeignKey(User, null=True,default=None)
+    me_gusta = models.IntegerField(default=0)
 
     def __unicode__(self):
         return u"%s" % self.mensaje
