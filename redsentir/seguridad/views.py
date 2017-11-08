@@ -41,4 +41,8 @@ def exportarUsuarios(request):
         return render_to_csv_response(User.objects.all())
     else :
         raise Http404
-    
+
+@login_required
+def perfilUsuario(request, pid):
+    usuario = User.objects.get(pk=pid)
+    return render(request, 'sitio/perfil/perfil.html', {'usuario':usuario})

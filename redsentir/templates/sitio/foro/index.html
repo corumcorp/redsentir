@@ -2,7 +2,7 @@
 {% load static %}
 {% load social_widgets %}
 {% block contenido %}
-    <div class="col-md-12">          
+    <div class="col-md-10">          
             <div class="panel panel-primary">
                 <div class="panel-heading">
                      <div class="card mark">
@@ -30,7 +30,7 @@
                         <li class="left clearfix"><span class="chat-img pull-left">
                             <img class="img-circle" src="{% static "/images/logoredsentir1.png" %}" alt="Imagen de Usuario">
                         </span>
-                            <div class="chat-body clearfix">
+                            <div class="chat-body clearfix" id="comentario_{{ comentario.pk }}">
                                 <div class="header">
                                     {% if comentario.usuario %}
                                         <strong class="primary-font">{{ comentario.usuario.username }}</strong>                                        
@@ -46,10 +46,30 @@
                                     {{ comentario.mensaje }}
                                     <span class="pull-right">
                                     <a href="{% url 'foro:me_gusta' comentario.pk %}"><i class="fa fa-heart" aria-hidden="true"></i><font size="1">+{{ comentario.me_gusta }}</font></a>
-                                    <a href="#"><i class="fa fa-comments" aria-hidden="true"></i></a>
-                                    </span>
-                                    
+                                    <a href="#comentario_{{ comentario.pk }}" onclick="toggle({{ comentario.pk }})"><i class="fa fa-comments" aria-hidden="true"></i></a>
+                                    </span>                                    
                                 </p>
+                                <div id="div_comentario_{{ comentario.pk }}" style="display : None ;">
+                                    {% for respuesta in comentario.respuesta_set.all %}
+                                        <p>
+                                            <font size="3">
+                                            -<b>{{ respuesta.usuario.username }} :</b>{{ respuesta.mensaje }}
+                                            </font>
+                                            <span class="pull-right">
+                                                <a href="{% url 'foro:me_gusta' respuesta.pk %}">
+                                                    <i class="fa fa-heart" aria-hidden="true"></i><font size="1">+{{ respuesta.me_gusta }}</font>
+                                                </a>
+                                            </span>                                        
+                                        </p>
+                                    {% endfor %}
+                                    <form method="post" class="form-inline pull-right">
+                                        {% csrf_token %}
+                                        <input type="hidden" name="usuario" value="{{ comentario.usuario.pk }}">
+                                        <input type="hidden" name="comentario_id" value="{{ comentario.pk }}">
+                                        <input type="text" class="form-control" name="respuesta">
+                                        <input type="submit" value="Responder" class="btn btn-primary">
+                                    </form>
+                                </div>
                             </div>
                         </li>
                         {% endfor %}
@@ -71,4 +91,22 @@
             </div>
         </div>
     </div>
+{% endblock %}
+{% block scripts %}
+    <script>
+        var temp = 0;
+        function toggle(id) {
+            if (temp != 0) {
+                var y = document.getElementById("div_comentario_"+temp);
+                y.style.display = "none";
+            }
+            temp = id;
+            var x = document.getElementById("div_comentario_"+id);
+            if (x.style.display === "none") {
+                x.style.display = "block";
+            } else {
+                x.style.display = "none";
+            }
+        }
+    </script>
 {% endblock %}
