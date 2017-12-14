@@ -8,18 +8,12 @@
                      <div class="card mark">
                             <div class="row">
                                 <div class="col-md-9">
-                                <h4>Mitos de la sexualidad</h4>
-                                <p color="#000" align="justify">
-                                    En este foro resolveremos inquietudes, te daremos acompañamiento y orientación con respecto a distintos temas de sexualidad tumbando distintos mitos alrededor de ella. La sexualidad es la base de las relaciones que compone la vida humana por eso hay que entenderla y experimentarla libremente y con responsabilidad, por lo tanto, en este foro responderemos aquellas dudas, habladurías, chismoseo, o creencias que hayas escuchado sobre distintos temas de la sexualidad como el sexo, el género, los derechos, abortos, el coito, la orientación sexual, el autoerotismo, etc.
-                                    
-    Para comenzar opina acerca de los siguiente:
-
-    ¿Qué se dice sobre la sexualidad en la calle y colegio o entre tus amigos, familiares y profesores?
-                                </p>
+                                <h4>{{ foro.titulo }}</h4>
+                                <p color="#000" align="justify">{{ foro.tema }}</p>
                                 </div>
                                 <div class="col-md-3">
-                                {% social_widget_render 'facebook/share_button.html' href='http://redsentir.org/foro' %}
-                                <img width="100%" src="{% static "/images/pagina/foro1.png" %}" alt="Imagen Foro">
+                                {% social_widget_render 'facebook/share_button.html' href='http://redsentir.org/foro/' pid=foro.pk %}                                
+                                <img width="100%" src="/{{ foro.imagen.url }}" alt="Imagen Foro">
                                 </div>
                             </div>
                         </div>                
@@ -27,9 +21,14 @@
                 <div class="panel-body">
                     <ul class="chat">
                         {% for comentario in comentarios %}
-                        <li class="left clearfix"><span class="chat-img pull-left">
-                            <img class="img-circle" src="{% static "/images/logoredsentir1.png" %}" alt="Imagen de Usuario">
-                        </span>
+                        <li class="left clearfix">
+                            <div class="image pull-left">
+                                {% if comentario.usuario and comentario.usuario.perfil.avatar %}
+                                    <img class="img-circle" width="60" src="/{{ comentario.usuario.perfil.avatar.url }}" alt="Imagen de Usuario">
+                                {% else %}
+                                    <img class="img-circle"  width="60" src="{% static "/images/noavatar.png" %}" alt="Imagen de Usuario">
+                                {% endif %}
+                            </div>
                             <div class="chat-body clearfix" id="comentario_{{ comentario.pk }}">
                                 <div class="header">
                                     {% if comentario.usuario %}
@@ -62,7 +61,7 @@
                                             </span>                                        
                                         </p>
                                     {% endfor %}
-                                    <form method="post" class="form-inline pull-right">
+                                    <form method="post" class="form-inline pull-right" action="{% url 'foro:foro' foro.pk %}">
                                         {% csrf_token %}
                                         <input type="hidden" name="usuario" value="{{ comentario.usuario.pk }}">
                                         <input type="hidden" name="comentario_id" value="{{ comentario.pk }}">
@@ -76,7 +75,7 @@
                     </ul>
                 </div>
                 <div class="panel-footer">
-                    <form method="post">
+                    <form method="post" action="{% url 'foro:foro' foro.pk %}">
                     {% csrf_token %}
                     <div class="input-group">
                         <input type="checkbox" name="anonimo" value="1"/>Anónimo

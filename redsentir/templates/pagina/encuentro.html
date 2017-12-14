@@ -4,63 +4,48 @@
 {% block contenido %}
 <div class="container">   
     <div class="row">
-    <div class="col-md-6">
-        </br>
-        </br>
-        </br>
-        </br>
-        <center><h2 class="bristolTitulo">ENCUENTRO LOCAL SAN FRANCISCO</h2></center>
-        <center><h3 class="bristolTitulo">“SEXUALIDAD Y PLAN DE VIDA, UN TEMA DE TODOS”</h3></center>
-        <p style="color:#fff;" align="justify"><font size="4">La vocación agrícola, la amabilidad de su gente y una cultura rural campesina y tradicional destacan a la población de San Francisco, un municipio ubicado a ciento nueve kilómetros de la ciudad de Medellín, en el Oriente de Antioquia. 
-Llegar a este municipio y observar sus paisajes, permite identificar por qué anteriormente era llamado “El Morrón”, por donde lo mires hay montañas de todos los tamaños y resalta el verde en todas sus tonalidades. 
-	</br>
-	</br>
-Eran las ocho y cuarenta de la mañana del viernes 8 de septiembre, y la neblina no dejaba ver muy bien el camino que se recorría, solo se lograba divisar la sombra de montañas, que pronosticaban una gran vista cuando las nubes se alejarán del lugar. El Pajuí, una vereda del municipio de San Francisco sería el destino de un grupo de profesionales que hablaría de sexualidad y plan de vida a la comunidad. </font></p>
+        {% for elemento in elementos %}
+            <div class="col-md-{{ elemento.ancho }}">
+                {% if elemento.tipo == 'titulo' %}
+                    <center><h3 class="bristolTitulo">{{ elemento.contenido }}</h3></center>
+                {% if elemento.tipo == 'imagen' %}
+                    <a href="#"><img width="100%" src="{{ elemento.imagen.url }}" alt="Red Sentir"></a>
+                {% elif elemento.tipo == 'parrafo' %}
+                    <p style="color:#fff;" align="justify"><font size="4">{{ elemento.contenido }}</p>
+                {% if elemento.tipo == 'video' %}
+                    <iframe  id="video" width="100%" height="480" src="{{ elemento.contenido }}" frameborder="0" allowfullscreen></iframe>
+                {% endif %}
+            </div>            
+        {% endfor %}        
+        {% for elemento in elementos %}
+            <div class="col-md-3">
+            {% if elemento.tipo == 'audio' %}
+                <iframe width="100%" height="166" scrolling="no" frameborder="no" src="{{ elemento.contenido }}&amp;color=%23ff5500&amp;auto_play=false&amp;hide_related=false&amp;show_comments=true&amp;show_user=true&amp;show_reposts=false&amp;show_teaser=true"></iframe>
+            {% endif %}
+            </div>
+        {% endfor %}
     </div>
-    <div class="col-md-6">
-        </br>
-        </br>
-        </br>
-        </br>
-        </br>
-        </br>
-        </br>
-        </br>
-        <a class="btn btn-default">{% social_widget_render 'facebook/share_button.html' href='http://redsentir.org/pagina/encuentro' %}</a>
-        </br>
-        </br>
-        <a href="#"><img width="100%" src="{% static "images/pagina/encuentro1.jpg" %}" alt="Red Sentir"></a>   
-    </div>
-    </div>
-    <div class="row">
-    <div class="col-md-6">
-        <a href="#"><img width="100%" src="{% static "images/pagina/paisage.jpg" %}" alt="Red Sentir"></a>
-    </div>
-    <div class="col-md-6">        
-        <p style="color:#fff;" align="justify"><font size="4">“Valorar nuestro cuerpo y nuestro territorio, para cuidar lo que nos pertenece y está a nuestro alrededor”, “Planificar los sueños es evitar un embarazo a temprana edad, ya que muchos de esos proyectos se pueden atrasar y se dificulta un poco realizarlos”, éstos y otros aportes compartieron los jóvenes del semillero con sus familias y docentes.  
-Una de las docentes que nos acompañó expresó que: “tener relaciones con protección no solo nos libra de un embarazo adolescente, sino que también protege de una Infección de Transmisión Sexual (ITS), es tarea de los docentes trabajar estos temas desde todos los espacios y no verlos como tabú, nuestra función es hablar del tema y ustedes como padres informar y aclarar a sus hijos cuando tengan dudas e inquietudes”. Manuel Restrepo, padre de familia resume en una frase el diálogo intergeneracional que se dio durante el día entre docentes, jóvenes y padres, “lo más importante es enseñarle a nuestros hijos el valor de la vida en todo sentido”.</font></p>
-    </div>
-    </div>
-    <div class="row">
-    <div class="col-md-6">
-        <p style="color:#fff;" align="justify"><font size="4">Descender entre curvas pronunciadas, permitió llegar a una escuela pequeña el “Centro Educativo Rural El Pajuí”, donde estaba la comunidad lista para iniciar el Encuentro Local, una formación con la “Red Sentir, Con-ciencia Juvenil”, proyecto que tres meses atrás había iniciado el Semillero de Plan De Vida con un grupo de 30 jóvenes entre los 13 y 19 años de edad. 
-	</br>
-	</br>
-Era un día nublado, hacía frío y caían unas cuantas gotas de lluvia, pero esto no borraba la cara de felicidad de la comunidad, en especial de los jóvenes que se graduarían del Semillero después de haber participado en 10 sesiones en los que se generó una mayor conciencia consigo mismo, la sociedad y el territorio que habitan  al tratar temas como: “Me reconozco como individuo y ser de la sexualidad”, “Liderazgo juvenil, participación política juvenil y movilización social” y “Plan de vida y sexualidad”, los cuales se ponían en práctica en los diferentes laboratorios lúdicos y pedagógicos que se hacían en cada encuentro. </font></p>
-    </div>
-    <div class="col-md-6">        
-        <a href="#"><img width="100%" src="{% static "images/pagina/encuentro2.jpg" %}" alt="Red Sentir"></a>
-    </div>
-    </div>
-    <div class="row">
-    <div class="col-md-6">
-        <a href="#"><img width="100%" src="{% static "images/pagina/encuentro.jpg" %}" alt="Red Sentir"></a>
-    </div>
-    <div class="col-md-6"> 
-        <p style="color:#fff;" align="justify"><font size="4">Este es el primer Encuentro Local de 18 que se harán en los municipios que participan de la Red Sentir: Argelia, San Luis, Abejorral, Sonsón, Marinilla y San Francisco, este último con las tasas de embarazo adolescente más altas de la región del Oriente Antioqueño, que específicamente entre los 15 y 19 años de edad, en una tasa por 1000 mujeres presenta un porcentaje de 154,8 mujeres en embarazo, por encima del total departamental que es de 68,3. 
-Y así de una mañana fría pasamos a una tarde que registraba aproximadamente los 25 grados, y entre diálogos, un partido de fútbol, un taller de cohetería y pintar el mural en la pared de la escuela finalizamos un día de aprendizajes con una gran vista de la montaña llamada “La teta”, sitio turístico del municipio de San Francisco.</font></p>
-        
-    </div>
+    <div id="myCarousel" class="carousel slide" data-ride="carousel">
+        <ol class="carousel-indicators">
+            {% for imagen in carrusel %}                            
+                <li data-target="#myCarousel" data-slide-to="{{ forloop.counter0 }}" {% if forloop.counter == 1 %} class = "active" {% endif %}></li>
+            {% endfor %}
+        </ol>
+        <div class="carousel-inner">
+            {% for imagen in carrusel %} 
+                <div class="item{% if forloop.counter == 1 %} active {% endif %}" id="{{ forloop.counter0 }}">                        
+                    <center><img src="{% url 'index' %}{{ imagen.imagen.url }}" alt="Red Sentir"></center>                        
+                </div>
+            {% endfor %}              
+        </div>
+        <a class="left carousel-control" href="#myCarousel" data-slide="prev">
+            <span class="glyphicon glyphicon-chevron-left"></span>
+            <span class="sr-only">Anterior</span>
+        </a>
+        <a class="right carousel-control" href="#myCarousel" data-slide="next">
+            <span class="glyphicon glyphicon-chevron-right"></span>
+            <span class="sr-only">Siguiente</span>
+        </a>
     </div>
 </div>
 {% endblock %}

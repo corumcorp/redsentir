@@ -273,3 +273,7 @@ body {
 .trans {
     opacity: 0.3;
 }
+
+.icon-bar {
+   background-color:#fff !important;
+}

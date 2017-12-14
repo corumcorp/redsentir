@@ -3,5 +3,6 @@ from .views import *
 
 urlpatterns = [
     url(r'^$', index, name='index'),
+    url(r'^foro/(?P<pid>\d+)$', foro, name='foro'),
     url(r'^me_gusta/(?P<pid>\d+)$', meGusta, name='me_gusta'),
 ]
