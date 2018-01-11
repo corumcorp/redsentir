@@ -53,4 +53,4 @@ def meGusta(request,pid):
     comentario = Comentario.objects.get(pk=pid)
     comentario.me_gusta +=1
     comentario.save()
-    return redirect ('foro:index', pid = comentario.foro_id)
+    return redirect ('https://redsentir.org/foro/'+comentario.foro_id+'#comentario_'+str(comentario.pk))
