@@ -23,6 +23,12 @@ src: url(../fonts/avenir/AvenirLTStd-Book.otf);
     color: #fff;
 }
 
+.bristolMenu {
+    font-family: bristol, serif;
+    color: #00a3fe;
+    font-size: large;
+}
+
 .avenirTexto {
     font-family: avenir, serif;
     color: #fff;
@@ -201,7 +207,8 @@ body {
 }
 
 .encabezado {
-       background: #081b29;
+    height:80px;
+    background: #081b29;
 }
 
 .noticias {
@@ -276,4 +283,15 @@ body {
 
 .icon-bar {
    background-color:#fff !important;
+}
+
+.navbar-nav {
+    background: #081b29 !important;
+    top: 10px;
+    
+}
+
+nav>li>a:focus, .nav>li>a:hover {
+    background: #F5C53B !important;
+    
 }

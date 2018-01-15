@@ -19,43 +19,35 @@
         <title>Red Sentir</title>
     </head>    
     <body>
-        <div class="encabezado navbar-fixed-top">
-            <div class="navbar-header">
-            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span> 
-            </button>
-            </div>
-            <div class="collapse navbar-collapse" id="myNavbar">
-            <nav class="navbar">
-                <div class="container">
-                    <a href="{% url "pagina:index" %}"><img src="{% static "images/pagina/logo-red.png" %}" width="15%"></a>
-                    <a class="btn boton" href="{% url "pagina:index" %}#redsentir">
-                        <img src="{% static "images/pagina/boton-red.png" %}" width="80%"/>
-                    </a>
-                    <a class="btn boton" href="{% url "pagina:nosotros" %}">
-                        <img src="{% static "images/pagina/boton-nosotros.png" %}" width="80%"/>
-                    </a>
-                    <a class="btn boton" href="{% url "pagina:index" %}#video">
-                        <img src="{% static "images/pagina/boton-video.png" %}" width=80%"/>
-                    </a>
-                    <a class="btn boton" href="#">
-                        <img src="{% static "images/pagina/boton-foros.png" %}" width="80%"/>
-                    </a>
-                    <a class="btn boton" href="{% url "pagina:index" %}#noticias">
-                        <img src="{% static "images/pagina/boton-noticias.png" %}" width="80%"/>
-                    </a>
-                    <a class="btn boton"  href="{% url "pagina:index" %}#contacto">
-                        <img src="{% static "images/pagina/boton-contacto.png" %}" width="80%"/>
-                    </a>
-                    <a href="{% url "mesa:inicio" %}"><img src="{% static "images/pagina/boton-interrogantes.png" %}" width="12%" id="interrogantes"></a>
+           
+            <div class="navbar-fixed-top">
+                <div class="navbar-header">
+                <a class="navbar-brand" href="{% url "pagina:index" %}"><img src="{% static "images/pagina/logo-red.png" %}" width="130"></a>
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span> 
+                </button>                
                 </div>
-            </nav>
+                <div class="collapse navbar-collapse" id="myNavbar">
+                <nav class="navbar">
+                    <div class="container"> 
+                        <ul class="nav navbar-nav">
+                            <li  class="nav-item"><a class="bristolMenu" href="#">NOSOTROS</a></li>
+                            <li><a class="bristolMenu" href="#"><span><img src="{% static "images/pagina/video-ico.png" %}" width="30"></span>MULTIMEDIA</a></li>
+                            <li><a class="bristolMenu" href="#"><span><img src="{% static "images/pagina/video-ico.png" %}" width="30"></span>FOROS</a></li>
+                            <li><a class="bristolMenu" href="#"><span><img src="{% static "images/pagina/video-ico.png" %}" width="30"></span>PLATAFORMA</a></li>
+                            <li><a class="bristolMenu" href="#"><span><img src="{% static "images/pagina/noticias-ico.png" %}" width="30"></span>NOTICIAS</a></li> 
+                            <li><a class="bristolMenu" href="#"><span><img src="{% static "images/pagina/contacto-ico.png" %}" width="30"></span>CONTACTO</a></li>                        
+                        </ul>
+                    </div>
+                </nav>
+                </div>                 
             </div>
-            <div class="franja"></br></div>
-        </div>
-        </br></br></br></br></br></br></br></br></br>
+             <div class="encabezado">  
+                <a href="#" class="pull-right"><img  src="{% static "images/pagina/boton-interrogantes1.png" %}" width="130"></a>
+            </div>
+            <div class="franja align-bottom"></br></div>        
         <div class="content-wrapper">
             </br>
             {% block contenido %}            

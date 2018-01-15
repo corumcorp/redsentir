@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+    {% load static %}
+    {% load social_widgets %}
+  <head>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>RED SENTIR</title>
+    <link rel="icon" type="image/png" href="{% static "/images/favicon.png" %}">
+    <!-- Bootstrap core CSS -->
+    <link rel="stylesheet" href="{% static "libs/bootstrap/css/bootstrap.min.css" %}">
+
+    <!-- Custom fonts for this template -->
+    <link href="https://fonts.googleapis.com/css?family=Catamaran:100,200,300,400,500,600,700,800,900" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Lato:100,100i,300,300i,400,400i,700,700i,900,900i" rel="stylesheet">
+
+    <!-- Custom styles for this template -->
+    <link rel="stylesheet" href="{% static "css/inicio.css" %}">
+    
+  </head>
+
+  <body>
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-dark navbar-custom fixed-top">
+      <div class="container">
+        <a class="navbar-brand bristolTitulo" href="{% url "index" %}"><img src="{% static "images/pagina/logo-red-p.png" %}" width="30" >Red Sentir</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarResponsive">
+          <ul class="navbar-nav ml-auto">
+            <li class="nav-item">
+              <a class="nav-link bristolTitulo" href="{% url "seguridad:registro" %}">Unirse</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link bristolTitulo" href="{% url "login" %}">Ingresar</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+    <header class="masthead text-center text-white">
+      <div class="masthead-content">
+        <div class="container">
+          <h1 class="masthead-heading mb-0">{{ elemento.titulo }}</h1>
+          <h2 class="masthead-subheading mb-0">{{ elemento.introduccion }}</h2>
+          <a href="{{ elemento.imagen.url }}" class="btn btn-primary btn-xl rounded-pill mt-5 bristolTitulo">SABER MÁS</a>
+        </div>
+      </div>
+      <div class="bg-circle-1 bg-circle"><img src="{{ elemento.imagen.url }}"></div>
+      <div class="visible-lg"><div class="bg-circle-3 bg-circle"><img width="200" src="{% static "images/pagina/logo-red-p.png" %}"></div></div>
+    </header>    
+    <section>
+      <div class="container">
+        <div class="row align-items-center">
+          <div class="col-lg-6 order-lg-2">
+            <div class="p-5">
+              <img class="img-fluid rounded-circle" src="{% static "images/pagina/grafico-componente-formación.png" %}" alt="">
+            </div>
+          </div>
+          <div class="col-lg-6 order-lg-1">
+            <div class="p-5">
+              <h2 class="display-4">COMPONENTE DE FORMACIÓN</h2>
+              <p>Componente de Procesos de Formación y Socialización de Experiencias Desarrollaremos procesos de formación con jóvenes, padres de familia y maestros, a través de semilleros, encuentros locales y regionales, y procesos de socialización basados en Innovación, Potencialidades del Territorio e Investigación Escolar.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <div class="container">
+        <div class="row align-items-center">
+          <div class="col-lg-6">
+            <div class="p-5">
+              <img class="img-fluid rounded-circle" src="{% static "images/pagina/grafico-mesa-r.png" %}" alt="">
+            </div>
+          </div>
+          <div class="col-lg-6">
+            <div class="p-5">
+              <h2 class="display-4">MESA REGIONAL</h2>
+              <p>La Mesa Regional de Salud Sexual y Reproductiva, es un espacio estratégico de articulación intersectorial y social, desde la cual se analizarán y se promoverán debates, propuestas e incidencias en políticas públicas sobre salud sexual de los jóvenes.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <div class="container">
+        <div class="row align-items-center">
+          <div class="col-lg-6 order-lg-2">
+            <div class="p-5">
+              <img class="img-fluid rounded-circle" src="{% static "images/pagina/grafico-comp-digital.png" %}" alt="">
+            </div>
+          </div>
+          <div class="col-lg-6 order-lg-1">
+            <div class="p-5">
+              <h2 class="display-4">COMPONENTE DIGITAL</h2>
+              <p>A través de herramientas digitales se compartirán contenidos y experiencias para acercar a jóvenes, padres, maestros y expertos en una comunicación abierta y efectiva en temas concernientes a la salud sexual y al plan de vida.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section>
+        </br>
+        <iframe  id="video" width="100%" height="480" src="https://www.youtube.com/embed/qoOEJSWfpZI" frameborder="0" allowfullscreen></iframe>
+        </br>
+    </section>
+    <!-- Footer -->
+    <footer class="py-5 bg-black">
+      <div class="container">
+        <p class="m-0 text-center text-white small">Copyright &copy; CORUM 2017</p>
+      </div>
+      <!-- /.container -->
+    </footer>
+
+    <!-- Bootstrap core JavaScript -->
+    <script src="{% static "libs/jquery/jquery.min.js" %}"></script>
+    <script src="{% static "libs/bootstrap/js/bootstrap.bundle.min.js" %}"></script>
+  </body>
+
+</html>

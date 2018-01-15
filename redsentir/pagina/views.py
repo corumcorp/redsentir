@@ -1,6 +1,7 @@
 # -*- coding: utf-8 -*-
 from django.shortcuts import render, redirect
-from .models import Carrusel, Noticia
+from foro.models import Foro
+import random
 
 def index(request):
     #url = request.build_absolute_uri()
@@ -8,9 +9,9 @@ def index(request):
     #if not url == 'https://redsentir.org/':
     #print('hola mundo')
     #return redirect('https://redsentir.org/')
-    carrusel = Carrusel.objects.all
-    noticias = Noticia.objects.all
-    return render(request, 'pagina/index.html', {'carrusel': carrusel, 'noticias': noticias})
+    n = random.randint(0,Foro.objects.count()-1)
+    elemento = Foro.objects.all()[n]
+    return render(request, 'pagina/inicio.html', {'elemento': elemento})
 
 def encuentro(request):
     noticias = Noticia.objects.all
