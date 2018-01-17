@@ -64,7 +64,7 @@
                                     <form method="post" class="form-inline pull-right" action="{% url 'foro:foro' foro.pk %}">
                                         {% csrf_token %}
                                         <input type="hidden" name="comentario_id" value="{{ comentario.pk }}">
-                                        <input type="text" class="form-control" name="respuesta">
+                                        <input type="text" class="form-control" name="respuesta" maxlength="200">
                                         <input type="submit" value="Responder" class="btn btn-primary">
                                     </form>
                                 </div>
@@ -78,7 +78,7 @@
                     {% csrf_token %}
                     <div class="input-group">
                         <input type="checkbox" name="anonimo" value="1"/>Anónimo
-                        <input id="btn-input" type="text" name="mensaje" class="form-control input-sm" placeholder="Escriba su comentario aqui..." />
+                        <input id="btn-input" type="text" name="mensaje" class="form-control input-sm" placeholder="Escriba su comentario aqui..." maxlength="200" />
                         <span class="input-group-btn">
                             <button type="submit" class="btn btn-warning btn-sm" id="btn-chat">
                                 Enviar</button>
