@@ -285,6 +285,7 @@ body {
    background-color:#fff !important;
 }
 
+<<<<<<< HEAD
 .navbar-nav {
     background: #081b29 !important;
     top: 10px;
@@ -295,3 +296,8 @@ nav>li>a:focus, .nav>li>a:hover {
     background: #F5C53B !important;
     
 }
+=======
+.imagen-sombra {
+    box-shadow: 0 4px 8px 0 rgba(3, 3, 3, 0.5), 0 6px 20px 0 rgba(3, 3, 3, 0.8);
+}
+>>>>>>> 90ca781a5909630fb20571186e2087a558b2403f
