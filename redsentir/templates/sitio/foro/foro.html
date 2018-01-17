@@ -44,7 +44,7 @@
                                 <p>
                                     {{ comentario.mensaje }}
                                     <span class="pull-right">
-                                    <a href="{% url 'foro:me_gusta' comentario.pk %}"><i class="fa fa-heart" aria-hidden="true"></i><font size="1">+{{ comentario.me_gusta }}</font></a>
+                                    <a href="{% url 'foros:me_gusta' comentario.pk %}"><i class="fa fa-heart" aria-hidden="true"></i><font size="1">+{{ comentario.me_gusta }}</font></a>
                                     <a href="#comentario_{{ comentario.pk }}" onclick="toggle({{ comentario.pk }})"><i class="fa fa-comments" aria-hidden="true"></i></a>
                                     </span>                                    
                                 </p>
