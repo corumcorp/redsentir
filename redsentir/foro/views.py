@@ -14,13 +14,13 @@ def index(request):
 def foro(request,pid):
     if request.method == 'POST':        
         if 'respuesta' in request.POST :
-            respuesta = Respuesta(mensaje=request.POST['respuesta'],comentario_id=request.POST['comentario_id'],usuario_id=request.POST['usuario'])
+            respuesta = Respuesta(mensaje=request.POST['respuesta'],comentario_id=request.POST['comentario_id'],usuario_id=request.user.pk)
             respuesta.save()
-            usuario = User.objects.get(pk=request.POST['usuario'])
+            usuario = User.objects.get(pk=request.user.pk)
             if usuario.email :
                 send_mail(
                         'Respuesta comentario Foro',
-                        request.user.username+': '+request.POST['respuesta']+' https://redsentir.org/foro/'+pid+'#comentario_'+request.POST['comentario_id'],
+                        request.user.username+': '+request.POST['respuesta']+' https://redsentir.org/foros/foro/'+pid+'#comentario_'+request.POST['comentario_id'],
                         'comunicaciones@redsentir.org',
                         [usuario.email],
                         fail_silently=True,
@@ -39,7 +39,7 @@ def foro(request,pid):
                     emails.append(experto.email)
             send_mail(
                     'Participacion en Foro',
-                    request.user.username+': '+request.POST['mensaje']+' https://redsentir.org/foro/'+pid+'#comentario_'+str(comentario.pk),
+                    request.user.username+': '+request.POST['mensaje']+' https://redsentir.org/foros/foro/'+pid+'#comentario_'+str(comentario.pk),
                     'comunicaciones@redsentir.org',
                     emails,
                     fail_silently=True,
@@ -53,4 +53,4 @@ def meGusta(request,pid):
     comentario = Comentario.objects.get(pk=pid)
     comentario.me_gusta +=1
     comentario.save()
-    return redirect ('https://redsentir.org/foro/'+comentario.foro_id+'#comentario_'+str(comentario.pk))
+    return redirect ('https://redsentir.org/foros/foro/'+comentario.foro_id+'#comentario_'+str(comentario.pk))

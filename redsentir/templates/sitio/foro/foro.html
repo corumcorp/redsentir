@@ -63,7 +63,6 @@
                                     {% endfor %}
                                     <form method="post" class="form-inline pull-right" action="{% url 'foro:foro' foro.pk %}">
                                         {% csrf_token %}
-                                        <input type="hidden" name="usuario" value="{{ comentario.usuario.pk }}">
                                         <input type="hidden" name="comentario_id" value="{{ comentario.pk }}">
                                         <input type="text" class="form-control" name="respuesta">
                                         <input type="submit" value="Responder" class="btn btn-primary">

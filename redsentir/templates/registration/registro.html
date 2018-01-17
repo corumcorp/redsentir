@@ -1,25 +1,34 @@
-{% extends 'base.html' %}
-{% load static %}
-{% block sideMenu %}
-    <li><a href="/"><i class="fa fa-dashboard"></i><span>Linea de Tiempo</span></a></li>
-    <li class="treeview active"><a href="#"><i class="fa fa-pie-chart"></i><span>Linea base</span><i class="fa fa-angle-right"></i></a>
-        <ul class="treeview-menu">
-        <li><a href="{% url "lineabase:index" %}"><i class="fa fa-circle-o"></i>Resultados</a></li>
-        <li><a href="{% url "lineabase:sociodemograficos" %}"><i class="fa fa-circle-o"></i>Socio Demograficos</a></li>
-        <li><a href="{% url "lineabase:actividades" %}"><i class="fa fa-circle-o"></i>Actividades sociales</a></li>
-        <li><a href="{% url "lineabase:relaciones" %}"><i class="fa fa-circle-o"></i>Relaciones personales</a></li>
-        <li><a href="{% url "lineabase:salud" %}"><i class="fa fa-circle-o"></i>Salud Sexual</a></li>
-        <li><a href="{% url "lineabase:plan" %}"><i class="fa fa-circle-o"></i>Plan de vida</a></li>
-        <li><a href="{% url "lineabase:subgrupos" %}"><i class="fa fa-circle-o"></i>Análisis de subgrupos</a></li>
-        <li><a href="{% url "lineabase:embarazo" %}"><i class="fa fa-circle-o"></i>Embarazo adolecente</a></li>
-        <li><a href="{% url "lineabase:discucion" %}"><i class="fa fa-circle-o"></i>Discusión</a></li>
-        </ul>
-    </li>
-{% endblock %}
-{% block contenido %}
-<div class="card">
-    <h3 class="card-title">Registro</h3>
-    <form class="form-horizontal" method="post" enctype="multipart/form-data">
+<!DOCTYPE html>
+<html>
+  <head>
+    {% load static %}
+    <meta charset="utf-8">
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- CSS-->
+    <link rel="icon" type="image/png" href="{% static "/images/favicon.png" %}">
+    <link rel="stylesheet" type="text/css" href="{% static "css/main.css" %}">
+    <!-- Font-icon css-->
+    <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <title>Red Sentir</title>
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries-->
+    <!--if lt IE 9
+    script(src='https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js')
+    script(src='https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js')
+    -->
+  </head>
+  <body>
+    <section class="material-half-bg">
+      <div class="cover"><img width="15%" src="{% static "/images/pagina/5.png" %}"/></div>
+    </section>
+    <section class="login-content">
+      <div class="logo">
+        
+      </div>
+      <div class="card col-md-7">
+    <form  method="post" class="form-horizontal" enctype="multipart/form-data">
+        <h3 class="login-head"><i class="fa fa-lg fa-fw fa-user"></i>REGISTRO</h3>
     {% csrf_token %}
     <div class="card-body">
         {% if usuario %}
@@ -44,9 +53,9 @@
             </div>
         </div>
         <div class="form-group">
-            <label class="control-label col-md-3">Fecha de Nacimiento</label>
+            <label class="control-label col-md-3">FechaNacimiento</label>
             <div class="col-md-8">
-                <input type="date" placeholder="Fecha de Nacimiento" name="fecha_nacimiento">
+                <input class="form-control" type="date" placeholder="Fecha de Nacimiento" name="fecha_nacimiento">
             </div>
         </div>
         <div class="form-group">
@@ -70,12 +79,12 @@
         <div class="form-group">
         <label class="control-label col-md-3">Celular</label>
         <div class="col-md-8">
-            <input class="form-control col-md-8" type="text" placeholder="Celular" name="celular">
+            <input class="form-control" type="text" placeholder="Celular" name="celular">
         </div>
         </div>
         <div class="form-group">
         <label class="control-label col-md-3">Sexo</label>
-        <div class="col-md-9">
+        <div class="col-md-8">
             <div class="radio-inline">
             <label>
                 <input type="radio" name="genero">Masculino
@@ -95,13 +104,11 @@
         </div>
         </div>
         <div class="form-group">
-        <div class="col-md-8 col-md-offset-3">
             <div class="checkbox">
             <label>
                 <input type="checkbox">Acepto los <a href="#">términos y condiciones.</a>
             </label>
             </div>
-        </div>
         </div>
     
     </div>
@@ -113,5 +120,11 @@
     </div>
     </div>
     </form>
-</div>
-{% endblock %}
+      </div>
+    </section>
+  </body>
+  <script src="{% static "js/jquery-2.1.4.min.js" %}"></script>
+  <script src="{% static "js/bootstrap.min.js" %}"></script>
+  <script src="{% static "js/plugins/pace.min.js" %}"></script>
+  <script src="{% static "js/main.js" %}"></script>
+</html>
