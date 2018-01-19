@@ -1,0 +1,196 @@
+Ui{% extends 'base.html' %}
+{% load static %}
+{% block contenido %}
+    <div class="col-md-12">
+        <div class="card">
+                <div class="row">
+                    <div class="col-md-6">  
+                     <h2 class="card-title">Relaciones personales y familiares</h2>
+                        <p class="text-justify">Cuando los adolescentes tienen dudas, consultan con mayor frecuencia a sus padres, en Internet o a sus amigos (Tabla 15), y las personas que les generan mayor nivel de confianza son sus amigos, sus padres o sus parejas (Tabla 16).</p></br>
+                        <p>Tabla 15. Distribución de frecuencias de los adolescentes según consultan las dudas que ellos tienen. Factores relacionados con embarazo en adolescentes, 2017.</p>
+                            <div class="table-responsive">          
+                            <table class="table">
+                                <thead>
+                                <tr>
+                                    <th>Dónde consultan</th>
+                                    <th>Frecuencia absoluta</th>
+                                    <th>Porcentage</th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                <tr>
+                                    <td>Padres</td>
+                                    <td>2796</td>
+                                    <td>63,1</td>
+                                </tr>
+                                <tr>
+                                    <td>Consulto en Internet</td>
+                                    <td>2465</td>
+                                    <td>55,6</td>
+                                </tr>
+                                <tr>
+                                    <td>Amigos</td>
+                                    <td>2011</td>
+                                    <td>45,4</td>
+                                </tr>
+                                <tr>
+                                    <td>Familiares</td>
+                                    <td>1088</td>
+                                    <td>24,5</td>
+                                </tr>
+                                <tr>
+                                    <td>Colegios / bibliotecas</td>
+                                    <td>382</td>
+                                    <td>8,6</td>
+                                </tr>
+                                </tbody>
+                            </table>
+                        </div>                        
+                    </div>
+                    <div class="col-md-6">
+                        <img src="{% static "/images/img_login.png" %}"/>
+                    </div>
+                    
+                </div> 
+                <p class="text-justify">Tabla 16. Distribución de frecuencias de los adolescentes según el nivel de confianza que a ellos les generan. Factores relacionados con embarazo en adolescentes, 2017.</p>
+                <div class="table-responsive">          
+                    <table class="table">
+                        <thead>
+                        <tr>
+                            <th>Nivel de confianza</th>
+                            <th colspan="2">Muy bueno</th>
+                            <th colspan="2">Bueno</th>
+                            <th colspan="2">Regular</th>
+                            <th colspan="2">Malo</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr>
+                            <td><b>Persona</b></td>
+                            <td><b>Frecuencia absoluta</b></td>
+                            <td><b>Porcentaje</b></td>
+                            <td><b>Frecuencia absoluta</b></td>
+                            <td><b>Porcentaje</b></td>
+                            <td><b>Frecuencia absoluta</b></td>
+                            <td><b>Porcentaje</b></td>
+                            <td><b>Frecuencia absoluta</b></td>
+                            <td><b>Porcentaje</b></td>
+                        </tr>
+                        <tr>
+                            <td>Amigos</td>
+                            <td>1159</td>
+                            <td>28</td>
+                            <td>1335</td>
+                            <td>32</td>
+                            <td>1165</td>
+                            <td>28</td>
+                            <td>487</td>
+                            <td>12</td>                            
+                        </tr>
+                        <tr>
+                            <td>Padres</td>
+                            <td>1019</td>
+                            <td>24</td>
+                            <td>1144</td>
+                            <td>27</td>
+                            <td>1377</td>
+                            <td>33</td>
+                            <td>675</td>
+                            <td>16</td>                            
+                        </tr>
+                        <tr>
+                            <td>Pareja</td>
+                            <td>864</td>
+                            <td>22</td>
+                            <td>765</td>
+                            <td>19</td>
+                            <td>531</td>
+                            <td>14</td>
+                            <td>1757</td>
+                            <td>45</td>                            
+                        </tr>
+                        <tr>
+                            <td>Familiares</td>
+                            <td>289</td>
+                            <td>7</td>
+                            <td>984</td>
+                            <td>25</td>
+                            <td>1575</td>
+                            <td>39</td>
+                            <td>1176</td>
+                            <td>29</td>                            
+                        </tr>
+                        <tr>
+                            <td>Psicólogo</td>
+                            <td>221</td>
+                            <td>5</td>
+                            <td>501</td>
+                            <td>13</td>
+                            <td>739</td>
+                            <td>19</td>
+                            <td>2525</td>
+                            <td>63</td>                            
+                        </tr>
+                        <tr>
+                            <td>Hospitales</td>
+                            <td>179</td>
+                            <td>4</td>
+                            <td>530</td>
+                            <td>13</td>
+                            <td>1201</td>
+                            <td>30</td>
+                            <td>2111</td>
+                            <td>53</td>                            
+                        </tr>
+                        <tr>
+                            <td>Profesor</td>
+                            <td>118</td>
+                            <td>3</td>
+                            <td>515</td>
+                            <td>13</td>
+                            <td>1249</td>
+                            <td>31</td>
+                            <td>2167</td>
+                            <td>53</td>                            
+                        </tr>
+                        <tr>
+                            <td>Farmacia</td>
+                            <td>68</td>
+                            <td>2</td>
+                            <td>286</td>
+                            <td>7</td>
+                            <td>806</td>
+                            <td>20</td>
+                            <td>2858</td>
+                            <td>71</td>                            
+                        </tr>
+                        </tbody>
+                    </table>
+                </div>
+        </div>   
+    </div> 
+{% endblock %}
+{% block scripts %}
+    <script type="text/javascript" src="{% static "/js/plugins/chart.js" %}"></script>
+    <script type="text/javascript">                
+      var f2data = [
+      	{
+      		value: 27,
+      		color:"#0CB11C",
+      		highlight: "#9EB10C",
+      		label: "Rural"
+      	},
+      	{
+      		value: 73,
+      		color: "#B1510C",
+      		highlight: "#9EB10C",
+      		label: "Urbana"
+      	}
+      ]
+       
+        
+        var ctxp = $("#pieChartF2").get(0).getContext("2d");
+        var barChart = new Chart(ctxp).Pie(f2data);
+    </script>
+{% endblock %}
+

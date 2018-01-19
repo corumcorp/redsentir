@@ -1,0 +1,142 @@
+Ui{% extends 'base.html' %}
+{% load static %}
+{% block contenido %}
+    <div class="col-md-12">
+        <div class="card">
+            <div class="row">
+                <div class="col-md-6">  
+                    <h2 class="card-title">Factores asociados con el embarazo en la adolescencia</h2>
+                    <p class="text-justify">Dado que se trata de un estudio transversal por medio de una encuesta, en la que los factores de riesgo de interés y la variable de resultado (riesgo de embarazo en la adolescencia) se evalúan simultáneamente, no es posible determinar causalidad, pues no es posible determinar la temporalidad entre la exposición y el evento, es decir, no es posible determinar que fue primero, si el huevo o la gallina. En este tipo de estudios se identificarán las variables que tienen asociación estadística con el riesgo de embarazo en la adolescencia y que obviamente tengan un sustento teórico más allá de la simple relación matemática entre dos variables.
+El reto más importante para poder establecer dicha asociación, es determinar la población que tiene más riesgo de embarazo en la adolescencia. Es claro que varias de las características evaluadas en este estudio pueden ser un factor de riesgo para el embarazo en la adolescencia, pero no todas tienen igual peso. Aunque en el numeral anterior se discutieron varios aspectos relacionados con los adolescentes que ya iniciaron su vida sexual, no puede considerarse esta situación como un único factor de riesgo para el embarazo en la adolescencia, pues se corre el riesgo de considerar que aquellos que no la han iniciado no tienen riesgo y se desconocería el hecho cierto que más del 70 % de los adolescentes que tienen relaciones sexuales usan métodos de planificación que se convierten en un factor protector para evitar el embarazo. Es decir, tanto la actividad sexual como la planificación son más un resultado de otras circunstancias que un factor de riesgo per se.
+En este orden de ideas, se consideraron dos variables relacionadas con la forma en que los adolescentes conceptualizan el embarazo en la adolescencia, así como el significado que ellos creen que le da su entorno. El resultado de estas dos preguntas se encuentra en las tablas 15 y 16 del presente informe, y se asumió que a la pregunta de qué significa un embarazo en la adolescencia para ellos, aquellos que hayan respondido que interrumpe su plan de vida o que es un problema, tendrían menos riesgo de un embarazo en esta época de su vida en comparación con los que respondieron es una realización, que es obligatorio, que es una necesidad, que es tradición o que no es un problema. Asimismo, ante la pregunta sobre qué significaría un embarazo en la adolescencia para su entorno, se asumió que los que respondieron que es un problema tienen menos riesgo de un embarazo en esta época de sus vidas que aquellos que respondieron cualquiera de las otras opciones.
+Lo que se hizo fue crear un grupo que posiblemente tiene mayor riesgo de embarazo en la adolescencia, compuesto por los que no creen que el embarazo en este momento de sus vidas sea un problema para ellos o para su entorno o que no interrumpa sus planes de vida. Como se mencionó antes, existen varias características que puedan aumentar dicho riesgo, pero para fines de esta investigación, se consideró que la creencia de que el embarazo en la adolescencia no afecte sus vidas, es una situación que marca de forma importante el comportamiento de los adolescentes, y por tanto, el interés se centra en establecer que variables tienen mayor asociación con la población que considera que el embarazo en la adolescencia no es un problema para ellos ni para su entorno.</br>
+Por tratarse de un estudio transversal, el resultado se expresará en términos de odds ratio (OR), que es la medida estadística utilizada en este tipo de estudios. El OR es una expresión matemática que es una razón, la cual compara la prevalencia de la exposición entre los que tienen un riesgo moderado o alto de embarazo en la adolescencia con la prevalencia de la exposición entre los que tienen un riesgo bajo de embarazo en la adolescencia (se asume que no existen grupos sin riesgo, todos tienen algún nivel de riesgo). Por tratarse de una razón, el valor 1 (uno) significa igualdad de prevalencia de la exposición, por tanto, cuando la OR tiene un valor cercano al 1 (uno) significa que no hay asociación entre la variable de interés y el riesgo de embarazo en la adolescencia. Cuando la OR tiene valores > 1, significa que la prevalencia de la exposición a la variable de interés es mucho mayor en el grupo de riesgo moderado o alto en comparación con el grupo de riesgo bajo, lo que significa que es un factor de riesgo para el embarazo en la adolescencia.</p>                    
+                </div>
+                <div class="col-md-6"> 
+                        <div class="table-responsive">          
+                        <table class="table">
+                            <thead>
+                            <tr>
+                                <th>Variable</th>
+                                <th width="50%">Resultado</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            <tr>
+                                <td>Sitio de vivienda (rural)</td>
+                                <td>OR = 1,08 (IC 95%: 0,86-1,34)</td>
+                            </tr>
+                            <tr>
+                                <td>Trabajo (sí trabaja)</td>
+                                <td>OR = 1,46 (IC 95%: 1,13-1,88)</td>
+                            </tr>
+                            <tr>
+                                <td>Actividad lúdica (ninguna, redes sociales, escuchar música)</td>
+                                <td>OR = 2,41 (IC 95%: 1,96-2,97)</td>
+                            </tr>
+                            <tr>
+                                <td>Clases de salud sexual y reproductiva (menos de una vez a la semana)</td>
+                                <td>OR = 1,47 (IC 95%: 1,04-2,10)</td>
+                            </tr>
+                            <tr>
+                                <td>Tener un hijo en este momento (sí)</td>
+                                <td>OR = 3,86 (IC 95%: 2,84-5,26)</td>
+                            </tr>
+                            <tr>
+                                <td>Opinión de métodos de planificación (opiniones diferentes a es necesario o incómodos pero necesarios)</td>
+                                <td>OR = 2,82 (IC 95%: 2,31-3,45)</td>
+                            </tr>
+                            <tr>
+                                <td>Número de compañeros sexuales el último trimestre (dos o más)</td>
+                                <td>OR = 1,87 (IC 95%: 1,41-2,47)</td>
+                            </tr>
+                            <tr>
+                                <td>Opinión sobre golpear a la pareja (es normal, por algo que hizo, es por amor)</td>
+                                <td>OR = 4,46 (IC 95%: 3,54-5,60)</td>
+                            </tr>
+                            <tr>
+                                <td>Opinión sobre relaciones sexuales no permitidas bajo los efectos de sustancias psicoactivas (normal, te lo mereces)</td>
+                                <td>OR = 1,73 (IC 95%: 1,22-2,44)</td>
+                            </tr>
+                            <tr>
+                                <td>Opinión sobre tener relaciones sexuales a cambio de dinero o beneficios (opiniones diferentes a no lo acepto)</td>
+                                <td>OR = 2,06 (IC 95%: 1,68-2,52)</td>
+                            </tr>
+                            <tr>
+                                <td>Conocer los derechos sexuales y reproductivos (sí)</td>
+                                <td>OR = 0,60 (IC 95%: 0,49-0,73)</td>
+                            </tr>
+                            <tr>
+                                <td>Tener un plan de vida (sí))</td>
+                                <td>OR = 0,37 (IC 95%: 0,30-0,45)</td>
+                            </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <p class="text-justify">
+Cuando la OR tiene valores < 1, significa que la prevalencia de la exposición a la variable de interés es mucho menor en el grupo de riesgo moderado o alto que en el grupo de riesgo bajo, lo que significa que es un factor protector para el embarazo en la adolescencia. Por último, los valores de OR se acompañarán de un valor de intervalo de confianza (IC) del 95%, el cual se trata de un rango de valores dentro del cual se encuentra el valor de OR. En caso que el valor de OR sea > 1 y el valor mínimo del IC también sea > 1, se interpretará dicho resultado como un factor de riesgo para el embarazo en la adolescencia. De igual forma, en caso que el valor de OR sea < 1 y el valor máximo del IC también sea < 1, se interpretará dicho resultado como un factor protector para el embarazo en la adolescencia. Por último, si el resultado del IC es un valor mínimo que es < 1 y un valor máximo > 1, la interpretación correcta de dicho resultado es que no hay asociación entre la variable de exposición y el riesgo de embarazo en la adolescencia, independientemente del valor obtenido en la OR.</br>Al hacer un análisis de subgrupos de los adolescentes de 13 años en comparación con los demás y considerando estas mismas variables, no se encontraron diferencias estadísticamente significativas en este grupo etario.</p>
+                </div>
+            </div>            
+        </div>   
+    </div> 
+{% endblock %}
+{% block scripts %}
+    <script type="text/javascript" src="{% static "/js/plugins/chart.js" %}"></script>
+    <script type="text/javascript">  
+        var data = {
+            labels: ["Mujer", "Mujer", "Intersexo"],
+            datasets: [
+                    {
+                            label: "Frecuencia Absoluta",
+                            fillColor: "#EA3EE7",
+                            strokeColor: "rgba(220,220,220,1)",
+                            pointColor: "rgba(220,220,220,1)",
+                            pointStrokeColor: "#fff",
+                            pointHighlightFill: "#fff",
+                            pointHighlightStroke: "rgba(220,220,220,1)",
+                            data: [117, 100, 49]
+                    }
+            ]
+        };
+        
+        var pdata = [
+      	{
+      		value: 27,
+      		color:"#F7464A",
+      		highlight: "#FF5A5E",
+      		label: "Urbana"
+      	},
+      	{
+      		value: 73,
+      		color: "#46BEEE",
+      		highlight: "#5AD3D1",
+      		label: "Rural"
+      	}
+      ]
+      
+      var f3data = [
+      	{
+      		value: 85,
+      		color:"#A7464A",
+      		highlight: "#FF5A5E",
+      		label: "No trabaja"
+      	},
+      	{
+      		value: 15,
+      		color: "#B6BEEE",
+      		highlight: "#7AD3D1",
+      		label: "Si trabaja"
+      	}
+      ]
+       
+        var ctxb = $("#barChartDemo").get(0).getContext("2d");
+        var barChart = new Chart(ctxb).Bar(data);
+        
+        var ctxp = $("#pieChartDemo").get(0).getContext("2d");
+        var barChart = new Chart(ctxp).Pie(pdata);
+        
+        var ctxp = $("#pieChartF3").get(0).getContext("2d");
+        var barChart = new Chart(ctxp).Pie(f3data);
+    </script>
+{% endblock %}
+
