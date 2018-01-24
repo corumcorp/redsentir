@@ -54,3 +54,10 @@ def meGusta(request,pid):
     comentario.me_gusta +=1
     comentario.save()
     return redirect ('https://redsentir.org/foros/foro/'+str(comentario.foro_id)+'#comentario_'+str(comentario.pk))
+
+@login_required
+def meGustaR(request,pid):
+    respuesta = Respuesta.objects.get(pk=pid)
+    respuesta.me_gusta +=1
+    respuesta.save()
+    return redirect ('https://redsentir.org/foros/foro/'+str(respuesta.comentario.foro_id)+'#comentario_'+str(respuesta.comentario_id))

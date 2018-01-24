@@ -55,7 +55,7 @@
                                             -<b>{{ respuesta.usuario.username }} :</b>{{ respuesta.mensaje }}
                                             </font>
                                             <span class="pull-right">
-                                                <a href="{% url 'foro:me_gusta' respuesta.pk %}">
+                                                <a href="{% url 'foro:me_gusta_r' respuesta.pk %}">
                                                     <i class="fa fa-heart" aria-hidden="true"></i><font size="1">+{{ respuesta.me_gusta }}</font>
                                                 </a>
                                             </span>                                        
