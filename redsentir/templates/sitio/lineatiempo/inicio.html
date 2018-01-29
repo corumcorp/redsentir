@@ -11,6 +11,102 @@
                     {% if usuario.perfil.avatar %}
                             <img width="8%" src="/{{ usuario.perfil.avatar.url }}">
                         {% else %}
+                            <img width="8%" src="{% static "/images/isotiporedsentir.png" %}">
+                        {% endif %}
+                    <div class="content">
+                    <h5><a href="#">{{ usuario.username }}</a></h5>
+                    <p class="text-muted"><small>23 enero de 2018</small></p>
+                    </div>
+                </div>
+                <div class="post-content">
+                    <p>Imagenes del Primer Encuentro Local con la comunidad de San Francisco. Los jóvenes comparten con su padres y docentes las experiencias que vivieron en el Semillero de Plan de Vida, ¡porque todos hacemos parte de la Red Sentir!</p>
+                    <div class="row user">
+                        <div class="col-md-4"><img width="100%" vspace="10" src="{% static "/images/encuentros/San_Francisco/RED 5.JPG" %}"></div>
+                        <div class="col-md-4"><img width="100%" vspace="10" src="{% static "/images/encuentros/San_Francisco/Red-2.jpg" %}"></div>
+                        <div class="col-md-4"><img width="100%" vspace="10" src="{% static "/images/encuentros/San_Francisco/RED 8.JPG" %}"></div>
+                        <div class="col-md-4"><img width="100%" vspace="10" src="{% static "/images/encuentros/San_Francisco/RED 3.JPG" %}"></div>
+                        <div class="col-md-4"><img width="100%" vspace="10" src="{% static "/images/encuentros/San_Francisco/RED 11.JPG" %}"></div>
+                        <div class="col-md-4"><img width="100%" vspace="10" src="{% static "/images/encuentros/San_Francisco/RED 6.JPG" %}"></div>
+                    </div>
+                </div>
+                <ul class="post-utility">
+                    <li class="likes"><a href="#"><i class="fa fa-heart" aria-hidden="true"></i> Me gusta</a></li>
+                    <li class="shares"><a href="#"><i class="fa fa-fw fa-lg fa-share"></i>Compartir</a></li>
+                    <li class="comments"><i class="fa fa-fw fa-lg fa-comment-o"></i> 5 Comentarios</li>
+                </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-12">
+        <div class="tab-pane active" id="user-timeline">
+            <div class="timeline">
+                
+                <div class="post">
+                <div class="post-media">
+                    {% if usuario.perfil.avatar %}
+                            <img width="8%" src="/{{ usuario.perfil.avatar.url }}">
+                        {% else %}
+                            <img width="8%" src="{% static "/images/isotiporedsentir.png" %}">
+                        {% endif %}
+                    <div class="content">
+                    <h5><a href="#">{{ usuario.username }}</a></h5>
+                    <p class="text-muted"><small>24 enero de 2018</small></p>
+                    </div>
+                </div>
+                <div class="post-content">
+                    <p>Video del primer encuentro local San Francisco, vereda el Pajuí. Los Encuentro Locales son espacios donde se promueve el diálogo intergeneracional entre jóvenes, maestros y adultos sobre temas de sexualidad y plan de vida.</p>
+                    <iframe  id="video" width="100%" height="480" src="https://www.youtube.com/embed/3Hcc0sdvOSk" frameborder="0" allowfullscreen></iframe>
+                </div>
+                <ul class="post-utility">
+                    <!--li class="fa fa-heart" aria-hidden="true"></i><font size="1"-->
+                    <li class="likes"><a href="#"><i class="fa fa-heart" aria-hidden="true"></i> Me gusta</a></li>
+                    <li class="shares"><a href="#"><i class="fa fa-fw fa-lg fa-share"></i>Compartir</a></li>
+                    <li class="comments"><i class="fa fa-fw fa-lg fa-comment-o"></i> 5 Comentarios</li>
+                </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-md-12">
+        <div class="tab-pane active" id="user-timeline">
+            <div class="timeline">
+                
+                <div class="post">
+                <div class="post-media">
+                    {% if usuario.perfil.avatar %}
+                            <img width="8%" src="/{{ usuario.perfil.avatar.url }}">
+                        {% else %}
+                            <img width="8%" src="{% static "/images/isotiporedsentir.png" %}">
+                        {% endif %}
+                    <div class="content">
+                    <h5><a href="#">{{ usuario.username }}</a></h5>
+                    <p class="text-muted"><small>23 enero de 2018</small></p>
+                    </div>
+                </div>
+                <div class="post-content">
+                    <p>Mural realizado en la vereda el Pajuí del municipio de San Francisco, donde se llevo a cabo el primer encuentro regional. El encuentro permitió promover diálogo intergeneracional entre jóvenes, maestros y padres de familia sobre temas de sexualidad y planes de vida.</p>
+                    <img width="100%" src="{% static "/images/pagina/encuentro2.jpg" %}">
+                </div>
+                <ul class="post-utility">
+                    <li class="likes"><a href="#"><i class="fa fa-heart" aria-hidden="true"></i> Me gusta</a></li>
+                    <li class="shares"><a href="#"><i class="fa fa-fw fa-lg fa-share"></i>Compartir</a></li>
+                    <li class="comments"><i class="fa fa-fw fa-lg fa-comment-o"></i> 5 Comentarios</li>
+                </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-12">
+        <div class="tab-pane active" id="user-timeline">
+            <div class="timeline">
+                
+                <div class="post">
+                <div class="post-media">
+                    {% if usuario.perfil.avatar %}
+                            <img width="8%" src="/{{ usuario.perfil.avatar.url }}">
+                        {% else %}
                             <img width="8%" src="{% static "/images/noavatar.png" %}">
                         {% endif %}
                     <div class="content">
@@ -22,7 +118,67 @@
                     <p>Somos un proyecto para la prevención del embarazo adolescente, liderado por la Corporación de Estudiantes Universitarios y Profesionales de Marinilla-CORUM con Cooperación Internacional del Banco Interamericano de Desarrollo-BID y con recursos del Fondo Especial Japonés para la reducción de la pobreza en 6 municipios del Oriente antioqueño: Sonsón, Abejorral, San Francisco, San Luis, Argelia y Marinilla.</p>
                 </div>
                 <ul class="post-utility">
-                    <li class="likes"><a href="#"><i class="fa fa-fw fa-lg fa-thumbs-o-up"></i>Me gusta</a></li>
+                    <li class="likes"><a href="#"><i class="fa fa-heart" aria-hidden="true"></i> Me gusta</a></li>
+                    <li class="shares"><a href="#"><i class="fa fa-fw fa-lg fa-share"></i>Compartir</a></li>
+                    <li class="comments"><i class="fa fa-fw fa-lg fa-comment-o"></i> 5 Comentarios</li>
+                </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <div class="col-md-12">
+        <div class="tab-pane active" id="user-timeline">
+            <div class="timeline">
+                
+                <div class="post">
+                <div class="post-media">
+                    {% if usuario.perfil.avatar %}
+                            <img width="8%" src="/{{ usuario.perfil.avatar.url }}">
+                        {% else %}
+                            <img width="8%" src="{% static "/images/isotiporedsentir.png" %}">
+                        {% endif %}
+                    <div class="content">
+                    <h5><a href="#">{{ usuario.username }}</a></h5>
+                    <p class="text-muted"><small>23 enero de 2018</small></p>
+                    </div>
+                </div>
+                <div class="post-content">
+                    <p>Somos un proyecto para la prevención del embarazo adolescente, liderado por la Corporación de Estudiantes Universitarios y Profesionales de Marinilla-CORUM con Cooperación Internacional del Banco Interamericano de Desarrollo-BID y con recursos del Fondo Especial Japonés para la reducción de la pobreza en 6 municipios del Oriente antioqueño: Sonsón, Abejorral, San Francisco, San Luis, Argelia y Marinilla.</p>
+                    <iframe  id="video" width="100%" height="480" src="https://www.youtube.com/embed/qoOEJSWfpZI" frameborder="0" allowfullscreen></iframe>
+                </div>
+                <ul class="post-utility">
+                    <li class="likes"><a href="#"><i class="fa fa-heart" aria-hidden="true"></i> Me gusta</a></li>
+                    <li class="shares"><a href="#"><i class="fa fa-fw fa-lg fa-share"></i>Compartir</a></li>
+                    <li class="comments"><i class="fa fa-fw fa-lg fa-comment-o"></i> 5 Comentarios</li>
+                </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <div class="col-md-12">
+        <div class="tab-pane active" id="user-timeline">
+            <div class="timeline">
+                
+                <div class="post">
+                <div class="post-media">
+                    {% if usuario.perfil.avatar %}
+                            <img width="8%" src="/{{ usuario.perfil.avatar.url }}">
+                        {% else %}
+                            <img width="8%" src="{% static "/images/isotiporedsentir.png" %}">
+                        {% endif %}
+                    <div class="content">
+                    <h5><a href="#">{{ usuario.username }}</a></h5>
+                    <p class="text-muted"><small>23 enero de 2018</small></p>
+                    </div>
+                </div>
+                <div class="post-content">
+                    <p>¡Hola! Les presentamos el equipo de trabajo de la red sentir.</p>
+                    <img width="100%" src="{% static "/images/pagina/equipo.png" %}">
+                </div>
+                <ul class="post-utility">
+                    <li class="likes"><a href="#"><i class="fa fa-heart" aria-hidden="true"></i> Me gusta</a></li>
                     <li class="shares"><a href="#"><i class="fa fa-fw fa-lg fa-share"></i>Compartir</a></li>
                     <li class="comments"><i class="fa fa-fw fa-lg fa-comment-o"></i> 5 Comentarios</li>
                 </ul>
@@ -47,11 +203,11 @@
                     </div>
                 </div>
                 <div class="post-content">
-                    <img width="80%" src="{% static "/images/pagina/encuentro1.jpg" %}">
                     <p>Somos un proyecto para la prevención del embarazo adolescente, liderado por la Corporación de Estudiantes Universitarios y Profesionales de Marinilla-CORUM con Cooperación Internacional del Banco Interamericano de Desarrollo-BID y con recursos del Fondo Especial Japonés para la reducción de la pobreza en 6 municipios del Oriente antioqueño: Sonsón, Abejorral, San Francisco, San Luis, Argelia y Marinilla.</p>
+                    <img width="100%" src="{% static "/images/pagina/encuentro1.jpg" %}">
                 </div>
                 <ul class="post-utility">
-                    <li class="likes"><a href="#"><i class="fa fa-fw fa-lg fa-thumbs-o-up"></i>Me gusta</a></li>
+                    <li class="likes"><a href="#"><i class="fa fa-heart" aria-hidden="true"></i> Me gusta</a></li>
                     <li class="shares"><a href="#"><i class="fa fa-fw fa-lg fa-share"></i>Compartir</a></li>
                     <li class="comments"><i class="fa fa-fw fa-lg fa-comment-o"></i> 5 Comentarios</li>
                 </ul>
