@@ -19,7 +19,37 @@
                     </div>
                 </div>
                 <div class="post-content">
-                    <p>Este evento busca fortalecer las actividades de los diferentes componentes de la Red Sentir: Plataforma Digital, Formación y Mesa Regional de Salud Sexual y Reproductiva, destacando los trabajos que los jóvenes han hecho en los Semilleros de Plan de Vida, además de fortalecer el compromiso de los diferentes aliados estratégicos municipales y departamentales para el trabajo articulado en torno al proyecto “Red Sentir, Conciencia Juvenil”, para incidir de manera positiva en las condiciones de los adolescentes y jóvenes con énfasis en prevención del embarazo a temprana edad de seis municipios del Oriente Antioqueño: Abejorral, Argelia, Sonsón, San Luis, San Francisco y Marinilla.</p>
+                    <p>Sexualidad..., ¡Más que sexo!</p>
+                    <iframe  id="video" width="100%" height="480" src="https://www.youtube.com/embed/Kud9oxGQbP8" frameborder="0" allowfullscreen></iframe>
+                </div>
+                <ul class="post-utility">
+                    <!--li class="fa fa-heart" aria-hidden="true"></i><font size="1"-->
+                    <li class="likes"><a href="#"><i class="fa fa-heart" aria-hidden="true"></i> Me gusta</a></li>
+                    <li class="shares"><a href="#"><i class="fa fa-fw fa-lg fa-share"></i>Compartir</a></li>
+                    <li class="comments"><i class="fa fa-fw fa-lg fa-comment-o"></i> 5 Comentarios</li>
+                </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-12">
+        <div class="tab-pane active" id="user-timeline">
+            <div class="timeline">
+                
+                <div class="post">
+                <div class="post-media">
+                    {% if usuario.perfil.avatar %}
+                            <img width="8%" src="/{{ usuario.perfil.avatar.url }}">
+                        {% else %}
+                            <img width="8%" src="{% static "/images/isotiporedsentir.png" %}">
+                        {% endif %}
+                    <div class="content">
+                    <h5><a href="#">{{ usuario.username }}</a></h5>
+                    <p class="text-muted"><small>29 enero de 2018</small></p>
+                    </div>
+                </div>
+                <div class="post-content">
+                    <p>Este encuentro busca fortalecer las actividades de los diferentes componentes de la Red Sentir: Plataforma Digital, Formación y Mesa Regional de Salud Sexual y Reproductiva, destacando los trabajos que los jóvenes han hecho en los Semilleros de Plan de Vida, además de fortalecer el compromiso de los diferentes aliados estratégicos municipales y departamentales para el trabajo articulado en torno al proyecto “Red Sentir, Conciencia Juvenil”, para incidir de manera positiva en las condiciones de los adolescentes y jóvenes con énfasis en prevención del embarazo a temprana edad de seis municipios del Oriente Antioqueño: Abejorral, Argelia, Sonsón, San Luis, San Francisco y Marinilla.</p>
                     <iframe  id="video" width="100%" height="480" src="https://www.youtube.com/embed/PXbaAEyRo20" frameborder="0" allowfullscreen></iframe>
                 </div>
                 <ul class="post-utility">
