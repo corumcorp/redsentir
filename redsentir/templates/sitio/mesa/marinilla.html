@@ -1,0 +1,63 @@
+{% extends 'base.html' %}
+{% load static %}
+{% load social_widgets %}
+{% block contenido %}
+<div class="row user">
+    <div class="col-md-12">
+        <div class="profile">
+            <div class="info">
+                <img class="img-circle" src="{% static "/images/mesa/escudo_marinilla.png" %}" alt="Marinilla">
+            <h4>MARINILLA</h4>
+            <p></p>
+            </div>
+            <div class="row"><img src="{% static "/images/mesa/marinilla.jpg" %}"></div>
+        </div>
+    </div>
+    <div class="col-md-12">
+        </br>
+        <div class="card col-md-3" >
+        <img class="card-img-top" width="100%" src="{% static "/images/pagina/grafico-mesa-r.png" %}" alt="Acciones">
+        <div class="card-block">
+            <h4 class="card-title">Acciones</h4>
+            <p class="card-text">
+                <ul>
+                    <li>Implementación de la estrategia ¡Te cuidas, me cuido!</li>
+                </ul>
+                </br>
+            </p>
+        </div>
+        </div>
+        <div class="card col-md-3">
+        <img class="card-img-top" width="100%" src="{% static "/images/pagina/grafico-mesa-r.png" %}" alt="Acciones">
+        <div class="card-block">
+            <h4 class="card-title">Requerimientos</h4>
+            <p class="card-text">
+                <ul>
+                    <li>Diagnostico de la situación recurso humano para la implementación</li>
+                    <li>presupuesto</li>
+                    <li>recurso humano para la implementación</li>
+                    <li>disposición de la comunidad</li>
+                    <li>socialización</li>
+                </ul>
+            </p>
+        </div>
+        </div> 
+        <div class="card col-md-3">
+        <img class="card-img-top" width="100%" src="{% static "/images/pagina/grafico-mesa-r.png" %}" alt="Acciones">
+        <div class="card-block">
+            <h4 class="card-title">Actores</h4>
+            <p class="card-text">Implementación de la estrategia ¡Te cuidas, me cuido!</p>
+        </div>
+        </div>
+        <div class="card col-md-3">
+        <img class="card-img-top" width="100%" src="{% static "/images/pagina/grafico-mesa-r.png" %}" alt="Acciones">
+        <div class="card-block">
+            <h4 class="card-title">Compromisos</h4>
+            <p class="card-text">Implementación de la estrategia ¡Te cuidas, me cuido!</p>
+        </div>
+        </div> 
+    </div>
+</div>
+{% endblock %}
+{% block scripts %}
+{% endblock %}
