@@ -1,0 +1,566 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block contenido %}
+<div class="row user">
+    <div class="col-md-12">
+        <div class="tab-pane active" id="user-timeline">
+            <div class="timeline">
+                
+                <div class="post">
+                <div class="post-media">
+                    {% if usuario.perfil.avatar %}
+                            <img width="8%" src="/{{ usuario.perfil.avatar.url }}">
+                        {% else %}
+                            <img width="8%" src="{% static "/images/isotiporedsentir.png" %}">
+                        {% endif %}
+                    <div class="content">
+                    <h5><a href="#">{{ usuario.username }}</a></h5>
+                    <p class="text-muted"><small>5 de febrero de 2018</small></p>
+                    </div>
+                </div>
+                <div class="post-content">
+                    <p>Sexualidad IV.., ¡Más que sexo!</p>
+                    <iframe  id="video" width="100%" height="480" src="https://www.youtube.com/embed/iYCuhbDfbiE" frameborder="0" allowfullscreen></iframe>
+                </div>
+                <ul class="post-utility">
+                    <!--li class="fa fa-heart" aria-hidden="true"></i><font size="1"-->
+                    <li class="likes"><a href="#"><i class="fa fa-heart" aria-hidden="true"></i> Me gusta</a></li>
+                    <li class="shares"><a href="#"><i class="fa fa-fw fa-lg fa-share"></i>Compartir</a></li>
+                    <li class="comments"><i class="fa fa-fw fa-lg fa-comment-o"></i> 5 Comentarios</li>
+                </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-md-12">
+        <div class="tab-pane active" id="user-timeline">
+            <div class="timeline">
+                
+                <div class="post">
+                <div class="post-media">
+                    {% if usuario.perfil.avatar %}
+                            <img width="8%" src="/{{ usuario.perfil.avatar.url }}">
+                        {% else %}
+                            <img width="8%" src="{% static "/images/isotiporedsentir.png" %}">
+                        {% endif %}
+                    <div class="content">
+                    <h5><a href="#">{{ usuario.username }}</a></h5>
+                    <p class="text-muted"><small>5 de febrero de 2018</small></p>
+                    </div>
+                </div>
+                <div class="post-content">
+                    <p>Sexualidad III..., ¡Más que sexo!</p>
+                    <iframe  id="video" width="100%" height="480" src="https://www.youtube.com/embed/wF-UIY2huVc" frameborder="0" allowfullscreen></iframe>
+                </div>
+                <ul class="post-utility">
+                    <!--li class="fa fa-heart" aria-hidden="true"></i><font size="1"-->
+                    <li class="likes"><a href="#"><i class="fa fa-heart" aria-hidden="true"></i> Me gusta</a></li>
+                    <li class="shares"><a href="#"><i class="fa fa-fw fa-lg fa-share"></i>Compartir</a></li>
+                    <li class="comments"><i class="fa fa-fw fa-lg fa-comment-o"></i> 5 Comentarios</li>
+                </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-12">
+        <div class="tab-pane active" id="user-timeline">
+            <div class="timeline">
+                
+                <div class="post">
+                <div class="post-media">
+                    {% if usuario.perfil.avatar %}
+                            <img width="8%" src="/{{ usuario.perfil.avatar.url }}">
+                        {% else %}
+                            <img width="8%" src="{% static "/images/isotiporedsentir.png" %}">
+                        {% endif %}
+                    <div class="content">
+                    <h5><a href="#">{{ usuario.username }}</a></h5>
+                    <p class="text-muted"><small>5 de febrero de 2018</small></p>
+                    </div>
+                </div>
+                <div class="post-content">
+                    <p>Sexualidad II..., ¡Más que sexo!</p>
+                    <iframe  id="video" width="100%" height="480" src="https://www.youtube.com/embed/Yi1F5SIK4-8" frameborder="0" allowfullscreen></iframe>
+                </div>
+                <ul class="post-utility">
+                    <!--li class="fa fa-heart" aria-hidden="true"></i><font size="1"-->
+                    <li class="likes"><a href="#"><i class="fa fa-heart" aria-hidden="true"></i> Me gusta</a></li>
+                    <li class="shares"><a href="#"><i class="fa fa-fw fa-lg fa-share"></i>Compartir</a></li>
+                    <li class="comments"><i class="fa fa-fw fa-lg fa-comment-o"></i> 5 Comentarios</li>
+                </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-12">
+        <div class="tab-pane active" id="user-timeline">
+            <div class="timeline">
+                
+                <div class="post">
+                <div class="post-media">
+                    {% if usuario.perfil.avatar %}
+                            <img width="8%" src="/{{ usuario.perfil.avatar.url }}">
+                        {% else %}
+                            <img width="8%" src="{% static "/images/isotiporedsentir.png" %}">
+                        {% endif %}
+                    <div class="content">
+                    <h5><a href="#">{{ usuario.username }}</a></h5>
+                    <p class="text-muted"><small>29 enero de 2018</small></p>
+                    </div>
+                </div>
+                <div class="post-content">
+                    <p>Sexualidad..., ¡Más que sexo!</p>
+                    <iframe  id="video" width="100%" height="480" src="https://www.youtube.com/embed/Kud9oxGQbP8" frameborder="0" allowfullscreen></iframe>
+                </div>
+                <ul class="post-utility">
+                    <!--li class="fa fa-heart" aria-hidden="true"></i><font size="1"-->
+                    <li class="likes"><a href="#"><i class="fa fa-heart" aria-hidden="true"></i> Me gusta</a></li>
+                    <li class="shares"><a href="#"><i class="fa fa-fw fa-lg fa-share"></i>Compartir</a></li>
+                    <li class="comments"><i class="fa fa-fw fa-lg fa-comment-o"></i> 5 Comentarios</li>
+                </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-12">
+        <div class="tab-pane active" id="user-timeline">
+            <div class="timeline">
+                
+                <div class="post">
+                <div class="post-media">
+                    {% if usuario.perfil.avatar %}
+                            <img width="8%" src="/{{ usuario.perfil.avatar.url }}">
+                        {% else %}
+                            <img width="8%" src="{% static "/images/isotiporedsentir.png" %}">
+                        {% endif %}
+                    <div class="content">
+                    <h5><a href="#">{{ usuario.username }}</a></h5>
+                    <p class="text-muted"><small>29 enero de 2018</small></p>
+                    </div>
+                </div>
+                <div class="post-content">
+                    <p>Este encuentro busca fortalecer las actividades de los diferentes componentes de la Red Sentir: Plataforma Digital, Formación y Mesa Regional de Salud Sexual y Reproductiva, destacando los trabajos que los jóvenes han hecho en los Semilleros de Plan de Vida, además de fortalecer el compromiso de los diferentes aliados estratégicos municipales y departamentales para el trabajo articulado en torno al proyecto “Red Sentir, Conciencia Juvenil”, para incidir de manera positiva en las condiciones de los adolescentes y jóvenes con énfasis en prevención del embarazo a temprana edad de seis municipios del Oriente Antioqueño: Abejorral, Argelia, Sonsón, San Luis, San Francisco y Marinilla.</p>
+                    <iframe  id="video" width="100%" height="480" src="https://www.youtube.com/embed/PXbaAEyRo20" frameborder="0" allowfullscreen></iframe>
+                </div>
+                <ul class="post-utility">
+                    <!--li class="fa fa-heart" aria-hidden="true"></i><font size="1"-->
+                    <li class="likes"><a href="#"><i class="fa fa-heart" aria-hidden="true"></i> Me gusta</a></li>
+                    <li class="shares"><a href="#"><i class="fa fa-fw fa-lg fa-share"></i>Compartir</a></li>
+                    <li class="comments"><i class="fa fa-fw fa-lg fa-comment-o"></i> 5 Comentarios</li>
+                </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <div class="col-md-12">
+        <div class="tab-pane active" id="user-timeline">
+            <div class="timeline">
+                
+                <div class="post">
+                <div class="post-media">
+                    {% if usuario.perfil.avatar %}
+                            <img width="8%" src="/{{ usuario.perfil.avatar.url }}">
+                        {% else %}
+                            <img width="8%" src="{% static "/images/isotiporedsentir.png" %}">
+                        {% endif %}
+                    <div class="content">
+                    <h5><a href="#">{{ usuario.username }}</a></h5>
+                    <p class="text-muted"><small>29 enero de 2018</small></p>
+                    </div>
+                </div>
+                <div class="post-content">
+                    <p>Corum Ong durante doce años ha trabajado por hacer parte de la transformación social y educativa del Municipio de Marinilla. El desarrollo de iniciativas juveniles, basadas en la innovación social, ha sido el pilar para la ejecución de proyectos como éste, que quiere aportar a la prevención de embarazos a temprana edad en la región del Oriente Antioqueño. Estos jóvenes hacen parte de la Red Sentir y representan las Instituciones educativas Román Gómez y Rural Técnico de Marinilla.</p>
+                    <iframe  id="video" width="100%" height="480" src="https://www.youtube.com/embed/5znL-60GpMQ" frameborder="0" allowfullscreen></iframe>
+                </div>
+                <ul class="post-utility">
+                    <!--li class="fa fa-heart" aria-hidden="true"></i><font size="1"-->
+                    <li class="likes"><a href="#"><i class="fa fa-heart" aria-hidden="true"></i> Me gusta</a></li>
+                    <li class="shares"><a href="#"><i class="fa fa-fw fa-lg fa-share"></i>Compartir</a></li>
+                    <li class="comments"><i class="fa fa-fw fa-lg fa-comment-o"></i> 5 Comentarios</li>
+                </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-12">
+        <div class="tab-pane active" id="user-timeline">
+            <div class="timeline">
+                
+                <div class="post">
+                <div class="post-media">
+                    {% if usuario.perfil.avatar %}
+                            <img width="8%" src="/{{ usuario.perfil.avatar.url }}">
+                        {% else %}
+                            <img width="8%" src="{% static "/images/isotiporedsentir.png" %}">
+                        {% endif %}
+                    <div class="content">
+                    <h5><a href="#">{{ usuario.username }}</a></h5>
+                    <p class="text-muted"><small>29 enero de 2018</small></p>
+                    </div>
+                </div>
+                <div class="post-content">
+                    <p>La identidad y la generación de autonomía son fundamentales para tomar decisiones conscientes y responsables, y disfrutar plenamente de todo lo que nos tiene preparado la vida. Esta vez conversamos con la comunidad de Argelia (Antioquia) sobre sexualidad y plan de vida, teniendo presente la prevención de embarazo a temprana edad. </p>
+                    <div class="row user">
+                        <div class="col-md-4"><img width="100%" vspace="10" src="{% static "/images/encuentros/Argelia/1.JPG" %}"></div>
+                        <div class="col-md-4"><img width="100%" vspace="10" src="{% static "/images/encuentros/Argelia/2.JPG" %}"></div>
+                        <div class="col-md-4"><img width="100%" vspace="10" src="{% static "/images/encuentros/Argelia/3.JPG" %}"></div>
+                        <div class="col-md-4"><img width="100%" vspace="10" src="{% static "/images/encuentros/Argelia/4.JPG" %}"></div>
+                        <div class="col-md-4"><img width="100%" vspace="10" src="{% static "/images/encuentros/Argelia/5.JPG" %}"></div>
+                        <div class="col-md-4"><img width="100%" vspace="10" src="{% static "/images/encuentros/Argelia/6.JPG" %}"></div>
+                    </div>
+                </div>
+                <ul class="post-utility">
+                    <li class="likes"><a href="#"><i class="fa fa-heart" aria-hidden="true"></i> Me gusta</a></li>
+                    <li class="shares"><a href="#"><i class="fa fa-fw fa-lg fa-share"></i>Compartir</a></li>
+                    <li class="comments"><i class="fa fa-fw fa-lg fa-comment-o"></i> 5 Comentarios</li>
+                </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-12">
+        <div class="tab-pane active" id="user-timeline">
+            <div class="timeline">
+                
+                <div class="post">
+                <div class="post-media">
+                    {% if usuario.perfil.avatar %}
+                            <img width="8%" src="/{{ usuario.perfil.avatar.url }}">
+                        {% else %}
+                            <img width="8%" src="{% static "/images/isotiporedsentir.png" %}">
+                        {% endif %}
+                    <div class="content">
+                    <h5><a href="#">{{ usuario.username }}</a></h5>
+                    <p class="text-muted"><small>29 enero de 2018</small></p>
+                    </div>
+                </div>
+                <div class="post-content">
+                    <p>El trabajo en comunidad fue el referente que tuvo el semillero de Plan de Vida del corregimiento de San Miguel en Sonsón. Los jóvenes comprendieron que la sexualidad vista desde todas sus funciones permite la construcción de vínculos y establecer relaciones participativas para generar una mayor conciencia consigo mismo, la sociedad y el territorio que habitan.</p>
+                    <div class="row user">
+                        <div class="col-md-4"><img width="100%" vspace="10" src="{% static "/images/encuentros/San_Miguel/1.JPG" %}"></div>
+                        <div class="col-md-4"><img width="100%" vspace="10" src="{% static "/images/encuentros/San_Miguel/2.JPG" %}"></div>
+                        <div class="col-md-4"><img width="100%" vspace="10" src="{% static "/images/encuentros/San_Miguel/3.JPG" %}"></div>
+                        <div class="col-md-4"><img width="100%" vspace="10" src="{% static "/images/encuentros/San_Miguel/4.JPG" %}"></div>
+                        <div class="col-md-4"><img width="100%" vspace="10" src="{% static "/images/encuentros/San_Miguel/5.JPG" %}"></div>
+                        <div class="col-md-4"><img width="100%" vspace="10" src="{% static "/images/encuentros/San_Miguel/6.JPG" %}"></div>
+                    </div>
+                </div>
+                <ul class="post-utility">
+                    <li class="likes"><a href="#"><i class="fa fa-heart" aria-hidden="true"></i> Me gusta</a></li>
+                    <li class="shares"><a href="#"><i class="fa fa-fw fa-lg fa-share"></i>Compartir</a></li>
+                    <li class="comments"><i class="fa fa-fw fa-lg fa-comment-o"></i> 5 Comentarios</li>
+                </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-12">
+        <div class="tab-pane active" id="user-timeline">
+            <div class="timeline">
+                
+                <div class="post">
+                <div class="post-media">
+                    {% if usuario.perfil.avatar %}
+                            <img width="8%" src="/{{ usuario.perfil.avatar.url }}">
+                        {% else %}
+                            <img width="8%" src="{% static "/images/isotiporedsentir.png" %}">
+                        {% endif %}
+                    <div class="content">
+                    <h5><a href="#">{{ usuario.username }}</a></h5>
+                    <p class="text-muted"><small>24 enero de 2018</small></p>
+                    </div>
+                </div>
+                <div class="post-content">
+                    <p>Pasar por un túnel natural de árboles y sentir el olor a limoncillo mientras se escucha el sonido del río La Miel, es apreciar la magia de la naturaleza en todo su esplendor. Este es el corregimiento de San Miguel en Sonsón, uno de los territorios que hace parte de nuestra Red Sentir.</p>
+                    <iframe  id="video" width="100%" height="480" src="https://www.youtube.com/embed/v_8cfywXvZM" frameborder="0" allowfullscreen></iframe>
+                </div>
+                <ul class="post-utility">
+                    <!--li class="fa fa-heart" aria-hidden="true"></i><font size="1"-->
+                    <li class="likes"><a href="#"><i class="fa fa-heart" aria-hidden="true"></i> Me gusta</a></li>
+                    <li class="shares"><a href="#"><i class="fa fa-fw fa-lg fa-share"></i>Compartir</a></li>
+                    <li class="comments"><i class="fa fa-fw fa-lg fa-comment-o"></i> 5 Comentarios</li>
+                </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-12">
+        <div class="tab-pane active" id="user-timeline">
+            <div class="timeline">
+                
+                <div class="post">
+                <div class="post-media">
+                    {% if usuario.perfil.avatar %}
+                            <img width="8%" src="/{{ usuario.perfil.avatar.url }}">
+                        {% else %}
+                            <img width="8%" src="{% static "/images/isotiporedsentir.png" %}">
+                        {% endif %}
+                    <div class="content">
+                    <h5><a href="#">{{ usuario.username }}</a></h5>
+                    <p class="text-muted"><small>23 enero de 2018</small></p>
+                    </div>
+                </div>
+                <div class="post-content">
+                    <p>Los jóvenes de la vereda el Pajuí en San Francisco comparten con su padres y docentes las experiencias que vivieron en el Semillero de Plan de Vida, ¡porque todos hacemos parte de la Red Sentir!</p>
+                    <div class="row user">
+                        <div class="col-md-4"><img width="100%" vspace="10" src="{% static "/images/encuentros/San_Francisco/RED_1.JPG" %}"></div>
+                        <div class="col-md-4"><img width="100%" vspace="10" src="{% static "/images/encuentros/San_Francisco/RED_2.JPG" %}"></div>
+                        <div class="col-md-4"><img width="100%" vspace="10" src="{% static "/images/encuentros/San_Francisco/RED_3.JPG" %}"></div>
+                        <div class="col-md-4"><img width="100%" vspace="10" src="{% static "/images/encuentros/San_Francisco/RED_4.JPG" %}"></div>
+                        <div class="col-md-4"><img width="100%" vspace="10" src="{% static "/images/encuentros/San_Francisco/RED_5.JPG" %}"></div>
+                        <div class="col-md-4"><img width="100%" vspace="10" src="{% static "/images/encuentros/San_Francisco/RED_6.JPG" %}"></div>
+                    </div>
+                </div>
+                <ul class="post-utility">
+                    <li class="likes"><a href="#"><i class="fa fa-heart" aria-hidden="true"></i> Me gusta</a></li>
+                    <li class="shares"><a href="#"><i class="fa fa-fw fa-lg fa-share"></i>Compartir</a></li>
+                    <li class="comments"><i class="fa fa-fw fa-lg fa-comment-o"></i> 5 Comentarios</li>
+                </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-12">
+        <div class="tab-pane active" id="user-timeline">
+            <div class="timeline">
+                
+                <div class="post">
+                <div class="post-media">
+                    {% if usuario.perfil.avatar %}
+                            <img width="8%" src="/{{ usuario.perfil.avatar.url }}">
+                        {% else %}
+                            <img width="8%" src="{% static "/images/isotiporedsentir.png" %}">
+                        {% endif %}
+                    <div class="content">
+                    <h5><a href="#">{{ usuario.username }}</a></h5>
+                    <p class="text-muted"><small>24 enero de 2018</small></p>
+                    </div>
+                </div>
+                <div class="post-content">
+                    <p>“Valorar nuestro cuerpo y nuestro territorio, para cuidar lo que nos pertenece y está a nuestro alrededor”, “Planificar los sueños es evitar un embarazo a temprana edad, ya que muchos de esos proyectos se pueden atrasar y se dificulta un poco realizarlos”, “lo más importante es enseñarle a nuestros hijos el valor de la vida en todo sentido” éstos y otros aportes compartieron los jóvenes, padres y docentes del Semillero de Plan de Vida del municipio de San Francisco (Antioquia) (San Francisco, Antioquia)</p>
+                    <iframe  id="video" width="100%" height="480" src="https://www.youtube.com/embed/3Hcc0sdvOSk" frameborder="0" allowfullscreen></iframe>
+                </div>
+                <ul class="post-utility">
+                    <!--li class="fa fa-heart" aria-hidden="true"></i><font size="1"-->
+                    <li class="likes"><a href="#"><i class="fa fa-heart" aria-hidden="true"></i> Me gusta</a></li>
+                    <li class="shares"><a href="#"><i class="fa fa-fw fa-lg fa-share"></i>Compartir</a></li>
+                    <li class="comments"><i class="fa fa-fw fa-lg fa-comment-o"></i> 5 Comentarios</li>
+                </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-md-12">
+        <div class="tab-pane active" id="user-timeline">
+            <div class="timeline">
+                
+                <div class="post">
+                <div class="post-media">
+                    {% if usuario.perfil.avatar %}
+                            <img width="8%" src="/{{ usuario.perfil.avatar.url }}">
+                        {% else %}
+                            <img width="8%" src="{% static "/images/isotiporedsentir.png" %}">
+                        {% endif %}
+                    <div class="content">
+                    <h5><a href="#">{{ usuario.username }}</a></h5>
+                    <p class="text-muted"><small>23 enero de 2018</small></p>
+                    </div>
+                </div>
+                <div class="post-content">
+                    <p>Mural realizado en la vereda el Pajuí del municipio de San Francisco, donde se llevo a cabo el primer encuentro regional. El encuentro permitió promover diálogo intergeneracional entre jóvenes, maestros y padres de familia sobre temas de sexualidad y planes de vida.</p>
+                    <img width="100%" src="{% static "/images/pagina/encuentro2.jpg" %}">
+                </div>
+                <ul class="post-utility">
+                    <li class="likes"><a href="#"><i class="fa fa-heart" aria-hidden="true"></i> Me gusta</a></li>
+                    <li class="shares"><a href="#"><i class="fa fa-fw fa-lg fa-share"></i>Compartir</a></li>
+                    <li class="comments"><i class="fa fa-fw fa-lg fa-comment-o"></i> 5 Comentarios</li>
+                </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-md-12">
+        <div class="tab-pane active" id="user-timeline">
+            <div class="timeline">
+                
+                <div class="post">
+                <div class="post-media">
+                    {% if usuario.perfil.avatar %}
+                            <img width="8%" src="/{{ usuario.perfil.avatar.url }}">
+                        {% else %}
+                            <img width="8%" src="{% static "/images/isotiporedsentir.png" %}">
+                        {% endif %}
+                    <div class="content">
+                    <h5><a href="#">{{ usuario.username }}</a></h5>
+                    <p class="text-muted"><small>24 enero de 2018</small></p>
+                    </div>
+                </div>
+                <div class="post-content">
+                    <p>Segunda Mesa Regional realizado en el municipio de Marinilla con actores estratégicos de Salud Sexual y Reproductiva para la articulación intersectorial y social, desde la cual se analizarón y se promovierón debates, propuestas y estrategias para incidir en políticas públicas sobre salud sexual de los jóvenes, proyectos de vida y equidad de género, con el objetivo de prevenir el embarazo a temprana edad en la región.</p>
+                    <iframe  id="video" width="100%" height="480" src="https://www.youtube.com/embed/ns0fk-aT0UE" frameborder="0" allowfullscreen></iframe>
+                </div>
+                <ul class="post-utility">
+                    <!--li class="fa fa-heart" aria-hidden="true"></i><font size="1"-->
+                    <li class="likes"><a href="#"><i class="fa fa-heart" aria-hidden="true"></i> Me gusta</a></li>
+                    <li class="shares"><a href="#"><i class="fa fa-fw fa-lg fa-share"></i>Compartir</a></li>
+                    <li class="comments"><i class="fa fa-fw fa-lg fa-comment-o"></i> 5 Comentarios</li>
+                </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-md-12">
+        <div class="tab-pane active" id="user-timeline">
+            <div class="timeline">
+                
+                <div class="post">
+                <div class="post-media">
+                    {% if usuario.perfil.avatar %}
+                            <img width="8%" src="/{{ usuario.perfil.avatar.url }}">
+                        {% else %}
+                            <img width="8%" src="{% static "/images/isotiporedsentir.png" %}">
+                        {% endif %}
+                    <div class="content">
+                    <h5><a href="#">{{ usuario.username }}</a></h5>
+                    <p class="text-muted"><small>24 enero de 2018</small></p>
+                    </div>
+                </div>
+                <div class="post-content">
+                    <p>Los semilleros, son una estrategia pedagógica de la Red Sentir que busca que los jóvenes generen una mayor conciencia consigo mismo, con la sociedad y el territorio que habita, y reconoce que son sujetos políticos y actores sociales con capacidades y habilidades naturales para la transformación de sus entornos.</p>
+                    <iframe  id="video" width="100%" height="480" src="https://www.youtube.com/embed/GNrjcB_LMvM" frameborder="0" allowfullscreen></iframe>
+                </div>
+                <ul class="post-utility">
+                    <!--li class="fa fa-heart" aria-hidden="true"></i><font size="1"-->
+                    <li class="likes"><a href="#"><i class="fa fa-heart" aria-hidden="true"></i> Me gusta</a></li>
+                    <li class="shares"><a href="#"><i class="fa fa-fw fa-lg fa-share"></i>Compartir</a></li>
+                    <li class="comments"><i class="fa fa-fw fa-lg fa-comment-o"></i> 5 Comentarios</li>
+                </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <div class="col-md-12">
+        <div class="tab-pane active" id="user-timeline">
+            <div class="timeline">
+                
+                <div class="post">
+                <div class="post-media">
+                    {% if usuario.perfil.avatar %}
+                            <img width="8%" src="/{{ usuario.perfil.avatar.url }}">
+                        {% else %}
+                            <img width="8%" src="{% static "/images/isotiporedsentir.png" %}">
+                        {% endif %}
+                    <div class="content">
+                    <h5><a href="#">{{ usuario.username }}</a></h5>
+                    <p class="text-muted"><small>23 enero de 2018</small></p>
+                    </div>
+                </div>
+                <div class="post-content">
+                    <p>"Nuestros docentes, nuestros directivos, nuestros gobernantes esperan de nosotros una nueva generación que esté llena de líderes y de un buen futuro, lo que quiere decir que para eso tenemos que plantarnos en buen presente, pensar las cosas, pensar en nosotros mismos… Para todos los jóvenes es muy importante contar con este proyecto, ya que saber, entender y estar bien educados con la salud sexual y reproductiva, puede ser muy práctico en nuestra vida y en nuestro futuro”. Estudiante Sara Carolina Ríos, I.E. Técnico Rural de Marinilla .</p>
+                    <iframe  id="video" width="100%" height="480" src="https://www.youtube.com/embed/LLxRGpkSbQ0" frameborder="0" allowfullscreen></iframe>
+                </div>
+                <ul class="post-utility">
+                    <li class="likes"><a href="#"><i class="fa fa-heart" aria-hidden="true"></i> Me gusta</a></li>
+                    <li class="shares"><a href="#"><i class="fa fa-fw fa-lg fa-share"></i>Compartir</a></li>
+                    <li class="comments"><i class="fa fa-fw fa-lg fa-comment-o"></i> 5 Comentarios</li>
+                </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <div class="col-md-12">
+        <div class="tab-pane active" id="user-timeline">
+            <div class="timeline">
+                
+                <div class="post">
+                <div class="post-media">
+                    {% if usuario.perfil.avatar %}
+                            <img width="8%" src="/{{ usuario.perfil.avatar.url }}">
+                        {% else %}
+                            <img width="8%" src="{% static "/images/isotiporedsentir.png" %}">
+                        {% endif %}
+                    <div class="content">
+                    <h5><a href="#">{{ usuario.username }}</a></h5>
+                    <p class="text-muted"><small>23 enero de 2018</small></p>
+                    </div>
+                </div>
+                <div class="post-content">
+                    <p>¡Hola! Les presentamos nuestro equipo de trabajo de la red sentir.</p>
+                    <img width="100%" src="{% static "/images/pagina/equipo.png" %}">
+                </div>
+                <ul class="post-utility">
+                    <li class="likes"><a href="#"><i class="fa fa-heart" aria-hidden="true"></i> Me gusta</a></li>
+                    <li class="shares"><a href="#"><i class="fa fa-fw fa-lg fa-share"></i>Compartir</a></li>
+                    <li class="comments"><i class="fa fa-fw fa-lg fa-comment-o"></i> 5 Comentarios</li>
+                </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-12">
+        <div class="tab-pane active" id="user-timeline">
+            <div class="timeline">
+                
+                <div class="post">
+                <div class="post-media">
+                    {% if usuario.perfil.avatar %}
+                            <img width="8%" src="/{{ usuario.perfil.avatar.url }}">
+                        {% else %}
+                            <img width="8%" src="{% static "/images/pagina/logo-red-p.png" %}">
+                        {% endif %}
+                    <div class="content">
+                    <h5><a href="#">{{ usuario.username }}</a></h5>
+                    <p class="text-muted"><small>16 enero de 2018</small></p>
+                    </div>
+                </div>
+                <div class="post-content">
+                    <p>Somos un proyecto para la prevención del embarazo adolescente, liderado por la Corporación de Estudiantes Universitarios y Profesionales de Marinilla-CORUM con Cooperación Internacional del Banco Interamericano de Desarrollo-BID y con recursos del Fondo Especial Japonés para la reducción de la pobreza en 6 municipios del Oriente antioqueño: Sonsón, Abejorral, San Francisco, San Luis, Argelia y Marinilla.</p>
+                    <img width="100%" src="{% static "/images/pagina/encuentro1.jpg" %}">
+                </div>
+                <ul class="post-utility">
+                    <li class="likes"><a href="#"><i class="fa fa-heart" aria-hidden="true"></i> Me gusta</a></li>
+                    <li class="shares"><a href="#"><i class="fa fa-fw fa-lg fa-share"></i>Compartir</a></li>
+                    <li class="comments"><i class="fa fa-fw fa-lg fa-comment-o"></i> 5 Comentarios</li>
+                </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-12">
+        <div class="tab-pane active" id="user-timeline">
+            <div class="timeline">
+                
+                <div class="post">
+                <div class="post-media">
+                    {% if usuario.perfil.avatar %}
+                            <img width="8%" src="/{{ usuario.perfil.avatar.url }}">
+                        {% else %}
+                            <img width="8%" src="{% static "/images/isotiporedsentir.png" %}">
+                        {% endif %}
+                    <div class="content">
+                    <h5><a href="#">{{ usuario.username }}</a></h5>
+                    <p class="text-muted"><small>23 enero de 2018</small></p>
+                    </div>
+                </div>
+                <div class="post-content">
+                    <p>Somos un proyecto para la prevención del embarazo adolescente, liderado por la Corporación de Estudiantes Universitarios y Profesionales de Marinilla-CORUM con Cooperación Internacional del Banco Interamericano de Desarrollo-BID y con recursos del Fondo Especial Japonés para la reducción de la pobreza en 6 municipios del Oriente antioqueño: Sonsón, Abejorral, San Francisco, San Luis, Argelia y Marinilla.</p>
+                    <iframe  id="video" width="100%" height="480" src="https://www.youtube.com/embed/qoOEJSWfpZI" frameborder="0" allowfullscreen></iframe>
+                </div>
+                <ul class="post-utility">
+                    <li class="likes"><a href="#"><i class="fa fa-heart" aria-hidden="true"></i> Me gusta</a></li>
+                    <li class="shares"><a href="#"><i class="fa fa-fw fa-lg fa-share"></i>Compartir</a></li>
+                    <li class="comments"><i class="fa fa-fw fa-lg fa-comment-o"></i> 5 Comentarios</li>
+                </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
