@@ -51,8 +51,6 @@ path:hover{
     opacity: 0.5;    
 }
 
-
-
 audio:not([controls]) {
   display: none;
   height: 0;
