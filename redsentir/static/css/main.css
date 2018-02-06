@@ -51,6 +51,11 @@ path:hover{
     opacity: 0.5;    
 }
 
+.col-md-3 {
+    display: table-cell;
+    float: none; 
+} 
+
 audio:not([controls]) {
   display: none;
   height: 0;

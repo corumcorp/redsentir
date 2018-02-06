@@ -8,3 +8,11 @@ def guia(request,pid):
 @login_required
 def modulo(request,pid):
     return render(request, 'sitio/formacion/modulo.html',{'prueba':20,})
+
+@login_required
+def jovenes(request):
+    return render(request, 'sitio/formacion/jovenes.html')
+
+@login_required
+def docentes(request):
+    return render(request, 'sitio/formacion/docentes.html')

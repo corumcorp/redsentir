@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+{% load static %}
+{% load social_widgets %}
+{% block contenido %}
+<div class="content">
+        <div class="card col-md-3">
+        <a href="{% static "/images/guias/docentes/Guia_1.pdf" %}">
+        <img class="card-img-top" width="100%" src="{% static "/images/web/guia_2/portada/guia-2-dib.png" %}" alt="Card image cap">
+        </a>
+        <div class="card-block">
+            <h4 class="card-title">{{ foro.titulo }}</h4>
+            <p class="card-text">{{ foro.introduccion }}</p>
+            <a href="{% static "/images/guias/docentes/Guia_1.pdf" %}" class="btn btn-primary">{{ foro.titulo }}</a>
+        </div>
+        </div>
+</div>
+{% endblock %}
