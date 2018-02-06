@@ -233,9 +233,14 @@
 </svg>
     </div>
     <div class="col-md-4">
+        </br>
+        </br>
+        </br>
+        <center>
         <img id="imgMunicipio" class="img-circle" width="80%" src="{% static "/images/pagina/grafico-mesa-r.png" %}" alt="Mesa Regional">
         <h1 id="tituloMunicipio" >Mesa Regional</h1>
         <p id="decripcionMunicipio">Un espacio de trabajo colaborativo para construir en beneficio de los jóvenes de nuestra región.</p>
+        </center>
     </div>
 </div>
 {% endblock %}
@@ -244,28 +249,28 @@
             function seleccionMunicipio(municipio){
                 switch(municipio) {
                     case 'abejorral':
-                        document.getElementById('imgMunicipio').src="{% static '/images/pagina/grafico-comp-digital.png' %}";
+                        document.getElementById('imgMunicipio').src="{% static '/images/mesa/abejorral_ini.png' %}";
                         document.getElementById('tituloMunicipio').innerHTML="Abejorral";
                         document.getElementById('descripcionMunicipio').innerHTML="Abejorral";
                         break;
                     case 'marinilla':
-                        document.getElementById('imgMunicipio').src="{% static '/images/pagina/grafico-comp-digital.png' %}";
+                        document.getElementById('imgMunicipio').src="{% static '/images/mesa/marinilla_ini.png' %}";
                         document.getElementById('tituloMunicipio').innerHTML="Marinilla";
                         break;
                     case 'argelia':
-                        document.getElementById('imgMunicipio').src="{% static '/images/pagina/grafico-comp-digital.png' %}";
+                        document.getElementById('imgMunicipio').src="{% static '/images/mesa/argelia_ini.png' %}";
                         document.getElementById('tituloMunicipio').innerHTML="Argelia";
                         break;
                     case 'sonson':
-                        document.getElementById('imgMunicipio').src="{% static '/images/pagina/grafico-comp-digital.png' %}";
+                        document.getElementById('imgMunicipio').src="{% static '/images/mesa/sonson_ini.png' %}";
                         document.getElementById('tituloMunicipio').innerHTML="Sonsón";
                         break;
                     case 'sanluis':
-                        document.getElementById('imgMunicipio').src="{% static '/images/pagina/grafico-comp-digital.png' %}";
+                        document.getElementById('imgMunicipio').src="{% static '/images/mesa/sanluis_ini.png' %}";
                         document.getElementById('tituloMunicipio').innerHTML="San Luis";
                         break;
                     case 'sanfrancisco':
-                        document.getElementById('imgMunicipio').src="{% static '/images/pagina/grafico-comp-digital.png' %}";
+                        document.getElementById('imgMunicipio').src="{% static '/images/mesa/sanfran_ini.png' %}";
                         document.getElementById('tituloMunicipio').innerHTML="San Francisco";
                         break;
                     case 'mesa':
