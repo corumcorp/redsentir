@@ -49,7 +49,7 @@
         <div class="container">
           <h1 class="masthead-heading">{{ elemento.titulo }}</h1>
           <h2 class="masthead-subheading mb-0">{{ elemento.introduccion }}</h2>
-          <a href="{{ elemento.imagen.url }}" class="btn btn-primary btn-xl rounded-pill mt-5 bristolTitulo">SABER MÁS</a>
+          <a href="{% url "foro:foro" elemento.pk %}" class="btn btn-primary btn-xl rounded-pill mt-5 bristolTitulo">SABER MÁS</a>
         </div>
       </div>
       <div class="bg-circle-1 bg-circle"><img width="35%" src="{{ elemento.imagen.url }}"></div>
