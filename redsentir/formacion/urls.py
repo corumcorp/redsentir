@@ -6,4 +6,6 @@ urlpatterns = [
     url(r'^modulo/(?P<pid>\d+)$', modulo, name='modulo'),
     url(r'^jovenes$', jovenes, name='jovenes'),
     url(r'^docentes$', docentes, name='docentes'),
+    url(r'^encuentro/(?P<pid>\d+)$', encuentro, name='encuentro'),
+    url(r'^encuentros$', encuentros, name='encuentros'),
 ]

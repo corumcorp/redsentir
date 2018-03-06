@@ -32,6 +32,7 @@ ALLOWED_HOSTS = ['*',]
 
 INSTALLED_APPS = [
     'pagina.apps.PaginaConfig',
+    'formacion.apps.FormacionConfig',
     'seguridad.apps.SeguridadConfig',
     'social_widgets',
     'foro.apps.ForoConfig',

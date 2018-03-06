@@ -1,5 +1,6 @@
 from django.shortcuts import render
 from django.contrib.auth.decorators import login_required
+from .models import Encuentro
 
 @login_required
 def guia(request,pid):
@@ -16,3 +17,13 @@ def jovenes(request):
 @login_required
 def docentes(request):
     return render(request, 'sitio/formacion/docentes.html')
+
+@login_required
+def encuentro(request,pid):
+    encuentro = Encuentro.objects.get(pk=pid)
+    return render(request, 'sitio/formacion/encuentro.html',{'encuentro': encuentro})
+
+@login_required
+def encuentros(request):
+    encuentros = Encuentro.objects.all().order_by('id').reverse()
+    return render(request, 'sitio/formacion/encuentros.html',{'encuentros':encuentros})
