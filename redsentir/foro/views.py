@@ -3,6 +3,8 @@ from django.contrib.auth.decorators import login_required
 from .models import Comentario, Respuesta, Foro
 from django.contrib.auth.models import User
 from django.core.mail import send_mail
+from django.template import RequestContext
+
 @login_required
 def index(request):
     foros = Foro.objects.all().order_by('id').reverse()
