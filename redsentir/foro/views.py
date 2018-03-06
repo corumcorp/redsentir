@@ -1,14 +1,14 @@
-from django.shortcuts import render_to_response, redirect
+from django.shortcuts import render, redirect
 from django.contrib.auth.decorators import login_required
 from .models import Comentario, Respuesta, Foro
 from django.contrib.auth.models import User
 from django.core.mail import send_mail
-from django.template import RequestContext
+from django.shortcuts import redirect
 
 @login_required
 def index(request):
     foros = Foro.objects.all().order_by('id').reverse()
-    return render_to_response(request, 'sitio/foro/foros.html',{'foros':foros})
+    return render(request, 'sitio/foro/foros.html',{'foros':foros})
 
 @login_required
 def foro(request,pid):
@@ -46,7 +46,7 @@ def foro(request,pid):
                 )
     foro = Foro.objects.get(pk=pid)    
     comentarios = Comentario.objects.filter(foro_id=pid).order_by('id').reverse()
-    return render_to_response('sitio/foro/foro.html',{'foro':foro,'comentarios':comentarios})
+    return render(request, 'sitio/foro/foro.html',{'foro':foro,'comentarios':comentarios})
 
 @login_required
 def meGusta(request,pid):
