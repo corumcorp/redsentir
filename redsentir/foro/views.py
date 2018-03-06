@@ -44,7 +44,7 @@ def foro(request,pid):
                 )
     foro = Foro.objects.get(pk=pid)    
     comentarios = Comentario.objects.filter(foro_id=pid).order_by('id').reverse()
-    return render_to_response(request, 'sitio/foro/foro.html',{'foro':foro,'comentarios':comentarios})
+    return render_to_response('sitio/foro/foro.html',{'foro':foro,'comentarios':comentarios},context_instance=RequestContext(request))
 
 @login_required
 def meGusta(request,pid):
