@@ -157,7 +157,7 @@ SOCIAL_AUTH_TWITTER_SECRET = 'jyreNJobxjsLFMX2Cyt09QvlqWJZlNeT9Ym7zSkitxD1NMj0gy
 SOCIAL_AUTH_FACEBOOK_KEY = '135664947036180'
 SOCIAL_AUTH_FACEBOOK_SECRET = '75972a0302861a685d2d1be3e7e9a2cb'
 
-# Configuración envío de correo
+# Configuracion envio de correo
 EMAIL_HOST = 'smtp.gmail.com'
 EMAIL_HOST_USER = 'comunicaciones@corum.org.co'
 EMAIL_HOST_PASSWORD = 'CORUM2010'
