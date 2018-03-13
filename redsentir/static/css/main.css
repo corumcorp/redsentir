@@ -88,6 +88,9 @@ h1 {
   margin: 0.67em 0;
 }
 
+.slide-control{color:#fff;font-size:30px;left:5%;margin-top:-70px;position:absolute;top:50% !important;}
+.slide-control.right{left:auto;right:5%;}
+
 mark {
   background: #ff0;
   color: #000;
