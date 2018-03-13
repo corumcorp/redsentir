@@ -158,7 +158,7 @@ SOCIAL_AUTH_FACEBOOK_KEY = '135664947036180'
 SOCIAL_AUTH_FACEBOOK_SECRET = '75972a0302861a685d2d1be3e7e9a2cb'
 
 # Configuracion envio de correo
-EMAIL_HOST = 'smtp.corum.org.co'
+EMAIL_HOST = 'smtp.gmail.com'
 EMAIL_HOST_USER = 'comunicaciones@corum.org.co'
 EMAIL_HOST_PASSWORD = 'CORUM2010'
 EMAIL_PORT = 587
