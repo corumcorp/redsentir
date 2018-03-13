@@ -42,7 +42,7 @@ def foro(request,pid):
                     request.user.username+': '+request.POST['mensaje']+' https://redsentir.org/foros/foro/'+pid+'#comentario_'+str(comentario.pk),
                     'comunicaciones@redsentir.org',
                     emails,
-                    fail_silently=False,
+                    fail_silently=True,
                 )
     foro = Foro.objects.get(pk=pid)    
     comentarios = Comentario.objects.filter(foro_id=pid).order_by('id').reverse()
