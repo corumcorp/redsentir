@@ -36,6 +36,8 @@
                                 <img src="{% url 'index'%}{{encuentro.imagen4}}" width="100%" >
                                 </br>
                                 </br>
+                                <p align="justify"><font size="4">{{encuentro.parrafo5}} </font></p>
+                                </br>
                                 <p align="justify"><font size="4">{{encuentro.parrafo6}} </font></p>
                                 
                             </div>
@@ -104,21 +106,31 @@
                                         <div class="item">
                                         <img src='{% url "index" %}{{ encuentro.carreta10 }}' width="100%">
                                         </div>
-                                        <div class="item">
-                                        <img src='{% url "index" %}{{ encuentro.carreta11 }}' width="100%">
-                                        </div>
-                                        <div class="item">
-                                        <img src='{% url "index" %}{{ encuentro.carreta12 }}' width="100%">
-                                        </div>
-                                        <div class="item">
-                                        <img src='{% url "index" %}{{ encuentro.carreta13 }}' width="100%">
-                                        </div>
-                                        <div class="item">
-                                        <img src='{% url "index" %}{{ encuentro.carreta14 }}' width="100%">
-                                        </div>
-                                        <div class="item">
-                                        <img src='{% url "index" %}{{ encuentro.carreta15 }}' width="100%">
-                                        </div>
+                                        {% if encuentro.carreta11 %}
+                                            <div class="item">
+                                                <img src='{% url "index" %}{{ encuentro.carreta11 }}' width="100%">
+                                            </div>
+                                        {% endif %}
+                                        {% if encuentro.carreta12 %}
+                                            <div class="item">
+                                                <img src='{% url "index" %}{{ encuentro.carreta12 }}' width="100%">
+                                            </div>
+                                        {% endif %}
+                                        {% if encuentro.carreta13 %}
+                                            <div class="item">
+                                                <img src='{% url "index" %}{{ encuentro.carreta13 }}' width="100%">
+                                            </div>
+                                        {% endif %}
+                                        {% if encuentro.carreta14 %}
+                                            <div class="item">
+                                                <img src='{% url "index" %}{{ encuentro.carreta14 }}' width="100%">
+                                            </div>
+                                        {% endif %}
+                                        {% if encuentro.carreta15 %}
+                                            <div class="item">
+                                                <img src='{% url "index" %}{{ encuentro.carreta15 }}' width="100%">
+                                            </div>
+                                        {% endif %}
                                     </div>
                                     <!-- Left and right controls -->
                                     <a class="left slide-control" href="#myCarousel" data-slide="prev">
@@ -146,11 +158,21 @@
                                 </br>
                                 {{encuentro.entrevista1 | safe }}
                                 
-                                {{encuentro.entrevista2 | safe }}
+                                {% if encuentro.entrevista2 %}
+                                    {{encuentro.entrevista2 | safe }}
+                                {% endif %}
                                 
-                                {{encuentro.entrevista2 | safe }}
+                                {% if encuentro.entrevista3 %}
+                                    {{encuentro.entrevista3 | safe }}
+                                {% endif %}
                                 
-                                {{encuentro.entrevista1 | safe }} 
+                                {% if encuentro.entrevista4 %}
+                                    {{encuentro.entrevista4 | safe }} 
+                                {% endif %}
+                                
+                                {% if encuentro.entrevista5 %}
+                                    {{encuentro.entrevista5 | safe }} 
+                                {% endif %}
                             </div>  
                         </div>
                         
