@@ -145,6 +145,7 @@ AUTHENTICATION_BACKENDS = (
     'social_core.backends.github.GithubOAuth2',
     'social_core.backends.twitter.TwitterOAuth',
     'social_core.backends.facebook.FacebookOAuth2',
+    'social_core.backends.instagram.InstagramOAuth2',
     'django.contrib.auth.backends.ModelBackend',
 )
 
@@ -156,6 +157,8 @@ SOCIAL_AUTH_TWITTER_KEY = 'MBl86h3SsEjQ6XIpvaAtl7C7B'
 SOCIAL_AUTH_TWITTER_SECRET = 'jyreNJobxjsLFMX2Cyt09QvlqWJZlNeT9Ym7zSkitxD1NMj0gy'
 SOCIAL_AUTH_FACEBOOK_KEY = '205136890027076'
 SOCIAL_AUTH_FACEBOOK_SECRET = 'd554a9980e4750e12043df2378edddc2'
+SOCIAL_AUTH_INSTAGRAM_KEY = '73e721ce7bbd4d1f8fd854dad849bb39'
+SOCIAL_AUTH_INSTAGRAM_SECRET = 'cc406aa8a7064a3ea6a3ea6c09a2791a'
 
 # Configuracion envio de correo
 EMAIL_HOST = 'smtp.gmail.com'
