@@ -16,7 +16,7 @@ django.setup()
 
 class ProyectoRedSentir(object):
     HOST = "redsentir.org"
-    PORT = 443
+    PORT = 8000
 
     def mount_static(self, url, root):
         """
@@ -61,8 +61,8 @@ class ProyectoRedSentir(object):
         cherrypy.log("Inciando la Plataforma de la Red Sentir.")
         cherrypy.tree.graft(WSGIHandler())
         cherrypy.tools.force_tls = cherrypy.Tool("before_handler", self.force_tls)
-        self.load_http_server()
-        cherrypy.config.update(configuracion)
+        #self.load_http_server()
+        #cherrypy.config.update(configuracion)
         #self.open_browser()
         cherrypy.engine.start()
         cherrypy.engine.block()
