@@ -12,24 +12,27 @@ from django.http import Http404
 def registro(request):
     if request.POST:
         if 'username' in request.POST :
-            if 'password' in request.POST and 'password1' in request.POST and request.POST['password'] != '':
-                if request.POST['password'] == request.POST['password1'] :                    
-                    usuario = User.objects.create_user(username = request.POST['username'],password = request.POST['password'],email = request.POST['email'])
-                    perfil = None
-                    if 'genero' in request.POST :
-                        pgenero = request.POST['genero']
+            usuarioTmp = User.objects.get(username = request.POST['username'])
+            if usuarioTmp != None:
+                return render(request, 'registration/registro.html',{'usuario':'este nombre de usuario ya existe'})            
+                if 'password' in request.POST and 'password1' in request.POST and request.POST['password'] != '':
+                    if request.POST['password'] == request.POST['password1'] :                    
+                        usuario = User.objects.create_user(username = request.POST['username'],password = request.POST['password'],email = request.POST['email'])
+                        perfil = None
+                        if 'genero' in request.POST :
+                            pgenero = request.POST['genero']
+                        else :
+                            pgenero = None
+                        if not 'avatar' in request.FILES :
+                            perfil = Perfil(user_id=usuario.id,genero=pgenero)
+                        else :
+                            perfil = Perfil(user_id=usuario.id,avatar=request.FILES['avatar'],genero=pgenero)                   
+                        perfil.save()
+                        return HttpResponseRedirect(reverse(login,args=[]))
                     else :
-                        pgenero = None
-                    if not 'avatar' in request.FILES :
-                        perfil = Perfil(user_id=usuario.id,genero=pgenero)
-                    else :
-                        perfil = Perfil(user_id=usuario.id,avatar=request.FILES['avatar'],genero=pgenero)                   
-                    perfil.save()
-                    return HttpResponseRedirect(reverse(login,args=[]))
+                        return render(request, 'registration/registro.html',{'password':'las claves deben coincidir'})
                 else :
-                    return render(request, 'registration/registro.html',{'password':'las claves deben coincidir'})
-            else :
-                return render(request, 'registration/registro.html',{'password':'ingrese clave de seguridad valida'})
+                    return render(request, 'registration/registro.html',{'password':'ingrese clave de seguridad valida'})
         else :
             return render(request, 'registration/registro.html',{'usuario':'debe ingresar un usuario'})            
     else :
