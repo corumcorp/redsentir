@@ -14,7 +14,7 @@ def registro(request):
         if 'username' in request.POST :
             usuarioTmp = User.objects.get(username = request.POST['username'])
             if usuarioTmp != None:
-                return render(request, 'registration/registro.html',{'usuario':'este nombre de usuario ya existe'})            
+                return render(request, 'registration/registro.html',{'usuario':'el nombre de usuario '+request.POST['username']+' ya existe'})            
                 if 'password' in request.POST and 'password1' in request.POST and request.POST['password'] != '':
                     if request.POST['password'] == request.POST['password1'] :                    
                         usuario = User.objects.create_user(username = request.POST['username'],password = request.POST['password'],email = request.POST['email'])
