@@ -12,7 +12,7 @@ from django.http import Http404
 def registro(request):
     if request.POST:
         if 'username' in request.POST :
-            usuarioTmp = User.objects.get(username = request.POST['username'])
+            usuarioTmp = User.objects.filter(username = request.POST['username']).first()
             if usuarioTmp != None:
                 return render(request, 'registration/registro.html',{'usuario':'el nombre de usuario '+request.POST['username']+' ya existe'})            
                 if 'password' in request.POST and 'password1' in request.POST and request.POST['password'] != '':
