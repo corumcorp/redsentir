@@ -71,6 +71,14 @@ var JuegoCapa = cc.Layer.extend({
         	onMouseUp:function(event){
         		ovulo.encendido = false;
         	}
+        cc.eventManager.addListener({
+        	event:cc.EventListener.TOUCH_ONE_BY_ONE,
+        	onTouchBegan:function(event){
+        		ovulo.encendido = true;
+        	},
+        	onTouchEnded:function(event){
+        		ovulo.encendido = false;
+        	}
         },this)		
         this.schedule(this.agregarEsperma,0.5);
     },

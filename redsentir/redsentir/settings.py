@@ -34,6 +34,7 @@ INSTALLED_APPS = [
     'pagina.apps.PaginaConfig',
     'formacion.apps.FormacionConfig',
     'seguridad.apps.SeguridadConfig',
+    'lineatiempo.apps.LineatiempoConfig',
     'social_widgets',
     'foro.apps.ForoConfig',
     'django.contrib.admin',
