@@ -8,10 +8,10 @@ def inicio(request):
     if request.POST :            
         publicacion = Publicacion(contenido=request.POST['contenido'],usuario=request.user)
         publicacion.save()
-        if request.FILES['video'] :
+        if 'video' in request.FILES :
             video = MultiMedia(publicacion=publicacion,archivo=request.FILES['video'],tipo='video').save()
         imagenes = request.FILES.getlist('imagenes')
         for imagen in imagenes :
             multiMedia = MultiMedia(publicacion=publicacion,archivo=imagen,tipo='imagen').save()
-    publicaciones = Publicacion.objects.all()[:10]
+    publicaciones = Publicacion.objects.all().order_by('id').reverse()[:10]
     return render(request, 'sitio/lineatiempo/inicio.html',{'publicaciones':publicaciones})
