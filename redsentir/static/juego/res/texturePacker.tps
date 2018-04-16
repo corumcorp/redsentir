@@ -6,7 +6,7 @@
         <key>texturePackerVersion</key>
         <string>4.6.3</string>
         <key>fileName</key>
-        <string>C:/Users/User/Documents/WebJuegoRed/res/texturePacker.tps</string>
+        <string>/home/zariguella/git/redsentir/redsentir/static/juego/res/texturePacker.tps</string>
         <key>autoSDSettings</key>
         <array>
             <struct type="AutoSDSettings">
@@ -36,7 +36,7 @@
         <key>dataFormat</key>
         <string>cocos2d-x</string>
         <key>textureFileName</key>
-        <filename></filename>
+        <filename>imagenes.png</filename>
         <key>flipPVR</key>
         <false/>
         <key>pvrCompressionQuality</key>
@@ -134,7 +134,7 @@
             <key>data</key>
             <struct type="DataFile">
                 <key>name</key>
-                <filename>spritesheet.plist</filename>
+                <filename>imagenes.plist</filename>
             </struct>
             <key>header</key>
             <key>source</key>
@@ -185,10 +185,23 @@
             <key>defaultPivotPoint</key>
             <point_f>0.5,0.5</point_f>
             <key>writePivotPoints</key>
-            <true/>
+            <false/>
         </struct>
         <key>individualSpriteSettings</key>
         <map type="IndividualSpriteSettingsMap">
+            <key type="filename">conducto.png</key>
+            <struct type="IndividualSpriteSettings">
+                <key>pivotPoint</key>
+                <point_f>0.5,0.5</point_f>
+                <key>scale9Enabled</key>
+                <false/>
+                <key>scale9Borders</key>
+                <rect>451,92,902,183</rect>
+                <key>scale9Paddings</key>
+                <rect>451,92,902,183</rect>
+                <key>scale9FromFile</key>
+                <false/>
+            </struct>
             <key type="filename">esperma.png</key>
             <struct type="IndividualSpriteSettings">
                 <key>pivotPoint</key>
@@ -262,6 +275,7 @@
             <filename>ovulo.png</filename>
             <filename>motonea.png</filename>
             <filename>inicio.png</filename>
+            <filename>conducto.png</filename>
         </array>
         <key>ignoreFileList</key>
         <array/>

@@ -13,11 +13,11 @@ var energiaValor = 0;
 
 var JuegoEscena = cc.Scene.extend({
     onEnter:function () {
-        this._super();		
+        this._super();
         juegoCapa = new JuegoCapa();
-		puntageCapa = new PuntageCapa();
+	puntageCapa = new PuntageCapa();
         this.addChild(juegoCapa);
-		this.addChild(puntageCapa);
+	this.addChild(puntageCapa);
     }
 });
 
