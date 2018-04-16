@@ -18,7 +18,7 @@
                     <form method="post" enctype="multipart/form-data">
                     {% csrf_token %}
                     <div class="col-md-6">
-                        <textarea name="contenido" class="form-control" rows="8" placeholder="¡{{ user.username }}! Comparte algo con nosotros."></textarea>
+                        <textarea name="contenido" class="form-control" rows="3" cols="100" placeholder="¡{{ user.username }}! Comparte algo con nosotros."></textarea>
                     </div>
                     <div class="col-md-12">
                         <label class="btn btn-default btn-file">
@@ -52,7 +52,7 @@
             {% else %}
                 <img width="8%" src="{% static "/images/isotiporedsentir.png" %}">
             {% endif %}
-            <textarea class="form-control" rows="5" placeholder="¡{{ user.username }}! Comparte algo con nosotros."></textarea>
+            <textarea class="form-control" rows="3" placeholder="¡{{ user.username }}! Comparte algo con nosotros."></textarea>
         </div>
         <div class="modal-footer">
             <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
@@ -71,7 +71,7 @@
                         <div class="post">
                         <div class="post-media">
                             {% if publicacion.usuario.perfil.avatar %}
-                                <img width="8%" src="/{{ usuario.perfil.avatar.url }}">
+                                <img width="8%" src="{% url "index" %}{{ publicacion.usuario.perfil.avatar.url }}" class="img-circle">
                             {% else %}
                                 <img width="8%" src="{% static "/images/isotiporedsentir.png" %}">
                             {% endif %}
@@ -81,16 +81,19 @@
                             </div>
                         </div>
                         <div class="post-content">
-                            <p>{{ publicacion.contenido }}</p>
+                            
                             <div class="row user">
+                            <div class="col-md-12">
+                                <p class="text-justify">{{ publicacion.contenido }}</p>
+                            </div>
                             {% for multiMedia in publicacion.multimedia_set.all %}
-                                <div class="col-md-{% if publicacion.num_img==1 %}12{% elif publicacion.num_img==2 %}6{% else %}4{% endif %}">
+                                <div class="col-md-{% ifequal publicacion.num_img 1 %}6{% endifequal %}{% ifequal publicacion.num_img 2 %}6{% endifequal %}{% if publicacion.num_img > 2 %}4{% endif %}">
                                 {% if multiMedia.tipo == 'video' %}
                                     <video width="100%" height="240" controls>
                                         <source src="{{ multiMedia.archivo }}" type="video/mp4">
                                     </video>
                                 {% else %}
-                                    <img src="{% url "index" %}{{ multiMedia.archivo }}" width="100%" height="{% if publicacion.num_img==1 %}600{% elif publicacion.num_img==2 %}600{% else %}300{% endif %}" vspace="10">
+                                    <img src="{% url "index" %}{{ multiMedia.archivo }}" width="100%" height="{% ifequal publicacion.num_img 1 %}600{% endifequal %}{% ifequal publicacion.num_img 2 %}600{% endifequal %}{% if publicacion.num_img > 2 %}300{% endif %}" vspace="10">
                                 {% endif %}
                                 </div>
                             {% endfor %}
