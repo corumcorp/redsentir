@@ -33,7 +33,7 @@ class Comentario(models.Model):
 class Respuesta(models.Model):
     fecha = models.DateTimeField(auto_now=True)
     comentario = models.ForeignKey(Comentario)
-    mensaje = models.CharField(max_length=200)
+    mensaje = models.CharField(max_length=1000)
     usuario = models.ForeignKey(User, null=True,default=None)
     me_gusta = models.IntegerField(default=0)
 

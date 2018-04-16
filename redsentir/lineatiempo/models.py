@@ -9,6 +9,7 @@ class Publicacion(models.Model):
     fecha = models.DateTimeField(auto_now=True)
     me_gusta = models.IntegerField(default=0)
     comentarios = models.IntegerField(default=0)
+    num_img = models.IntegerField(default=0)
     
     def __unicode__(self):
         return u"%s" % self.contenido
