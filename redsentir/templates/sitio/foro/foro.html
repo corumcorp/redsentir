@@ -64,47 +64,14 @@
                                     
                                     </br>
                                     <div class="form-inline pull-right">
-                                        <button type="button" class="btn btn-primary"  data-toggle="modal" data-target="#responderforoModal">
+                                        <button type="button" class="btn btn-primary"  data-toggle="modal" data-target="#responderforoModal" onClick="modalResponder({{ comentario.pk }})">
                                             Comentar
                                         </button>
                                     </div>
-                                    <form method="post" class="form-inline pull-right" action="{% url 'foro:foro' foro.pk %}">
-                                        {% csrf_token %}
-                                        
-                                        <!-- Modal -->
-                                        <div class="modal fade" id="responderforoModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                                        <div class="modal-dialog" role="document">
-                                            <div class="modal-content">
-                                            <div class="modal-header">
-                                                {% if user.perfil.avatar %}
-                                                    <img class="img-circle" width="8%" src="/{{ user.perfil.avatar.url }}" alt="Imagen de Usuario">
-                                                {% else %}
-                                                    <img class="img-circle" width="8%" src="{% static "/images/noavatar.png" %}" alt="Imagen de Usuario">
-                                                {% endif %}
-                                                <h5 class="modal-title" id="exampleModalLabel">{{ user.username }}</h5>
-                                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                                <span aria-hidden="true">&times;</span>
-                                                </button>
-                                            </div>
-                                            <div class="modal-body">
-                                                <textarea class="form-control" rows="5" name="comentario_id" value="{{ comentario.pk }}"></textarea>
-                                            </div>
-                                            <div class="modal-footer">
-                                                <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
-                                                <label class="btn btn-primary btn-file">
-                                                    <input name="imagenes" type="file" multiple style="display: none;">
-                                                    <i class="fa fa-fw fa-lg fa-image"></i>Foto
-                                                </label>
-                                                <button type="submit" class="btn btn-primary">Responder</button>
-                                            </div>
-                                            </div>
-                                        </div>
-                                        </div>
-                                        
-                                        
-                                        <!--input type="hidden" name="comentario_id" value="{{ comentario.pk }}">
-                                        <input type="text" class="form-control" name="respuesta" maxlength="200">
-                                        <input type="submit" value="Responder" class="btn btn-primary"-->
+                                    <form method="post" class="form-inline pull-right" action="{% url 'foro:foro' foro.pk %}" id="resp{{ comentario.pk }}">
+                                        {% csrf_token %}                                
+                                        <input type="hidden" name="comentario_id" value="{{ comentario.pk }}">
+                                        <input type="hidden" class="form-control" name="respuesta" id="respuesta">
                                     </form>
                                 </div>
                             </div>
@@ -125,6 +92,35 @@
                     </div>
                     </form>
                 </div>
+                <!-- Modal -->
+                    <div class="modal fade" id="responderforoModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                    <div class="modal-dialog" role="document">
+                        <div class="modal-content">
+                        <div class="modal-header">
+                            {% if user.perfil.avatar %}
+                                <img class="img-circle" width="8%" src="/{{ user.perfil.avatar.url }}" alt="Imagen de Usuario">
+                            {% else %}
+                                <img class="img-circle" width="8%" src="{% static "/images/noavatar.png" %}" alt="Imagen de Usuario">
+                            {% endif %}
+                            <h5 class="modal-title" id="exampleModalLabel">{{ user.username }}</h5>
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+                        <div class="modal-body">
+                            <textarea class="form-control" rows="5" id="respuestaTmp"></textarea>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
+                            <label class="btn btn-primary btn-file">
+                                <input name="imagenes" type="file" multiple style="display: none;">
+                                <i class="fa fa-fw fa-lg fa-image"></i>Foto
+                            </label>
+                            <button class="btn btn-primary" onClick="responder()" data-dismiss="modal">Responder</button>
+                        </div>
+                        </div>
+                    </div>
+                    </div>
             </div>
         </div>
     </div>
@@ -132,6 +128,7 @@
 {% block scripts %}
     <script>
         var temp = 0;
+        var comentario=0;
         function toggle(id) {
             if (temp != 0) {
                 var y = document.getElementById("div_comentario_"+temp);
@@ -144,6 +141,14 @@
             } else {
                 x.style.display = "none";
             }
+        }
+        function modalResponder(comentario_id){
+            comentario=comentario_id;        
+        }
+        function responder(){
+            document.getElementById("respuesta").value = document.getElementById("respuestaTmp").value;
+            document.getElementById("resp"+comentario).submit();
+            
         }
     </script>
 {% endblock %}
