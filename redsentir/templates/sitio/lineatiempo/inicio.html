@@ -81,8 +81,12 @@
             <div class="tab-pane active" id="user-timeline">
                 <div class="timeline">
                     <div class="post">
-                    
-                        <div class="post-media">
+                        {% if publicacion.usuario.pk == user.pk %}
+                            <div class="pull-right">
+                            <a href="#" onClick="borrarPublicacion({{publicacion.pk}})"><i class="fa fa-fw fa-lg fa-trash-o"></i></a></li>
+                            </div>
+                            {% endif %}
+                        <div class="post-media">                            
                             {% if publicacion.usuario.perfil.avatar %}
                                 <img width="8%" src="{% url "index" %}{{ publicacion.usuario.perfil.avatar.url }}" class="img-circle">
                             {% else %}
@@ -91,9 +95,8 @@
                             <div class="content">
                                 <h5><a href="#">{{ publicacion.usuario.username }}</a></h5>
                                 <p class="text-muted"><small>{{ publicacion.fecha }}</small></p>
-                            </div>
-                        </div>
-                        
+                            </div>                            
+                        </div>                        
                         <div class="post-content">
                             <div class="row user">
                                 <div class="col-md-12">
@@ -122,7 +125,20 @@
                 </div>
             </div>
     {% endfor %}
-    
+    <form method="post" id="formPublicacion">
+        {% csrf_token %}
+        <input type="hidden" name="accion" value="borrar">
+        <input type="hidden" name="publicacion" id="inputPublicacion">
+    </form>
+    <script>
+        function borrarPublicacion(publicacion_pk){
+            var borrar = confirm('¿Esta seguro de borrar la publicación?');
+            if(borrar){
+                document.getElementById('inputPublicacion').value = publicacion_pk;
+                document.getElementById('formPublicacion').submit();
+            }
+        }
+    </script>
     
     
     

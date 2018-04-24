@@ -19,6 +19,7 @@ urlpatterns = [
     url(r'^lineatiempo/', include('lineatiempo.urls', namespace='lineatiempo')),
     url(r'^formacion/', include('formacion.urls', namespace='formacion')),
     url(r'^foros/', include('foro.urls', namespace='foro')),
+    url(r'^djga/', include('google_analytics.urls')),
 ] + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
 
 admin.site.site_header = "ADMIN - RED SENTIR"

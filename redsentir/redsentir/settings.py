@@ -44,7 +44,12 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'social_django',
+    'google_analytics',
 ]
+
+GOOGLE_ANALYTICS = {
+    'google_analytics_id': 'UA-118147370-1',
+}
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
