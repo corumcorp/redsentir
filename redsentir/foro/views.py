@@ -21,7 +21,7 @@ def foro(request,pid):
                 send_mail(
                         'Respuesta comentario Foro',
                         request.user.username+': '+request.POST['respuesta']+' https://redsentir.org/foros/foro/'+pid+'#comentario_'+request.POST['comentario_id'],
-                        'comunicaciones@redsentir.org',
+                        'comunicaciones@corum.org.co',
                         [usuario.email],
                         fail_silently=True,
                     )
@@ -40,7 +40,7 @@ def foro(request,pid):
             send_mail(
                     'Participacion en Foro',
                     request.user.username+': '+request.POST['mensaje']+' https://redsentir.org/foros/foro/'+pid+'#comentario_'+str(comentario.pk),
-                    'comunicaciones@redsentir.org',
+                    'comunicaciones@corum.org.co',
                     emails,
                     fail_silently=True,
                 )

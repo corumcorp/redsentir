@@ -67,8 +67,7 @@ var JuegoCapa = cc.Layer.extend({
         this._super();        
         this.audioEngine = cc.audioEngine;
         this.audioEngine.playMusic(res.musica_escena_2,true);
-        fondo = new Fondo();
-                
+        fondo = new Fondo();                
         cache = cc.spriteFrameCache;
         cache.addSpriteFrames(res.imagenes_plist, res.imagenes);
         fondo.setSpriteFrame(cache.getSpriteFrame("conducto.png"));

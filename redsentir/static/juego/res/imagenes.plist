@@ -15,9 +15,24 @@
                 <key>spriteSourceSize</key>
                 <string>{1804,366}</string>
                 <key>textureRect</key>
-                <string>{{1,406},{1804,366}}</string>
+                <string>{{1,307},{1804,366}}</string>
                 <key>textureRotated</key>
-                <true/>
+                <false/>
+            </dict>
+            <key>conducto_2.png</key>
+            <dict>
+                <key>aliases</key>
+                <array/>
+                <key>spriteOffset</key>
+                <string>{0,0}</string>
+                <key>spriteSize</key>
+                <string>{1887,377}</string>
+                <key>spriteSourceSize</key>
+                <string>{1887,377}</string>
+                <key>textureRect</key>
+                <string>{{1,675},{1887,377}}</string>
+                <key>textureRotated</key>
+                <false/>
             </dict>
             <key>esperma.png</key>
             <dict>
@@ -26,11 +41,11 @@
                 <key>spriteOffset</key>
                 <string>{0,0}</string>
                 <key>spriteSize</key>
-                <string>{79,26}</string>
+                <string>{112,18}</string>
                 <key>spriteSourceSize</key>
-                <string>{79,26}</string>
+                <string>{112,18}</string>
                 <key>textureRect</key>
-                <string>{{1,1},{79,26}}</string>
+                <string>{{129,1},{112,18}}</string>
                 <key>textureRotated</key>
                 <false/>
             </dict>
@@ -41,11 +56,11 @@
                 <key>spriteOffset</key>
                 <string>{0,0}</string>
                 <key>spriteSize</key>
-                <string>{81,27}</string>
+                <string>{54,16}</string>
                 <key>spriteSourceSize</key>
-                <string>{81,27}</string>
+                <string>{54,16}</string>
                 <key>textureRect</key>
-                <string>{{82,1},{81,27}}</string>
+                <string>{{1,1},{54,16}}</string>
                 <key>textureRotated</key>
                 <false/>
             </dict>
@@ -60,22 +75,7 @@
                 <key>spriteSourceSize</key>
                 <string>{321,304}</string>
                 <key>textureRect</key>
-                <string>{{1,100},{321,304}}</string>
-                <key>textureRotated</key>
-                <false/>
-            </dict>
-            <key>motonea.png</key>
-            <dict>
-                <key>aliases</key>
-                <array/>
-                <key>spriteOffset</key>
-                <string>{0,0}</string>
-                <key>spriteSize</key>
-                <string>{98,97}</string>
-                <key>spriteSourceSize</key>
-                <string>{98,97}</string>
-                <key>textureRect</key>
-                <string>{{238,1},{98,97}}</string>
+                <string>{{243,1},{321,304}}</string>
                 <key>textureRotated</key>
                 <false/>
             </dict>
@@ -90,9 +90,9 @@
                 <key>spriteSourceSize</key>
                 <string>{70,71}</string>
                 <key>textureRect</key>
-                <string>{{165,1},{70,71}}</string>
+                <string>{{57,1},{70,71}}</string>
                 <key>textureRotated</key>
-                <true/>
+                <false/>
             </dict>
         </dict>
         <key>metadata</key>
@@ -106,9 +106,9 @@
             <key>realTextureFileName</key>
             <string>imagenes.png</string>
             <key>size</key>
-            <string>{368,2211}</string>
+            <string>{1889,1053}</string>
             <key>smartupdate</key>
-            <string>$TexturePacker:SmartUpdate:837d38b41839fc7f650ca0e4ce95e52a:6b8a7834db373d270dac5abdb89b5b92:dcdb694319e9461bcf7dbac418b7a1f6$</string>
+            <string>$TexturePacker:SmartUpdate:baf4208b60a6354e586bbdca8679db31:1de8927958116a99187389fb47d644d2:dcdb694319e9461bcf7dbac418b7a1f6$</string>
             <key>textureFileName</key>
             <string>imagenes.png</string>
         </dict>

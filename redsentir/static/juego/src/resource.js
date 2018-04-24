@@ -1,4 +1,6 @@
 var res = {
+        esperma : "res/esperma.png",
+        esperma_plist : "res/esperma.plist",
         imagenes : "res/imagenes.png",
         imagenes_plist : "res/imagenes.plist",
 	musica_escena_2 : "res/saga_musix_-_disassembly.ogg",

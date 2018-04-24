@@ -162,8 +162,10 @@ SOCIAL_AUTH_INSTAGRAM_KEY = '73e721ce7bbd4d1f8fd854dad849bb39'
 SOCIAL_AUTH_INSTAGRAM_SECRET = 'cc406aa8a7064a3ea6a3ea6c09a2791a'
 
 # Configuracion envio de correo
-EMAIL_HOST = 'smtp.gmail.com'
-EMAIL_HOST_USER = 'redsentir@gmail.com'
-EMAIL_HOST_PASSWORD = 'CORUM2010'
-EMAIL_PORT = 587
+#EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+#EMAIL_BACKEND = 'django_smtp_ssl.SSLEmailBackend'
 EMAIL_USE_TLS = True
+EMAIL_HOST = 'smtp.ipage.com'
+EMAIL_HOST_USER = 'diego@zariguella.com'
+EMAIL_HOST_PASSWORD = 'Muysegura@123'
+EMAIL_PORT = 587
