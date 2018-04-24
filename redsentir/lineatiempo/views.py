@@ -15,3 +15,10 @@ def inicio(request):
             multiMedia = MultiMedia(publicacion=publicacion,archivo=imagen,tipo='imagen').save()
     publicaciones = Publicacion.objects.all().order_by('id').reverse()[:10]
     return render(request, 'sitio/lineatiempo/inicio.html',{'publicaciones':publicaciones})
+
+@login_required
+def meGustaP(request,pid):
+    publicacion = Publicacion.objects.get(pk=pid)
+    publicacion.me_gusta +=1
+    publicacion.save()
+    return redirect ('https://redsentir.org/lineatiempo/#publicacion_'+str(publicacion.pk))

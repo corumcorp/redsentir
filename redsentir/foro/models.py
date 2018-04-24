@@ -36,6 +36,7 @@ class Respuesta(models.Model):
     mensaje = models.CharField(max_length=1000)
     usuario = models.ForeignKey(User, null=True,default=None)
     me_gusta = models.IntegerField(default=0)
+    imagen = models.ImageField(upload_to='static/images/foros', null=True, default=None)
 
     def __unicode__(self):
         return u"%s" % self.mensaje
