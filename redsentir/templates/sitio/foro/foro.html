@@ -1,5 +1,6 @@
 {% extends 'base.html' %}
 {% load static %}
+{% load grupo %}
 {% load social_widgets %}
 {% block contenido %}
     <div class="col-md-10">          
@@ -12,7 +13,7 @@
                                 <p color="#000" align="justify">{{ foro.tema }}</p>
                                 </div>
                                 <div class="col-md-3">
-                                {% social_widget_render 'facebook/share_button.html' href='http://redsentir.org/foro/' pid=foro.pk %}                                
+                                {% social_widget_render 'facebook/share_button.html' href='https://redsentir.org/foros/foro' pid=foro.pk %}                                
                                 <img width="100%" src="/{{ foro.imagen.url }}" alt="Imagen Foro">
                                 </div>
                             </div>
@@ -49,11 +50,15 @@
                                     </span>                                    
                                 </p>
                                 <div id="div_comentario_{{ comentario.pk }}" style="display">
-                                    {% for respuesta in comentario.respuesta_set.all %}
-                                        <p>
-                                            <font size="3">
+                                    {% for respuesta in comentario.respuesta_set.all %}                                        
+                                        <p >
+                                            <font size="3" {% if request.user|esExperto:"experto" %} color="green" {% endif %}>
                                             -<b>{{ respuesta.usuario.username }} :</b>{{ respuesta.mensaje }}
                                             </font>
+                                            </br>
+                                            {% if respuesta.imagen != None %}
+                                                <img src="{% url "index" %}{{ respuesta.imagen }}" width="50%" height="" vspace="10">
+                                            {% endif %}
                                             <span class="pull-right">
                                                 <a href="{% url 'foro:me_gusta_r' respuesta.pk %}">
                                                     <i class="fa fa-heart" aria-hidden="true"></i><font size="1">+{{ respuesta.me_gusta }}</font>
@@ -64,14 +69,13 @@
                                     
                                     </br>
                                     <div class="form-inline pull-right">
-                                        <button type="button" class="btn btn-primary"  data-toggle="modal" data-target="#responderforoModal" onClick="modalResponder({{ comentario.pk }})">
+                                        <button type="button" class="btn btn-primary"  data-toggle="modal" data-target="#responderforoModal" onClick="modalResponder({{ comentario.pk }}, '{{ comentario.mensaje }}')">
                                             Comentar
                                         </button>
                                     </div>
-                                    <form method="post" class="form-inline pull-right" action="{% url 'foro:foro' foro.pk %}" id="resp{{ comentario.pk }}">
+                                    <form method="post" class="form-inline pull-right" action="{% url 'foro:foro' foro.pk %}" id="resp{{ comentario.pk }}" enctype="multipart/form-data">
                                         {% csrf_token %}                                
                                         <input type="hidden" name="comentario_id" value="{{ comentario.pk }}">
-                                        <input type="hidden" class="form-control" name="respuesta" id="respuesta">
                                     </form>
                                 </div>
                             </div>
@@ -97,23 +101,30 @@
                     <div class="modal-dialog" role="document">
                         <div class="modal-content">
                         <div class="modal-header">
-                            {% if user.perfil.avatar %}
-                                <img class="img-circle" width="8%" src="/{{ user.perfil.avatar.url }}" alt="Imagen de Usuario">
-                            {% else %}
-                                <img class="img-circle" width="8%" src="{% static "/images/noavatar.png" %}" alt="Imagen de Usuario">
-                            {% endif %}
-                            <h5 class="modal-title" id="exampleModalLabel">{{ user.username }}</h5>
                             <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                             <span aria-hidden="true">&times;</span>
                             </button>
+                            <div class="row">
+                                <div class="col-md-2">
+                                    {% if user.perfil.avatar %}
+                                        <img class="img-circle" width="100%" src="/{{ user.perfil.avatar.url }}" alt="Imagen de Usuario">
+                                    {% else %}
+                                        <img class="img-circle" width="100%" src="{% static "/images/noavatar.png" %}" alt="Imagen de Usuario">
+                                    {% endif %}
+                                </div>
+                                <div class="col-md-8">
+                                    <p id="comentario_nombre">  </p>
+                                </div>
+                            </div>
+                            <h5 class="modal-title" id="exampleModalLabel">{{ user.username }}</h5>
                         </div>
                         <div class="modal-body">
-                            <textarea class="form-control" rows="5" id="respuestaTmp"></textarea>
+                            <textarea class="form-control" rows="5" id="respuesta" name="respuesta"></textarea>
                         </div>
                         <div class="modal-footer">
                             <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
                             <label class="btn btn-primary btn-file">
-                                <input name="imagenes" type="file" multiple style="display: none;">
+                                <input name="imagenes" type="file" id="imagenes" style="display: none;">
                                 <i class="fa fa-fw fa-lg fa-image"></i>Foto
                             </label>
                             <button class="btn btn-primary" onClick="responder()" data-dismiss="modal">Responder</button>
@@ -121,6 +132,7 @@
                         </div>
                     </div>
                     </div>
+                    <!--Fin Modal -->
             </div>
         </div>
     </div>
@@ -142,13 +154,15 @@
                 x.style.display = "none";
             }
         }
-        function modalResponder(comentario_id){
+        function modalResponder(comentario_id, comentario_name){
             comentario=comentario_id;        
+            document.getElementById("comentario_nombre").innerHTML = comentario_name;
         }
         function responder(){
-            document.getElementById("respuesta").value = document.getElementById("respuestaTmp").value;
-            document.getElementById("resp"+comentario).submit();
-            
+            formulario = document.getElementById("resp"+comentario);
+            formulario.appendChild(document.getElementById("respuesta"));
+            formulario.appendChild(document.getElementById("imagenes"));
+            formulario.submit();            
         }
     </script>
 {% endblock %}

@@ -15,6 +15,8 @@ def foro(request,pid):
     if request.method == 'POST':        
         if 'respuesta' in request.POST :
             respuesta = Respuesta(mensaje=request.POST['respuesta'],comentario_id=request.POST['comentario_id'],usuario_id=request.user.pk)
+            if 'imagenes' in request.FILES :                
+                respuesta.imagen = request.FILES['imagenes']
             respuesta.save()
             usuario = User.objects.get(pk=request.user.pk)
             if usuario.email :

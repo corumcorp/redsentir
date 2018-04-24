@@ -1,5 +1,6 @@
 {% extends 'base.html' %}
 {% load static %}
+{% load social_widgets %}
 {% block contenido %}
 <div class="row user" id="app">
 
@@ -10,15 +11,15 @@
                 
                 <div class="post">
                 <div class="post-media">
-                    {% if usuario.perfil.avatar %}
-                        <img width="6%" src="/{{ usuario.perfil.avatar.url }}">
+                    {% if user.perfil.avatar %}
+                        <img class="img-circle" width="6%" src="/{{ user.perfil.avatar.url }}">
                     {% else %}
                         <img width="6%" src="{% static "/images/isotiporedsentir.png" %}">
                     {% endif %}
                     <form method="post" enctype="multipart/form-data">
                     {% csrf_token %}
                     <div class="col-md-6">
-                        <textarea name="contenido" class="form-control" rows="3" cols="100" placeholder="¡{{ user.username }}! Comparte algo con nosotros."></textarea>
+                        <textarea name="contenido" class="form-control" rows="3" cols="100" data-toggle="modal" data-target="#exampleModal" placeholder="¡{{ user.username }}! Comparte algo con nosotros."></textarea>
                     </div>
                     <div class="col-md-12">
                         <label class="btn btn-default btn-file">
@@ -45,18 +46,30 @@
             <button type="button" class="close" data-dismiss="modal" aria-label="Close">
             <span aria-hidden="true">&times;</span>
             </button>
+                {% if user.perfil.avatar %}
+                        <img class="img-circle" width="8%" src="/{{ user.perfil.avatar.url }}">
+                    {% else %}
+                        <img width="8%" src="{% static "/images/isotiporedsentir.png" %}">
+                {% endif %}
         </div>
         <div class="modal-body">
-            {% if usuario.perfil.avatar %}
-                <img width="8%" src="/{{ usuario.perfil.avatar.url }}">
-            {% else %}
-                <img width="8%" src="{% static "/images/isotiporedsentir.png" %}">
-            {% endif %}
-            <textarea class="form-control" rows="3" placeholder="¡{{ user.username }}! Comparte algo con nosotros."></textarea>
+            <form method="post" enctype="multipart/form-data">
+            {% csrf_token %}
+            <textarea name="contenido" class="form-control" rows="3" placeholder="¡{{ user.username }}! Comparte algo con nosotros."></textarea>
         </div>
-        <div class="modal-footer">
-            <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
-            <button type="button" class="btn btn-primary">Compartir</button>
+            <div class="modal-footer">
+                <div class="col-md-12">
+                    <label class="btn btn-default btn-file">
+                        <input name="imagenes" type="file" multiple style="display: none;">
+                        <i class="fa fa-fw fa-lg fa-film"></i>Imagen
+                    </label>
+                    <label class="btn btn-default btn-file">
+                        <input name="video" type="file" style="display: none;">
+                        <i class="fa fa-fw fa-lg fa-film"></i>Video
+                    </label>
+                    <input class="btn btn-primary btn-file" type="submit" value="Compartir">
+                </div>
+            </form>
         </div>
         </div>
     </div>
@@ -64,11 +77,11 @@
     <!--        Que estas pensando -->
 
     {% for publicacion in publicaciones %}
-            <div class="col-md-12">
-                <div class="tab-pane active" id="user-timeline">
-                    <div class="timeline">
-                        
-                        <div class="post">
+        <div class="col-md-12" id ="publicacion_{{ publicacion.pk }}">
+            <div class="tab-pane active" id="user-timeline">
+                <div class="timeline">
+                    <div class="post">
+                    
                         <div class="post-media">
                             {% if publicacion.usuario.perfil.avatar %}
                                 <img width="8%" src="{% url "index" %}{{ publicacion.usuario.perfil.avatar.url }}" class="img-circle">
@@ -76,17 +89,17 @@
                                 <img width="8%" src="{% static "/images/isotiporedsentir.png" %}">
                             {% endif %}
                             <div class="content">
-                            <h5><a href="#">{{ publicacion.usuario.username }}</a></h5>
-                            <p class="text-muted"><small>{{ publicacion.fecha }}</small></p>
+                                <h5><a href="#">{{ publicacion.usuario.username }}</a></h5>
+                                <p class="text-muted"><small>{{ publicacion.fecha }}</small></p>
                             </div>
                         </div>
+                        
                         <div class="post-content">
-                            
                             <div class="row user">
-                            <div class="col-md-12">
-                                <p class="text-justify">{{ publicacion.contenido }}</p>
-                            </div>
-                            {% for multiMedia in publicacion.multimedia_set.all %}
+                                <div class="col-md-12">
+                                    <p class="text-justify">{{ publicacion.contenido }}</p>
+                                </div>
+                                {% for multiMedia in publicacion.multimedia_set.all %}
                                 <div class="col-md-{% ifequal publicacion.num_img 1 %}6{% endifequal %}{% ifequal publicacion.num_img 2 %}6{% endifequal %}{% if publicacion.num_img > 2 %}4{% endif %}">
                                 {% if multiMedia.tipo == 'video' %}
                                     <video width="100%" height="240" controls>
@@ -96,15 +109,14 @@
                                     <img src="{% url "index" %}{{ multiMedia.archivo }}" width="100%" height="{% ifequal publicacion.num_img 1 %}600{% endifequal %}{% ifequal publicacion.num_img 2 %}600{% endifequal %}{% if publicacion.num_img > 2 %}300{% endif %}" vspace="10">
                                 {% endif %}
                                 </div>
-                            {% endfor %}
+                                {% endfor %}
                             </div>
+                            <span class="pull-right">
+                                <a href="{% url 'lineatiempo:me_gusta_p' publicacion.pk %}"><i class="fa fa-heart" aria-hidden="true"></i><font size="1">+{{ publicacion.me_gusta }}</font></a>
+                                <a href="#"><i class="fa fa-fw fa-lg fa-share"></i>Compartir</a></li>
+                                <a href="#"><i class="fa fa-fw fa-lg fa-comment-o"></i> 5 Comentarios</a></li>
+                            </span>
                         </div>
-                        <ul class="post-utility">
-                            <!--li class="fa fa-heart" aria-hidden="true"></i><font size="1"-->
-                            <li class="likes"><a href="#"><i class="fa fa-heart" aria-hidden="true"></i> Me gusta</a></li>
-                            <li class="shares"><a href="#"><i class="fa fa-fw fa-lg fa-share"></i>Compartir</a></li>
-                            <li class="comments"><i class="fa fa-fw fa-lg fa-comment-o"></i> 5 Comentarios</li>
-                        </ul>
                         </div>
                     </div>
                 </div>
