@@ -1,13 +1,16 @@
-
 var Fondo = cc.Sprite.extend({
+	ctor:function(){
+		this._super();
+		this.initWithFile(res.Conducto_png);
+	},
 	onEnter:function(){
-		this.setPosition(cc.winSize.width,cc.winSize.height/2);                
+		this.setPosition(cc.winSize.width,cc.winSize.height/2);
 		this.scheduleUpdate();
 	},
 	mover:function(){
 		this.setPosition(this.getPosition().x-velocidad,this.getPosition().y);
 		if(this.getPosition().x < - 200){
-			this.setSpriteFrame(cache.getSpriteFrame("conducto_2.png"));
+			this.initWithFile(res.Conducto_2);
 			this.setPosition(this.getPosition().x + cc.winSize.width,this.getPosition().y);
 		}
 	}
@@ -15,15 +18,16 @@ var Fondo = cc.Sprite.extend({
 
 var Ovulo = cc.Sprite.extend({
 	ctor:function(){
-		this._super();                
+		this._super();
+		this.initWithFile(res.Ovulo_png);
 		this.velocidadEnY = 0;
 		this.encendido = false;
-                this.setSpriteFrame(cache.getSpriteFrame("ovulo.png"));
 	},
 	onEnter:function(){
 		this._super();
-		this.setPosition(cc.winSize.width/2,cc.winSize.height/2);		
-		this.scheduleUpdate();                
+		this.setPosition(cc.winSize.width/2,cc.winSize.height/2);
+		
+		this.scheduleUpdate();
 	},
 	caer:function(){
 		var y = this.getPosition().y;
@@ -35,33 +39,45 @@ var Ovulo = cc.Sprite.extend({
 		}
 		this.setPosition(this.getPosition().x,this.getPosition().y+this.velocidadEnY);
 		this.velocidadEnY += gravedad; 
-	}    
+	}
 });
 
 var Esperma = cc.Sprite.extend({
 	movimiento: 0,
 	tipo: 'normal',
 	ctor:function(){
-		this._super();		
+		this._super();
+		contador += 1;
+		if(contador==motonea){
+			this.initWithFile(res.Motonea_png);
+			this.tipo = 'motonea';
+			contador = 0;
+		}else{
+			this.initWithFile(res.Esperma);
+		}
 	},
 	onEnter:function(){
 		this._super();
 		this.setPosition(cc.winSize.width+100,Math.random()*cc.winSize.height);
 		var mover = cc.MoveTo.create(4,new cc.Point(-100,Math.random()*cc.winSize.height));
 		this.runAction(mover);
-                var aniFrames = [];
-                var aniFrame = new cc.AnimationFrame();
-                aniFrame.initWithSpriteFrame(cache.getSpriteFrame("esperma.png"), 1, null);
-                aniFrames.push(aniFrame);
-                var aniFrame1 = new cc.AnimationFrame();
-                aniFrame1.initWithSpriteFrame(cache.getSpriteFrame("esperma_m.png"), 1, null);
-                aniFrames.push(aniFrame1);
-                var animation = cc.Animation.create(aniFrames, 0.08);
-                var animate = cc.Animate.create(animation);
-                this.runAction(animate.repeatForever());
 		this.scheduleUpdate();
 	},
-	update:function(dt){		
+	update:function(dt){
+		if(this.movimiento%10==0  && contador!=motonea){
+			if(this.tipo == 'normal'){
+				this.initWithFile(res.Esperma);
+			}else{
+				this.initWithFile(res.Motonea_png);
+			}			
+		}
+		if(this.movimiento%20==0 && contador!=motonea){
+			if(this.tipo == 'normal'){
+				this.initWithFile(res.Esperma_m);
+			}else{
+				this.initWithFile(res.Motonea_png);
+			}
+		}
 		this.movimiento++;
 		var ovuloContorno = ovulo.getBoundingBox();
 		var espermaContorno = this.getBoundingBox();
@@ -70,7 +86,7 @@ var Esperma = cc.Sprite.extend({
 				cc.director.pushScene(new MenuEscena());
 			}else{
 				energia--;
-				ovulo.setOpacity(ovulo.getOpacity() - 25);
+				ovulo.setOpacity(ovulo.getOpacity() - 5);
 			}			
 		}
 		if(this.getPosition().x < -50){

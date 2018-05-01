@@ -13,18 +13,20 @@ var energiaValor = 0;
 
 var JuegoEscena = cc.Scene.extend({
     onEnter:function () {
-        this._super();
+        this._super();		
         juegoCapa = new JuegoCapa();
-	puntageCapa = new PuntageCapa();
+		puntageCapa = new PuntageCapa();
         this.addChild(juegoCapa);
-	this.addChild(puntageCapa);
+		this.addChild(puntageCapa);
     }
 });
 
 var MenuEscena = cc.Scene.extend({
     onEnter:function () {
-        this._super();		
+        this._super();
+        puntageCapa = new PuntageCapa();	
         menuCapa = new MenuCapa();
 		this.addChild(menuCapa);
+        this.addChild(puntageCapa);
     }
 });

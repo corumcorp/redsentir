@@ -17,21 +17,15 @@
                         <img width="6%" src="{% static "/images/isotiporedsentir.png" %}">
                     {% endif %}
                     <form method="post" enctype="multipart/form-data">
-                    {% csrf_token %}
-                    <div class="col-md-6">
-                        <textarea name="contenido" class="form-control" rows="3" cols="100" data-toggle="modal" data-target="#exampleModal" placeholder="¡{{ user.username }}! Comparte algo con nosotros."></textarea>
-                    </div>
-                    <div class="col-md-12">
-                        <label class="btn btn-default btn-file">
-                            <input name="imagenes" type="file" multiple style="display: none;">
-                            <i class="fa fa-fw fa-lg fa-film"></i>Imagen
-                        </label>
-                        <label class="btn btn-default btn-file">
-                            <input name="video" type="file" style="display: none;">
-                            <i class="fa fa-fw fa-lg fa-film"></i>Video
-                        </label>
-                        <input class="btn btn-primary btn-file" type="submit" value="Compartir">
-                    </div>
+                        {% csrf_token %}                        
+                        <div class="col-md-6">
+                            <textarea v-model="areaPublicacion" name="contenido" class="form-control" rows="3" cols="100" data-toggle="modal" data-target="#exampleModal" placeholder="¡{{ user.username }}! Comparte algo con nosotros."></textarea>
+                        </div>
+                        <div class="col-md-12">
+                                <a href="#" class="btn btn-default" data-toggle="modal" data-target="#exampleModal"><i class="fa fa-fw fa-lg fa-photo"></i>Imagen</a>
+                                <a href="#" class="btn btn-default" data-toggle="modal" data-target="#exampleModal"><i class="fa fa-fw fa-lg fa-film"></i>Video</a>    
+                            <a class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">Compartir</a>
+                        </div>
                     </form>
                 </div>
                 </div>
@@ -53,21 +47,23 @@
                 {% endif %}
         </div>
         <div class="modal-body">
-            <form method="post" enctype="multipart/form-data">
+            <form method="post" enctype="multipart/form-data" ref="formPublicacion">
             {% csrf_token %}
-            <textarea name="contenido" class="form-control" rows="3" placeholder="¡{{ user.username }}! Comparte algo con nosotros."></textarea>
+            <input type="hidden" name="accion" v-model="accion">
+            <input type="hidden" name="publicacion" v-model="publicacion">
+            <textarea name="contenido" v-model="areaPublicacion" class="form-control" rows="3" placeholder="¡{{ user.username }}! Comparte algo con nosotros."></textarea>
         </div>
             <div class="modal-footer">
                 <div class="col-md-12">
                     <label class="btn btn-default btn-file">
-                        <input name="imagenes" type="file" multiple style="display: none;">
-                        <i class="fa fa-fw fa-lg fa-film"></i>Imagen
+                        <input name="imagenes" ref="imagenPublicacion" v-model="imagenPublicacion" type="file" multiple style="display: none;">
+                        <i class="fa fa-fw fa-lg fa-photo"></i>Imagen
                     </label>
                     <label class="btn btn-default btn-file">
-                        <input name="video" type="file" style="display: none;">
+                        <input name="video" ref="videoPublicacion" v-model="videoPublicacion" type="file" style="display: none;">
                         <i class="fa fa-fw fa-lg fa-film"></i>Video
                     </label>
-                    <input class="btn btn-primary btn-file" type="submit" value="Compartir">
+                    <a class="btn btn-primary" @click="enviarPublicacion">Compartir</a>
                 </div>
             </form>
         </div>
@@ -83,7 +79,7 @@
                     <div class="post">
                         {% if publicacion.usuario.pk == user.pk %}
                             <div class="pull-right">
-                            <a href="#" onClick="borrarPublicacion({{publicacion.pk}})"><i class="fa fa-fw fa-lg fa-trash-o"></i></a></li>
+                            <a href="#" @click="borrarPublicacion({{publicacion.pk}})"><i class="fa fa-fw fa-lg fa-trash-o"></i></a></li>
                             </div>
                             {% endif %}
                         <div class="post-media">                            
@@ -103,15 +99,17 @@
                                     <p class="text-justify">{{ publicacion.contenido }}</p>
                                 </div>
                                 {% for multiMedia in publicacion.multimedia_set.all %}
-                                <div class="col-md-{% ifequal publicacion.num_img 1 %}6{% endifequal %}{% ifequal publicacion.num_img 2 %}6{% endifequal %}{% if publicacion.num_img > 2 %}4{% endif %}">
                                 {% if multiMedia.tipo == 'video' %}
+                                <div class="col-md-6">
                                     <video width="100%" height="240" controls>
-                                        <source src="{{ multiMedia.archivo }}" type="video/mp4">
+                                        <source src="{% url "index" %}{{ multiMedia.archivo }}" type="video/mp4">
                                     </video>
-                                {% else %}
-                                    <img src="{% url "index" %}{{ multiMedia.archivo }}" width="100%" height="{% ifequal publicacion.num_img 1 %}600{% endifequal %}{% ifequal publicacion.num_img 2 %}600{% endifequal %}{% if publicacion.num_img > 2 %}300{% endif %}" vspace="10">
-                                {% endif %}
                                 </div>
+                                {% else %}
+                                <div class="col-md-{% ifequal publicacion.num_img 1 %}6{% endifequal %}{% ifequal publicacion.num_img 2 %}6{% endifequal %}{% if publicacion.num_img > 2 %}4{% endif %}">
+                                    <img src="{% url "index" %}{{ multiMedia.archivo }}" width="100%" height="{% ifequal publicacion.num_img 1 %}600{% endifequal %}{% ifequal publicacion.num_img 2 %}600{% endifequal %}{% if publicacion.num_img > 2 %}300{% endif %}" vspace="10">
+                                </div>
+                                {% endif %}
                                 {% endfor %}
                             </div>
                             <span class="pull-right">
@@ -125,50 +123,6 @@
                 </div>
             </div>
     {% endfor %}
-    <form method="post" id="formPublicacion">
-        {% csrf_token %}
-        <input type="hidden" name="accion" value="borrar">
-        <input type="hidden" name="publicacion" id="inputPublicacion">
-    </form>
-    <script>
-        function borrarPublicacion(publicacion_pk){
-            var borrar = confirm('¿Esta seguro de borrar la publicación?');
-            if(borrar){
-                document.getElementById('inputPublicacion').value = publicacion_pk;
-                document.getElementById('formPublicacion').submit();
-            }
-        }
-    </script>
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
     
     <div class="col-md-12">
         <div class="tab-pane active" id="user-timeline">
@@ -731,4 +685,34 @@
         </div>
     </div>
 </div>
+<script>
+        var app = new Vue({
+            el: '#app',
+            //delimiters:'[[]]',
+            data:{
+                areaPublicacion: '',
+                imagenPublicacion:'',
+                videoPublicacion:'',
+                publicacion:null,
+                accion:null,
+            },
+            methods:{
+                enviarPublicacion: function(){
+                    if(this.areaPublicacion != '' || this.imagenPublicacion!='' || this.videoPublicacion!=''){
+                        this.$refs.formPublicacion.appendChild(this.$refs.imagenPublicacion);
+                        this.$refs.formPublicacion.appendChild(this.$refs.videoPublicacion);
+                        this.$refs.formPublicacion.submit();
+                    }                
+                },
+                borrarPublicacion: function(publicacion_pk){
+                    this.publicacion = publicacion_pk;
+                    this.accion = 'borrar';
+                    if(confirm('¿Esta seguro de borrar la publicación?')){
+                        this.$refs.formPublicacion.submit();
+                    }
+                }
+            }
+        
+        })
+    </script>
 {% endblock %}

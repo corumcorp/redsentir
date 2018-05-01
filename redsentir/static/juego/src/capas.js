@@ -9,8 +9,7 @@ var MenuCapa = cc.Layer.extend({
         helloLabel.x = size.width / 2;
         helloLabel.y = size.height / 2 + 200;
         this.addChild(helloLabel, 5);
-        this.sprite = new cc.Sprite();
-        this.sprite.setSpriteFrame(cache.getSpriteFrame("inicio.png"));
+        this.sprite = new cc.Sprite(res.inicio);
         this.sprite.attr({
             x: size.width / 2,
             y: size.height / 2
@@ -18,17 +17,9 @@ var MenuCapa = cc.Layer.extend({
         backgroundLayer = cc.LayerColor.create(new cc.Color(200,100,40,255),size.width, size.height);
         this.addChild(backgroundLayer);
         this.addChild(this.sprite, 0);
-        cc.eventManager.addListener({
+		cc.eventManager.addListener({
         	event:cc.EventListener.MOUSE,
         	onMouseDown:function(event){
-				energia=100;
-				puntage = 0;
-				cc.director.runScene(new JuegoEscena());
-        	}
-        },this)
-        cc.eventManager.addListener({
-        	event:cc.EventListener.TOUCH_ONE_BY_ONE,
-        	onTouchBegan:function(event){
 				energia=100;
 				puntage = 0;
 				cc.director.runScene(new JuegoEscena());
@@ -64,13 +55,10 @@ var PuntageCapa = cc.Layer.extend({
 var JuegoCapa = cc.Layer.extend({
     sprite:null,
     ctor:function () {
-        this._super();        
-        this.audioEngine = cc.audioEngine;
-        this.audioEngine.playMusic(res.musica_escena_2,true);
-        fondo = new Fondo();                
-        cache = cc.spriteFrameCache;
-        cache.addSpriteFrames(res.imagenes_plist, res.imagenes);
-        fondo.setSpriteFrame(cache.getSpriteFrame("conducto.png"));
+        this._super();
+		this.audioEngine = cc.audioEngine;
+		this.audioEngine.playMusic(res.musica_escena_2,true);
+        fondo = new Fondo();
         this.addChild(fondo);
         ovulo = new Ovulo();
         this.addChild(ovulo);				
@@ -83,18 +71,7 @@ var JuegoCapa = cc.Layer.extend({
         	onMouseUp:function(event){
         		ovulo.encendido = false;
         	}
-        },this)	
-        cc.eventManager.addListener({
-        	event:cc.EventListener.TOUCH_ONE_BY_ONE,        	
-                onTouchBegan: function(touch, event) {
-                    ovulo.encendido = true;
-                    return true
-                },
-                onTouchEnded: function(touch, event) {
-                    ovulo.encendido = false;                    
-                    return true
-                }
-        },this)
+        },this)		
         this.schedule(this.agregarEsperma,0.5);
     },
     agregarEsperma:function(event){
