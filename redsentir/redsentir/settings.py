@@ -37,6 +37,7 @@ INSTALLED_APPS = [
     'lineatiempo.apps.LineatiempoConfig',
     'social_widgets',
     'foro.apps.ForoConfig',
+    'servicios.apps.ServiciosConfig',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',

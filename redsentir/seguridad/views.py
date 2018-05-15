@@ -8,6 +8,7 @@ import csv
 from djqscsv import render_to_csv_response
 from django.contrib.auth.decorators import login_required
 from django.http import Http404
+from datetime import datetime, date, timedelta
 
 def registro(request):
     if request.POST:
@@ -24,9 +25,22 @@ def registro(request):
                     else :
                         pgenero = None
                     if not 'avatar' in request.FILES :
-                        perfil = Perfil(user_id=usuario.id,genero=pgenero)
+                        perfil = Perfil(
+                            user_id=usuario.id,
+                            genero=pgenero,
+                            fecha_nacimiento=request.POST['fecha_nacimiento'],
+                            telefono=request.POST['telefono']
+                        )
                     else :
-                        perfil = Perfil(user_id=usuario.id,avatar=request.FILES['avatar'],genero=pgenero)                   
+                        perfil = Perfil(
+                            user_id=usuario.id,
+                            avatar=request.FILES['avatar'],
+                            genero=pgenero,
+                            fecha_nacimiento=request.POST['fecha_nacimiento'],
+                            telefono=request.POST['telefono']
+                        )
+                    if perfil.edad() < 20 :
+                        perfil.es_joven = True
                     perfil.save()
                     return HttpResponseRedirect(reverse(login,args=[]))
                 else :

@@ -52,7 +52,7 @@
                                 <div id="div_comentario_{{ comentario.pk }}" style="display">
                                     {% for respuesta in comentario.respuesta_set.all %}                                        
                                         <p >
-                                            <font size="3" {% if request.user|esExperto:"experto" %} color="green" {% endif %}>
+                                            <font size="3">
                                             -<b>{{ respuesta.usuario.username }} :</b>{{ respuesta.mensaje }}
                                             </font>
                                             </br>

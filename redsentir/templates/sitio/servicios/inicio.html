@@ -1,0 +1,94 @@
+{% extends 'base.html' %}
+{% load static %}
+{% load social_widgets %}
+{% block contenido %}
+<div id="app">
+    
+    <div class="row">
+        <div class="col-md-8">
+            <a @click="pedirCita=!pedirCita" class="btn btn-default pull-right"><i class="fa fa-fw fa-lg fa-calendar"></i>Pedir cita en tu municipio</a>
+            <h1>{{ informacion.titulo }}</h1>
+            <p>{{ informacion.introduccion }}</p>
+            <p>{{ informacion.tema }}</p>
+        </div>
+        <div class="col-md-4">  
+            <div>
+            <form v-if="pedirCita" method="post" action="{% url 'servicios_amigables:pedir_cita' %}">
+                {% csrf_token %}
+                <div class="form-group col-md-12">
+                    <label>¿Primera vez?</label>
+                    <input type="radio" name="primera_vez" value="si">SI
+                    <input type="radio" name="primera_vez" value="no">NO
+                </div>
+                <div class="form-group col-md-12">
+                    <label>Nombre</label>
+                    <input type="text" name="nombre" value="{{ user.username }}" required class="form-control">
+                </div>                                
+                <div class="form-group col-md-6">
+                    <label>Identificación</label>
+                    <input type="text" name="identificacion" required class="form-control">
+                </div>
+                <div class="form-group col-md-6">
+                    <label>Telefono-Celular</label>
+                    <input type="text" name="telefono" required class="form-control">
+                </div>
+                <div class="form-group col-md-6">
+                    <label>Email</label>
+                    <input type="email" name="email" class="form-control">
+                </div>
+                <div class="form-group col-md-6">
+                    <label>Municipio</label>
+                    <select name="municipio" required class="form-control" v-model="municipioSeleccion">
+                        <option v-for="municipio in municipios" :value="municipio.pk">[[ municipio.fields.nombre ]]</option>
+                    </select>
+                </div>
+                <div class="form-group col-md-6" v-if="municipioSeleccion!=null">
+                    <label>IPS</label>
+                    <select name="ips" required class="form-control">
+                        <option v-for="ips in ipses" v-if="enSeleccion(ips)" :value="ips.pk">[[ ips.fields.nombre ]]</option>
+                    </select>
+                </div>
+                    <!--
+                    <div class="form-group col-md-6">
+                        <label>Asegurador</label>
+                        <input type="text" name="asegurador" class="form-control">
+                    </div>
+                    -->
+                <div class="form-group col-md-6">
+                    <input type="submit" value="Guardar" class="btn btn-primary">
+                </div>
+            </form>
+            </div>
+            <img src='{% url "index" %}{{ informacion.imagen }}' width="100%"/>
+        </div>
+    </div>
+</div>
+<script>
+        var app = new Vue({
+            el: '#app',
+            delimiters: ['[[', ']]'],
+            data:{
+                pedirCita: false,
+                municipios : {{ municipios|safe }},
+                municipioSeleccion: null,
+                ipses : {{ ipses|safe }},
+            },
+            methods:{
+                enviarPublicacion: function(){
+                    if(this.areaPublicacion != '' || this.imagenPublicacion!='' || this.videoPublicacion!=''){
+                        this.$refs.formPublicacion.appendChild(this.$refs.imagenPublicacion);
+                        this.$refs.formPublicacion.appendChild(this.$refs.videoPublicacion);
+                        this.$refs.formPublicacion.submit();
+                    }                
+                },
+                enSeleccion: function(ips){
+                    if(this.municipioSeleccion == ips.fields.municipio){
+                        return true;
+                    }
+                    return false;
+                }
+            }
+        
+        })
+    </script>
+{% endblock %}

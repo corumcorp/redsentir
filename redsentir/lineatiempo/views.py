@@ -5,6 +5,8 @@ from .models import *
 
 @login_required
 def inicio(request):
+    if not request.user.perfil.es_joven :
+        return redirect('mesa:inicio')
     if request.POST : 
         if 'accion' in request.POST and request.POST['accion']=='borrar':
             publicacion = Publicacion.objects.get(pk=request.POST['publicacion'])
