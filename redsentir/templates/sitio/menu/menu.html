@@ -1,31 +1,29 @@
 {% load static %}
-<li><a href="{% url "lineatiempo:inicio" %}"><i class="fa fa-newspaper-o"></i><span>Novedades</span></a></li>
-<li class="treeview"><a href="#"><i class="fa fa-book"></i><span>Formación</span><i class="fa fa-angle-right"></i></a>
-    <ul class="treeview-menu">
-    <li><a href="{% url "formacion:docentes" %}"><i class="fa fa-circle-o"></i>Docentes</a></li>
-    <li><a href="#"><i class="fa fa-circle-o"></i>Jóvenes</a></li>
-    <li><a href="{% url "formacion:encuentros" %}"><i class="fa fa-circle-o"></i>Encuentros Locales</a></li>
-    </ul>
-</li>
-<li><a href="{% url "mesa:inicio" %}"><i class="fa fa-sitemap"></i><span>Mesa Regional</span></a></li>
-<li><a href="{% url "foro:index" %}"><i class="fa fa-comments"></i><span>Foros</span></a></li>
-<li><a href="{% static "/juego/index.html" %}"><i class="fa fa-rocket"></i><span>Juego</span></a></li>
-<li class="treeview"><a href="#"><i class="fa fa-pie-chart"></i><span>Linea base</span><i class="fa fa-angle-right"></i></a>
-    <ul class="treeview-menu">
-    <li><a href="{% url "lineabase:index" %}"><i class="fa fa-circle-o"></i>Resultados</a></li>
-    <li><a href="{% url "lineabase:sociodemograficos" %}"><i class="fa fa-circle-o"></i>Socio Demograficos</a></li>
-    <li><a href="{% url "lineabase:actividades" %}"><i class="fa fa-circle-o"></i>Actividades sociales</a></li>
-    <li><a href="{% url "lineabase:relaciones" %}"><i class="fa fa-circle-o"></i>Relaciones personales</a></li>
-    <li><a href="{% url "lineabase:salud" %}"><i class="fa fa-circle-o"></i>Salud Sexual</a></li>
-    <li><a href="{% url "lineabase:plan" %}"><i class="fa fa-circle-o"></i>Plan de vida</a></li>
-    <li><a href="{% url "lineabase:subgrupos" %}"><i class="fa fa-circle-o"></i>Análisis de subgrupos</a></li>
-    <li><a href="{% url "lineabase:embarazo" %}"><i class="fa fa-circle-o"></i>Embarazo adolescente</a></li>
-    <li><a href="{% url "lineabase:discucion" %}"><i class="fa fa-circle-o"></i>Discusión</a></li>
-    </ul>
-</li>
-<li class="treeview"><a href="#"><i class="fa fa-user-md"></i><span>Servicios amigables</span><i class="fa fa-angle-right"></i></a>
-    <ul class="treeview-menu">
-    <li><a href="#"><i class="fa fa-circle-o"></i>Consultas</a></li>
-    <li><a href="#"><i class="fa fa-circle-o"></i>Citas</a></li>
-    </ul>
-</li>   
+{% if user.perfil.es_joven %}
+    <li><a href="{% url "lineatiempo:inicio" %}"><i class="fa fa-newspaper-o"></i><span>Novedades</span></a></li>
+    <li><a href="{% url "foro:index" %}"><i class="fa fa-comments"></i><span>Foros</span></a></li>
+    <li><a href="{% static "/juego/index.html" %}"><i class="fa fa-rocket"></i><span>Juego</span></a></li>
+    <li><a href="{% url "servicios_amigables:inicio" %}"><i class="fa fa-user-md"></i><span>Servicios Amigables</span></a></li> 
+{% else %}
+    <li class="treeview"><a href="#"><i class="fa fa-book"></i><span>Formación</span><i class="fa fa-angle-right"></i></a>
+        <ul class="treeview-menu">
+        <li><a href="{% url "formacion:docentes" %}"><i class="fa fa-circle-o"></i>Docentes</a></li>
+        <li><a href="#"><i class="fa fa-circle-o"></i>Jóvenes</a></li>
+        <li><a href="{% url "formacion:encuentros" %}"><i class="fa fa-circle-o"></i>Encuentros Locales</a></li>
+        </ul>
+    </li>
+    <li><a href="{% url "mesa:inicio" %}"><i class="fa fa-sitemap"></i><span>Mesa Regional</span></a></li>
+    <li class="treeview"><a href="#"><i class="fa fa-pie-chart"></i><span>Linea base</span><i class="fa fa-angle-right"></i></a>
+        <ul class="treeview-menu">
+        <li><a href="{% url "lineabase:index" %}"><i class="fa fa-circle-o"></i>Resultados</a></li>
+        <li><a href="{% url "lineabase:sociodemograficos" %}"><i class="fa fa-circle-o"></i>Socio Demograficos</a></li>
+        <li><a href="{% url "lineabase:actividades" %}"><i class="fa fa-circle-o"></i>Actividades sociales</a></li>
+        <li><a href="{% url "lineabase:relaciones" %}"><i class="fa fa-circle-o"></i>Relaciones personales</a></li>
+        <li><a href="{% url "lineabase:salud" %}"><i class="fa fa-circle-o"></i>Salud Sexual</a></li>
+        <li><a href="{% url "lineabase:plan" %}"><i class="fa fa-circle-o"></i>Plan de vida</a></li>
+        <li><a href="{% url "lineabase:subgrupos" %}"><i class="fa fa-circle-o"></i>Análisis de subgrupos</a></li>
+        <li><a href="{% url "lineabase:embarazo" %}"><i class="fa fa-circle-o"></i>Embarazo adolescente</a></li>
+        <li><a href="{% url "lineabase:discucion" %}"><i class="fa fa-circle-o"></i>Discusión</a></li>
+        </ul>
+    </li>
+{% endif %}

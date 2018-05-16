@@ -1,0 +1,29 @@
+{% extends 'base.html' %}
+{% load static %}
+{% load social_widgets %}
+{% block contenido %}
+<div id="app">    
+    <div class="row">
+        <div class="col-md-8">
+            <h4>RADICADO :{{ servicio.pk }}</h4>
+            <h4>ESTADO :{{ servicio.estado }}</h4>
+            {% if servicio.estado == 'agendado' %}
+            <h4>FECHA CITA :{{ servicio.fecha_cita }}</h4>
+            <h4>OBSERVACIONES :{{ servicio.observaciones }}</h4>
+            <h4>PROFESIONAL :{{ servicio.profesional }}</h4>
+            {% endif %}
+            {% if servicio.estado == 'activa' %}
+                <p>Felicitaciones.! Nos comunicaremos contigo al telefono {{ user.perfil.telefono }}. cuando se agende la cita.</p>
+            {% endif %}
+            <p>Te rogamos que des una calificación de acuerdo a la calidad de la atención. y que recomiendes el uso de este servicio con amigos de tu edad.</p>
+            <p>Recuerda que este servicio amigable es confidencial, asi que nadie tiene que saber ni juzgarte por querer vivir digna y saludablemente tu sexualidad.</p>
+        </div>
+        <div class="col-md-4">
+            </br>
+            </br>
+            </br>
+            <img src='{% url "index" %}{{ informacion.imagen }}' width="100%"/>
+        </div>
+    </div>
+</div>
+{% endblock %}

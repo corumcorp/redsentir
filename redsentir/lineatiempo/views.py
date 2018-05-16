@@ -5,6 +5,8 @@ from .models import *
 
 @login_required
 def inicio(request):
+    if not request.user.perfil.es_joven :
+        return redirect('mesa:inicio')
     if request.POST : 
         if request.POST['accion'] == 'guardar_comentario':
             comentario = ComentarioP(publicacion_id=request.POST['publicacion'],usuario = request.user)
