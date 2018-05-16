@@ -33,13 +33,13 @@ var PuntageCapa = cc.Layer.extend({
     ctor:function () {
 		this._super();
 		altura = cc.winSize.height - 40;
-		var energiaTitulo = new cc.LabelTTF("Energia :", "Arial", 18);
+		var energiaTitulo = new cc.LabelTTF("Energía :", "Arial", 18);
 		energiaTitulo.x = 50;
 		energiaTitulo.y = altura;
 		energiaValor = new cc.LabelTTF(energia, "Arial", 18);
 		energiaValor.x = 100;
 		energiaValor.y = altura;
-		var puntageTitulo = new cc.LabelTTF("Puntage :", "Arial", 18);
+		var puntageTitulo = new cc.LabelTTF("Puntaje :", "Arial", 18);
 		puntageTitulo.x = 180;
 		puntageTitulo.y = altura;
 		puntageValor = new cc.LabelTTF(puntage, "Arial", 18);

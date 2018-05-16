@@ -8,7 +8,14 @@ def inicio(request):
     if not request.user.perfil.es_joven :
         return redirect('mesa:inicio')
     if request.POST : 
-        if 'accion' in request.POST and request.POST['accion']=='borrar':
+        if request.POST['accion'] == 'guardar_comentario':
+            comentario = ComentarioP(publicacion_id=request.POST['publicacion'],usuario = request.user)
+            if 'imagen_c' in request.FILES:
+                comentario.imagen = request.FILES['imagen_c']                
+            if 'contenido' in request.POST :
+                comentario.contenido = request.POST['contenido']
+            comentario.save()               
+        elif 'accion' in request.POST and request.POST['accion']=='borrar':
             publicacion = Publicacion.objects.get(pk=request.POST['publicacion'])
             publicacion.delete()
         else :
@@ -27,4 +34,11 @@ def meGustaP(request,pid):
     publicacion = Publicacion.objects.get(pk=pid)
     publicacion.me_gusta +=1
     publicacion.save()
+    return redirect ('https://redsentir.org/lineatiempo/#publicacion_'+str(publicacion.pk))
+
+@login_required
+def meGustaCP(request,pid):
+    comentarioP = ComentarioP.objects.get(pk=pid)
+    comentarioP.me_gusta +=1
+    comentarioP.save()
     return redirect ('https://redsentir.org/lineatiempo/#publicacion_'+str(publicacion.pk))
