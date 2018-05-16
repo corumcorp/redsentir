@@ -15,7 +15,7 @@ class Perfil(models.Model):
     municipio = models.ForeignKey(Municipio, on_delete=models.CASCADE,null=True)
     identificacion = models.IntegerField(default=0)
     fecha_nacimiento = models.DateTimeField(null=True)
-    telefono = models.CharField(max_length=20)
+    telefono = models.CharField(max_length=20,null=True)
     avatar = models.ImageField(upload_to='static/images/avatar/', default='static/images/avatar/defaultUser.png')
     genero = models.CharField(max_length=20, null=True)
     es_experto = models.BooleanField(default=False)
