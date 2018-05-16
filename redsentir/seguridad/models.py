@@ -12,7 +12,7 @@ class Municipio(models.Model):
 
 class Perfil(models.Model):
     user = models.OneToOneField(User,related_name='perfil')
-    municipio = models.ForeignKey(Municipio, on_delete=models.CASCADE,null=True)
+    municipio = models.ForeignKey(Municipio, on_delete=models.CASCADE,null=True,blank=True,default=None)
     identificacion = models.IntegerField(default=0)
     fecha_nacimiento = models.DateTimeField(null=True)
     telefono = models.CharField(max_length=20,null=True)
