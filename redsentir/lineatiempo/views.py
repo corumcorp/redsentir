@@ -5,7 +5,7 @@ from .models import *
 
 @login_required
 def inicio(request):
-    if not request.user.perfil.es_joven :
+    if not request.user.perfil.es_joven and not request.user.is_superuser:
         return redirect('mesa:inicio')
     if request.POST : 
         if request.POST['accion'] == 'guardar_comentario':
@@ -14,7 +14,9 @@ def inicio(request):
                 comentario.imagen = request.FILES['imagen_c']                
             if 'contenido' in request.POST :
                 comentario.contenido = request.POST['contenido']
-            comentario.save()               
+            comentario.save()
+            comentario.publicacion.comentarios+=1
+            comentario.publicacion.save()
         elif 'accion' in request.POST and request.POST['accion']=='borrar':
             publicacion = Publicacion.objects.get(pk=request.POST['publicacion'])
             publicacion.delete()
@@ -41,4 +43,4 @@ def meGustaCP(request,pid):
     comentarioP = ComentarioP.objects.get(pk=pid)
     comentarioP.me_gusta +=1
     comentarioP.save()
-    return redirect ('https://redsentir.org/lineatiempo/#publicacion_'+str(publicacion.pk))
+    return redirect ('https://redsentir.org/lineatiempo/#publicacion_'+str(comentarioP.publicacion_id))

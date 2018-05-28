@@ -22,7 +22,7 @@ class MultiMedia(models.Model):
 class ComentarioP(models.Model):
     publicacion = models.ForeignKey(Publicacion, on_delete=models.CASCADE)
     contenido = models.CharField(max_length=1000, null=True)
-    imagen = models.ImageField(upload_to='static/images/publicaciones', null=True)
+    imagen = models.ImageField(upload_to='static/images/publicaciones', null=True, default=None)
     usuario = models.ForeignKey(User, on_delete=models.CASCADE)
     fecha = models.DateTimeField(auto_now=True)
     me_gusta = models.IntegerField(default=0)

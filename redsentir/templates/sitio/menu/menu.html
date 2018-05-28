@@ -1,10 +1,11 @@
 {% load static %}
-{% if user.perfil.es_joven %}
+{% if user.perfil.es_joven or user.is_superuser %}
     <li><a href="{% url "lineatiempo:inicio" %}"><i class="fa fa-newspaper-o"></i><span>Novedades</span></a></li>
     <li><a href="{% url "foro:index" %}"><i class="fa fa-comments"></i><span>Foros</span></a></li>
     <li><a href="{% static "/juego/index.html" %}"><i class="fa fa-rocket"></i><span>Juego</span></a></li>
-    <li><a href="{% url "servicios_amigables:inicio" %}"><i class="fa fa-user-md"></i><span>Servicios Amigables</span></a></li> 
-{% else %}
+    <li><a href="{% url "servicios_amigables:inicio" %}"><i class="fa fa-user-md"></i><span>Servicios Amigables</span></a></li>
+{% endif %}
+{% if not user.perfil.es_joven or user.is_superuser %}
     <li class="treeview"><a href="#"><i class="fa fa-book"></i><span>Formación</span><i class="fa fa-angle-right"></i></a>
         <ul class="treeview-menu">
         <li><a href="{% url "formacion:docentes" %}"><i class="fa fa-circle-o"></i>Docentes</a></li>

@@ -886,8 +886,21 @@ pre code {
 }
 
 .pre-scrollable {
-  max-height: 340px;
+  max-height: 120px;
   overflow-y: scroll;
+}
+
+.mod-scrollable {
+  height: 200px;
+  overflow-y: scroll;
+  background: #E1EAE8;
+}
+
+.rcorner{
+        border-radius: 15px;
+        border: 2px solid #F27474;
+        padding: 20px;
+        background: #FFF;
 }
 
 .container {

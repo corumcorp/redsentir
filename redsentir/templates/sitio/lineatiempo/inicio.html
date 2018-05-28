@@ -115,78 +115,83 @@
                             <span class="pull-right">
                                 <a href="{% url 'lineatiempo:me_gusta_p' publicacion.pk %}"><i class="fa fa-heart" aria-hidden="true"></i><font size="1">+{{ publicacion.me_gusta }}</font></a>
                                 <a href="#"><i class="fa fa-fw fa-lg fa-share"></i>Compartir</a></li>
-                                <a data-toggle="modal" data-target="#Modalcomentario" @click="publicacion={{ publicacion.pk }}"><i class="fa fa-fw fa-lg fa-comment-o"></i> {{publicacion.comentarios}} Comentarios </a></li>
+                                <a data-toggle="modal" data-target="#Modalcomentario{{ publicacion.pk }}" @click="publicacion={{ publicacion.pk }}"><i class="fa fa-fw fa-lg fa-comment-o"></i> {{publicacion.comentarios}} Comentarios </a></li>
                             </span>
                         </div>
                         </div>
                     </div>
                 </div>
             </div>
-    {% endfor %}
-    
-    
-    <!-- Modal Comentarios-->
-    <div class="modal fade" id="Modalcomentario" tabindex="-1" role="dialog" aria-labelledby="ModalLabel" aria-hidden="true">
-        <div class="modal-dialog" role="document">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">&times;</span>
-                    </button>
-                    <div class="row">
-                        <div class="col-xs-2">
-                            {% if user.perfil.avatar %}
-                                <img class="img-circle" width="100%" src="/{{ user.perfil.avatar.url }}" alt="Imagen de Usuario">
-                            {% else %}
-                                <img class="img-circle" width="100%" src="{% static "/images/noavatar.png" %}" alt="Imagen de Usuario">
-                            {% endif %}
+            
+             <!-- Modal Comentarios-->
+            <div class="modal fade" id="Modalcomentario{{ publicacion.pk }}" tabindex="-1" role="dialog" aria-labelledby="ModalLabel" aria-hidden="true">
+                <div class="modal-dialog" role="document">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                            <div class="row">
+                                <div class="col-xs-2">
+                                    {% if user.perfil.avatar %}
+                                        <img class="img-circle" width="100%" src="/{{ user.perfil.avatar.url }}" alt="Imagen de Usuario">
+                                    {% else %}
+                                        <img class="img-circle" width="100%" src="{% static "/images/noavatar.png" %}" alt="Imagen de Usuario">
+                                    {% endif %}
+                                </div>
+                                <div class="col-md-8">
+                                    <p id="comentario_nombre">  </p>
+                                </div>
+                            </div>
+                            <h5 class="modal-title" id="exampleModalLabel">{{ user.username }}</h5>
                         </div>
-                        <div class="col-md-8">
-                            <p id="comentario_nombre">  </p>
+                    
+                    <form method="post" enctype="multipart/form-data" ref="formComentarioP">
+                    {% csrf_token %}
+                  
+                    <div class="modal-body">   
+                        <input type="hidden" name="accion" value="guardar_comentario">
+                        <input type="hidden" name="publicacion" v-model="publicacion">
+                        <textarea class="form-control" rows="3" v-model="textoComentario" name="contenido" placeholder="¡{{ user.username }}! Qué te parece la publicación ..."></textarea>
+                        </br> 
+                        <div class="mod-scrollable">
+                        {% for comentarioP in publicacion.comentariop_set.all %}
+                        <p>
+                            <div class="rcorner">
+                                <font size="3">
+                                    -<b>{{ comentarioP.usuario.username }} :</b>{{ comentarioP.contenido }}
+                                </font>
+                                {% if comentarioP.imagen %}
+                                    <img src="{% url "index" %}{{ comentarioP.imagen }}" width="50%" height="" vspace="10">
+                                {% endif %}
+                                <span class="pull-right">  
+                                    <a href="{% url 'lineatiempo:me_gusta_cp' comentarioP.pk %}"><i class="fa fa-heart" aria-hidden="true"></i><font size="1">+{{ comentarioP.me_gusta }}</font></a>
+                                </span>
+                            </div> 
+                            <small class="text-muted">
+                                {{ comentarioP.fecha|date:"Y-m-d H:i:s" }}
+                            </small>          
+                        </p>
+                        {% endfor %}
                         </div>
                     </div>
-                    <h5 class="modal-title" id="exampleModalLabel">{{ user.username }}</h5>
+                    
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
+                        <label class="btn btn-primary btn-file">
+                            <input name="imagen_c" type="file" ref="imagenComentario" v-model="imagenComentario" id="imagen_c" style="display: none;">
+                            <i class="fa fa-fw fa-lg fa-image"></i>Imagen
+                        </label>
+                        <button class="btn btn-primary" @click="enviarComentarioP" data-dismiss="modal">Responder</button>
+                    </div>
+                    </form>
+                    </div>    
                 </div>
+            </div>
+            <!--Fin Modal -->
             
-            <form method="post" enctype="multipart/form-data" ref="formComentarioP">
-            {% csrf_token %}
-            <div class="modal-body">   
-                <input type="hidden" name="accion" value="guardar_comentario">
-                <input type="hidden" name="publicacion" v-model="publicacion">
-                <textarea class="form-control" rows="3" v-model="textoComentario" name="contenido" placeholder="¡{{ user.username }}! Qué te parece la publicación ..."></textarea>
-               
-               {% for comentarioP in publicacion.comentarioP_set.all %}
-                <p>
-                    <font size="3">
-                        -<b>{{ comentarioP.usuario.username }} :</b>{{ comentarioP.contenido }}
-                    </font>
-                    </br>
-                    {% if respuesta.imagen != None %}
-                        <img src="{% url "index" %}{{ respuesta.imagen }}" width="50%" height="" vspace="10">
-                    {% endif %}
-                    <span class="pull-right">
-                        <small class="pull-right text-muted">
-                            <i class="fa fa-clock-o" aria-hidden="true"></i>{{ comentarioP.fecha }}
-                        </small>
-                        <i class="fa fa-heart" aria-hidden="true"></i><font size="1">+{{ comentarioP.me_gusta }}</font>
-                    </span>   
-                </p>
-            {% endfor %}
-               
-            </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
-                <label class="btn btn-primary btn-file">
-                    <input name="imagen_c" type="file" ref="imagenComentario" v-model="imagenComentario" id="imagen_c" style="display: none;">
-                    <i class="fa fa-fw fa-lg fa-image"></i>Imagen
-                </label>
-                <button class="btn btn-primary" @click="enviarComentarioP" data-dismiss="modal">Responder</button>
-            </div>
-            </form>
-            </div>    
-        </div>
-    </div>
-    <!--Fin Modal -->
+    {% endfor %}
+    
     
     <div class="col-md-12">
         <div class="tab-pane active" id="user-timeline">

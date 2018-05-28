@@ -7,7 +7,7 @@ from django.core.mail import send_mail
 
 @login_required
 def inicio(request):
-    if not request.user.perfil.es_joven :
+    if not request.user.perfil.es_joven and not request.user.is_superuser :
         return redirect('mesa:inicio')
     informacion = Informacion.objects.first()
     servicio = Servicio.objects.filter(perfil_id=request.user.perfil.pk).last()

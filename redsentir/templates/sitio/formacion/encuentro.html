@@ -2,7 +2,7 @@
 {% load static %}
 {% load social_widgets %}
 {% block contenido %}
-<div class="container"> 
+<div class="container-fluid"> 
     <div class="row user">
         <div class="tab-pane active" id="user-timeline">
             <div class="timeline">
@@ -10,36 +10,36 @@
                     <div class="post-media">
                         <div class="row">
                             <div class="col-md-12"><center><h1>{{encuentro.titulo}}</h1></center></div>
-                            <div class="col-md-6">
-                                <center><h3 class="bristolTitulo">{{encuentro.subTitulo}}</h3></center>
-                                <p align="justify"><font size="4">{{encuentro.parrafo1}} </font></p>
-                                </br>
-                                <img src="{% url 'index'%}{{encuentro.imagen1}}" width="100%" >
-                                </br>
-                                </br>
-                                <p align="justify"><font size="4">{{encuentro.parrafo2}} </font></p>
-                                </br>
-                                <img src="{% url 'index'%}{{encuentro.imagen2}}" width="100%" >
-                                </br>
-                                </br>
-                                <p align="justify"><font size="4">{{encuentro.parrafo3}} </font></p>
-                            </div>
-                            <div class="col-md-6">
-                                </br>
-                                </br>
-                                </br>
-                                <img src="{% url 'index'%}{{encuentro.imagen3}}" width="100%" >
-                                </br>
-                                </br>
-                                <p align="justify"><font size="4">{{encuentro.parrafo4}} </font></p>
-                                </br>
-                                <img src="{% url 'index'%}{{encuentro.imagen4}}" width="100%" >
-                                </br>
-                                </br>
-                                <p align="justify"><font size="4">{{encuentro.parrafo5}} </font></p>
-                                </br>
-                                <p align="justify"><font size="4">{{encuentro.parrafo6}} </font></p>
-                                
+                                <div class="col-md-6">
+                                    <center><h3 class="bristolTitulo">{{encuentro.subTitulo}}</h3></center>
+                                    <p align="justify"><font size="4">{{encuentro.parrafo1}} </font></p>
+                                    </br>
+                                    <img src="{% url 'index'%}{{encuentro.imagen1}}" width="100%" >
+                                    </br>
+                                    </br>
+                                    <p align="justify"><font size="4">{{encuentro.parrafo2}} </font></p>
+                                    </br>
+                                    <img src="{% url 'index'%}{{encuentro.imagen2}}" width="100%" >
+                                    </br>
+                                    </br>
+                                    <p align="justify"><font size="4">{{encuentro.parrafo3}} </font></p>
+                                </div>
+                                <div class="col-md-6">
+                                    </br>
+                                    </br>
+                                    </br>
+                                    <img src="{% url 'index'%}{{encuentro.imagen3}}" width="100%" >
+                                    </br>
+                                    </br>
+                                    <p align="justify"><font size="4">{{encuentro.parrafo4}} </font></p>
+                                    </br>
+                                    <img src="{% url 'index'%}{{encuentro.imagen4}}" width="100%" >
+                                    </br>
+                                    </br>
+                                    <p align="justify"><font size="4">{{encuentro.parrafo5}} </font></p>
+                                    </br>
+                                    <p align="justify"><font size="4">{{encuentro.parrafo6}} </font></p>      
+                                </div>
                             </div>
                         </div>
                     </div>                  
@@ -184,15 +184,11 @@
                                     {{encuentro.entrevista5 | safe }} 
                                 {% endif %}
                             </div>  
-                        </div>
-                        
+                        </div>       
                     </div>                 
                 </div>            
             </div>           
         </div>   
-        
-        
-        
     </div>
 </div>
 {% endblock %}
