@@ -1,0 +1,41 @@
+{
+  "name": "embed-preset-basic",
+  "version": "5.0.3",
+  "description": "A preset containing collection of plugins.",
+  "main": "dist/index.js",
+  "module": "src/index.js",
+  "jsnext:main": "src/index.js",
+  "unpkg": "umd/embed-preset-basic.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ritz078/embed.js.git"
+  },
+  "files": [
+    "dist",
+    "src",
+    "umd"
+  ],
+  "author": "Ritesh Kumar",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/ritz078/embed.js/issues"
+  },
+  "homepage": "https://github.com/ritz078/embed.js#readme",
+  "dependencies": {
+    "embed-plugin-emoji": "^5.0.3",
+    "embed-plugin-facebook": "^5.0.3",
+    "embed-plugin-github": "^5.0.3",
+    "embed-plugin-highlight": "^5.0.3",
+    "embed-plugin-instagram": "^5.0.3",
+    "embed-plugin-map": "^5.0.3",
+    "embed-plugin-media": "^5.0.3",
+    "embed-plugin-noembed": "^5.0.3",
+    "embed-plugin-twitter": "^5.0.3",
+    "embed-plugin-url": "^5.0.3",
+    "embed-plugin-youtube": "^5.0.3",
+    "just-extend": "1.1.27"
+  }
+}

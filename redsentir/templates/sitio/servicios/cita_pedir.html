@@ -5,6 +5,7 @@
 <div id="app">    
     <div class="row">
         <div class="col-md-8">
+            <a class="btn btn-danger pull-right">Cancelar Cita</a>
             <h4>RADICADO :{{ servicio.pk }}</h4>
             <h4>ESTADO :{{ servicio.estado }}</h4>
             {% if servicio.estado == 'agendado' %}

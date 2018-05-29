@@ -787,6 +787,31 @@
                         this.$refs.formComentarioP.appendChild(this.$refs.imagenComentario);
                         setTimeout(this.$refs.formComentarioP.submit(), 1000);
                     }
+                },
+                buscarPaginas: function(texto,indice){
+                    pos = texto.indexOf('http',indice);
+                    if(pos>=0){
+                        posFin = texto.indexOf(' ',pos);
+                        if(posFin>=0){
+                            url = texto.substring(pos,posFin);
+                            youtube = url.indexOf('watch?v=');
+                            if(youtube>=0){
+                                url = url.substring(0,youtube)+'embed/'+url.substring(youtube+8);
+                            }
+                            var embed = '<iframe src="'+url+'" height="50%" width="50%"></iframe>';
+                            texto = texto.substring(0,pos)+embed+texto.substring(posFin);
+                            this.buscarPaginas(texto,posFin+49);
+                        }else{
+                            url = texto.substring(pos,texto.length);
+                            youtube = url.indexOf('watch?v=');
+                            if(youtube>=0){
+                                url = url.substring(0,youtube)+'embed/'+url.substring(youtube+8);
+                            }
+                            var embed = '<iframe src="'+url+'" height="50%" width="50%"></iframe>';
+                            texto = texto.substring(0,pos)+embed;
+                        }                       
+                    }
+                    return texto;
                 }
             }
         

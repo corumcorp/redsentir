@@ -21,6 +21,7 @@
     -->
     <script src="{% static "/libs/vue/vue.min.js" %}"></script>
   <script src="{% static "/libs/vue/vue-picture-input.js" %}"></script>
+
   
   </head>
   <body class="sidebar-mini fixed">
@@ -162,7 +163,7 @@
             </ul>
           </div>
         </div>
-        <div class="row">
+        <div class="row" id="app">
             {% block contenido %}
             {% endblock %}
             <!--<div class="card">

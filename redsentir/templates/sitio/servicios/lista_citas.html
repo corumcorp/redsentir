@@ -5,7 +5,7 @@
 <div id="app">
     
     <div class="row">
-        <div class="col-md-8 panel">            
+        <div class="col-md-9 panel">            
             <table class="table table-hover" width="100%">
                 <tr>
                     <th>fecha</th>
@@ -13,17 +13,25 @@
                     <th>Identificación</th>
                     <th>Telefono</th>
                     <th>email</th>
+                    <th></th>
+                    <th></th>
                 </tr>
-                <tr v-for="servicio in servicios" @click="servicioSeleccion=servicio" v-bind:class="estaActivo(servicio)">
+                <tr v-for="servicio in servicios" @click="servicioSeleccion=servicio" v-bind:class="estaActivo(servicio)" width="100%">
                     <td>[[ servicio.fields.fecha ]]</td>
                     <td>[[ servicio.fields.nombre ]]</td>
                     <td>[[ servicio.fields.dentificacion ]]</td>
                     <td>[[ servicio.fields.telefono ]]</td>
                     <td>[[ servicio.fields.email ]]</td>
+                    <td>
+                        <a class="btn btn-success">Asistió</a>
+                    </td>
+                    <td>
+                        <a class="btn btn-danger">No asistió</a>
+                    </td>
                 </tr>
             </table>
         </div>
-        <div class="col-md-4 panel">  
+        <div class="col-md-3 panel">  
             <div>
             <form v-if="servicioSeleccion!=null" method="post">
                 {% csrf_token %}
@@ -46,12 +54,6 @@
                     <label>Nombre profesional de la salúd</label>
                     <input type="text" name="profesional" class="form-control" required :value="servicioSeleccion.fields.profesional">
                 </div>
-                    <!--
-                    <div class="form-group col-md-6">
-                        <label>Asegurador</label>
-                        <input type="text" name="asegurador" class="form-control">
-                    </div>
-                    -->
                 <div class="form-group col-md-6">
                     <input type="submit" value="Agendar" class="btn btn-primary">
                 </div>
@@ -62,32 +64,32 @@
     </div>
 </div>
 <script>
-        var app = new Vue({
-            el: '#app',
-            delimiters: ['[[', ']]'],
-            data:{
-                servicioSeleccion: null,
-                servicios : {{ servicios|safe }},
+    var app = new Vue({
+        el: '#app',
+        delimiters: ['[[', ']]'],
+        data:{
+            servicioSeleccion: null,
+            servicios : {{ servicios|safe }},
+        },
+        methods:{
+            enviarPublicacion: function(){
+                if(this.areaPublicacion != '' || this.imagenPublicacion!='' || this.videoPublicacion!=''){
+                    this.$refs.formPublicacion.appendChild(this.$refs.imagenPublicacion);
+                    this.$refs.formPublicacion.appendChild(this.$refs.videoPublicacion);
+                    this.$refs.formPublicacion.submit();
+                }                
             },
-            methods:{
-                enviarPublicacion: function(){
-                    if(this.areaPublicacion != '' || this.imagenPublicacion!='' || this.videoPublicacion!=''){
-                        this.$refs.formPublicacion.appendChild(this.$refs.imagenPublicacion);
-                        this.$refs.formPublicacion.appendChild(this.$refs.videoPublicacion);
-                        this.$refs.formPublicacion.submit();
-                    }                
-                },
-                estaActivo: function(servicio){
-                    if(this.servicioSeleccion!=null && this.servicioSeleccion.pk == servicio.pk){
-                        return 'bg-info';
-                    }
-                    if(servicio.fields.estado ==='agendado'){
-                        return 'bg-success';
-                    }
-                    return '';
+            estaActivo: function(servicio){
+                if(this.servicioSeleccion!=null && this.servicioSeleccion.pk == servicio.pk){
+                    return 'bg-info';
                 }
+                if(servicio.fields.estado ==='agendado'){
+                    return 'bg-success';
+                }
+                return '';
             }
-        
-        })
-    </script>
+        }
+    
+    })
+</script>
 {% endblock %}

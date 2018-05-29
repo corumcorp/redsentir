@@ -1,0 +1,24 @@
+{
+  "name": "embed-plugin-utilities",
+  "version": "5.0.3",
+  "description": "Utility functions to create embed-js plugins.",
+  "main": "dist/index.js",
+  "module": "src/index.js",
+  "jsnext:main": "src/index.js",
+  "unpkg": "umd/embed-plugin-utilities.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ritz078/embed.js.git"
+  },
+  "author": "Ritesh Kumar",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/ritz078/embed.js/issues"
+  },
+  "homepage": "https://github.com/ritz078/embed.js#readme",
+  "dependencies": {
+    "is-in-browser": "1.1.3",
+    "just-extend": "1.1.27",
+    "just-truncate": "1.0.1"
+  }
+}
