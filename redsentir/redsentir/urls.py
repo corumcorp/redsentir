@@ -5,8 +5,10 @@ from django.contrib.auth.views import login, logout, password_reset
 from django.conf import settings
 from django.conf.urls.static import static
 from pagina.views import index
+from seguridad.views import perfilUsuario
 urlpatterns = [
     url(r'^$', index, name='index'),
+    url(r'^perfil/(?P<pid>\d+)$', perfilUsuario, name='perfil'),
     url(r'^pagina/', include('pagina.urls', namespace='pagina')),
     url(r'^login$', login, name="login"),
     url(r'^logout$', logout, name="logout"),
