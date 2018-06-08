@@ -9,6 +9,7 @@ from djqscsv import render_to_csv_response
 from django.contrib.auth.decorators import login_required
 from django.http import Http404
 from datetime import datetime, date, timedelta
+from lineatiempo.models import Publicacion
 
 def registro(request):
     if request.POST:
@@ -62,4 +63,5 @@ def exportarUsuarios(request):
 @login_required
 def perfilUsuario(request, pid):
     usuario = User.objects.get(pk=pid)
-    return render(request, 'sitio/perfil/perfil.html', {'usuario':usuario})
+    publicaciones = Publicacion.objects.filter(usuario_id=usuario.pk).order_by('id').reverse()[:20]
+    return render(request, 'sitio/perfil/perfil.html', {'usuario':usuario,'publicaciones':publicaciones})
