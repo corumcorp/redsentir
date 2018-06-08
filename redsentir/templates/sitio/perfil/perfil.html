@@ -28,29 +28,125 @@
     <div class="col-md-9">
     <div class="tab-content">
         <div class="tab-pane active" id="user-timeline">
-        <div class="timeline">
-            <div class="post">
-            <div class="post-media">
-                {% if usuario.perfil.avatar %}
-                        <img width="8%" src="/{{ usuario.perfil.avatar.url }}">
-                    {% else %}
-                        <img width="8%" src="{% static "/images/noavatar.png" %}">
-                    {% endif %}
-                <div class="content">
-                <h5><a href="#">{{ usuario.username }}</a></h5>
-                <p class="text-muted"><small>4 noviembre de 2017</small></p>
+        {% for publicacion in publicaciones %}
+        <div class="col-md-12" id ="publicacion_{{ publicacion.pk }}">
+            <div class="tab-pane active" id="user-timeline">
+                <div class="timeline">
+                    <div class="post">
+                        {% if publicacion.usuario.pk == user.pk or user.is_superuser %}
+                            <div class="pull-right">
+                                <a href="#" @click="borrarPublicacion({{publicacion.pk}})"><i class="fa fa-fw fa-lg fa-trash-o"></i></a></li>
+                            </div>
+                        {% endif %}
+                        <div class="post-media">                            
+                            {% if publicacion.usuario.perfil.avatar %}
+                                <img width="8%" src="{% url "index" %}{{ publicacion.usuario.perfil.avatar.url }}" class="img-circle">
+                            {% else %}
+                                <img width="8%" src="{% static "/images/isotiporedsentir.png" %}">
+                            {% endif %}
+                            <div class="content">
+                                <h5><a href="#">{{ publicacion.usuario.username }}</a></h5>
+                                <p class="text-muted"><small>{{ publicacion.fecha }}</small></p>
+                            </div>                            
+                        </div>                        
+                        <div class="post-content">
+                            <div class="row user">
+                                <div class="col-md-12">
+                                    <p class="text-justify">{{ publicacion.contenido }}</p>
+                                </div>
+                                {% for multiMedia in publicacion.multimedia_set.all %}
+                                {% if multiMedia.tipo == 'video' %}
+                                <div class="col-md-6">
+                                    <video width="100%" height="240" controls>
+                                        <source src="{% url "index" %}{{ multiMedia.archivo }}" type="video/mp4">
+                                    </video>
+                                </div>
+                                {% else %}
+                                <div class="col-md-{% ifequal publicacion.num_img 1 %}6{% endifequal %}{% ifequal publicacion.num_img 2 %}6{% endifequal %}{% if publicacion.num_img > 2 %}4{% endif %}">
+                                    <img src="{% url "index" %}{{ multiMedia.archivo }}" width="100%" height="{% ifequal publicacion.num_img 1 %}600{% endifequal %}{% ifequal publicacion.num_img 2 %}600{% endifequal %}{% if publicacion.num_img > 2 %}300{% endif %}" vspace="10">
+                                </div>
+                                {% endif %}
+                                {% endfor %}
+                            </div>
+                            <span class="pull-right">
+                                <a href="{% url 'lineatiempo:me_gusta_p' publicacion.pk %}"><i class="fa fa-heart" aria-hidden="true"></i><font size="1">+{{ publicacion.me_gusta }}</font></a>
+                                <a href="#"><i class="fa fa-fw fa-lg fa-share"></i>Compartir</a></li>
+                                <a data-toggle="modal" data-target="#Modalcomentario{{ publicacion.pk }}" @click="publicacion={{ publicacion.pk }}"><i class="fa fa-fw fa-lg fa-comment-o"></i> {{publicacion.comentarios}} Comentarios </a></li>
+                            </span>
+                        </div>
+                        </div>
+                    </div>
                 </div>
             </div>
-            <div class="post-content">
-                <p>Somos un proyecto para la prevención del embarazo adolescente, liderado por la Corporación de Estudiantes Universitarios y Profesionales de Marinilla-CORUM con Cooperación Internacional del Banco Interamericano de Desarrollo-BID y con recursos del Fondo Especial Japonés para la reducción de la pobreza en 6 municipios del Oriente antioqueño: Sonsón, Abejorral, San Francisco, San Luis, Argelia y Marinilla.</p>
+            
+             <!-- Modal Comentarios-->
+            <div class="modal fade" id="Modalcomentario{{ publicacion.pk }}" tabindex="-1" role="dialog" aria-labelledby="ModalLabel" aria-hidden="true">
+                <div class="modal-dialog" role="document">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                            <div class="row">
+                                <div class="col-xs-2">
+                                    {% if user.perfil.avatar %}
+                                        <img class="img-circle" width="100%" src="/{{ user.perfil.avatar.url }}" alt="Imagen de Usuario">
+                                    {% else %}
+                                        <img class="img-circle" width="100%" src="{% static "/images/noavatar.png" %}" alt="Imagen de Usuario">
+                                    {% endif %}
+                                </div>
+                                <div class="col-md-8">
+                                    <p id="comentario_nombre">  </p>
+                                </div>
+                            </div>
+                            <h5 class="modal-title" id="exampleModalLabel">{{ user.username }}</h5>
+                        </div>
+                    
+                    <form method="post" enctype="multipart/form-data" ref="formComentarioP">
+                    {% csrf_token %}
+                  
+                    <div class="modal-body">   
+                        <input type="hidden" name="accion" value="guardar_comentario">
+                        <input type="hidden" name="publicacion" v-model="publicacion">
+                        <textarea class="form-control" rows="3" v-model="textoComentario" name="contenido" placeholder="¡{{ user.username }}! Qué te parece la publicación ..."></textarea>
+                        </br> 
+                        <div class="mod-scrollable">
+                        {% for comentarioP in publicacion.comentariop_set.all %}
+                        <p>
+                            <div class="rcorner">
+                                <font size="3">
+                                    -<b>{{ comentarioP.usuario.username }} :</b>{{ comentarioP.contenido }}
+                                </font>
+                                {% if comentarioP.imagen %}
+                                    <img src="{% url "index" %}{{ comentarioP.imagen }}" width="50%" height="" vspace="10">
+                                {% endif %}
+                                <span class="pull-right">  
+                                    <a href="{% url 'lineatiempo:me_gusta_cp' comentarioP.pk %}"><i class="fa fa-heart" aria-hidden="true"></i><font size="1">+{{ comentarioP.me_gusta }}</font></a>
+                                </span>
+                            </div> 
+                            <small class="text-muted">
+                                {{ comentarioP.fecha|date:"Y-m-d H:i:s" }}
+                            </small>          
+                        </p>
+                        {% endfor %}
+                        </div>
+                    </div>
+                    
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
+                        <label class="btn btn-primary btn-file">
+                            <input name="imagen_c" type="file" ref="imagenComentario" v-model="imagenComentario" id="imagen_c" style="display: none;">
+                            <i class="fa fa-fw fa-lg fa-image"></i>Imagen
+                        </label>
+                        <button class="btn btn-primary" @click="enviarComentarioP" data-dismiss="modal">Responder</button>
+                    </div>
+                    </form>
+                    </div>    
+                </div>
             </div>
-            <ul class="post-utility">
-                <li class="likes"><a href="#"><i class="fa fa-fw fa-lg fa-thumbs-o-up"></i>Me gusta</a></li>
-                <li class="shares"><a href="#"><i class="fa fa-fw fa-lg fa-share"></i>Compartir</a></li>
-                <li class="comments"><i class="fa fa-fw fa-lg fa-comment-o"></i> 5 Comentarios</li>
-            </ul>
-            </div>
-        </div>
+            <!--Fin Modal -->
+            
+    {% endfor %}
         </div>
         <div class="tab-pane fade" id="user-settings">
         <div class="card user-settings">
