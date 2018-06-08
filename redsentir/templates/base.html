@@ -70,19 +70,23 @@
       <aside class="main-sidebar hidden-print">
         <section class="sidebar">
           <div class="user-panel">
-            {% if user.is_authenticated %}            
+            {% if user.is_authenticated %} 
+            <a href="{% url 'perfil' user.pk %}">           
             <div class="pull-left image">
+                
                 {% if user.perfil.avatar %}
                     <img class="img-circle" src="/{{ user.perfil.avatar.url }}" alt="Imagen de Usuario">
                 {% else %}
                     <img class="img-circle" width="70%" src="{% static "/images/noavatar.png" %}" alt="Imagen de Usuario">
                 {% endif %}
                 </br> 
+                
             </div>            
             <div class="info">
                 <p>{{ user.get_username }}</p>
                 <p class="designation">{{ user.email }}</p>
-            </div>  
+            </div>
+            </a>
             {% else %}
             <div class="pull-left image"><img class="img-circle" src="{% static "/images/noavatar.png" %}" alt="Imagen de Usuario"></div>
             <div class="pull-left info">
