@@ -72,14 +72,12 @@
           <div class="user-panel">
             {% if user.is_authenticated %}            
             <div class="pull-left image">
-                <a href="{% url 'perfil' user.pk %}">
                 {% if user.perfil.avatar %}
                     <img class="img-circle" src="/{{ user.perfil.avatar.url }}" alt="Imagen de Usuario">
                 {% else %}
                     <img class="img-circle" width="70%" src="{% static "/images/noavatar.png" %}" alt="Imagen de Usuario">
                 {% endif %}
                 </br> 
-                </a>
             </div>            
             <div class="info">
                 <p>{{ user.get_username }}</p>
