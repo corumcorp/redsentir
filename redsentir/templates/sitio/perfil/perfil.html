@@ -38,14 +38,16 @@
                                 <a href="#" @click="borrarPublicacion({{publicacion.pk}})"><i class="fa fa-fw fa-lg fa-trash-o"></i></a></li>
                             </div>
                         {% endif %}
-                        <div class="post-media">                            
+                        <div class="post-media">
+                            <a href="{% url 'perfil' publicacion.usuario.pk %}">
                             {% if publicacion.usuario.perfil.avatar %}
-                                <img width="8%" src="{% url "index" %}{{ publicacion.usuario.perfil.avatar.url }}" class="img-circle">
+                                <img width="60" src="{% url "index" %}{{ publicacion.usuario.perfil.avatar.url }}" class="img-circle">
                             {% else %}
-                                <img width="8%" src="{% static "/images/isotiporedsentir.png" %}">
+                                <img width="60" src="{% static "/images/isotiporedsentir.png" %}">
                             {% endif %}
+                            </a>
                             <div class="content">
-                                <h5><a href="#">{{ publicacion.usuario.username }}</a></h5>
+                                <h5><a href="{% url 'perfil' publicacion.usuario.pk %}">{{ publicacion.usuario.username }}</a></h5>
                                 <p class="text-muted"><small>{{ publicacion.fecha }}</small></p>
                             </div>                            
                         </div>                        
@@ -66,7 +68,7 @@
                                     <img src="{% url "index" %}{{ multiMedia.archivo }}" width="100%" height="{% ifequal publicacion.num_img 1 %}600{% endifequal %}{% ifequal publicacion.num_img 2 %}600{% endifequal %}{% if publicacion.num_img > 2 %}300{% endif %}" vspace="10">
                                 </div>
                                 {% endif %}
-                                {% endfor %}
+            {% endfor %}
                             </div>
                             <span class="pull-right">
                                 <a href="{% url 'lineatiempo:me_gusta_p' publicacion.pk %}"><i class="fa fa-heart" aria-hidden="true"></i><font size="1">+{{ publicacion.me_gusta }}</font></a>

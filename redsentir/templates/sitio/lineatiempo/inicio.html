@@ -82,14 +82,16 @@
                                 <a href="#" @click="borrarPublicacion({{publicacion.pk}})"><i class="fa fa-fw fa-lg fa-trash-o"></i></a></li>
                             </div>
                         {% endif %}
-                        <div class="post-media">                            
+                        <div class="post-media">        
+                            <a href="{% url 'perfil' publicacion.usuario.pk %}">
                             {% if publicacion.usuario.perfil.avatar %}
-                                <img width="8%" src="{% url "index" %}{{ publicacion.usuario.perfil.avatar.url }}" class="img-circle">
+                                <img width="60" src="{% url "index" %}{{ publicacion.usuario.perfil.avatar.url }}" class="img-circle">
                             {% else %}
-                                <img width="8%" src="{% static "/images/isotiporedsentir.png" %}">
+                                <img width="60" src="{% static "/images/isotiporedsentir.png" %}">
                             {% endif %}
+                            </a>
                             <div class="content">
-                                <h5><a href="#">{{ publicacion.usuario.username }}</a></h5>
+                                <h5><a href="{% url 'perfil' publicacion.usuario.pk %}">{{ publicacion.usuario.username }}</a></h5>
                                 <p class="text-muted"><small>{{ publicacion.fecha }}</small></p>
                             </div>                            
                         </div>                        
