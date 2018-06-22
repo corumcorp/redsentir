@@ -1,0 +1,77 @@
+{% extends 'base.html' %}
+{% load static %}
+{% load social_widgets %}
+{% block contenido %}
+<div class="row user">
+    <div class="col-md-12">
+    <div class="col-md-12">
+        <div class="profile">
+            <div class="info">
+                <img class="img-circle" src="{% url 'index' %}{{ municipio.imagen_mapa }}" alt="{{ municipio.nombre }}">
+            <h4>{{ municipio.nombre }}</h4>
+            <p></p>
+            </div>
+            <div class="row"><img src="{% url 'index' %}{{ municipio.imagen_fondo }}"></div>
+        </div>
+    </div>
+        </br>
+        <div class="col-md-12" >
+        </br>
+        <div class="content">
+            <h2>COMPROMISOS POR MUNICIPIO: {{ municipio.nombre }}</h2>
+            <div class="card-deck">
+            {% for plan in municipio.plan_set.all %}
+            <div class="col-lg-4 col-sm-6">
+                <div class="card">
+                <img class="card-img-top" height="300rem" width="98%" src="{% url 'index' %}{{ plan.imagen }}" alt="Card image cap">
+                <div class="card-block">
+                    <h4 class="card-title">{{ plan.nombre }}</h4>
+                    <p class="card-text"><b>Fecha plazo:</b> {{ plan.plazo }}</p>
+                    <a class="btn btn-primary" data-toggle="modal" data-target="#exampleModal{{ plan.pk }}">Ver</a>
+                </div>
+                </div>
+            </div>
+            {% endfor %}
+            </div>
+        </div>
+        {% for plan in municipio.plan_set.all %}
+        <!-- Modal -->
+            <div class="modal fade" id="exampleModal{{ plan.pk }}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                <div class="modal-dialog" role="document">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                             <img class="img-circle" width="8%" src="/{{ municipio.imagen_mapa }}">
+                        </div> <!-- Final modal-header-->
+                        
+                            <div class="modal-body">
+                                <h2 class="card-title">{{ plan.nombre }}</h2>                
+                                <pre class="card-text">Seguimiento y evaluación de los planes de acción de las mesas.</pre>
+                                </br>
+                                <h4 class="card-title">Compromisos</h4>
+                                <pre class="card-text">{{ plan.compromisos }}</pre>
+                                </br>
+                                <h4 class="card-title">Acciones</h4>
+                                <pre class="card-text">{{ plan.acciones }}</pre>
+                                </br>
+                                <h4 class="card-title">Actores</h4>
+                                <pre class="card-text">{{ plan.actores }}</pre>
+                                </br>
+                                <h4 class="card-title">Requerimientos</h4>
+                                <pre class="card-text">{{ plan.requerimientos }}</pre>
+                                <p class="card-text"><font size = '4'><b>Fecha plazo:</b> {{ plan.plazo }}</font></p>
+                            </div> <!-- Fin modal-body-->
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>  
+                            </div> <!--Fin modal-footer-->
+                    </div>
+                </div>
+            </div> <!--Fin modal-->            
+        {% endfor %}
+    </div>
+</div>
+{% endblock %}
+{% block scripts %}
+{% endblock %}

@@ -35,6 +35,7 @@ INSTALLED_APPS = [
     'formacion.apps.FormacionConfig',
     'seguridad.apps.SeguridadConfig',
     'lineatiempo.apps.LineatiempoConfig',
+    'mesa.apps.MesaConfig',
     'social_widgets',
     'foro.apps.ForoConfig',
     'servicios.apps.ServiciosConfig',

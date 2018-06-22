@@ -14,9 +14,8 @@ def inicio(request):
                 comentario.imagen = request.FILES['imagen_c']                
             if 'contenido' in request.POST :
                 comentario.contenido = request.POST['contenido']
-            comentario.save()
-            comentario.publicacion.comentarios+=1
-            comentario.publicacion.save()
+            comentario.save()            
+            Publicacion.objects.filter(pk=comentario.publicacion_id).update(comentarios=(comentario.publicacion.comentarios+1))
         elif 'accion' in request.POST and request.POST['accion']=='borrar':
             publicacion = Publicacion.objects.get(pk=request.POST['publicacion'])
             publicacion.delete()

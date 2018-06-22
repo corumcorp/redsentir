@@ -6,6 +6,8 @@ from django.contrib.auth.models import User
 
 class Municipio(models.Model):
     nombre = models.CharField(max_length=20)
+    imagen_mapa = models.ImageField(upload_to='static/images/mesa/municipio', default='static/images/isotiporedsentir.png')
+    imagen_fondo = models.ImageField(upload_to='static/images/mesa/municipio', default='static/images/isotiporedsentir.png')
     
     def __unicode__(self):
         return u"%s" % self.nombre

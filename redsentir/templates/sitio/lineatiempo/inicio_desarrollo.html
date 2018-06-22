@@ -8,18 +8,17 @@
         <div class="tab-pane active" id="user-timeline">
             <div class="timeline">                
                 <div class="post">
-                <div class="post-media">
-                    {% if user.perfil.avatar %}
-                        <img class="img-circle" width="6%" src="/{{ user.perfil.avatar.url }}">
-                    {% else %}
-                        <img width="6%" src="{% static "/images/isotiporedsentir.png" %}">
-                    {% endif %}
-                    
+                    <div class="post-media">
+                        {% if user.perfil.avatar %}
+                            <img class="img-circle" width="6%" src="/{{ user.perfil.avatar.url }}">
+                        {% else %}
+                            <img width="6%" src="{% static "/images/isotiporedsentir.png" %}">
+                        {% endif %}                    
                         <pre>[[ areaPublicacion ]]</pre>                  
-                </div>
+                    </div> <!-- Fin post-media -->
                     <div class="post-media">
                         <form method="post" enctype="multipart/form-data">
-                            {% csrf_token %}                        
+                        {% csrf_token %}                        
                             <div class="col-md-6">
                                 <textarea v-model="areaPublicacion" name="contenido" class="form-control" rows="3" cols="100"
                                     placeholder="¡{{ user.username }}! Comparte algo con nosotros.">
@@ -31,11 +30,13 @@
                                 <a class="btn btn-primary" type="submit">Compartir</a>
                             </div>
                         </form>
-                    </div>
+                    </div> <!-- Fin post-media -->
                 </div>
             </div>
         </div>
-    </div>
+    </div> <!-- Fin que estas pensando -->
+    
+    <!-- Inicio publicaciones en la lineatiempo -->
     {% for publicacion in publicaciones %}
         <div class="col-md-8" id ="publicacion_{{ publicacion.pk }}">
             <div class="tab-pane active" id="user-timeline">

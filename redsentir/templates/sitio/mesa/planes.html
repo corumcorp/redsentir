@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+{% load static %}
+{% load social_widgets %}
+{% block contenido %}
+<div class="content">
+    <div class="card-deck">
+    {% for foro in foros %}
+    <div class="col-lg-4 col-sm-6">
+        <div class="card">
+        <img class="card-img-top" height="300rem" width="98%" src="/{{ foro.imagen.url }}" alt="Card image cap">
+        <div class="card-block">
+            <h4 class="card-title">{{ foro.titulo }}</h4>
+            <p class="card-text">{{ foro.introduccion }}</p>
+            <a href="{% url "foro:foro" foro.pk %}" class="btn btn-primary">Participar</a>
+        </div>
+        </div>
+    </div>
+    {% endfor %}
+    </div>
+</div>
+{% endblock %}
