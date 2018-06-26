@@ -10,7 +10,7 @@ class Ips(models.Model):
     nombre = models.CharField(max_length=100)
     
     def __unicode__(self):
-        return self.nombre
+        return u"%s" % self.nombre
 
 class Servicio(models.Model):
     perfil = models.ForeignKey(Perfil, on_delete=models.CASCADE)
