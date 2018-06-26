@@ -86,8 +86,8 @@ def cancelarCita(request,pid):
         if persona.user.email :
                 mensaje = 'Municipio:'+servicio.ips.municipio.nombre
                 mensaje += '\n nombre:'+request.user.username
-                mensaje += '\n Identificacion:'+request.POST['identificacion']
-                mensaje += '\n Telefono:'+request.POST['telefono']
+                mensaje += '\n Identificacion:'+servicio.identificacion
+                mensaje += '\n Telefono:'+servicio.telefono
                 mensaje += '\n Genero:'+servicio.perfil.genero
                 send_mail('CANCELACION DE SERVICIO AMIGABLE',mensaje,'comunicaciones@redsentir.org',[persona.user.email],fail_silently=True,)
     return redirect('servicios_amigables:inicio')
