@@ -70,6 +70,7 @@ def pedirCita(request):
                 mensaje += '\n Identificacion:'+request.POST['identificacion']
                 mensaje += '\n Telefono:'+request.POST['telefono']
                 mensaje += '\n Genero:'+servicio.perfil.genero
+                mensaje += '\n https://redsentir.org/servicios_amigables/lista_citas'
                 send_mail('SOLICITUD DE SERVICIO AMIGABLE',mensaje,'comunicaciones@redsentir.org',[persona.user.email],fail_silently=True,)
     servicios = Servicio.objects.filter(perfil_id=request.user.perfil.pk)
     servicios = serializers.serialize('json', servicios)
