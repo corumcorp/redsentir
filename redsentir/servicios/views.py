@@ -9,33 +9,41 @@ from django.core.mail import send_mail
 def inicio(request):
     if not request.user.perfil.es_joven and not request.user.is_superuser :
         return redirect('mesa:inicio')
+    servicios = Servicio.objects.filter(perfil_id=request.user.perfil.pk)
+    servicios = serializers.serialize('json', servicios)
     informacion = Informacion.objects.first()
     servicio = Servicio.objects.filter(perfil_id=request.user.perfil.pk).last()
-    if servicio != None and servicio.estado!='terminado' :
-        return render(request,'sitio/servicios/cita_pedir.html',{'servicio':servicio,'informacion':informacion})    
+    if servicio != None and (servicio.estado=='activa' or servicio.estado=='agendado'):
+        return render(request,'sitio/servicios/cita_pedir.html',{'servicio':servicio,'informacion':informacion,'servicios':servicios})    
     municipios = serializers.serialize('json', Municipio.objects.all())
-    ipses = serializers.serialize('json', Ips.objects.all())
-    return render(request, 'sitio/servicios/inicio.html',{'informacion':informacion,'ipses':ipses,'municipios':municipios})
+    ipses = serializers.serialize('json', Ips.objects.all())    
+    return render(request, 'sitio/servicios/inicio.html',{'informacion':informacion,'ipses':ipses,'municipios':municipios,'servicios':servicios})
 
 @login_required
 def listaCitas(request):  
     if request.method == 'POST':
-        servicio = Servicio.objects.get(pk=request.POST['servicio'])
-        servicio.fecha_cita = request.POST['fecha_cita']
-        servicio.observaciones = request.POST['observaciones']
-        servicio.profesional = request.POST['profesional']
-        servicio.estado = 'agendado'
-        servicio.save()
-        if servicio.perfil.user.email :
-                mensaje = 'Radicado :'+str(servicio.pk)
-                mensaje += '\n Fecha cita :'+servicio.fecha_cita
-                mensaje += '\n Observaciones :'+servicio.observaciones
-                mensaje += '\n Profesional :'+servicio.profesional
-                mensaje += '\n Municipio :'+servicio.ips.municipio.nombre
-                mensaje += '\n Ips :'+servicio.ips.nombre
-                if servicio.ips.telefono :
-                    mensaje += '\n Telefono :'+servicio.ips.telefono
-                send_mail('SOLICITUD DE SERVICIO AMIGABLE',mensaje,'comunicaciones@redsentir.org',[servicio.perfil.user.email],fail_silently=True,)
+        if 'accion' in request.POST :
+            servicio = Servicio.objects.get(pk=request.POST['servicio'])
+            if request.POST['accion']=='asistio' :
+                servicio.estado = 'asistio'
+            if request.POST['accion']=='no_asistio' :
+                servicio.estado = 'no_asistio'
+            if request.POST['accion']=='agendar' :
+                servicio.fecha_cita = request.POST['fecha_cita']
+                servicio.observaciones = request.POST['observaciones']
+                servicio.profesional = request.POST['profesional']
+                servicio.estado = 'agendado'                
+                if servicio.perfil.user.email :
+                        mensaje = 'Radicado :'+str(servicio.pk)
+                        mensaje += '\n Fecha cita :'+servicio.fecha_cita
+                        mensaje += '\n Observaciones :'+servicio.observaciones
+                        mensaje += '\n Profesional :'+servicio.profesional
+                        mensaje += '\n Municipio :'+servicio.ips.municipio.nombre
+                        mensaje += '\n Ips :'+servicio.ips.nombre
+                        if servicio.ips.telefono :
+                            mensaje += '\n Telefono :'+servicio.ips.telefono
+                        send_mail('SOLICITUD DE SERVICIO AMIGABLE',mensaje,'comunicaciones@redsentir.org',[servicio.perfil.user.email],fail_silently=True,)
+            servicio.save()
     servicios = Servicio.objects.filter(ips__responsables__pk=request.user.perfil.pk)
     servicios = serializers.serialize('json', servicios)
     informacion = Informacion.objects.first()
@@ -63,4 +71,23 @@ def pedirCita(request):
                 mensaje += '\n Telefono:'+request.POST['telefono']
                 mensaje += '\n Genero:'+servicio.perfil.genero
                 send_mail('SOLICITUD DE SERVICIO AMIGABLE',mensaje,'comunicaciones@redsentir.org',[persona.user.email],fail_silently=True,)
-    return render(request,'sitio/servicios/cita_pedir.html',{'servicio':servicio,'informacion':informacion})
+    servicios = Servicio.objects.filter(perfil_id=request.user.perfil.pk)
+    servicios = serializers.serialize('json', servicios)
+    return render(request,'sitio/servicios/cita_pedir.html',{'servicio':servicio,'informacion':informacion,'servicios':servicios})
+
+@login_required
+def cancelarCita(request,pid):
+    servicio = Servicio.objects.get(pk=pid)
+    servicio.estado = 'cancelado'
+    servicio.save()
+    personas = servicio.ips.responsables.all()
+    for persona in personas :
+        if persona.user.email :
+                mensaje = 'Municipio:'+ips.municipio.nombre
+                mensaje += '\n nombre:'+request.user.username
+                mensaje += '\n Identificacion:'+request.POST['identificacion']
+                mensaje += '\n Telefono:'+request.POST['telefono']
+                mensaje += '\n Genero:'+servicio.perfil.genero
+                send_mail('CANCELACION DE SERVICIO AMIGABLE',mensaje,'comunicaciones@redsentir.org',[persona.user.email],fail_silently=True,)
+    return redirect('servicios_amigables:inicio')
+    

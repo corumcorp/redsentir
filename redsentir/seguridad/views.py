@@ -10,6 +10,8 @@ from django.contrib.auth.decorators import login_required
 from django.http import Http404
 from datetime import datetime, date, timedelta
 from lineatiempo.models import Publicacion
+import base64
+from django.core.files.base import ContentFile
 
 def registro(request):
     if request.POST:
@@ -25,21 +27,19 @@ def registro(request):
                         pgenero = request.POST['genero']
                     else :
                         pgenero = None
-                    if not 'avatar' in request.FILES :
-                        perfil = Perfil(
+                    perfil = Perfil(
                             user_id=usuario.id,
                             genero=pgenero,
                             fecha_nacimiento=request.POST['fecha_nacimiento'],
                             telefono=request.POST['telefono']
                         )
-                    else :
-                        perfil = Perfil(
-                            user_id=usuario.id,
-                            avatar=request.FILES['avatar'],
-                            genero=pgenero,
-                            fecha_nacimiento=request.POST['fecha_nacimiento'],
-                            telefono=request.POST['telefono']
-                        )
+                    if 'avatar' in request.POST and request.POST['avatar']!='' :
+                        image_data = request.POST['avatar']
+                        format, imgstr = image_data.split(';base64,')
+                        ext = format.split('/')[-1]
+                        data = ContentFile(base64.b64decode(imgstr)) 
+                        file_name = "'perfil"+str(usuario.pk)+"." + ext
+                        perfil.avatar.save(file_name, data, save=True)
                     if perfil.edad() < 20 :
                         perfil.es_joven = True
                     perfil.save()

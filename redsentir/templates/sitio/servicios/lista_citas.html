@@ -4,37 +4,113 @@
 {% block contenido %}
 <div id="app">
     
-    <div class="row">
+    <div class="row">        
         <div class="col-md-9 panel">            
-            <table class="table table-hover" width="100%">
-                <tr>
-                    <th>fecha</th>
-                    <th>Nombre</th>
-                    <th>Identificación</th>
-                    <th>Telefono</th>
-                    <th>email</th>
-                    <th></th>
-                    <th></th>
-                </tr>
-                <tr v-for="servicio in servicios" @click="servicioSeleccion=servicio" v-bind:class="estaActivo(servicio)" width="100%">
-                    <td>[[ servicio.fields.fecha ]]</td>
-                    <td>[[ servicio.fields.nombre ]]</td>
-                    <td>[[ servicio.fields.dentificacion ]]</td>
-                    <td>[[ servicio.fields.telefono ]]</td>
-                    <td>[[ servicio.fields.email ]]</td>
-                    <td>
-                        <a class="btn btn-success">Asistió</a>
-                    </td>
-                    <td>
-                        <a class="btn btn-danger">No asistió</a>
-                    </td>
-                </tr>
-            </table>
+            <ul class="nav nav-tabs">
+                <li class="active"><a data-toggle="tab" href="#activos">Activos</a></li>
+                <li><a data-toggle="tab" href="#agendado">Agendados</a></li>
+                <li><a data-toggle="tab" href="#asistio">Asistió</a></li>
+                <li><a data-toggle="tab" href="#no_asistio">No asistió</a></li>
+            </ul>
+            <div class="tab-content">
+                <div id="activos" class="tab-pane fade in active">
+                    <h3>SERVICIOS ACTIVOS</h3>
+                    <table class="table table-hover" width="100%">
+                        <tr>
+                            <th>fecha</th>
+                            <th>Nombre</th>
+                            <th>Identificación</th>
+                            <th>Telefono</th>
+                            <th>email</th>
+                        </tr>
+                        <tr v-for="servicio in servicios" v-if="servicio.fields.estado=='activa'" @click="servicioSeleccion=servicio" v-bind:class="estaActivo(servicio)" width="100%">
+                            <td>[[ servicio.fields.fecha ]]</td>
+                            <td>[[ servicio.fields.nombre ]]</td>
+                            <td>[[ servicio.fields.identificacion ]]</td>
+                            <td>[[ servicio.fields.telefono ]]</td>
+                            <td>[[ servicio.fields.email ]]</td>
+                        </tr>
+                    </table>           
+                </div>
+                <div id="agendado" class="tab-pane fade">
+                    <h3>Agendados</h3>
+                    <table class="table table-hover" width="100%">
+                        <tr>
+                            <th>fecha</th>
+                            <th>Nombre</th>
+                            <th>Identificación</th>
+                            <th>Telefono</th>
+                            <th>email</th>
+                            <th></th>
+                        </tr>
+                        <tr v-for="servicio in servicios" v-if="servicio.fields.estado=='agendado'" @click="servicioSeleccion=servicio" v-bind:class="estaActivo(servicio)" width="100%">
+                            <td>[[ servicio.fields.fecha ]]</td>
+                            <td>[[ servicio.fields.nombre ]]</td>
+                            <td>[[ servicio.fields.identificacion ]]</td>
+                            <td>[[ servicio.fields.telefono ]]</td>
+                            <td>[[ servicio.fields.email ]]</td>
+                            <td>
+                                <form method="post">
+                                    {% csrf_token %}
+                                    <input type="hidden" name="accion" value="asistio">
+                                    <input type="hidden" name="servicio" :value="servicio.pk">
+                                    <button class="btn btn-success" type="submit">Asistió&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</button>
+                                </form>
+                                <form method="post">
+                                    {% csrf_token %}
+                                    <input type="hidden" name="accion" value="no_asistio">
+                                    <input type="hidden" name="servicio" :value="servicio.pk">
+                                    <button class="btn btn-danger" type="submit">No asistió</button>
+                                </form>
+                            </td>
+                        </tr>
+                    </table>
+                </div>
+                <div id="asistio" class="tab-pane fade">
+                    <h3>Asistió</h3>
+                    <table class="table table-hover" width="100%">
+                        <tr>
+                            <th>fecha</th>
+                            <th>Nombre</th>
+                            <th>Identificación</th>
+                            <th>Telefono</th>
+                            <th>email</th>
+                        </tr>
+                        <tr v-for="servicio in servicios" v-if="servicio.fields.estado=='asistio'" @click="servicioSeleccion=servicio" v-bind:class="estaActivo(servicio)" width="100%">
+                            <td>[[ servicio.fields.fecha ]]</td>
+                            <td>[[ servicio.fields.nombre ]]</td>
+                            <td>[[ servicio.fields.identificacion ]]</td>
+                            <td>[[ servicio.fields.telefono ]]</td>
+                            <td>[[ servicio.fields.email ]]</td>
+                        </tr>
+                    </table>
+                </div>
+                <div id="no_asistio" class="tab-pane fade">
+                    <h3>No asistió</h3>
+                    <table class="table table-hover" width="100%">
+                        <tr>
+                            <th>fecha</th>
+                            <th>Nombre</th>
+                            <th>Identificación</th>
+                            <th>Telefono</th>
+                            <th>email</th>
+                        </tr>
+                        <tr v-for="servicio in servicios" v-if="servicio.fields.estado=='no_asistio'" @click="servicioSeleccion=servicio" v-bind:class="estaActivo(servicio)" width="100%">
+                            <td>[[ servicio.fields.fecha ]]</td>
+                            <td>[[ servicio.fields.nombre ]]</td>
+                            <td>[[ servicio.fields.identificacion ]]</td>
+                            <td>[[ servicio.fields.telefono ]]</td>
+                            <td>[[ servicio.fields.email ]]</td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
         </div>
         <div class="col-md-3 panel">  
             <div>
             <form v-if="servicioSeleccion!=null" method="post">
                 {% csrf_token %}
+                <input type="hidden" name="accion" value="agendar">
                 <input type="hidden" name="servicio" :value="servicioSeleccion.pk">
                 <p v-if="servicioSeleccion.fields.primera_vez" ><b>¿PRIMERA VEZ?</b>SI</p>
                 <p v-else ><b>¿PRIMERA VEZ? :</b>NO</p>
@@ -82,9 +158,6 @@
             estaActivo: function(servicio){
                 if(this.servicioSeleccion!=null && this.servicioSeleccion.pk == servicio.pk){
                     return 'bg-info';
-                }
-                if(servicio.fields.estado ==='agendado'){
-                    return 'bg-success';
                 }
                 return '';
             }
