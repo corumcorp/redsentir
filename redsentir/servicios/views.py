@@ -84,7 +84,7 @@ def cancelarCita(request,pid):
     personas = servicio.ips.responsables.all()
     for persona in personas :
         if persona.user.email :
-                mensaje = 'Municipio:'+ips.municipio.nombre
+                mensaje = 'Municipio:'+servicio.ips.municipio.nombre
                 mensaje += '\n nombre:'+request.user.username
                 mensaje += '\n Identificacion:'+request.POST['identificacion']
                 mensaje += '\n Telefono:'+request.POST['telefono']
