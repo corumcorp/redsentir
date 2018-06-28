@@ -17,6 +17,57 @@
     script(src='https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js')
     script(src='https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js')
     -->
+    <script type="text/javascript">
+        var fileReader = new FileReader();
+        var filterType = /^(?:image\/bmp|image\/cis\-cod|image\/gif|image\/ief|image\/jpeg|image\/jpeg|image\/jpeg|image\/pipeg|image\/png|image\/svg\+xml|image\/tiff|image\/x\-cmu\-raster|image\/x\-cmx|image\/x\-icon|image\/x\-portable\-anymap|image\/x\-portable\-bitmap|image\/x\-portable\-graymap|image\/x\-portable\-pixmap|image\/x\-rgb|image\/x\-xbitmap|image\/x\-xpixmap|image\/x\-xwindowdump)$/i;
+
+        fileReader.onload = function (event) {
+        var image = new Image();
+        
+        image.onload=function(){
+            var canvas=document.createElement("canvas");
+            var context=canvas.getContext("2d");
+            var ancho=500;
+            var proporcion = image.width/ancho;
+            var alto = image.height/proporcion;
+            canvas.width=ancho;
+            canvas.height=alto;
+            context.drawImage(image,
+                0,
+                0,
+                image.width,
+                image.height,
+                0,
+                0,
+                canvas.width,
+                canvas.height
+            );
+            
+            document.getElementById("upload-Preview").src = canvas.toDataURL();
+            document.getElementById("avatar").value = canvas.toDataURL();
+        }
+        image.src=event.target.result;
+        };
+
+        var loadImageFile = function () {
+        var uploadImage = document.getElementById("upload-Image");
+        
+        //check and retuns the length of uploded file.
+        if (uploadImage.files.length === 0) { 
+            return; 
+        }
+        
+        //Is Used for validate a valid file.
+        var uploadFile = document.getElementById("upload-Image").files[0];
+        document.getElementById("tipo").value=uploadFile.type;
+        if (!filterType.test(uploadFile.type)) {
+            alert("Please select a valid image."); 
+            return;
+        }
+        
+        fileReader.readAsDataURL(uploadFile);
+        }
+        </script>
   </head>
   <body>
     <section class="material-half-bg">
@@ -87,12 +138,12 @@
         <div class="col-md-8">
             <div class="radio-inline">
             <label>
-                <input type="radio" name="genero" required>Masculino
+                <input type="radio" name="genero" required value="masculino">Masculino
             </label>
             </div>
             <div class="radio-inline">
             <label>
-                <input type="radio" name="genero" required>Femenino
+                <input type="radio" name="genero" required value="femenino">Femenino
             </label>
             </div>
         </div>
@@ -100,7 +151,10 @@
         <div class="form-group">
         <label class="control-label col-md-3">Avatar</label>
         <div class="col-md-8">
-            <input class="form-control" type="file" name="avatar">
+            <input type="hidden" name="avatar" id="avatar"/>
+            <input type="hidden" name="tipo" id="tipo"/>
+            <input id="upload-Image" type="file" onchange="loadImageFile();"  class="form-control"/>
+            <img id="upload-Preview" width="70%"class="pull-right"/>
         </div>
         </div>
         <div class="form-group">

@@ -26,7 +26,7 @@ class Perfil(models.Model):
     agenda_cita = models.BooleanField(default=False)
     
     def __unicode__(self):
-        return u"%s" % self.user.username+" | "+self.telefono
+        return u"%s" % self.user.username
     
     def edad(self):
             import datetime

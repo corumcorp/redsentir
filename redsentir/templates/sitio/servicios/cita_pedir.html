@@ -5,7 +5,7 @@
 <div id="app">    
     <div class="row">
         <div class="col-md-8">
-            <a class="btn btn-danger pull-right">Cancelar Cita</a>
+            <a class="btn btn-danger pull-right" href="{% url 'servicios_amigables:cancelar' servicio.pk %}">Cancelar Cita</a>
             <h4>RADICADO :{{ servicio.pk }}</h4>
             <h4>ESTADO :{{ servicio.estado }}</h4>
             {% if servicio.estado == 'agendado' %}
@@ -18,6 +18,25 @@
             {% endif %}
             <p>Te rogamos que des una calificación de acuerdo a la calidad de la atención. y que recomiendes el uso de este servicio con amigos de tu edad.</p>
             <p>Recuerda que este servicio amigable es confidencial, asi que nadie tiene que saber ni juzgarte por querer vivir digna y saludablemente tu sexualidad.</p>
+            <h3>HISTORIAL SERVICIOS AMIGABLES</h3>
+            <div class="panel">
+            <table class="table table-hover" width="100%">
+                <tr>
+                    <th>fecha</th>
+                    <th>Nombre Profesional</th>
+                    <th>Observaciones</th>
+                    <th>Estado</th>
+                    <th>Calificación</th>
+                </tr>
+                <tr v-for="servicio in servicios" width="100%">
+                    <td>[[ servicio.fields.fecha ]]</td>
+                    <td>[[ servicio.fields.profesional ]]</td>
+                    <td>[[ servicio.fields.observaciones ]]</td>
+                    <td>[[ servicio.fields.estado ]]</td>
+                    <td></td>
+                </tr>
+            </table>
+            </div>
         </div>
         <div class="col-md-4">
             </br>
@@ -27,4 +46,13 @@
         </div>
     </div>
 </div>
+<script>
+        var app = new Vue({
+            el: '#app',
+            delimiters: ['[[', ']]'],
+            data:{
+                servicios : {{ servicios|safe }},
+            }        
+        })
+    </script>
 {% endblock %}
