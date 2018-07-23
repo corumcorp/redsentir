@@ -20,6 +20,9 @@
                                 <textarea v-model="areaPublicacion" name="contenido" class="form-control" rows="3" cols="100" data-toggle="modal" data-target="#exampleModal" placeholder="¡{{ user.username }}! Comparte algo con nosotros."></textarea>
                             </div>
                             <div class="col-md-12">
+                                    <a href="#" class="btn btn-default" data-toggle="modal" data-target="#exampleModal"><i class="fa fa-fw fa-lg fa-headphones">
+                                        </i>Audio
+                                    </a>
                                     <a href="#" class="btn btn-default" data-toggle="modal" data-target="#exampleModal"><i class="fa fa-fw fa-lg fa-photo"></i>Imagen</a>
                                     <a href="#" class="btn btn-default" data-toggle="modal" data-target="#exampleModal"><i class="fa fa-fw fa-lg fa-film"></i>Video</a>    
                                 <a class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">Compartir</a>
@@ -51,10 +54,14 @@
                     <div class="modal-body">
                         <input type="hidden" name="accion" v-model="accion">
                         <input type="hidden" name="publicacion" v-model="publicacion">
-                        <textarea name="contenido" v-model="areaPublicacion" class="form-control" rows="3" placeholder="¡{{ user.username }}! Comparte algo con nosotros."></textarea>
+                        <textarea name="contenido" ref="areaPublicacion" v-model="areaPublicacion" class="form-control" rows="3" placeholder="¡{{ user.username }}! Comparte algo con nosotros."></textarea>
                     </div> <!-- Fin modal-body-->
                     <div class="modal-footer">
                         <div class="col-md-12">
+                            <label class="btn btn-default btn-file">
+                                <input name="video" ref="audioPublicacion" v-model="audioPublicacion" type="file" style="display: none;">
+                                <i class="fa fa-fw fa-lg fa-headphones"></i>Audio
+                            </label>
                             <label class="btn btn-default btn-file">
                                 <input name="imagenes" ref="imagenPublicacion" v-model="imagenPublicacion" type="file" multiple style="display: none;">
                                 <i class="fa fa-fw fa-lg fa-photo"></i>Imagen
@@ -204,6 +211,7 @@
                 areaPublicacion: '',
                 imagenPublicacion:'',
                 videoPublicacion:'',
+                audioPublicacion:'',
                 textoComentario:'',
                 imagenComentario:'',
                 publicacion:null,
@@ -212,8 +220,10 @@
             methods:{
                 enviarPublicacion: function(){
                     if(this.areaPublicacion != '' || this.imagenPublicacion!='' || this.videoPublicacion!=''){
+                        this.$refs.formPublicacion.appendChild(this.$refs.areaPublicacion);
                         this.$refs.formPublicacion.appendChild(this.$refs.imagenPublicacion);
                         this.$refs.formPublicacion.appendChild(this.$refs.videoPublicacion);
+                        this.$refs.formPublicacion.appendChild(this.$refs.audioPublicacion);
                         this.$refs.formPublicacion.submit();
                     }                
                 },

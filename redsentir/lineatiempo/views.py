@@ -27,6 +27,8 @@ def inicio(request):
                 multiMedia = MultiMedia(publicacion=publicacion,archivo=imagen,tipo='imagen').save()
             if 'video' in request.FILES :
                 video = MultiMedia(publicacion=publicacion,archivo=request.FILES['video'],tipo='video').save()
+            if 'audio' in request.FILES :
+                video = MultiMedia(publicacion=publicacion,archivo=request.FILES['audio'],tipo='video').save()
     publicaciones = Publicacion.objects.all().order_by('id').reverse()[:10]
     return render(request, 'sitio/lineatiempo/inicio.html',{'publicaciones':publicaciones})
 
