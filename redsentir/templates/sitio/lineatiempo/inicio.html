@@ -17,7 +17,7 @@
                         <form method="post" enctype="multipart/form-data">
                             {% csrf_token %}                        
                             <div class="col-md-6">
-                                <textarea v-model="areaPublicacion" name="contenido" class="form-control" rows="3" cols="100" data-toggle="modal" data-target="#exampleModal" placeholder="¡{{ user.username }}! Comparte algo con nosotros."></textarea>
+                                <textarea readonly v-model="areaPublicacion" name="contenido" class="form-control" rows="3" cols="100" data-toggle="modal" data-target="#exampleModal" placeholder="¡{{ user.username }}! Comparte algo con nosotros."></textarea>
                             </div>
                             <div class="col-md-12">
                                     <a href="#" class="btn btn-default" data-toggle="modal" data-target="#exampleModal"><i class="fa fa-fw fa-lg fa-headphones">
@@ -105,7 +105,7 @@
                         <div class="post-content"> <!--Inicio post-content-->       
                             <div class="row user">
                                 <div class="col-md-12">
-                                    <p class="text-justify">{{ publicacion.contenido }}</p>
+                                    <p class="text-justify"> {{ publicacion.contenido|safe }} </p>
                                 </div>
                                 {% for multiMedia in publicacion.multimedia_set.all %}
                                 {% if multiMedia.tipo == 'video' %}
@@ -155,11 +155,12 @@
                             <h5 class="modal-title" id="exampleModalLabel">{{ user.username }}</h5>
                 </div><!--Fin modal-header-->
                     
-                <form method="post" enctype="multipart/form-data" ref="formComentarioP">
+                <form method="post" enctype="multipart/form-data" ref="formComentarioP" @submit='enviarComentarioP'>
                 {% csrf_token %} 
                     <div class="modal-body">   
-                        <input type="hidden" name="accion" value="guardar_comentario">
+                        <input type="hidden" name="accion" v-model="accion">
                         <input type="hidden" name="publicacion" v-model="publicacion">
+                        <input type="hidden" name="comentario" v-model="comentario">
                         <textarea class="form-control" rows="3" v-model="textoComentario" name="contenido" placeholder="¡{{ user.username }}! Qué te parece la publicación ..."></textarea>
                         </br> 
                         <div class="mod-scrollable">
@@ -174,6 +175,11 @@
                                     {% endif %}
                                     <span class="pull-right">  
                                         <a href="{% url 'lineatiempo:me_gusta_cp' comentarioP.pk %}"><i class="fa fa-heart" aria-hidden="true"></i><font size="1">+{{ comentarioP.me_gusta }}</font></a>
+                                            {% if comentarioP.usuario.pk == user.pk or user.is_superuser %}
+                                                <div class="pull-right">
+                                                    <a href="#" @click="borrarComentarioPublicacion({{ comentarioP.pk }})"><i class="fa fa-fw fa-lg fa-trash-o"></i></a></li>
+                                                </div>
+                                            {% endif %}
                                     </span>
                                 </div> 
                                 <small class="text-muted">
@@ -191,7 +197,7 @@
                                 <input name="imagen_c" type="file" ref="imagenComentario" v-model="imagenComentario" id="imagen_c" style="display: none;">
                                 <i class="fa fa-fw fa-lg fa-image"></i>Imagen
                             </label>
-                            <button class="btn btn-primary" @click="enviarComentarioP" >Responder</button>
+                            <button class="btn btn-primary" >Responder</button>
                         </div>
                     </div> <!--Fin modal-footer-->
                 </form>
@@ -215,11 +221,15 @@
                 textoComentario:'',
                 imagenComentario:'',
                 publicacion:null,
-                accion:null,
+                comentario:null,
+                accion:"guardar_comentario",
             },
             methods:{
                 enviarPublicacion: function(){
-                    if(this.areaPublicacion != '' || this.imagenPublicacion!='' || this.videoPublicacion!=''){
+                    this.accion = 'guardar_publicacion';
+                    //alert('video');
+                    this.areaPublicacion = this.buscarPaginas(this.areaPublicacion,0);
+                    if(this.areaPublicacion != '' || this.imagenPublicacion!='' || this.videoPublicacion!='' || this.audioPublicacion!=''){
                         this.$refs.formPublicacion.appendChild(this.$refs.areaPublicacion);
                         this.$refs.formPublicacion.appendChild(this.$refs.imagenPublicacion);
                         this.$refs.formPublicacion.appendChild(this.$refs.videoPublicacion);
@@ -234,7 +244,15 @@
                         this.$refs.formPublicacion.submit();
                     }
                 },
+                borrarComentarioPublicacion: function(comentario_pk){
+                    this.comentario = comentario_pk;
+                    this.accion = 'borrar_comentario';
+                    if(confirm('¿Esta seguro de borrar el comentario de la publicación?')){
+                        this.$refs.formComentarioP.submit();
+                    }
+                },
                 enviarComentarioP: function(publicacion_pk){
+                    this.accion = 'guardar_comentario';
                     if(this.textoComentario != '' || this.imagenComentario != ''){
                         this.$refs.formComentarioP.appendChild(this.$refs.imagenComentario);
                         setTimeout(this.$refs.formComentarioP.submit(), 1000);
@@ -259,7 +277,7 @@
                             if(youtube>=0){
                                 url = url.substring(0,youtube)+'embed/'+url.substring(youtube+8);
                             }
-                            var embed = '<iframe src="'+url+'" height="50%" width="50%"></iframe>';
+                            var embed = '<iframe src="'+url+'" height="80%" width="50%"></iframe>';
                             texto = texto.substring(0,pos)+embed;
                         }                       
                     }

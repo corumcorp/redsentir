@@ -84,13 +84,13 @@
                     </ul>
                 </div>
                 <div class="panel-footer">
-                    <form method="post" action="{% url 'foro:foro' foro.pk %}">
+                    <form method="post" name="foro" action="{% url 'foro:foro' foro.pk %}" onsubmit="document.forms['foro']['enviar'].disabled=true;" >
                     {% csrf_token %}
                     <div class="input-group">
                         <input type="checkbox" name="anonimo" value="1"/>Anónimo
                         <input id="btn-input" type="text" name="mensaje" class="form-control input-sm" placeholder="Escriba su comentario aqui..." maxlength="200" />
                         <span class="input-group-btn">
-                            <button type="submit" class="btn btn-warning btn-sm" id="btn-chat">
+                            <button type="submit" class="btn btn-warning btn-sm" id="btn-chat" name="enviar">
                                 Enviar</button>
                         </span>
                     </div>
@@ -164,5 +164,6 @@
             formulario.appendChild(document.getElementById("imagenes"));
             formulario.submit();            
         }
+      
     </script>
 {% endblock %}
