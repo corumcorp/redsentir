@@ -116,9 +116,9 @@
                                 </div>
                                 {% else %}
                                 <div class="col-md-{% ifequal publicacion.num_img 1 %}6{% endifequal %}{% ifequal publicacion.num_img 2 %}6{% endifequal %}{% if publicacion.num_img > 2 %}4{% endif %}">
-                                    <img src="{% url "index" %}{{ multiMedia.archivo }}" width="100%" height="{% ifequal publicacion.num_img 1 %}600{% endifequal %}{% ifequal publicacion.num_img 2 %}600{% endifequal %}{% if publicacion.num_img > 2 %}300{% endif %}" vspace="10">
+                                    <img id="{{multiMedia.pk}}" @click="modalImagen( {{multiMedia.pk}} )" data-toggle="modal" data-target="#myModal" src="{% url "index" %}{{ multiMedia.archivo }}" width="100%" height="{% ifequal publicacion.num_img 1 %}600{% endifequal %}{% ifequal publicacion.num_img 2 %}600{% endifequal %}{% if publicacion.num_img > 2 %}300{% endif %}" vspace="10"> 
                                 </div>
-                                {% endif %}
+                                {% endif %}                        
                                 {% endfor %}
                             </div>
                             <span class="pull-right">
@@ -131,6 +131,17 @@
                 </div>
             </div>
         </div> <!--Fin col-md-12-->
+        
+         <!-- The Modal -->
+        <div id="myModal" class="modal">
+            <div class="modal-in">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span id="closeModal">&times;</span>
+                </button>
+                    <img class="modal-content" id="modalImg">
+                <div id="caption"></div>
+            </div>
+        </div>
             
     <!-- Modal Comentarios-->
     <div class="modal fade" id="Modalcomentario{{ publicacion.pk }}" tabindex="-1" role="dialog" aria-labelledby="ModalLabel" aria-hidden="true"> <!--Inicio modal-comentarios-->
@@ -155,7 +166,7 @@
                             <h5 class="modal-title" id="exampleModalLabel">{{ user.username }}</h5>
                 </div><!--Fin modal-header-->
                     
-                <form method="post" enctype="multipart/form-data" ref="formComentarioP" @submit='enviarComentarioP'>
+                <form method="post" enctype="multipart/form-data" ref="formComentarioP" @submit.prevent='enviarComentarioP'>
                 {% csrf_token %} 
                     <div class="modal-body">   
                         <input type="hidden" name="accion" v-model="accion">
@@ -177,7 +188,7 @@
                                         <a href="{% url 'lineatiempo:me_gusta_cp' comentarioP.pk %}"><i class="fa fa-heart" aria-hidden="true"></i><font size="1">+{{ comentarioP.me_gusta }}</font></a>
                                             {% if comentarioP.usuario.pk == user.pk or user.is_superuser %}
                                                 <div class="pull-right">
-                                                    <a href="#" @click="borrarComentarioPublicacion({{ comentarioP.pk }})"><i class="fa fa-fw fa-lg fa-trash-o"></i></a></li>
+                                                    <a href="#" @click.prevent="borrarComentarioPublicacion({{ comentarioP.pk }})"><i class="fa fa-fw fa-lg fa-trash-o"></i></a></li>
                                                 </div>
                                             {% endif %}
                                     </span>
@@ -209,7 +220,8 @@
 </div>
 {% endblock %}
 {% block scripts %}
-<script>
+<script type="text/javascript">
+    
         var app = new Vue({
             el: '#app',
             //delimiters:'[[]]',
@@ -223,6 +235,7 @@
                 publicacion:null,
                 comentario:null,
                 accion:"guardar_comentario",
+                multimedia: null,
             },
             methods:{
                 enviarPublicacion: function(){
@@ -258,6 +271,26 @@
                         setTimeout(this.$refs.formComentarioP.submit(), 1000);
                     }
                 },
+                modalImagen: function(multimedia_pk){
+                    this.multimedia = multimedia_pk;
+                    // Get the modal
+                    var modal = document.getElementById('myModal');
+                    // Get the image and insert it inside the modal - use its "alt" text as a caption
+                    var img = document.getElementById(this.multimedia);
+                    var modalImg = document.getElementById("modalImg");
+                    var captionText = document.getElementById("caption");
+                    modal.style.display = "block";
+                    modalImg.src = img.src;
+                    captionText.innerHTML = img.alt;
+
+                    // Get the <span> element that closes the modal
+                    var span = document.getElementsByClassName("close")[0];
+
+                    // When the user clicks on <span> (x), close the modal
+                    span.onclick = function() { 
+                        modal.style.display = "none";
+                    }
+                },
                 buscarPaginas: function(texto,indice){
                     pos = texto.indexOf('http',indice);
                     if(pos>=0){
@@ -286,5 +319,6 @@
             }
         
         })
+    
     </script>
 {% endblock %}

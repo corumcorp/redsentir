@@ -17,7 +17,7 @@ class Encuentro(models.Model):
     imagen2 = models.ImageField(upload_to='static/images/pagina/articulo')
     imagen3 = models.ImageField(upload_to='static/images/pagina/articulo')
     imagen4 = models.ImageField(upload_to='static/images/pagina/articulo',null=True, blank=True, default=None)
-    video = models.CharField(max_length=500)
+    video = models.CharField(max_length=500, null=True, blank=True, default=None)
     carreta1 = models.ImageField(upload_to='static/images/pagina/articulo')
     carreta2 = models.ImageField(upload_to='static/images/pagina/articulo')
     carreta3 = models.ImageField(upload_to='static/images/pagina/articulo')

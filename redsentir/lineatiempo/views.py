@@ -33,7 +33,7 @@ def inicio(request):
             comentario = ComentarioP.objects.get(pk=request.POST['comentario'])
             comentario.delete()
             Publicacion.objects.filter(pk=comentario.publicacion_id).update(comentarios=(comentario.publicacion.comentarios-1))        
-    publicaciones = Publicacion.objects.all().order_by('id').reverse()[:10]
+    publicaciones = Publicacion.objects.all().order_by('id').reverse()[:50]
     return render(request, 'sitio/lineatiempo/inicio.html',{'publicaciones':publicaciones})
 
 @login_required
