@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+{% load static %}
+{% load social_widgets %}
+{% block contenido %}
+<div class="row user">
+    <div class="col-md-12 panel">
+        <h1>{{ pregunta.pregunta }}</h1>
+        <p><font size="4">{{ pregunta.respuesta }}</font></p>
+        <h4> Conoce más en: </h4>
+        <a href="{{ pregunta.link1 | safe }}"> {{ pregunta.link1 | safe }} </a> 
+        </br>
+        <a href="{{ pregunta.link2 | safe }}"> {{ pregunta.link2 | safe }} </a> 
+        </br>
+        </br>
+        <iframe width="560" height="315" src="{{ pregunta.video }}" frameborder="0" allowfullscreen></iframe>
+        </br>
+        </br>
+    </div>
+</div>
+{% endblock %}
+{% block scripts %}
+{% endblock %}

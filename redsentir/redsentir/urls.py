@@ -22,6 +22,7 @@ urlpatterns = [
     url(r'^formacion/', include('formacion.urls', namespace='formacion')),
     url(r'^foros/', include('foro.urls', namespace='foro')),
     url(r'^servicios_amigables/', include('servicios.urls', namespace='servicios_amigables')),
+    url(r'^faq/', include('faq.urls', namespace='faq')),
     url(r'^djga/', include('google_analytics.urls')),
 ] + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
 

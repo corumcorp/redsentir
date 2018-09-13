@@ -2,6 +2,7 @@
 {% if user.perfil.es_joven or user.is_superuser %}
     <li><a href="{% url "lineatiempo:inicio" %}"><i class="fa fa-newspaper-o"></i><span>Novedades</span></a></li>
     <li><a href="{% url "servicios_amigables:inicio" %}"><i class="fa fa-user-md"></i><span>Servicios Amigables</span></a></li>
+    <li><a href="{% url "faq:inicio" %}"><i class="fa fa-question-circle"></i><span>Preguntas Frecuentes</span></a></li>
 {% endif %}
     <li><a href="{% url "foro:index" %}"><i class="fa fa-comments"></i><span>Foros</span></a></li>
     <li><a href="{% static "/juego/index.html" %}"><i class="fa fa-rocket"></i><span>Juego</span></a></li>
@@ -17,7 +18,7 @@
     <li class="treeview"><a href="#"><i class="fa fa-pie-chart"></i><span>Linea base</span><i class="fa fa-angle-right"></i></a>
         <ul class="treeview-menu">
         <li><a href="{% url "lineabase:index" %}"><i class="fa fa-circle-o"></i>Resultados</a></li>
-        <li><a href="{% url "lineabase:sociodemograficos" %}"><i class="fa fa-circle-o"></i>Socio Demograficos</a></li>
+        <li><a href="{% url "lineabase:sociodemograficos" %}"><i class="fa fa-circle-o"></i>Socio Demográficos</a></li>
         <li><a href="{% url "lineabase:actividades" %}"><i class="fa fa-circle-o"></i>Actividades sociales</a></li>
         <li><a href="{% url "lineabase:relaciones" %}"><i class="fa fa-circle-o"></i>Relaciones personales</a></li>
         <li><a href="{% url "lineabase:salud" %}"><i class="fa fa-circle-o"></i>Salud Sexual</a></li>

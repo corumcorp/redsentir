@@ -1,0 +1,44 @@
+{% extends 'base.html' %}
+{% load static %}
+{% load social_widgets %}
+{% block contenido %}    
+
+<!-- acordeón con boostrap-->    
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-md-12">
+         <h1>Preguntas Frecuentes</h1>
+         {% for pregunta in preguntas %}
+            <div id="accordion">
+                <div class="card">
+                    <a class="collapsed card-link" data-toggle="collapse" href="#{{ pregunta.pk }}">
+                            <font size="5">{{ pregunta.pregunta }}</font>
+                    </a>
+                    <div id="{{ pregunta.pk }}" class="collapse" data-parent="#accordion">
+                        <font size="4">{{ pregunta.respuesta }}</font>
+                        <h4> Conoce más en: </h4>
+                        {% if pregunta.link1 %}
+                            <a href="{{ pregunta.link1 }}"> {{ pregunta.descripcion_link1 }} </a>
+                            </br>
+                        {% endif %}
+                        {% if pregunta.link2 %}
+                            <a href="{{ pregunta.link2 }}"> {{ pregunta.descripcion_link2 }} </a>
+                            </br>
+                        {% endif %}
+                        </br>
+                        <div class="row">
+                            <div class="col-md-8">
+                                {% if pregunta.video %}
+                                    {{ pregunta.video | safe }} 
+                                {% endif %}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+</div>
+    
+{% endblock %}

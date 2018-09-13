@@ -39,6 +39,7 @@ INSTALLED_APPS = [
     'social_widgets',
     'foro.apps.ForoConfig',
     'servicios.apps.ServiciosConfig',
+    'faq.apps.FaqConfig',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
