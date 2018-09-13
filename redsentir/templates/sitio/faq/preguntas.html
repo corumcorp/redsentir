@@ -1,21 +1,43 @@
 {% extends 'base.html' %}
 {% load static %}
 {% load social_widgets %}
-{% block contenido %}    
+{% block contenido %}
 
-<!-- acordeón con boostrap-->    
-<div class="container-fluid">
+<style>
+.accordion {
+    background-color: #ccc;
+    color: #444;
+    cursor: pointer;
+    padding: 18px;
+    width: 100%;
+    border: none;
+    text-align: left;
+    outline: none;
+    font-size: 15px;
+    transition: 0.4s;
+}
+
+.active, .accordion:hover {
+    background-color: #64C3A7;
+}
+
+.panel {
+    padding: 0 18px;
+    display: none;
+    background-color: white;
+    overflow: hidden;
+}
+</style>
+
+<!-- Programación con ejemplo w3school -->
+<div class="container-fluid"> 
     <div class="row">
         <div class="col-md-12">
-         <h1>Preguntas Frecuentes</h1>
-         {% for pregunta in preguntas %}
-            <div id="accordion">
-                <div class="card">
-                    <a class="collapsed card-link" data-toggle="collapse" href="#{{ pregunta.pk }}">
-                            <font size="5">{{ pregunta.pregunta }}</font>
-                    </a>
-                    <div id="{{ pregunta.pk }}" class="collapse" data-parent="#accordion">
-                        <font size="4">{{ pregunta.respuesta }}</font>
+            <h1>Preguntas Frecuentes</h1>
+            {% for pregunta in preguntas %}
+                <button class="accordion"><font size="4">{{ pregunta.pregunta }}</font></button>
+                    <div class="panel">
+                        <p align="justify"><font size="3">{{ pregunta.respuesta }}</font></p>
                         <h4> Conoce más en: </h4>
                         {% if pregunta.link1 %}
                             <a href="{{ pregunta.link1 }}"> {{ pregunta.descripcion_link1 }} </a>
@@ -26,19 +48,35 @@
                             </br>
                         {% endif %}
                         </br>
-                        <div class="row">
-                            <div class="col-md-8">
-                                {% if pregunta.video %}
-                                    {{ pregunta.video | safe }} 
-                                {% endif %}
-                            </div>
+                        <div class="col-md-8">
+                            {% if pregunta.video %}
+                                {{ pregunta.video | safe }}
+                                </br>
+                                </br>
+                            {% endif %}
                         </div>
                     </div>
-                </div>
-            </div>
-            {% endfor %}
+                    </br>
+        {% endfor %}
         </div>
     </div>
-</div>
-    
+{% endblock %}
+
+{% block scripts %}
+<script>
+var acc = document.getElementsByClassName("accordion");
+var i;
+
+for (i = 0; i < acc.length; i++) {
+    acc[i].addEventListener("click", function() {
+        this.classList.toggle("active");
+        var panel = this.nextElementSibling;
+        if (panel.style.display === "block") {
+            panel.style.display = "none";
+        } else {
+            panel.style.display = "block";
+        }
+    });
+}
+</script>
 {% endblock %}
