@@ -1,21 +1,26 @@
 {% load static %}
 {% if user.perfil.es_joven or user.is_superuser %}
-    <li><a href="{% url "lineatiempo:inicio" %}"><i class="fa fa-newspaper-o"></i><span>Novedades</span></a></li>
-    <li><a href="{% url "servicios_amigables:inicio" %}"><i class="fa fa-user-md"></i><span>Servicios Amigables</span></a></li>
-    <li><a href="{% url "faq:inicio" %}"><i class="fa fa-question-circle"></i><span>Preguntas Frecuentes</span></a></li>
+    <li><a href="{% url "lineatiempo:inicio" %}"><i class="fa fa-newspaper-o" style="font-size:20px"></i><span>Novedades</span></a></li>
+    <li><a href="{% url "servicios_amigables:inicio" %}"><i class="fa fa-user-md" style="font-size:20px"></i><span>Servicios Amigables</span></a></li>
+    <li><a href="{% url "faq:inicio" %}"><i class="fa fa-question-circle" style="font-size:20px"></i><span>Preguntas Frecuentes</span></a></li>
 {% endif %}
     <li><a href="{% url "foro:index" %}"><i class="fa fa-comments"></i><span>Foros</span></a></li>
-    <li><a href="{% static "/juego/index.html" %}"><i class="fa fa-rocket"></i><span>Juego</span></a></li>
+    <li class="treeview"><a href="#"><i class="fa fa-gamepad" style="font-size:20px"></i><span>Juegos</span><i class="fa fa-angle-right"></i></a>
+        <ul class="treeview-menu">
+        <li><a href="{% static "/juego/index.html" %}"><i class="fa fa-grav" style="font-size:24px"></i></i><span>Preventor</span></a></li>
+        <li><a href="{% static "/Beta1/index.html" %}"><i class="fa fa-drupal" style="font-size:24px"></i><span>Dawn of Zoides</span></a></li>
+    </ul>
+    </li>
 {% if not user.perfil.es_joven or user.is_superuser %}
-    <li class="treeview"><a href="#"><i class="fa fa-book"></i><span>Formación</span><i class="fa fa-angle-right"></i></a>
+    <li class="treeview"><a href="#"><i class="fa fa-book" style="font-size:20px"></i><span>Formación</span><i class="fa fa-angle-right"></i></a>
         <ul class="treeview-menu">
         <li><a href="{% url "formacion:docentes" %}"><i class="fa fa-circle-o"></i>Docentes</a></li>
         <li><a href="#"><i class="fa fa-circle-o"></i>Jóvenes</a></li>
         <li><a href="{% url "formacion:encuentros" %}"><i class="fa fa-circle-o"></i>Encuentros Locales</a></li>
         </ul>
     </li>
-    <li><a href="{% url "mesa:inicio" %}"><i class="fa fa-sitemap"></i><span>Mesa Regional</span></a></li>
-    <li class="treeview"><a href="#"><i class="fa fa-pie-chart"></i><span>Linea base</span><i class="fa fa-angle-right"></i></a>
+    <li><a href="{% url "mesa:inicio" %}"><i class="fa fa-sitemap" style="font-size:20px"></i><span>Mesa Regional</span></a></li>
+    <li class="treeview"><a href="#"><i class="fa fa-pie-chart" style="font-size:20px"></i><span>Linea base</span><i class="fa fa-angle-right"></i></a>
         <ul class="treeview-menu">
         <li><a href="{% url "lineabase:index" %}"><i class="fa fa-circle-o"></i>Resultados</a></li>
         <li><a href="{% url "lineabase:sociodemograficos" %}"><i class="fa fa-circle-o"></i>Socio Demográficos</a></li>
