@@ -13,11 +13,35 @@
     </li>
 {% if not user.perfil.es_joven or user.is_superuser %}
     <li class="treeview"><a href="#"><i class="fa fa-book" style="font-size:20px"></i><span>Formación</span><i class="fa fa-angle-right"></i></a>
+
         <ul class="treeview-menu">
-        <li><a href="{% url "formacion:docentes" %}"><i class="fa fa-circle-o"></i>Docentes</a></li>
-        <li><a href="#"><i class="fa fa-circle-o"></i>Jóvenes</a></li>
-        <li><a href="{% url "formacion:encuentros" %}"><i class="fa fa-circle-o"></i>Encuentros Locales</a></li>
+            <li class="treeview"><a href="#"><i class="fa fa-user" style="font-size:20px"></i><span>Con-Ciencia Juvenil</span><i class="fa fa-angle-right"></i></a>
+                <ul class="treeview-menu">
+                    <li><a href="{% url "formacion:docentes" %}"><i class="fa fa-circle-o"></i>Docentes</a></li>
+                    <li><a href="#"><i class="fa fa-circle-o"></i>Jóvenes</a></li>
+                    <li><a href="{% url "formacion:encuentros" %}"><i class="fa fa-circle-o"></i>Encuentros Locales</a></li>
+                </ul>
+            </li>
+            <li class="treeview"><a href="#"><i class="fa fa-users" style="font-size:20px"></i><span>Con-Ciencia Familiar</span><i class="fa fa-angle-right"></i></a>
+            <ul class="treeview-menu">
+                <li class="treeview"><a href="#"><i class="fa fa-circle-o"></i><span>Guías</span><i class="fa fa-angle-right"></i></a>
+                    <ul class="treeview-menu">
+                        <li><a href="{% static "/images/cartilla/Cartilla.pdf" %}"><i class="fa fa-circle-o"></i>Cartilla</a></li>
+                        <li><a href="{% url "formacion:docentes_familiar" %}"><i class="fa fa-circle-o"></i>Docentes</a></li>
+                    </ul>
+                </li>
+                <li class="treeview"><a href="#"><i class="fa fa-circle-o"></i><span>Multimedia</span><i class="fa fa-angle-right"></i></a>
+                    <ul class="treeview-menu">
+                        <li><a href="#"><i class="fa fa-circle-o"></i>Videos</a></li>
+                        <li><a href="#"><i class="fa fa-circle-o"></i>Podcasts</a></li>
+                        <li><a href="#"><i class="fa fa-circle-o"></i>Imágenes</a></li>
+                        <li><a href="#"><i class="fa fa-circle-o"></i>Artículos</a></li>
+                    </ul>
+                </li>
+            </ul>
+            </li>
         </ul>
+        
     </li>
     <li><a href="{% url "mesa:inicio" %}"><i class="fa fa-sitemap" style="font-size:20px"></i><span>Mesa Regional</span></a></li>
     <li class="treeview"><a href="#"><i class="fa fa-pie-chart" style="font-size:20px"></i><span>Linea base</span><i class="fa fa-angle-right"></i></a>

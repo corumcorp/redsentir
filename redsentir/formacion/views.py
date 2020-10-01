@@ -19,6 +19,10 @@ def docentes(request):
     return render(request, 'sitio/formacion/docentes.html')
 
 @login_required
+def docentes_familiar(request):
+    return render(request, 'sitio/formacion/docentes_familiar.html')
+
+@login_required
 def encuentro(request,pid):
     encuentro = Encuentro.objects.get(pk=pid)
     return render(request, 'sitio/formacion/encuentro.html',{'encuentro': encuentro})
