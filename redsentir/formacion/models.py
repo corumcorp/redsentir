@@ -41,3 +41,24 @@ class Encuentro(models.Model):
     
     def __unicode__(self):
         return u"%s" % self.titulo
+        
+class Videos(models.Model):
+    titulo = models.CharField(max_length=100)
+    #subTitulo = models.CharField(max_length=50, null=True, blank=True, default=None) 
+    video = models.CharField(max_length=500, null=True, blank=True, default=None)
+    
+    def __unicode__(self):  
+        return u"%s" % self.titulo
+    
+    class Meta:
+        verbose_name_plural='Videos Con-Ciencia Familiar'
+        
+class Podcast(models.Model):
+    titulo = models.CharField(max_length=100)
+    entrevista = models.CharField(max_length=500, null=True, blank=True, default=None)
+    
+    def __unicode__(self):  
+        return u"%s" % self.titulo
+    
+    class Meta:
+        verbose_name_plural='Podcast Con-Ciencia Familiar'
