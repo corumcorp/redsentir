@@ -5,12 +5,14 @@
 <div class="content">
     <div class="card-deck">
     {% for podcast in podcasts_familiar %}
-    <div class="col-lg-6 col-sm-12">
-        <div class="card">
-            <h2>{{ podcast.titulo  }}</h2>
-            {{ podcast.entrevista | safe }} 
+        <div class="col-lg-6 col-sm-12">
+            <div class="card">
+            <h4 class="card-title">{{ podcast.titulo  }}</h4>
+            {% if podcast.entrevista %}
+                {{ podcast.entrevista | safe }} 
+            {% endif %}
+            </div>
         </div>
-    </div>
     {% endfor %}
     </div>
 </div>

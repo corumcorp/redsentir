@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+{% load static %}
+{% load social_widgets %}
+{% block contenido %}
+<div class="content">
+    <div class="card-deck">
+    {% for video in videos_familiar %}
+    <div class="col-lg-6 col-sm-12">
+        <div class="card">
+        <h4 class="card-title">{{ video.titulo  }}</h4>
+            {{ video.video | safe }} 
+        </div>
+    </div>
+    {% endfor %}
+    </div>
+</div>
+{% endblock %}
