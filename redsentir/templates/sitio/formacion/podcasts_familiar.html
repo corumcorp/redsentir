@@ -2,18 +2,25 @@
 {% load static %}
 {% load social_widgets %}
 {% block contenido %}
-<div class="content">
-    <div class="card-deck">
-    {% for podcast in podcasts_familiar %}
-        <div class="col-lg-6 col-sm-12">
-            <div class="card">
-            <h4 class="card-title">{{ podcast.titulo  }}</h4>
-            {% if podcast.entrevista %}
-                {{ podcast.entrevista | safe }} 
-            {% endif %}
+<div class="row">
+    <div class="content">
+        <div class="card-deck">
+        {% for podcast in podcasts_familiar %}
+            <div class="col-lg-6 col-sm-12">
+                <div class="card">
+                <h4 class="card-title">{{ podcast.titulo  }}</h4>
+                {% if podcast.entrevista %}
+                    {{ podcast.entrevista | safe }} 
+                {% endif %}
+                </div>
             </div>
+        {% endfor %}
         </div>
-    {% endfor %}
     </div>
+</div>
+<div class="footer">
+    <p style="text-align:center;">
+        <img src="{% static "/images/logo_marinilla.png" %}" alt="logo_marinilla" width="40%" height="40%" class="center"> 
+    </p>
 </div>
 {% endblock %}
