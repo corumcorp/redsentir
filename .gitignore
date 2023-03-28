@@ -1,6 +1,10 @@
 redsentir/static/images/publicaciones
 *.pyc
 venv/
+
+# IGNORE settings.py #
+redsentir/redsentir/settings.py
+
 # IDEA Ignores #
 ################
 *.iml
