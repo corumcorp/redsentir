@@ -98,7 +98,7 @@ DATABASES = {
         'NAME': 'redsentir',
         'USER': 'postgres',
         'PASSWORD':'Muyfacil2',
-        'HOST':'localhost',
+        'HOST':'redsentir.org',
         'PORT': '',
     }
     #'default': {

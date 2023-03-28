@@ -118,9 +118,13 @@
         </br>
     </section>
     <!-- Footer -->
-    <footer class="py-5 bg-black">
+    <footer class="py-5">
       <div class="container">
-        <p class="m-0 text-center text-white small">Copyright &copy; CORUM 2020</p>
+        
+        <p style="text-align:center;">
+          <img src="{% static "/images/logos_alcaldia.png" %}" alt="logos_alcaldia" width="40%" height="40%" class="center"> 
+        </p>
+      <p class="m-0 text-center text-black small">Copyright &copy; CORUM <span id="year"> </span></p>
       </div>
       <!-- /.container -->
     </footer>
@@ -128,6 +132,13 @@
     <!-- Bootstrap core JavaScript -->
     <script src="{% static "libs/jquery/jquery.min.js" %}"></script>
     <script src="{% static "libs/bootstrap/js/bootstrap.bundle.min.js" %}"></script>
+
+    <script>
+      const d = new Date();
+      const year = document.getElementById("year");
+      year.innerHTML = d.getFullYear();
+    </script>
+
   </body>
 
 </html>
