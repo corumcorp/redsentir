@@ -29,8 +29,8 @@ class Servicio(models.Model):
     calificacion = models.IntegerField(default=0)
     observaciones_joven = models.CharField(max_length=200)
     
-    def __unicode__(self):
-        return u"%s" % self.perfil.user.username+" | "+self.fecha
+    def __str__(self):
+        return self.perfil.user.username+" | "+self.fecha.strftime("%Y-%m-%d")
 
 class Informacion(models.Model):
     titulo = models.CharField(max_length=50)

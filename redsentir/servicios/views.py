@@ -42,7 +42,7 @@ def listaCitas(request):
                         mensaje += '\n Ips :'+servicio.ips.nombre
                         if servicio.ips.telefono :
                             mensaje += '\n Telefono :'+servicio.ips.telefono
-                        send_mail('SOLICITUD DE SERVICIO AMIGABLE',mensaje,'comunicaciones@redsentir.org',[servicio.perfil.user.email],fail_silently=True,)
+                        send_mail('SOLICITUD DE SERVICIO AMIGABLE',mensaje,'gomezmunera@corum.org.co',[servicio.perfil.user.email],fail_silently=False,)
             servicio.save()
     servicios = Servicio.objects.filter(ips__responsables__pk=request.user.perfil.pk)
     servicios = serializers.serialize('json', servicios)
@@ -71,7 +71,7 @@ def pedirCita(request):
                 mensaje += '\n Telefono:'+request.POST['telefono']
                 mensaje += '\n Genero:'+servicio.perfil.genero
                 mensaje += '\n https://redsentir.org/servicios_amigables/lista_citas'
-                send_mail('SOLICITUD DE SERVICIO AMIGABLE',mensaje,'comunicaciones@redsentir.org',[persona.user.email],fail_silently=True,)
+                send_mail('SOLICITUD DE SERVICIO AMIGABLE',mensaje,'gomezmunera@corum.org.co',[persona.user.email],fail_silently=False,)
     servicios = Servicio.objects.filter(perfil_id=request.user.perfil.pk)
     servicios = serializers.serialize('json', servicios)
     return render(request,'sitio/servicios/cita_pedir.html',{'servicio':servicio,'informacion':informacion,'servicios':servicios})
@@ -89,6 +89,6 @@ def cancelarCita(request,pid):
                 mensaje += '\n Identificacion:'+servicio.identificacion
                 mensaje += '\n Telefono:'+servicio.telefono
                 mensaje += '\n Genero:'+servicio.perfil.genero
-                send_mail('CANCELACION DE SERVICIO AMIGABLE',mensaje,'comunicaciones@redsentir.org',[persona.user.email],fail_silently=True,)
+                send_mail('CANCELACION DE SERVICIO AMIGABLE',mensaje,'gomezmunera@corum.org.co',[persona.user.email],fail_silently=True,)
     return redirect('servicios_amigables:inicio')
     

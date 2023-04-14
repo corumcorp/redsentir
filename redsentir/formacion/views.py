@@ -33,7 +33,7 @@ def podcasts_familiar(request):
     return render(request, 'sitio/formacion/podcasts_familiar.html', {'podcasts_familiar':podcasts_familiar})
 
 @login_required
-def encuentro(request):
+def encuentro(request,pid):
     encuentro = Encuentro.objects.get(pk=pid)
     return render(request, 'sitio/formacion/encuentro.html',{'encuentro': encuentro})
 
