@@ -1,4 +1,6 @@
 redsentir/static/images/publicaciones
+***.pyc
+**.pyc
 *.pyc
 */*.pyc
 */*/*.pyc

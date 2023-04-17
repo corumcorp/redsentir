@@ -1,0 +1,12 @@
+resources:
+  - name-space.yaml
+  - persistent-volume.yaml
+  - postgres-persistent-volume.yaml
+  - persistent-volume-claim.yaml
+  - postgres-persistent-volume-claim.yaml
+  - postgres-config.yaml
+  - postgres-deployment.yaml
+  - deployment.yaml
+  - service.yaml
+  - postgres-service.yaml
+  - ingress.yaml

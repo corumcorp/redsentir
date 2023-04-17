@@ -1,0 +1,33 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: redsentir-deployment
+  namespace: redsentir
+  labels:
+    app: redsentir
+spec:
+  replicas: 1 
+  selector:
+    matchLabels:
+      app: redsentir
+  template:
+    metadata:
+      labels:
+        app: redsentir
+    spec:
+        volumes:
+        - name: redsentir-pv
+          persistentVolumeClaim:
+            claimName: redsentir-pvc
+        containers:
+            - name: redsentir
+              image: saalejo/redsentir:23041421
+              imagePullPolicy: Always
+              ports:
+                - containerPort: 8081
+              envFrom:
+                - secretRef:
+                    name: redsentir-secrets
+              volumeMounts:
+                - mountPath: /application/static
+                  name: redsentir-pv

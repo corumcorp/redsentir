@@ -1,2 +1,2 @@
 #!/bin/sh
-sudo python server.py
+python server.py

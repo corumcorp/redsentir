@@ -1,0 +1,33 @@
+apiVersion: apps/v1
+kind: StatefulSet
+metadata:
+  name: postgres-deployment
+  namespace: redsentir
+  labels:
+    app: postgres
+spec:
+  replicas: 1 
+  selector:
+    matchLabels:
+      app: postgres
+  serviceName: postgres
+  template:
+    metadata:
+      labels:
+        app: postgres
+    spec:
+        volumes:
+        - name: postgres-redsentir-pv
+          persistentVolumeClaim:
+            claimName: postgres-redsentir-pvc
+        containers:
+            - name: db
+              image: postgres:11
+              ports:
+                - containerPort: 5432
+              envFrom:
+                - configMapRef:
+                    name: postgres-config
+              volumeMounts:
+                - mountPath: /var/lib/postgresql/data
+                  name: postgres-redsentir-pv
