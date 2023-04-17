@@ -28,3 +28,6 @@ spec:
               envFrom:
                 - secretRef:
                     name: redsentir-secrets
+              volumeMounts:
+                - mountPath: /application/static
+                  name: redsentir-pv
