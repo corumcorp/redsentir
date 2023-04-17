@@ -1,9 +1,13 @@
+# coding=utf-8
+
 from django.shortcuts import render, redirect
 from django.contrib.auth.decorators import login_required
 from django.core import serializers
 from .models import *
 from seguridad.models import Municipio
 from django.core.mail import send_mail
+from django.conf import settings
+
 
 @login_required
 def inicio(request):
@@ -35,14 +39,15 @@ def listaCitas(request):
                 servicio.estado = 'agendado'                
                 if servicio.perfil.user.email :
                         mensaje = 'Radicado :'+str(servicio.pk)
-                        mensaje += '\n Fecha cita :'+servicio.fecha_cita
-                        mensaje += '\n Observaciones :'+servicio.observaciones
-                        mensaje += '\n Profesional :'+servicio.profesional
-                        mensaje += '\n Municipio :'+servicio.ips.municipio.nombre
-                        mensaje += '\n Ips :'+servicio.ips.nombre
+                        mensaje += '\n Fecha cita: '+servicio.fecha_cita.split('T')[0]
+                        mensaje += '\n Hora cita: '+servicio.fecha_cita.split('T')[1]
+                        mensaje += '\n Observaciones: '+servicio.observaciones
+                        mensaje += '\n Profesional: '+servicio.profesional
+                        mensaje += '\n Municipio: '+servicio.ips.municipio.nombre
+                        mensaje += '\n Ips: '+servicio.ips.nombre
                         if servicio.ips.telefono :
                             mensaje += '\n Telefono :'+servicio.ips.telefono
-                        send_mail('SOLICITUD DE SERVICIO AMIGABLE',mensaje,'gomezmunera@corum.org.co',[servicio.perfil.user.email],fail_silently=False,)
+                        send_mail('SOLICITUD DE SERVICIO AMIGABLE',mensaje, settings.EMAIL_SENDER,[servicio.perfil.user.email],fail_silently=True,)
             servicio.save()
     servicios = Servicio.objects.filter(ips__responsables__pk=request.user.perfil.pk)
     servicios = serializers.serialize('json', servicios)
@@ -65,13 +70,13 @@ def pedirCita(request):
     personas = ips.responsables.all()
     for persona in personas :
         if persona.user.email :
-                mensaje = 'Municipio:'+ips.municipio.nombre
-                mensaje += '\n nombre:'+request.user.username
-                mensaje += '\n Identificacion:'+request.POST['identificacion']
-                mensaje += '\n Telefono:'+request.POST['telefono']
-                mensaje += '\n Genero:'+servicio.perfil.genero
+                mensaje = ' Municipio: '+ips.municipio.nombre
+                mensaje += '\n Nombre: '+request.user.username
+                mensaje += '\n Identificacion: '+request.POST['identificacion']
+                mensaje += '\n Telefono: '+request.POST['telefono']
+                mensaje += '\n Genero: '+servicio.perfil.genero
                 mensaje += '\n https://redsentir.org/servicios_amigables/lista_citas'
-                send_mail('SOLICITUD DE SERVICIO AMIGABLE',mensaje,'gomezmunera@corum.org.co',[persona.user.email],fail_silently=False,)
+                send_mail('SOLICITUD DE SERVICIO AMIGABLE',mensaje, settings.EMAIL_SENDER,[persona.user.email],fail_silently=True,)
     servicios = Servicio.objects.filter(perfil_id=request.user.perfil.pk)
     servicios = serializers.serialize('json', servicios)
     return render(request,'sitio/servicios/cita_pedir.html',{'servicio':servicio,'informacion':informacion,'servicios':servicios})
@@ -84,11 +89,11 @@ def cancelarCita(request,pid):
     personas = servicio.ips.responsables.all()
     for persona in personas :
         if persona.user.email :
-                mensaje = 'Municipio:'+servicio.ips.municipio.nombre
-                mensaje += '\n nombre:'+request.user.username
-                mensaje += '\n Identificacion:'+servicio.identificacion
-                mensaje += '\n Telefono:'+servicio.telefono
-                mensaje += '\n Genero:'+servicio.perfil.genero
-                send_mail('CANCELACION DE SERVICIO AMIGABLE',mensaje,'gomezmunera@corum.org.co',[persona.user.email],fail_silently=True,)
+                mensaje = ' Municipio: '+servicio.ips.municipio.nombre
+                mensaje += '\n Nombre: '+request.user.username
+                mensaje += '\n Identificacion: '+servicio.identificacion
+                mensaje += '\n Telefono: '+servicio.telefono
+                mensaje += '\n Genero: '+servicio.perfil.genero
+                send_mail('CANCELACION DE SERVICIO AMIGABLE',mensaje, settings.EMAIL_SENDER,[persona.user.email],fail_silently=True,)
     return redirect('servicios_amigables:inicio')
     

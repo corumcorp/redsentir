@@ -24,7 +24,7 @@
                             <th>email</th>
                         </tr>
                         <tr v-for="servicio in servicios" v-if="servicio.fields.estado=='activa'" @click="servicioSeleccion=servicio" v-bind:class="estaActivo(servicio)" width="100%">
-                            <td>[[ servicio.fields.fecha ]]</td>
+                            <td>[[ servicio.fields.fecha.split('T')[0] ]]</td>
                             <td>[[ servicio.fields.nombre ]]</td>
                             <td>[[ servicio.fields.identificacion ]]</td>
                             <td>[[ servicio.fields.telefono ]]</td>
@@ -44,7 +44,7 @@
                             <th></th>
                         </tr>
                         <tr v-for="servicio in servicios" v-if="servicio.fields.estado=='agendado'" @click="servicioSeleccion=servicio" v-bind:class="estaActivo(servicio)" width="100%">
-                            <td>[[ servicio.fields.fecha ]]</td>
+                            <td>[[ servicio.fields.fecha.split('T')[0] ]]</td>
                             <td>[[ servicio.fields.nombre ]]</td>
                             <td>[[ servicio.fields.identificacion ]]</td>
                             <td>[[ servicio.fields.telefono ]]</td>
@@ -77,7 +77,7 @@
                             <th>email</th>
                         </tr>
                         <tr v-for="servicio in servicios" v-if="servicio.fields.estado=='asistio'" @click="servicioSeleccion=servicio" v-bind:class="estaActivo(servicio)" width="100%">
-                            <td>[[ servicio.fields.fecha ]]</td>
+                            <td>[[ servicio.fields.fecha.split('T')[0] ]]</td>
                             <td>[[ servicio.fields.nombre ]]</td>
                             <td>[[ servicio.fields.identificacion ]]</td>
                             <td>[[ servicio.fields.telefono ]]</td>
@@ -96,7 +96,7 @@
                             <th>email</th>
                         </tr>
                         <tr v-for="servicio in servicios" v-if="servicio.fields.estado=='no_asistio'" @click="servicioSeleccion=servicio" v-bind:class="estaActivo(servicio)" width="100%">
-                            <td>[[ servicio.fields.fecha ]]</td>
+                            <td>[[ servicio.fields.fecha.split('T')[0] ]]</td>
                             <td>[[ servicio.fields.nombre ]]</td>
                             <td>[[ servicio.fields.identificacion ]]</td>
                             <td>[[ servicio.fields.telefono ]]</td>

@@ -21,7 +21,7 @@
                     <th>Calificación</th>
                 </tr>
                 <tr v-for="servicio in servicios" width="100%">
-                    <td>[[ servicio.fields.fecha ]]</td>
+                    <td>[[ servicio.fields.fecha.split('T')[0] ]]</td>
                     <td>[[ servicio.fields.profesional ]]</td>
                     <td>[[ servicio.fields.observaciones ]]</td>
                     <td>[[ servicio.fields.estado ]]</td>
@@ -47,7 +47,7 @@
                     <input type="text" name="identificacion" required class="form-control">
                 </div>
                 <div class="form-group col-md-6">
-                    <label>Telefono-Celular</label>
+                    <label>Teléfono-Celular</label>
                     <input type="text" name="telefono" required class="form-control">
                 </div>
                 <div class="form-group col-md-6">

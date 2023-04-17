@@ -6,12 +6,12 @@
     <div class="row">
         <div class="col-md-8">
             <a class="btn btn-danger pull-right" href="{% url 'servicios_amigables:cancelar' servicio.pk %}">Cancelar Cita</a>
-            <h4>RADICADO :{{ servicio.pk }}</h4>
-            <h4>ESTADO :{{ servicio.estado }}</h4>
+            <h4>RADICADO: {{ servicio.pk }}</h4>
+            <h4>ESTADO: {{ servicio.estado }}</h4>
             {% if servicio.estado == 'agendado' %}
-            <h4>FECHA CITA :{{ servicio.fecha_cita }}</h4>
-            <h4>OBSERVACIONES :{{ servicio.observaciones }}</h4>
-            <h4>PROFESIONAL :{{ servicio.profesional }}</h4>
+            <h4>FECHA CITA: {{ servicio.fecha_cita }}</h4>
+            <h4>OBSERVACIONES: {{ servicio.observaciones }}</h4>
+            <h4>PROFESIONAL: {{ servicio.profesional }}</h4>
             {% endif %}
             {% if servicio.estado == 'activa' %}
                 <p>Felicitaciones.! Nos comunicaremos contigo al telefono {{ user.perfil.telefono }}. cuando se agende la cita.</p>
@@ -22,14 +22,14 @@
             <div class="panel">
             <table class="table table-hover" width="100%">
                 <tr>
-                    <th>fecha</th>
+                    <th>Fecha Solicitud</th>
                     <th>Nombre Profesional</th>
                     <th>Observaciones</th>
                     <th>Estado</th>
                     <th>Calificación</th>
                 </tr>
                 <tr v-for="servicio in servicios" width="100%">
-                    <td>[[ servicio.fields.fecha ]]</td>
+                    <td>[[ servicio.fields.fecha.split('T')[0] ]]</td>
                     <td>[[ servicio.fields.profesional ]]</td>
                     <td>[[ servicio.fields.observaciones ]]</td>
                     <td>[[ servicio.fields.estado ]]</td>
