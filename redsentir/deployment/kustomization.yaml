@@ -4,7 +4,6 @@ resources:
   - postgres-persistent-volume.yaml
   - persistent-volume-claim.yaml
   - postgres-persistent-volume-claim.yaml
-  - ipfs-persistent-volume-claim.yaml
   - postgres-config.yaml
   - postgres-deployment.yaml
   - deployment.yaml
