@@ -1,0 +1,24 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  annotations:
+    nginx.ingress.kubernetes.io/rewrite-target: /
+    cert-manager.io/cluster-issuer: letsencrypt-staging
+  name: redsentir-ingress
+  namespace: redsentir
+spec:
+  rules:
+  - host: redsentir.org
+    http:
+      paths:
+      - path: /
+        pathType: Prefix
+        backend:
+          service:
+            name: redsentir-svc
+            port:
+              number: 8081
+  tls:
+  - hosts:
+    - redsentir.org
+    secretName: redsentir-com-co

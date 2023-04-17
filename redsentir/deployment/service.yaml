@@ -1,0 +1,13 @@
+kind: Service
+apiVersion: v1
+metadata:
+  name: redsentir-svc
+  namespace: redsentir
+spec:
+  type: NodePort
+  selector:
+      app: redsentir
+  ports:
+  - protocol: TCP
+    port: 8081
+    targetPort: 8081
