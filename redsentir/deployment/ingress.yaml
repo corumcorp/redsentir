@@ -4,11 +4,13 @@ metadata:
   annotations:
     nginx.ingress.kubernetes.io/rewrite-target: /
     cert-manager.io/cluster-issuer: letsencrypt-staging
+    acme.cert-manager.io/http01-ingress-class: public
   name: redsentir-ingress
   namespace: redsentir
 spec:
+  ingressClassName: public
   rules:
-  - host: redsentir.org
+  - host: redsentir.agapanto.com.co
     http:
       paths:
       - path: /
@@ -20,5 +22,5 @@ spec:
               number: 8081
   tls:
   - hosts:
-    - redsentir.org
+    - redsentir.agapanto.com.co
     secretName: redsentir-com-co
