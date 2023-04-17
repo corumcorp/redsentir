@@ -17,9 +17,9 @@ spec:
         app: postgres
     spec:
         volumes:
-        - name: postgres-pv
+        - name: postgres-redsentir-pv
           persistentVolumeClaim:
-            claimName: postgres-pvc
+            claimName: postgres-redsentir-pvc
         containers:
             - name: db
               image: postgres:11
@@ -30,4 +30,4 @@ spec:
                     name: postgres-config
               volumeMounts:
                 - mountPath: /var/lib/postgresql/data
-                  name: postgres-pv
+                  name: postgres-redsentir-pv

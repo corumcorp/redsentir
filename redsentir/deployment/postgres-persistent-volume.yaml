@@ -12,6 +12,6 @@ spec:
     - ReadWriteOnce
   claimRef:
     namespace: redsentir
-    name: postgres-pvc
+    name: postgres-redsentir-pvc
   hostPath:
     path: "/mnt/redsentir_postgres_data"
