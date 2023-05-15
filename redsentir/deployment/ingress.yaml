@@ -10,7 +10,7 @@ metadata:
 spec:
   ingressClassName: public
   rules:
-  - host: redsentir.agapanto.com.co
+  - host: redsentir.org
     http:
       paths:
       - path: /
@@ -22,5 +22,5 @@ spec:
               number: 8081
   tls:
   - hosts:
-    - redsentir.agapanto.com.co
+    - redsentir.org
     secretName: redsentir-com-co
