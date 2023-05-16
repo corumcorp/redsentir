@@ -22,12 +22,12 @@ spec:
             claimName: postgres-redsentir-pvc
         containers:
             - name: db
-              image: postgres:11
+              image: postgres:9.5
               ports:
                 - containerPort: 5432
               envFrom:
-                - configMapRef:
-                    name: postgres-config
+                - secretRef:
+                    name: redsentir-secrets
               volumeMounts:
                 - mountPath: /var/lib/postgresql/data
                   name: postgres-redsentir-pv
