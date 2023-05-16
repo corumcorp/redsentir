@@ -23,4 +23,4 @@ spec:
   tls:
   - hosts:
     - redsentir.org
-    secretName: redsentir-com-co
+    secretName: redsentir-org
