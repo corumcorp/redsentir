@@ -31,7 +31,7 @@ pyOpenSSL==17.5.0
 python-dotenv==0.18.0
 python-openid==2.2.5
 pytz==2018.3
-requests==2.18.4
+requests==2.31.0
 requests-oauthlib==0.8.0
 six==1.11.0
 social-auth-app-django==2.1.0
