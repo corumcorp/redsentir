@@ -9,7 +9,7 @@ cffi==1.11.5
 chardet==3.0.4
 cheroot==6.0.0
 CherryPy==14.0.0
-cryptography==2.1.4
+cryptography==41.0.2
 Django==1.10.5
 django-celery==3.2.2
 django-google-analytics-app==4.3.0
